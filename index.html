@@ -104,7 +104,7 @@
 <main>
 
   <!-- ==========================================================================
-       1. CINEMATIC HERO
+       1. CINEMATIC HERO — Weight-Contrast Typography / Asymmetric Split
        ========================================================================== -->
   <section class="hero">
     <div class="wrap">
@@ -113,8 +113,33 @@
           <p class="eyebrow eyebrow--gold">Independent Researcher &amp; Luthier</p>
         </div>
         <div class="canvas">
-          <h1 class="hero-title">Strings<br>to Stars</h1>
-          <p class="lede">Resonance phenomena across terrestrial scales — from the soundhole of a Persian lute to the ornamented dome of a palace hall — read as a single, continuous instrument.</p>
+          <div class="lute-grid" style="grid-template-columns: 1.2fr 1fr; align-items: center; gap: var(--s-6);">
+
+            <div>
+              <h1 class="hero-title">
+                <span class="line-primary">Strings</span>
+                <span class="line-secondary">to Stars</span>
+              </h1>
+              <p class="lede mt-5">Resonance phenomena across terrestrial scales — from the soundhole of a Persian lute to the ornamented dome of a palace hall — read as a single, continuous instrument.</p>
+            </div>
+
+            <div class="plate plate--tall">
+              <!-- MASTER BLUEPRINT: Hero Calligraphy Master Artwork
+                   Canvas: 1400 x 1700px (portrait, roughly 4:4.9 ratio), export @2x for retina.
+                   Composition: single-subject Thuluth-script calligraphic rendering of the
+                   artist's name (or a chosen resonance-themed phrase), ink-black (#191A17)
+                   brushwork on a pure white or near-white (#FFFFFF–#FAFAF8) ground, generous
+                   negative space bleeding to all four edges — the strokes should occupy no
+                   more than 65% of the vertical frame so the composition reads as light and
+                   unforced rather than dense. No drop shadow, no background texture, no
+                   framing border — the ink itself is the only content. Lighting: flat, even,
+                   scanned-document quality with true blacks and no gradient banding. -->
+              <div class="frame">
+                <img src="assets/images/hero-calligraphy.jpg" alt="Thuluth-script calligraphic rendering by Mohammad Mahdi Karbasbaf" loading="lazy" width="1400" height="1700">
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
