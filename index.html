@@ -1,343 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mohammad Mahdi Karbasbaf — Book Designer · Calligrapher · Acoustic Scientist</title>
-  <meta name="description" content="The archive of Mohammad Mahdi Karbasbaf: editorial book design, Persian calligraphy, and peer-reviewed research on resonance across musical instruments, architectural heritage, and astrophysical wave phenomena." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://karbasbaf.com/" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Mahdi Karbasbaf — Resonance Across Scales</title>
+<meta name="description" content="The research and design archive of Mohammad Mahdi Karbasbaf: acoustic heritage, the Golden Method, Persian architectural acoustics, and astrophysical wave analysis.">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Mohammad Mahdi Karbasbaf" />
-  <meta property="og:title" content="Mohammad Mahdi Karbasbaf — Book Designer · Calligrapher · Acoustic Scientist" />
-  <meta property="og:description" content="Editorial book design, Persian calligraphy, and peer-reviewed research on resonance across musical instruments, architectural heritage, and astrophysical wave phenomena." />
-  <meta property="og:url" content="https://karbasbaf.com/" />
-  <meta property="og:image" content="https://karbasbaf.com/resources/final-web3-copy.jpg" />
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<!-- Master Stylesheet -->
+<link rel="stylesheet" href="style.css">
 
-  <!-- Style Engine -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Archival SEO Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://karbasbaf.com/#person",
-        "name": "Mohammad Mahdi Karbasbaf",
-        "alternateName": "M.M. Karbasbaf",
-        "url": "https://karbasbaf.com/",
-        "image": "https://karbasbaf.com/resources/final-web3-copy.jpg",
-        "description": "Acoustic heritage scientist, luthier, and book designer. Researches resonance across musical instruments, Persian architectural heritage, and astrophysical wave phenomena.",
-        "birthDate": "1992-02-15",
-        "nationality": {
-          "@type": "Country",
-          "name": "Iran"
-        },
-        "jobTitle": [
-          "Acoustic Heritage Researcher",
-          "Luthier",
-          "Book Designer",
-          "Film Director"
-        ],
-        "email": "mailto:karbasbaf@gmail.com",
-        "knowsAbout": [
-          "Archaeoacoustics",
-          "Architectural Acoustics",
-          "Musical Instrument Acoustics",
-          "Asteroseismology",
-          "Computational Acoustics",
-          "Persian Traditional Lutherie",
-          "Book Design",
-          "Calligraphy"
-        ],
-        "knowsLanguage": [
-          { "@type": "Language", "name": "Persian" },
-          { "@type": "Language", "name": "English" },
-          { "@type": "Language", "name": "French" },
-          { "@type": "Language", "name": "Arabic" },
-          { "@type": "Language", "name": "Turkish" }
-        ],
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "Qazvin Azad University",
-          "sameAs": "https://www.qiau.ac.ir/"
-        },
-        "hasOccupation": [
-          {
-            "@type": "Occupation",
-            "name": "Independent Researcher",
-            "occupationLocation": {
-              "@type": "Country",
-              "name": "Iran"
-            },
-            "skills": "Acoustics, Archaeoacoustics, Astrophysical Wave Analysis"
-          },
-          {
-            "@type": "Occupation",
-            "name": "Acoustic Instrument Constructor",
-            "skills": "Tār and Setār construction, traditional Persian lutherie"
-          }
-        ],
-        "award": [
-          "International Short Film Festival Oberhausen, Germany — \"Womanly Temple\" (2016)",
-          "Farhang Film Festival, USA — \"A Short Film About Evolution\" (2014)"
-        ],
-        "sameAs": [
-          "https://orcid.org/0000-0003-2264-9372",
-          "https://publons.com/researcher/AAF-5462-2020/"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://karbasbaf.com/#website",
-        "url": "https://karbasbaf.com/",
-        "name": "Mohammad Mahdi Karbasbaf",
-        "publisher": { "@id": "https://karbasbaf.com/#person" },
-        "inLanguage": "en"
-      }
-    ]
-  }
-  </script>
+<!-- JSON-LD: Person / Artist / Researcher combined schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mohammad Mahdi Karbasbaf",
+  "alternateName": "M. M. Karbasbaf",
+  "url": "https://karbasbaf-archive.example/",
+  "image": "https://karbasbaf-archive.example/assets/images/portrait.jpg",
+  "email": "mailto:karbasbaf@gmail.com",
+  "jobTitle": "Independent Researcher — Acoustics & Wave Phenomena",
+  "description": "Researcher investigating resonance phenomena across terrestrial and astrophysical scales, connecting traditional luthiery, Persian architectural acoustics, and wave-analysis methodology.",
+  "knowsAbout": [
+    "Archaeoacoustics",
+    "Architectural Acoustics",
+    "Musical Instrument Acoustics",
+    "Computational Acoustics",
+    "Astrophysical Wave Phenomena",
+    "Multi-Scale Wave Analysis"
+  ],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Qazvin Azad University",
+    "sameAs": "https://www.qiau.ac.ir/"
+  },
+  "sameAs": [
+    "https://orcid.org/0000-0003-2264-9372"
+  ],
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Experimental validation of Helmholtz resonator arrays as zero-energy acoustic treatment for net-zero energy buildings",
+      "author": "Mohammad Mahdi Karbasbaf",
+      "datePublished": "2026",
+      "isPartOf": { "@type": "Periodical", "name": "Next Research" },
+      "sameAs": "https://doi.org/10.1016/j.nexres.2026.102016"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "From ornamentation to acoustics: A quantitative analysis of Tong Bori elements in Persian architectural heritage",
+      "author": "Mohammad Mahdi Karbasbaf",
+      "datePublished": "2025",
+      "isPartOf": { "@type": "Periodical", "name": "Digital Applications in Archaeology and Cultural Heritage" },
+      "sameAs": "https://doi.org/10.1016/j.daach.2025.e00433"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Historical Evolution and Acoustic Significance of Sound Holes in Lutes",
+      "author": "Mohammad Mahdi Karbasbaf",
+      "datePublished": "2024",
+      "isPartOf": { "@type": "Periodical", "name": "Applied Acoustics" },
+      "sameAs": "https://doi.org/10.1016/j.apacoust.2023.109784"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments: The Golden Method",
+      "author": ["Mohammad Mahdi Karbasbaf", "S. Jafari"],
+      "datePublished": "2017",
+      "isPartOf": { "@type": "Periodical", "name": "Arts" },
+      "sameAs": "https://doi.org/10.3390/arts6040020"
+    }
+  ]
+}
+</script>
 </head>
-
 <body>
 
-  <header class="site-header">
-    <div class="wrap site-header__inner">
-      <a class="brand" href="index.html">
-        Karbasbaf
-        <span>A Feather on The Breath of God</span>
-      </a>
+<!-- ==========================================================================
+     HEADER — Global Lute-Body Navigation
+     ========================================================================== -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      Karbasbaf
+      <span>Archive of Resonance</span>
+    </a>
+    <nav class="nav-list" id="primary-nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="book-designs.html">Book Designs</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+  </div>
+</header>
 
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+<main>
 
-      <nav class="nav" id="primary-nav" aria-label="Primary">
-        <a class="nav__link" href="index.html" aria-current="page">Home</a>
-        <a class="nav__link" href="book-designs.html">Book Designs</a>
-        <a class="nav__link" href="research.html">Research</a>
-        <a class="nav__link" href="about.html">About</a>
-        <a class="nav__link" href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-
-    <!-- ============================================================
-         THE CINEMATIC ASYMMETRIC HERO
-         ============================================================ -->
-    <section class="hero wrap">
-      <div class="grid-split">
-        <div>
-          <span class="eyebrow hero__eyebrow">Book Designer · Persian Calligrapher · Acoustic Scientist</span>
-          <h1 class="hero__title">A Feather on the Breath of God</h1>
-          <hr class="rule rule--gold" />
-          <p class="lede hero__lede">
-            My work moves between three quiet disciplines: the editorial design of books,
-            the traditional line of Persian calligraphy, and the study of resonance —
-            from the soundhole of a lute to the acoustic ceilings of Persian palaces,
-            and outward toward the wave phenomena of the cosmos.
-          </p>
-          <div class="u-mt-4">
-            <a class="btn" href="about.html">Read the Full Narrative</a>
-          </div>
+  <!-- ==========================================================================
+       1. CINEMATIC HERO
+       ========================================================================== -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="lute-grid">
+        <div class="rail">
+          <p class="eyebrow eyebrow--gold">Independent Researcher &amp; Luthier</p>
         </div>
+        <div class="canvas">
+          <h1 class="hero-title">Strings<br>to Stars</h1>
+          <p class="lede">Resonance phenomena across terrestrial scales — from the soundhole of a Persian lute to the ornamented dome of a palace hall — read as a single, continuous instrument.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- MASTER BLUEPRINT: Hero portrait frame.
-             Canvas: 900 × 1125px (4:5 portrait), export at 2x for retina (1800 × 2250px).
-             Framing: subject centered or slightly off-axis to the left, generous negative
-             space above the head to preserve the immense-whitespace feeling of the layout.
-             Tone: desaturated or true black-and-white preferred, matching the archival,
-             monograph mood — avoid high-saturation color casts.
-             File: crop tight to a clean rectangle, no borders, no drop shadow — the frame
-             itself supplies the only visual boundary. -->
-        <figure class="hero__figure frame frame--tall">
-          <img src="rw_common/images/final web3 copy.jpg" alt="Portrait of Mohammad Mahdi Karbasbaf" width="900" height="1125" loading="eager" />
+  <!-- ==========================================================================
+       2. VISUAL ARTWORK & BOOK DESIGN SHOWCASE — precedes biography
+       ========================================================================== -->
+  <section class="section" id="showcase">
+    <div class="wrap">
+      <div class="lute-grid">
+        <div class="rail">
+          <p class="eyebrow">Selected Plates</p>
+          <div class="spine-break" aria-hidden="true">
+            <svg viewBox="0 0 34 46" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 23 C 4 23, 5 4, 8.5 4 C 12 4, 12 34, 15.5 34 C 19 34, 19 12, 22.5 12 C 26 12, 26 27, 29.5 27 C 32 27, 33 23, 34 23" />
+            </svg>
+          </div>
+          <p class="caption">Instrument Plates<br>Architectural Plates<br>Cosmic Plates</p>
+        </div>
+        <div class="canvas">
+          <h2 class="h2">From Strings<br>to Stars</h2>
+          <p class="body-text">A visual survey spanning the constructed instrument, the ornamented interior, and the resonant nebula — three scales of the same underlying question.</p>
+        </div>
+      </div>
+
+      <div class="plate-gallery mt-7">
+
+        <!-- MASTER BLUEPRINT: Plate 01 — "Lute Interior / Nebula Diptych"
+             Canvas: 1100 x 1540px (portrait, 3:4.2 ratio), export @2x for retina.
+             Composition: split-frame diptych — upper 55% shows the oval soundhole rosette
+             of a constructed Tār/lute in warm wood tones (#C9974A-adjacent ochres) shot
+             top-down under soft raking light; lower 45% shows a Herbig-Haro nebula frame
+             in matching warm-to-cool gradient so the two halves visually rhyme across the
+             seam. Keep a 4px true-white gutter between halves if compositing manually.
+             Background: pure white or off-white (#FAFAF8) matte outside the frame edge. -->
+        <figure class="plate plate--tall">
+          <div class="frame">
+            <img src="assets/images/plate-01-strings-to-stars.jpg" alt="Diptych: oval soundhole rosette of a constructed lute above a Herbig-Haro nebula frame" loading="lazy" width="1100" height="1540">
+          </div>
+          <figcaption>
+            <span class="caption">Plate I</span>
+            <span class="caption text-gold">Strings to Stars</span>
+          </figcaption>
         </figure>
-      </div>
-    </section>
 
-    <hr class="rule wrap" />
-
-    <!-- ============================================================
-         THE ASYMMETRIC PREVIEW GRID
-         ============================================================ -->
-    <section class="section wrap" aria-labelledby="work-heading">
-      <div class="divider-label">
-        <span class="eyebrow" id="work-heading">Selected Work</span>
-      </div>
-
-      <div class="gallery">
-
-        <article class="gallery__item">
-          <span class="gallery__index">01 — Editorial</span>
-          <!-- MASTER BLUEPRINT: Book cover preview, upright format.
-               Canvas: 1000 × 1333px (3:4 portrait), export at 2x (2000 × 2666px).
-               Framing: full cover face-on, no perspective skew, centered with even
-               margins — this frame crops to object-fit: cover, so keep essential
-               type and imagery within the inner 90% safe area.
-               Tone: let the cover's own palette lead; the surrounding canvas stays
-               pure white so the object reads like a plate in a printed catalog. -->
-          <div class="frame frame--tall">
-            <img src="assets/work-01-book-cover.jpg" alt="Editorial book cover design, placeholder plate" width="1000" height="1333" loading="lazy" />
+        <!-- MASTER BLUEPRINT: Plate 02 — "The Golden Method, Geometric Overlay"
+             Canvas: 1600 x 1000px (landscape, 16:10 ratio), export @2x.
+             Composition: grayscale photograph or line-art of a lute body with the
+             Fibonacci/golden-spiral construction lines overlaid in thin gold-tone
+             stroke (#C9974A, 1–1.5px equivalent), labelled points A/B/C/D visible.
+             Leave generous negative space at top-right (approx 20% of frame) for
+             potential caption overlay. Background: neutral grey or off-white paper
+             texture, desaturated, no high-contrast shadows. -->
+        <figure class="plate plate--wide">
+          <div class="frame">
+            <img src="assets/images/plate-02-golden-method.jpg" alt="Lute body diagram with golden ratio geometric construction lines overlaid" loading="lazy" width="1600" height="1000">
           </div>
-          <h3 class="gallery__title">Opera Halls as Resonators</h3>
-          <p class="caption gallery__meta">Editorial Cover · Commissioned Monograph</p>
-        </article>
+          <figcaption>
+            <span class="caption">Plate II</span>
+            <span class="caption text-gold">The Golden Method</span>
+          </figcaption>
+        </figure>
 
-        <article class="gallery__item">
-          <span class="gallery__index">02 — Calligraphy</span>
-          <!-- MASTER BLUEPRINT: Thuluth calligraphy plate, square format.
-               Canvas: 1200 × 1200px (1:1), export at 2x (2400 × 2400px).
-               Framing: ink work centered with equal breathing margin on all four
-               sides, photographed flat under even, shadowless light.
-               Tone: true black ink on cream or white ground, scanned or shot at
-               high contrast — this is the frame most likely to be zoomed on hover,
-               so resolution matters most here. -->
-          <div class="frame frame--square">
-            <img src="assets/work-02-calligraphy.jpg" alt="Thuluth script calligraphy plate, placeholder" width="1200" height="1200" loading="lazy" />
+        <!-- MASTER BLUEPRINT: Plate 03 — "Tong Bori Ornament, Macro Detail"
+             Canvas: 1100 x 1100px (square, 1:1 ratio), export @2x.
+             Composition: tight macro crop of Persian Muqarnas / Tong Bori ceiling
+             ornament in high-contrast black-and-white, deep shadow recesses (near
+             #191A17) against pale plaster highlights. Shoot or select an image with
+             a clear vase-shaped or oval void motif near centre-frame to echo the
+             soundhole imagery elsewhere on the site. Background: none — the
+             architecture fills the full frame edge-to-edge. -->
+        <figure class="plate plate--square">
+          <div class="frame">
+            <img src="assets/images/plate-03-tong-bori.jpg" alt="Macro detail of Tong Bori ornamental ceiling elements in high-contrast black and white" loading="lazy" width="1100" height="1100">
           </div>
-          <h3 class="gallery__title">Thuluth Study, Ottoman Style</h3>
-          <p class="caption gallery__meta">Calligraphy · Ink on Paper</p>
-        </article>
+          <figcaption>
+            <span class="caption">Plate III</span>
+            <span class="caption text-gold">Tong Bori Detail</span>
+          </figcaption>
+        </figure>
 
-        <article class="gallery__item">
-          <span class="gallery__index">03 — Acoustic Archive</span>
-          <!-- MASTER BLUEPRINT: Architectural / acoustic diagram plate, wide format.
-               Canvas: 1400 × 1050px (4:3 landscape), export at 2x (2800 × 2100px).
-               Framing: technical drawing or photograph of the Tong Bori / Muqarnas
-               element, positioned with a clear focal center; avoid tight cropping
-               of architectural lines so the geometry reads clearly at small sizes.
-               Tone: grayscale or sepia-leaning, consistent with the archival plates
-               used throughout the Research portfolio. -->
-          <div class="frame frame--wide">
-            <img src="assets/work-03-acoustic-heritage.jpg" alt="Persian architectural acoustic heritage plate, placeholder" width="1400" height="1050" loading="lazy" />
+        <!-- MASTER BLUEPRINT: Plate 04 — "Ali Qapu Music Hall, Book Cover Composition"
+             Canvas: 1100 x 1540px (portrait, 3:4.2 ratio), export @2x.
+             Composition: full-bleed cover-style composition of the Ali Qapu Music
+             Hall vase-niche wall, cropped so a single large niche silhouette sits
+             just off-centre (rule-of-thirds), rendered in warm sepia-to-charcoal
+             tone. Reserve bottom 15% of frame as a darker gradient band suitable
+             for overlaid title typography on the Book Designs page. -->
+        <figure class="plate plate--tall">
+          <div class="frame">
+            <img src="assets/images/plate-04-ali-qapu-cover.jpg" alt="Book-cover style composition of the Ali Qapu Palace Music Hall vase-niche wall" loading="lazy" width="1100" height="1540">
           </div>
-          <h3 class="gallery__title">Tong Bori, Ali Qapu Palace</h3>
-          <p class="caption gallery__meta">Field Archive · Acoustic Heritage</p>
-        </article>
+          <figcaption>
+            <span class="caption">Plate IV</span>
+            <span class="caption text-gold">Ali Qapu, Isfahan</span>
+          </figcaption>
+        </figure>
+
+        <!-- MASTER BLUEPRINT: Plate 05 — "Waveform Study, Modal Decay"
+             Canvas: 1600 x 1000px (landscape, 16:10 ratio), export @2x.
+             Composition: minimal scientific plot re-rendered as an art object —
+             a single damped sine waveform (modal decay curve) drawn as a thin gold
+             line on pure white ground, no axis labels, no grid, generous margins
+             (at least 12% of frame on all sides). This plate should read as a
+             companion piece to the .spine-break motif used throughout the site. -->
+        <figure class="plate plate--wide">
+          <div class="frame">
+            <img src="assets/images/plate-05-waveform-study.jpg" alt="Minimalist gold line rendering of a damped sine waveform modal decay study" loading="lazy" width="1600" height="1000">
+          </div>
+          <figcaption>
+            <span class="caption">Plate V</span>
+            <span class="caption text-gold">Modal Decay Study</span>
+          </figcaption>
+        </figure>
+
+        <!-- MASTER BLUEPRINT: Plate 06 — "Resonant Vessel Array"
+             Canvas: 1100 x 1100px (square, 1:1 ratio), export @2x.
+             Composition: photograph or render of the spherical Helmholtz resonator
+             array (200-sphere acoustic chamber study) arranged in a grid, shot
+             from a raised 30° angle under soft diffuse light, mid-grey background
+             (#FAFAF8 to light warm grey), consistent shadow direction across all
+             spheres for a calm, catalog-plate stillness. -->
+        <figure class="plate plate--square">
+          <div class="frame">
+            <img src="assets/images/plate-06-resonant-vessels.jpg" alt="Grid array of spherical Helmholtz resonators photographed for the acoustic chamber study" loading="lazy" width="1100" height="1100">
+          </div>
+          <figcaption>
+            <span class="caption">Plate VI</span>
+            <span class="caption text-gold">Resonant Vessels</span>
+          </figcaption>
+        </figure>
 
       </div>
+    </div>
+  </section>
 
-      <div class="u-mt-6">
-        <a class="btn" href="book-designs.html">View the Full Gallery</a>
+  <hr class="hr-gold wrap" style="max-width: var(--content-max); margin-left:auto; margin-right:auto;">
+
+  <!-- ==========================================================================
+       3. BIOGRAPHICAL / ABOUT NARRATIVE — after the art is witnessed
+       ========================================================================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="lute-grid">
+        <div class="rail">
+          <p class="eyebrow">The Researcher</p>
+          <div class="spine-break" aria-hidden="true">
+            <svg viewBox="0 0 34 46" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 23 C 4 23, 5 6, 8.5 6 C 12 6, 12 30, 15.5 30 C 19 30, 19 15, 22.5 15 C 26 15, 26 26, 29.5 26 C 32 26, 33 23, 34 23" />
+            </svg>
+          </div>
+          <p class="caption">Luthier<br>Calligrapher<br>Researcher</p>
+        </div>
+        <div class="canvas">
+          <h2 class="h2">Foundation<br>in Craft</h2>
+
+          <!-- MASTER BLUEPRINT: Portrait / Workshop Image
+               Canvas: 1600 x 1000px (landscape, 16:10 ratio), export @2x.
+               Composition: documentary-style black-and-white photograph of the
+               workshop or instrument construction in progress — hands, tools,
+               unfinished lute body — natural window light from one side, no
+               staged studio lighting. Sits directly beneath the section heading
+               inside the wide canvas column, full column width. -->
+          <div class="frame plate--wide mt-5">
+            <img src="assets/images/about-workshop.jpg" alt="Documentary photograph of Mohammad Mahdi Karbasbaf constructing a traditional Persian stringed instrument" loading="lazy" width="1600" height="1000">
+          </div>
+
+          <p class="body-text dropcap mt-5">Years of hands-on work with musical instruments — investigating, building, and preserving them — led to the creation of the Golden Method, a mathematical approach for optimizing soundhole design. This practical experience revealed the deep acoustic wisdom embedded in centuries-old craftsmanship, providing the experiential foundation for all subsequent scientific research.</p>
+
+          <p class="body-text">Research later expanded into Persian architectural heritage, where related wave-analysis principles were shown to operate — through different physical mechanisms and at different frequency ranges — within ornamental elements long assumed to be purely decorative. Current work asks whether the same analytical language can be extended toward electromagnetic and plasma wave phenomena in astrophysical environments.</p>
+
+          <a href="about.html" class="doi mt-4" style="display:inline-block;">Read the full narrative →</a>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <hr class="rule wrap" />
+  <!-- ==========================================================================
+       PULL QUOTE
+       ========================================================================== -->
+  <section class="section section--tinted section--tight">
+    <div class="wrap">
+      <div class="lute-grid">
+        <div class="rail">
+          <p class="eyebrow eyebrow--gold">Working Principle</p>
+        </div>
+        <div class="canvas">
+          <blockquote class="pull-quote">
+            The universe is not a die, but a dulcimer.
+            <cite>M. M. Karbasbaf</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- ============================================================
-         PULL QUOTE
-         ============================================================ -->
-    <section class="section--tight wrap">
-      <blockquote class="pull-quote align-offset">
-        The universe resonates — we simply need to learn how to listen at every scale.
-        <cite>Mohammad Mahdi Karbasbaf</cite>
-      </blockquote>
-    </section>
-
-    <hr class="rule wrap" />
-
-    <!-- ============================================================
-         THE ACADEMIC CITATION CATALOGUE
-         ============================================================ -->
-    <section class="section wrap" aria-labelledby="research-heading">
-      <div class="grid-split--reverse grid-split">
-        <div></div>
-        <div>
-          <span class="eyebrow" id="research-heading">Selected Publications</span>
-          <p class="u-mt-2 u-faint">
-            Peer-reviewed research spanning musical instrument acoustics, architectural
-            heritage, and net-zero acoustic treatment. Full record on
-            <a class="contact-detail__link" href="https://orcid.org/0000-0003-2264-9372">ORCID 0000-0003-2264-9372</a>.
-          </p>
+  <!-- ==========================================================================
+       4. SCHOLARLY PUBLICATIONS
+       ========================================================================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head lute-grid">
+        <div class="rail">
+          <p class="eyebrow">Selected Record</p>
+          <div class="spine-break" aria-hidden="true">
+            <svg viewBox="0 0 34 46" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 23 C 4 23, 5 3, 8.5 3 C 12 3, 12 36, 15.5 36 C 19 36, 19 10, 22.5 10 C 26 10, 26 29, 29.5 29 C 32 29, 33 23, 34 23" />
+            </svg>
+          </div>
+        </div>
+        <div class="canvas">
+          <h2 class="h2">Scholarly<br>Publications</h2>
         </div>
       </div>
 
-      <div class="record-list u-mt-4">
+      <div class="lute-grid">
+        <div class="rail"></div>
+        <div class="canvas">
 
-        <article class="record">
-          <span class="record__year">2026</span>
-          <div>
-            <h3 class="record__title">Experimental Validation of Helmholtz Resonator Arrays as Zero-Energy Acoustic Treatment for Net-Zero Energy Buildings</h3>
-            <p class="record__venue">Next Research (Elsevier) · Karbasbaf, M.M., Ezaan, G.</p>
-            <p class="record__abstract">
-              An examination of 200 spherical resonators in a purpose-built acoustic
-              chamber, developing a unified mathematical model that aligns Helmholtz
-              resonator theory with experimental results.
-            </p>
-            <a class="record__link" href="https://doi.org/10.1016/j.nexres.2026.102016">doi.org/10.1016/j.nexres.2026.102016</a>
-          </div>
-        </article>
+          <article class="pub">
+            <span class="pub-number">I</span>
+            <h3 class="pub-title">Experimental validation of Helmholtz resonator arrays as zero-energy acoustic treatment for net-zero energy buildings</h3>
+            <p class="pub-venue caption">Next Research (Elsevier) · 2026 · Karbasbaf, M.M., Ezaan, G.</p>
+            <p class="doi mt-2"><a href="https://doi.org/10.1016/j.nexres.2026.102016" target="_blank" rel="noopener">doi.org/10.1016/j.nexres.2026.102016</a></p>
+          </article>
 
-        <article class="record">
-          <span class="record__year">2025</span>
-          <div>
-            <h3 class="record__title">From Ornamentation to Acoustics: A Quantitative Analysis of Tong Bori Elements in Persian Architectural Heritage</h3>
-            <p class="record__venue">Digital Applications in Archaeology and Cultural Heritage (Elsevier) · Karbasbaf, M.M., Ezaan, G.</p>
-            <p class="record__abstract">
-              A non-invasive acoustic study of the Ali Qapu Palace Music Hall, finding
-              that decorative Tong Bori elements function as precisely tuned Helmholtz
-              resonators governing reverberation time.
-            </p>
-            <a class="record__link" href="https://doi.org/10.1016/j.daach.2025.e00433">doi.org/10.1016/j.daach.2025.e00433</a>
-          </div>
-        </article>
+          <article class="pub">
+            <span class="pub-number">II</span>
+            <h3 class="pub-title">From Ornamentation to Acoustics: A Quantitative Analysis of Tong Bori Elements in Persian Architectural Heritage</h3>
+            <p class="pub-venue caption">Digital Applications in Archaeology and Cultural Heritage (Elsevier) · 2025 · Karbasbaf, M.M., Ezaan, G.</p>
+            <p class="doi mt-2"><a href="https://doi.org/10.1016/j.daach.2025.e00433" target="_blank" rel="noopener">doi.org/10.1016/j.daach.2025.e00433</a></p>
+          </article>
 
-        <article class="record">
-          <span class="record__year">2024</span>
-          <div>
-            <h3 class="record__title">Historical Evolution and Acoustic Significance of Sound Holes in Lutes</h3>
-            <p class="record__venue">Applied Acoustics (Elsevier) · Karbasbaf, M.M., Ezaan, G.</p>
-            <p class="record__abstract">
-              A cross-cultural study of single- and triple-hole soundhole configurations
-              in short-necked lutes, linking sound hole morphology to measurable
-              acoustic performance.
-            </p>
-            <a class="record__link" href="https://doi.org/10.1016/j.apacoust.2023.109784">doi.org/10.1016/j.apacoust.2023.109784</a>
-          </div>
-        </article>
+          <article class="pub">
+            <span class="pub-number">III</span>
+            <h3 class="pub-title">Historical Evolution and Acoustic Significance of Sound Holes in Lutes</h3>
+            <p class="pub-venue caption">Applied Acoustics (Elsevier) · 2024 · Karbasbaf, M.M., Ezaan, G.</p>
+            <p class="doi mt-2"><a href="https://doi.org/10.1016/j.apacoust.2023.109784" target="_blank" rel="noopener">doi.org/10.1016/j.apacoust.2023.109784</a></p>
+          </article>
 
+          <article class="pub">
+            <span class="pub-number">IV</span>
+            <h3 class="pub-title">A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments: The Golden Method</h3>
+            <p class="pub-venue caption">Arts · 2017 · Jafari, S., Karbasbaf, M.M.</p>
+            <p class="doi mt-2"><a href="https://doi.org/10.3390/arts6040020" target="_blank" rel="noopener">doi.org/10.3390/arts6040020</a></p>
+          </article>
+
+          <article class="pub">
+            <span class="pub-number">V</span>
+            <h3 class="pub-title">Investigating the Role of Resonance in Herbig-Haro (HH) Objects Embedded Within Gaseous Nebulae</h3>
+            <p class="pub-venue caption">Karbasbaf, M.M.</p>
+            <span class="pub-status">In Preparation</span>
+          </article>
+
+          <a href="research.html" class="doi mt-6" style="display:inline-block;">View the full research archive →</a>
+
+        </div>
       </div>
-
-      <div class="u-mt-6">
-        <a class="btn" href="research.html">View the Full Catalogue</a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap site-footer__inner">
-      <p class="site-footer__copy">&copy; 2026 Mohammad Mahdi Karbasbaf</p>
-      <nav class="site-footer__nav" aria-label="Footer">
-        <a href="index.html">Home</a>
-        <a href="book-designs.html">Book Designs</a>
-        <a href="research.html">Research</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <p class="site-footer__meta">karbasbaf@gmail.com</p>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    const toggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('.nav');
-    toggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', isOpen);
-    });
-  </script>
+</main>
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="caption">Mohammad Mahdi Karbasbaf<br>ORCID 0000-0003-2264-9372</p>
+    <p class="caption"><a href="mailto:karbasbaf@gmail.com">karbasbaf@gmail.com</a></p>
+    <p class="caption">
+      <a href="index.html">Home</a> &nbsp;·&nbsp;
+      <a href="book-designs.html">Book Designs</a> &nbsp;·&nbsp;
+      <a href="research.html">Research</a> &nbsp;·&nbsp;
+      <a href="about.html">About</a> &nbsp;·&nbsp;
+      <a href="contact.html">Contact</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('nav-toggle').addEventListener('click', function () {
+  var nav = document.getElementById('primary-nav');
+  var open = nav.style.display === 'flex';
+  nav.style.display = open ? 'none' : 'flex';
+  this.setAttribute('aria-expanded', String(!open));
+});
+</script>
 
 </body>
 </html>
