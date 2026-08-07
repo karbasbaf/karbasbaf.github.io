@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Designs — Mohammad Mahdi Karbasbaf</title>
+<meta name="description" content="Book cover design portfolio: commissioned and speculative covers for Middle Eastern, Islamic, and Persian literature, including original calligraphy and typographic print work.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Book Designs — Mohammad Mahdi Karbasbaf">
+<meta property="og:description" content="Book cover design portfolio for international publishers.">
+<meta property="og:image" content="https://yourdomain.com/assets/img/og-book-designs.jpg">
+<meta property="og:url" content="https://yourdomain.com/book-designs.html">
+
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Book Designs — Mohammad Mahdi Karbasbaf",
+  "url": "https://yourdomain.com/book-designs.html",
+  "about": "Book cover design portfolio for Middle Eastern, Islamic, and Persian literature",
+  "isPartOf": { "@id": "https://yourdomain.com/#website" },
+  "author": { "@id": "https://yourdomain.com/#person" }
+}
+</script>
+</head>
+<body>
+
+<!-- ==========================================================================
+     GLOBAL HEADER / NAVIGATION — identical structure to index.html,
+     "Book Designs" marked active
+     ========================================================================== -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="site-logo">
+      M. M. Karbasbaf
+      <span>Book Design &amp; Persian Calligraphy</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navPrimary">
+      <span></span>
+    </button>
+
+    <nav class="nav-primary" id="navPrimary">
+      <a href="index.html">Home</a>
+      <a href="book-designs.html" aria-current="page">Book Designs</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ==========================================================================
+     PAGE HEADER
+     ========================================================================== -->
+<section class="section section--tight">
+  <div class="container">
+    <span class="eyebrow">Portfolio</span>
+    <h1>Book Designs</h1>
+    <p class="lead">
+      Commissioned and speculative cover design for publishers of Middle Eastern,
+      Islamic, and Persian literature — built from original calligraphy, typographic
+      precision, and cultural knowledge rather than decorative pattern.
+    </p>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     FILTER BAR
+     ========================================================================== -->
+<section class="container">
+  <div class="gallery-filters" id="filterBar">
+    <button type="button" class="is-active" data-filter="all">All</button>
+    <button type="button" data-filter="covers">Book Covers</button>
+    <button type="button" data-filter="print">Typography &amp; Print</button>
+    <button type="button" data-filter="speculative">Speculative Concepts</button>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     PRIMARY WORK GRID
+     Each .work-item carries data-category so the filter JS can show/hide it.
+     Hover reveals title / author / publisher via .work-item__overlay.
+     ========================================================================== -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="work-grid" id="workGrid">
+
+      <!-- ============================================================
+           GALLERY TRACK: BOOK COVERS (data-category="covers")
+           ASSET BLUEPRINT FOR THIS ENTIRE TRACK:
+           - Canvas: 1200 x 1600px (export at 2x source if possible: 2400 x 3200px, then downsize)
+           - Aspect ratio: 3:4 — must match exactly, or object-fit:cover will crop your composition
+             unpredictably. Design the cover flat/front-facing within this exact ratio.
+           - Composition: Flat front-cover face only (no spine, no 3D book mockup, no perspective tilt).
+             Center the cover with a small (40–60px at 1200px width) margin of neutral backdrop around
+             it OR bleed the cover edge-to-edge if the cover design itself has a strong border —
+             pick one approach per piece and stay consistent across the whole track.
+           - Background: neutral light gray (#F2F1EC or similar) if margin is used — never a colored
+             or textured studio backdrop, it will clash with the gallery-white page ground.
+           - Color/contrast: since the overlay caption appears on hover as a dark gradient rising from
+             the bottom of the frame, make sure your cover's own bottom third can survive a dark
+             gradient overlay on top of it — avoid placing critical title typography for the cover
+             itself in the bottom 25% of the composition where our hover caption will sit.
+           - File weight: JPG, quality 82, target 250–350KB each.
+           ============================================================ -->
+
+      <article class="work-item" data-category="covers">
+        <div class="work-item__frame">
+          <img src="assets/img/cover-desert-wind.jpg" alt="Book cover design, front cover, flat composition" loading="lazy">
+          <div class="work-item__overlay">
+            <h3 class="work-item__overlay-title">The Desert Wind</h3>
+            <span class="work-item__overlay-author">Novel by [Author Name]</span>
+            <span class="work-item__overlay-meta">Concept Design · Literary Fiction</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-item" data-category="covers">
+        <div class="work-item__frame">
+          <img src="assets/img/cover-house-of-glass.jpg" alt="Book cover design, front cover, flat composition" loading="lazy">
+          <div class="work-item__overlay">
+            <h3 class="work-item__overlay-title">House of Glass</h3>
+            <span class="work-item__overlay-author">Novel by [Author Name]</span>
+            <span class="work-item__overlay-meta">Concept Design · Literary Fiction</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-item" data-category="covers">
+        <div class="work-item__frame">
+          <img src="assets/img/cover-sufi-path.jpg" alt="Book cover design, front cover, flat composition" loading="lazy">
+          <div class="work-item__overlay">
+            <h3 class="work-item__overlay-title">The Sufi Path</h3>
+            <span class="work-item__overlay-author">Nonfiction by [Author Name]</span>
+            <span class="work-item__overlay-meta">Concept Design · Religion &amp; Philosophy</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-item" data-category="covers">
+        <div class="work-item__frame">
+          <img src="assets/img/cover-isfahan-nights.jpg" alt="Book cover design, front cover, flat composition" loading="lazy">
+          <div class="work-item__overlay">
+            <h3 class="work-item__overlay-title">Isfahan Nights</h3>
+            <span class="work-item__overlay-author">Novel by [Author Name]</span>
+            <span class="work-item__overlay-meta">Concept Design · Historical Fiction</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-item" data-category="covers">
+        <div class="work-item__frame">
+          <img src="assets/img/cover-rumi-translations.jpg" alt="Book cover design, front cover, flat composition" loading="lazy">
+          <div class="work-item__overlay">
+            <h3 class="work-item__overlay-title">Rumi: Selected Translations</h3>
+            <span class="work-item__overlay-author">Translated by [Translator Name]</span>
+            <span class="work-item__overlay-meta">Concept Design · Poetry</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-item" data-category="covers">
+        <div class="work-item__frame">
+          <img src="assets/img/cover-shahnameh-echoes.jpg" alt="Book cover design, front cover, flat composition" loading="lazy">
+          <div class="work-item__overlay">
+            <h3 class="work-item__overlay-title">Echoes of the Shahnameh</h3>
+            <span class="work-item__overlay-author">Nonfiction by [Author Name]</span>
+            <span class="work-item__overlay-meta">Concept Design · History</span>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- ============================================================
+           GALLERY TRACK: TYPOGRAPHY & PRINT (data-category="print")
+           ASSET BLUEPRINT FOR THIS ENTIRE TRACK:
+           - Canvas: 1200 x 1600px, same 3:4 ratio as covers — keeps the grid rhythm unbroken
+             when filters are toggled between tracks.
+           - Composition: these are NOT full book covers — they're typographic studies, spine
+             details, print ephemera (posters, title pages, colophons). Photograph or render them
+             as flat objects on a neutral surface, shot from directly above (true top-down, zero
+             perspective distortion) so type baselines stay perfectly horizontal in frame.
+           - Background: a slightly textured neutral surface (uncoated paper, light linen, or
+             matte gray) is appropriate here — more tactile/print-focused than the pure flat-color
+             backdrop used for covers, since this track is meant to communicate "craft object."
+           - Lighting: soft, diffused, single direction is fine (unlike covers, which should be flat-lit) —
+             a gentle raking light across letterpress or embossed type actually helps sell texture.
+           - File weight: JPG, quality 82, 250–350KB.
+           ============================================================ -->
+
+      <article class="work-item" data-category="print">
+        <div class="work-item__frame">
+          <img src="assets/img/print-titlepage-01.jpg" alt="Typographic title page design, print study" loading="lazy">
+          <div class="work-item__overlay">
+            <h3 class="work-item__overlay-title">Title Page Study</h3>
+            <span class="work-item__overlay-author">Nastaliq &amp; Latin Type Pairing</span>
+            <span class="work-item__overlay-meta">Typography · Print Study</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-item" data-category="print">
+        <div class="work-item__frame">
+          <img src="assets/img/print-spine-detail.jpg" alt="Book spine typography detail" loading="lazy">
+          <div class="work-item__overlay">
+            <h3 class="work-item__overlay-title">Spine Detail</h3>
+            <span class="work-item__overlay-author">Vertical Nastaliq Composition</span>
+            <span class="work-item__overlay-meta">Typography · Spine Study</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-item" data-category="print">
+        <div class="work-item__frame">
+          <img src="assets/img/print-poster-01.jpg" alt="Documentary poster typography detail" loading="lazy">
+          <div class="work-item__overlay">
+            <h3 class="work-item__overlay-title">Documentary Poster</h3>
+            <span class="work-item__overlay-author">Festival Screening Print</span>
+            <span class="work-item__overlay-meta">Print · Poster Design</span>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- ============================================================
+           GALLERY TRACK: SPECULATIVE CONCEPTS (data-category="speculative")
+           These duplicate into the dedicated showcase section below at
+           larger scale — kept here too so the "All" and "Speculative
+           Concepts" filters both return a complete, correct set.
+           ASSET BLUEPRINT: identical spec to Book Covers above
+           (1200x1600px, 3:4, flat front-facing, neutral backdrop) —
+           consistency across covers/speculative matters more here than
+           elsewhere, since these sit side-by-side with commissioned-style
+           work and must read as equally finished, not "rougher."
+           ============================================================ -->
+
+      <article class="work-item" data-category="speculative">
+        <div class="work-item__frame">
+          <span class="tag-concept">Speculative</span>
+          <img src="assets/img/spec-pamuk-style.jpg" alt="Speculative book cover concept, front cover" loading="lazy">
+          <div class="work-item__overlay">
+            <h3 class="work-item__overlay-title">Speculative Cover Study</h3>
+            <span class="work-item__overlay-author">In the style of Orhan Pamuk's fiction</span>
+            <span class="work-item__overlay-meta">Speculative Concept · Literary Fiction</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-item" data-category="speculative">
+        <div class="work-item__frame">
+          <span class="tag-concept">Speculative</span>
+          <img src="assets/img/spec-shafak-style.jpg" alt="Speculative book cover concept, front cover" loading="lazy">
+          <div class="work-item__overlay">
+            <h3 class="work-item__overlay-title">Speculative Cover Study</h3>
+            <span class="work-item__overlay-author">In the style of Elif Shafak's fiction</span>
+            <span class="work-item__overlay-meta">Speculative Concept · Literary Fiction</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-item" data-category="speculative">
+        <div class="work-item__frame">
+          <span class="tag-concept">Speculative</span>
+          <img src="assets/img/spec-hosseini-style.jpg" alt="Speculative book cover concept, front cover" loading="lazy">
+          <div class="work-item__overlay">
+            <h3 class="work-item__overlay-title">Speculative Cover Study</h3>
+            <span class="work-item__overlay-author">In the style of Khaled Hosseini's fiction</span>
+            <span class="work-item__overlay-meta">Speculative Concept · Literary Fiction</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     DEDICATED SPECULATIVE / CONCEPT SHOWCASE
+     Large-format 2-column presentation, deliberately separate from the
+     filterable grid above so it reads as a curated statement of creative
+     vision rather than "more of the same grid."
+     ========================================================================== -->
+<section class="section section--alt">
+  <div class="container">
+    <span class="eyebrow">Creative Vision</span>
+    <h2>Speculative Concepts</h2>
+    <p class="lead" style="margin-bottom: var(--space-lg);">
+      Unsolicited concept work for internationally published literary fiction —
+      built to demonstrate range across authors and traditions I have not yet
+      been commissioned to design for.
+    </p>
+
+    <!-- ============================================================
+         ASSET BLUEPRINT — SHOWCASE TRACK (large format)
+         - Canvas: 1600 x 1920px. Aspect ratio: 5:6 (matches .showcase-item__frame —
+           notably NOT the same 3:4 ratio as the grid above; this is intentionally
+           a slightly taller, more "framed art print" proportion to signal these
+           two pieces are the showstoppers of the page).
+         - Composition: flat front-cover face, generous internal margin — treat
+           each one like a gallery-mounted print, not a product shot. If your
+           cover design itself is edge-to-edge, that's fine, but the surrounding
+           page whitespace (handled by the grid gap, not the image) is doing the
+           "gallery mount" work, so don't add your own decorative border inside
+           the JPG itself.
+         - Only 2 images in this track by design — resist the urge to add more;
+           the whole point of this section is restraint after the density of the
+           grid above.
+         - File weight: JPG, quality 85 (higher than the grid images, since these
+           render larger on screen), target 400–500KB each.
+         ============================================================ -->
+    <div class="showcase-grid">
+
+      <div class="showcase-item">
+        <div class="showcase-item__frame">
+          <img src="assets/img/showcase-concept-01.jpg" alt="Large-format speculative book cover concept" loading="lazy">
+        </div>
+        <div class="showcase-item__caption">
+          <h3>Concept: Persian Miniature Reinterpreted</h3>
+          <span class="text-small text-muted">Speculative · Literary Fiction</span>
+        </div>
+      </div>
+
+      <div class="showcase-item">
+        <div class="showcase-item__frame">
+          <img src="assets/img/showcase-concept-02.jpg" alt="Large-format speculative book cover concept" loading="lazy">
+        </div>
+        <div class="showcase-item__caption">
+          <h3>Concept: Thuluth as Structural Cover Element</h3>
+          <span class="text-small text-muted">Speculative · Poetry in Translation</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     CALL TO ACTION
+     ========================================================================== -->
+<section class="section text-center">
+  <div class="container container--narrow">
+    <span class="eyebrow">Commissioning a Cover?</span>
+    <h2>Let's Discuss Your Book</h2>
+    <a href="contact.html" class="btn btn--primary" style="margin-top: var(--space-sm);">Start a Conversation</a>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ==========================================================================
+     GLOBAL FOOTER — identical to index.html
+     ========================================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>M. M. Karbasbaf</h4>
+        <p style="color: var(--color-text-inverse-muted); max-width: 32ch;">Book cover design and Persian calligraphy for publishers of Middle Eastern, Islamic, and Persian literature.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="book-designs.html">Book Designs</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.behance.net/YOUR_HANDLE" target="_blank" rel="noopener">Behance</a></li>
+          <li><a href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:you@yourdomain.com">you@yourdomain.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Mohammad Mahdi Karbasbaf. All rights reserved.</span>
+      <span>Based in Turkey</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ==========================================================================
+     MOBILE NAV TOGGLE — identical to index.html
+     ========================================================================== -->
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navPrimary = document.getElementById('navPrimary');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navPrimary.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+</script>
+
+<!-- ==========================================================================
+     FILTER TAB LOGIC — vanilla JS, no dependencies
+     ========================================================================== -->
+<script>
+  const filterBar = document.getElementById('filterBar');
+  const workItems = document.querySelectorAll('#workGrid .work-item');
+
+  filterBar.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-filter]');
+    if (!btn) return;
+
+    filterBar.querySelectorAll('button').forEach(b => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+
+    const filter = btn.dataset.filter;
+    workItems.forEach(item => {
+      const matches = filter === 'all' || item.dataset.category === filter;
+      item.classList.toggle('is-hidden', !matches);
+    });
+  });
+</script>
+
+</body>
+</html>
