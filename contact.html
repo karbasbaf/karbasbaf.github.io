@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Mohammad Mahdi Karbasbaf</title>
+<meta name="description" content="Get in touch for book cover commissions, calligraphy projects, publisher inquiries, and academic collaboration.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact — Mohammad Mahdi Karbasbaf">
+<meta property="og:description" content="For book cover commissions, publisher inquiries, and academic collaboration.">
+<meta property="og:image" content="https://yourdomain.com/assets/img/og-contact.jpg">
+<meta property="og:url" content="https://yourdomain.com/contact.html">
+
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "url": "https://yourdomain.com/contact.html",
+  "about": { "@id": "https://yourdomain.com/#person" }
+}
+</script>
+</head>
+<body>
+
+<!-- ==========================================================================
+     GLOBAL HEADER / NAVIGATION — "Contact" marked active
+     ========================================================================== -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="site-logo">
+      M. M. Karbasbaf
+      <span>Book Design &amp; Persian Calligraphy</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navPrimary">
+      <span></span>
+    </button>
+
+    <nav class="nav-primary" id="navPrimary">
+      <a href="index.html">Home</a>
+      <a href="book-designs.html">Book Designs</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ==========================================================================
+     PAGE HEADER
+     ========================================================================== -->
+<section class="section section--tight">
+  <div class="container container--narrow">
+    <span class="eyebrow">Contact</span>
+    <h1>Let's Work Together</h1>
+    <p class="lead">
+      For book cover commissions, publisher inquiries, and calligraphy projects.
+    </p>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     SPLIT LAYOUT — INQUIRIES (LEFT) + FORM (RIGHT)
+     ========================================================================== -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- ================================================================
+           LEFT ZONE — INQUIRIES & COLLABORATIONS
+           ================================================================ -->
+      <div class="contact-info">
+        <span class="eyebrow">Inquiries &amp; Collaborations</span>
+        <h2 style="text-transform:none; letter-spacing:0.01rem; font-size: var(--fs-h3); margin-bottom: var(--space-sm);">
+          For Publishers &amp; Institutions
+        </h2>
+        <p>
+          Commissioning editors and art directors are welcome to write directly
+          regarding book cover projects, from initial concept through final
+          delivery. Please include the working title, subject matter, and
+          intended publication timeline where possible — this allows an
+          initial response with realistic availability.
+        </p>
+        <p>
+          Academic institutions, museums, and cultural organizations
+          interested in acoustic heritage research collaboration, calligraphy
+          commissions, or speaking engagements are equally welcome to reach
+          out using the same channel.
+        </p>
+
+        <a href="mailto:you@yourdomain.com" class="contact-info__email">you@yourdomain.com</a>
+
+        <dl class="contact-info__list">
+          <li>
+            <dt>Response Time</dt>
+            <dd>Within 2–3 business days</dd>
+          </li>
+          <li>
+            <dt>Location &amp; Timezone</dt>
+            <dd>Based in Turkey (GMT+3)</dd>
+          </li>
+          <li>
+            <dt>Professional Networks</dt>
+            <dd>
+              <a href="https://www.behance.net/YOUR_HANDLE" class="link-underline" target="_blank" rel="noopener">Behance</a>
+              &nbsp;·&nbsp;
+              <a href="https://www.linkedin.com/in/YOUR_HANDLE" class="link-underline" target="_blank" rel="noopener">LinkedIn</a>
+            </dd>
+          </li>
+        </dl>
+      </div>
+
+
+      <!-- ================================================================
+           RIGHT ZONE — MINIMALIST INQUIRY FORM
+
+           STATIC FORM HANDLER SETUP (required for GitHub Pages, since GH
+           Pages serves static files only and cannot process a POST itself):
+
+           1. Create a free account at https://formspree.io (or https://formbold.com).
+           2. Create a new form there; it will give you a unique endpoint URL,
+              e.g. https://formspree.io/f/abcd1234
+           3. Replace the placeholder ACTION URL below —
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              — with your real endpoint.
+           4. Formspree will verify your inbox email on first real submission;
+              after that, every submission is emailed to you directly.
+           5. The JS at the bottom of this page submits the form via fetch()
+              instead of a full page reload, so the visitor sees the inline
+              confirmation message below the button rather than being
+              redirected off your site. No further setup needed beyond
+              swapping the URL.
+           ================================================================ -->
+      <form
+        class="contact-form"
+        id="inquiryForm"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+        novalidate
+      >
+        <!-- Honeypot anti-spam field — real visitors never see or fill this,
+             bots that auto-fill every field will trip it. Formspree/Formbold
+             both ignore submissions where this is filled if named "_gotcha"
+             (Formspree) — check your provider's exact convention. -->
+        <div class="form-field form-field--hidden" aria-hidden="true">
+          <label for="companyWebsite">Leave this field empty</label>
+          <input type="text" id="companyWebsite" name="_gotcha" tabindex="-1" autocomplete="off">
+        </div>
+
+        <!-- Optional: sets the email subject line Formspree sends you -->
+        <input type="hidden" name="_subject" value="New inquiry from portfolio site">
+
+        <div class="form-field">
+          <label for="fullName">Name</label>
+          <input type="text" id="fullName" name="name" placeholder="Your full name" required>
+        </div>
+
+        <div class="form-field">
+          <label for="email">Institutional / Publisher Email</label>
+          <input type="email" id="email" name="email" placeholder="you@publisher.com" required>
+        </div>
+
+        <div class="form-field">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="e.g. Book cover commission, Autumn 2026" required>
+        </div>
+
+        <div class="form-field">
+          <label for="message">Project Description</label>
+          <textarea id="message" name="message" placeholder="Working title, subject matter, timeline, and any relevant context." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--gold" id="submitBtn">Initiate Discussion</button>
+
+        <!-- Confirmation / error message, populated by the fetch handler below -->
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ==========================================================================
+     GLOBAL FOOTER
+     ========================================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>M. M. Karbasbaf</h4>
+        <p style="color: var(--color-text-inverse-muted); max-width: 32ch;">Book cover design and Persian calligraphy for publishers of Middle Eastern, Islamic, and Persian literature.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="book-designs.html">Book Designs</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.behance.net/YOUR_HANDLE" target="_blank" rel="noopener">Behance</a></li>
+          <li><a href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:you@yourdomain.com">you@yourdomain.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Mohammad Mahdi Karbasbaf. All rights reserved.</span>
+      <span>Based in Turkey</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ==========================================================================
+     MOBILE NAV TOGGLE
+     ========================================================================== -->
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navPrimary = document.getElementById('navPrimary');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navPrimary.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+</script>
+
+<!-- ==========================================================================
+     CONTACT FORM — AJAX SUBMISSION (fetch, no page reload)
+     Keeps the visitor on-page and shows an inline confirmation message
+     instead of redirecting to Formspree's default thank-you page.
+     ========================================================================== -->
+<script>
+  const inquiryForm = document.getElementById('inquiryForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const formStatus = document.getElementById('formStatus');
+
+  inquiryForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    formStatus.textContent = '';
+    formStatus.className = 'form-status';
+
+    try {
+      const response = await fetch(inquiryForm.action, {
+        method: 'POST',
+        body: new FormData(inquiryForm),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        formStatus.textContent = 'Thank you — your message has been sent. I will respond within 2–3 business days.';
+        formStatus.classList.add('form-status--success');
+        inquiryForm.reset();
+      } else {
+        formStatus.textContent = 'Something went wrong. Please try again, or email you@yourdomain.com directly.';
+      }
+    } catch (err) {
+      formStatus.textContent = 'Something went wrong. Please try again, or email you@yourdomain.com directly.';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Initiate Discussion';
+    }
+  });
+</script>
+
+</body>
+</html>
