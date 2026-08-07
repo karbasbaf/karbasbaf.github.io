@@ -23,6 +23,7 @@
   --gold: #C9974A;
   --gold-soft: rgba(201, 151, 74, 0.35);
   --gold-faint: rgba(201, 151, 74, 0.12);
+  --grey-muted: #8E8F8A;
 
   /* Type families */
   --font-display: 'Oswald', sans-serif;
@@ -30,6 +31,7 @@
 
   /* Phi = 1.618 — fluid type scale, base 17px */
   --t-caption: clamp(0.6154rem, 0.59rem + 0.13vw, 0.6875rem);   /* 10.5px */
+  --t-nav:     clamp(0.8235rem, 0.78rem + 0.22vw, 0.9412rem);   /* 13–15px, elevated nav scale */
   --t-body:    clamp(0.9412rem, 0.90rem + 0.20vw, 1.0625rem);   /* 17px   */
   --t-lede:    clamp(1.3529rem, 1.24rem + 0.55vw, 1.6875rem);   /* 27px   */
   --t-h2:      clamp(1.8235rem, 1.55rem + 1.35vw, 2.75rem);     /* 44px   */
@@ -153,11 +155,24 @@ h3, .h3 {
 .hero-title {
   font-family: var(--font-display);
   font-size: var(--t-hero);
-  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -0.01em;
   line-height: 0.96;
+}
+
+/* First line: ultra-bold structural charcoal — the visual anchor */
+.hero-title .line-primary {
+  display: block;
+  font-weight: 700;
   color: var(--ink);
+}
+
+/* Subsequent lines: light, muted, poetic counterweight */
+.hero-title .line-secondary {
+  display: block;
+  font-weight: 300;
+  color: var(--grey-muted);
+  margin-top: 0.06em;
 }
 
 .lede {
@@ -362,8 +377,7 @@ h3, .h3 {
 
 .site-header {
   position: relative;
-  padding: var(--s-4) 0;
-  border-bottom: 1px solid var(--ink-15);
+  padding: var(--s-5) 0;
   background: var(--canvas);
   z-index: 40;
 }
@@ -394,19 +408,19 @@ h3, .h3 {
 
 .nav-list {
   display: flex;
-  gap: var(--s-5);
+  gap: var(--s-6);
   align-items: center;
 }
 
 .nav-list a {
   font-family: var(--font-display);
-  font-size: var(--t-caption);
-  font-weight: 500;
+  font-size: var(--t-nav);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--ink-60);
-  padding-bottom: 0.35em;
-  border-bottom: 1px solid transparent;
+  letter-spacing: 0.22em;
+  color: var(--ink);
+  padding-bottom: 0.5em;
+  border-bottom: 1.5px solid transparent;
   transition: color var(--dur-frame) var(--ease-resonant),
               border-color var(--dur-frame) var(--ease-resonant);
 }
