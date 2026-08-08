@@ -1160,91 +1160,51 @@ h3, .h3 {
 }
 
 /* ==========================================================================
-   17. IMAGE-FAILURE FALLBACK
-   Driven by the existing onerror/onload script in index.html
-   (markPending / clearPending). Moved here from an inline <head> <style>
-   block so every page shares one definition instead of each page
-   carrying its own copy. Keeps the aspect-ratio box intact — no CLS —
-   and surfaces the image's own alt text instead of a broken-image icon.
-   ========================================================================== */
-
-.frame--pending {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: repeating-linear-gradient(
-    135deg,
-    var(--canvas-tint),
-    var(--canvas-tint) 10px,
-    var(--ink-08) 10px,
-    var(--ink-08) 11px
-  );
-}
-
-.frame--pending img { display: none; }
-
-.frame-pending-label {
-  display: block;
-  font-family: var(--font-ui);
-  font-size: var(--t-caption);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-60);
-  text-align: center;
-  padding: var(--s-3);
-}
-
-@media print {
-  .frame--pending { background: var(--canvas-tint); }
-}
-
-/* ==========================================================================
-   18. THE CEILING CROWN & THE PARALLEL HERO — homepage above-the-fold only
+   17. THE CEILING CROWN & THE PARALLEL HERO — homepage above-the-fold only
    ========================================================================== */
 
 /* -------------------------------------------------------------------------
-   18.1 — Ceiling Crown
-   True pixel-zero placement: fixed to the viewport rather than relying on
-   normal document flow, so it holds position regardless of scroll. It must
-   run BEHIND the nav text, which requires .site-header to have no opaque
-   background (see §6 — .site-header background is now `transparent`) so
-   this shows through the header's padding and gaps. Two layered
-   backgrounds: an extremely faint repeating hairline "ruling" (a nod to
-   letterpress/manuscript ledger lines) plus a soft vertical fade beneath
-   it. Both sit at 3–5% ink-grey opacity — never gold, never anything that
-   competes with nav-link legibility. z-index: -1 places it behind every
-   normal-flow element on the page (see stacking-order note below) while
-   still rendering above the plain white canvas background.
+   17.1 — Ceiling Crown
+   True pixel-zero placement as the first node inside <body> (see
+   index.html). Hardcoded to the master architectural sketch asset,
+   assets/images/yazd-crown.png — the designer manages that file's own
+   fade/opacity in their graphic-design software before export, so this
+   rule renders it at full alpha (opacity: 1.0) and applies no filtering,
+   tinting, or fading of its own. Stretches the full viewport width
+   (width: 100%) and sits at true pixel-zero (top: 0; left: 0) using
+   position: absolute rather than fixed, so it scrolls away with the
+   document instead of pinning to the viewport. background-size: contain
+   with background-position: top center keeps the artwork's full
+   proportions intact and anchored to the top edge; background-repeat:
+   no-repeat prevents any tiling.
 
-   Stacking note: a position:fixed element paints in the same step as
-   other positioned descendants unless given a negative z-index, in which
-   case it paints in an earlier step than ordinary in-flow content. -1
-   here guarantees the crown never sits on top of hero text or nav links,
-   without needing to raise every other element's z-index to compensate.
+   It must run BEHIND the nav layer: .site-header keeps a transparent
+   background (see §6) and a z-index of 40, so the header's own painting
+   order stacks above this element's z-index: 1 wherever the two
+   overlap, letting the crown show through the header's padding and
+   gaps while the nav links stay perfectly legible.
+
+   Stacking note: because .ceiling-crown carries a *positive* z-index,
+   it paints above ordinary z-index:auto positioned content later in the
+   document — including .hero, which sits immediately below the header.
+   §17.2 gives .hero its own explicit z-index: 2 purely as a stacking
+   guard, so the hero's manifesto typography and calligraphy plate are
+   never obscured where the crown's height bleeds past the header.
    ------------------------------------------------------------------------- */
 
 .ceiling-crown {
-  position: fixed;
+  width: 100%;
+  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  height: clamp(150px, 20vw, 240px);
-  z-index: -1;
+  z-index: 1;
+  height: clamp(150px, 20vw, 320px);
   pointer-events: none;
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(25, 26, 23, 0.035) 0px,
-      rgba(25, 26, 23, 0.035) 1px,
-      transparent 1px,
-      transparent 27px
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(25, 26, 23, 0.05) 0%,
-      rgba(25, 26, 23, 0.018) 55%,
-      transparent 100%
-    );
+  opacity: 1.0;
+  background-image: url('assets/images/yazd-crown.png');
+  background-size: contain;
+  background-position: top center;
+  background-repeat: no-repeat;
 }
 
 @media print {
@@ -1252,7 +1212,7 @@ h3, .h3 {
 }
 
 /* -------------------------------------------------------------------------
-   18.2 — Hero-only: no vertical spine, no rail
+   17.2 — Hero-only: no vertical spine, no rail — plus a stacking guard
    The new hero markup no longer uses .lute-grid/.rail/.canvas at all (see
    index.html), so the spine hairline and spine-break SVG are structurally
    absent here rather than merely hidden — nothing to override. This rule
@@ -1260,6 +1220,11 @@ h3, .h3 {
    reintroduced inside .hero without a matching markup review; it costs
    nothing and prevents a silent regression. The spine remains fully
    active everywhere else on this page and on every other page.
+
+   .hero already has position: relative from §7; adding z-index: 2 here
+   is a pure stacking guard (see the note in 17.1) — it changes no visual
+   position or spacing, it only guarantees the hero's own content always
+   paints above the ceiling-crown backdrop.
    ------------------------------------------------------------------------- */
 
 .hero .rail::before,
@@ -1267,8 +1232,12 @@ h3, .h3 {
   display: none;
 }
 
+.hero {
+  z-index: 2;
+}
+
 /* -------------------------------------------------------------------------
-   18.3 — The Parallel Hero
+   17.3 — The Parallel Hero
    A clean, non-overlapping 2-column grid at ≥960px — no shared columns,
    no z-index layering between the two halves, no gradient-wash defensive
    trick. Below 960px both columns collapse to a single fluid stack.
@@ -1368,4 +1337,43 @@ h3, .h3 {
 
 .frame--naked.frame--pending img {
   aspect-ratio: 14 / 17;
+}
+
+/* ==========================================================================
+   18. IMAGE-FAILURE FALLBACK
+   Driven by the existing onerror/onload script in index.html
+   (markPending / clearPending). Moved here from an inline <head> <style>
+   block so every page shares one definition instead of each page
+   carrying its own copy. Keeps the aspect-ratio box intact — no CLS —
+   and surfaces the image's own alt text instead of a broken-image icon.
+   ========================================================================== */
+
+.frame--pending {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--canvas-tint),
+    var(--canvas-tint) 10px,
+    var(--ink-08) 10px,
+    var(--ink-08) 11px
+  );
+}
+
+.frame--pending img { display: none; }
+
+.frame-pending-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  text-align: center;
+  padding: var(--s-3);
+}
+
+@media print {
+  .frame--pending { background: var(--canvas-tint); }
 }
