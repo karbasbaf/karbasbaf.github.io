@@ -37,6 +37,8 @@
 </head>
 <body>
 
+<div class="ceiling-crown" aria-hidden="true"></div>
+
 <header class="site-header">
   <div class="wrap">
     <a href="index.html" class="brand">
@@ -65,8 +67,9 @@
           <p class="eyebrow eyebrow--gold">Independent Researcher, Luthier &amp; Book Designer</p>
         </div>
         <div class="canvas">
-          <div class="hero-split">
-            <div>
+          <div class="hero-composition">
+
+            <div class="hero-manifesto">
               <h1 class="hero-title" id="hero-title">
                 <span class="line-primary">Strings</span>
                 <span class="line-secondary">to Stars</span>
@@ -74,23 +77,30 @@
               <p class="lede">Resonance phenomena across terrestrial scales — from the soundhole of a Persian lute to the ornamented dome of a palace hall — read as a single, continuous instrument.</p>
             </div>
 
-            <div class="plate plate--tall">
-              <!-- MASTER BLUEPRINT: Hero Calligraphy Master Artwork
-                   Physical rendering box: 1400 × 1700px (14:17, matches
-                   .plate--tall { aspect-ratio: 14 / 17 } exactly). Export
-                   @2x for retina. Composition: single-subject Thuluth
-                   calligraphic rendering of the artist's name, ink-black
-                   on near-white, generous negative space, no drop shadow.
-                   NOTE: source file not yet supplied — triggers the
-                   .frame--pending fallback until it is. -->
-              <div class="frame">
-                <img
-                  src="assets/images/hero-calligraphy.jpg"
-                  alt="Thuluth-script calligraphic rendering by Mohammad Mahdi Karbasbaf"
-                  width="1400" height="1700"
-                  loading="eager" fetchpriority="high" decoding="async">
+            <div class="hero-artwork">
+              <div class="plate plate--tall">
+                <!-- MASTER BLUEPRINT: Hero Calligraphy Master Artwork
+                     Physical rendering box: 1400 × 1700px (14:17, matches
+                     .plate--tall { aspect-ratio: 14 / 17 } exactly). Export
+                     @2x for retina. Composition: single-subject Thuluth
+                     calligraphic rendering of the artist's name, ink-black
+                     on near-white, with strokes weighted toward the right
+                     two-thirds of the frame — the left third must stay
+                     open, near-white ground, since .hero-manifesto now
+                     overlaps that edge at ≥960px (see style.css §18.3).
+                     No drop shadow, no background texture, no border.
+                     NOTE: source file not yet supplied — triggers the
+                     .frame--pending fallback until it is. -->
+                <div class="frame">
+                  <img
+                    src="assets/images/hero-calligraphy.jpg"
+                    alt="Thuluth-script calligraphic rendering by Mohammad Mahdi Karbasbaf"
+                    width="1400" height="1700"
+                    loading="eager" fetchpriority="high" decoding="async">
+                </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
