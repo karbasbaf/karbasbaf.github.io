@@ -1,561 +1,1242 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohammad Mahdi Karbasbaf — Resonance Across Scales</title>
-<meta name="description" content="The research and design archive of Mohammad Mahdi Karbasbaf: acoustic heritage, the Golden Method, Persian architectural acoustics, book cover design, and astrophysical wave analysis.">
+/* ==========================================================================
+   KARBASBAF ARCHIVE — MASTER STYLE ENGINE, v3
+   The Phi-Based Resonating Sheet
+   φ = 1.618 — every spatial, typographic, and structural interval derives
+   from this ratio. The book-cover showcase grid below is not decorated
+   with the golden ratio — it is CONSTRUCTED from the same Fibonacci square
+   spiral (1, 1, 2, 3, 5) used in "The Golden Method" (Arts, 2017) for
+   lute soundhole placement. Form and subject are the same geometry.
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,600&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+   Type system: Fraunces (display) + Source Serif 4 (reading matter) +
+   Inter (utility: nav, caption, labels).
+   ========================================================================== */
 
-<link rel="stylesheet" href="style.css">
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,600&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap');
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Mohammad Mahdi Karbasbaf",
-  "alternateName": "M. M. Karbasbaf",
-  "url": "https://karbasbaf-archive.example/",
-  "image": "https://karbasbaf-archive.example/assets/images/portrait.jpg",
-  "email": "mailto:karbasbaf@gmail.com",
-  "jobTitle": "Independent Researcher — Acoustics & Wave Phenomena",
-  "description": "Researcher and book designer investigating resonance phenomena across terrestrial and astrophysical scales, connecting traditional luthiery, Persian architectural acoustics, and wave-analysis methodology.",
-  "knowsAbout": ["Archaeoacoustics", "Architectural Acoustics", "Musical Instrument Acoustics", "Computational Acoustics", "Astrophysical Wave Phenomena", "Multi-Scale Wave Analysis", "Persian Calligraphy", "Book Cover Design"],
-  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Qazvin Azad University", "sameAs": "https://www.qiau.ac.ir/" },
-  "sameAs": ["https://orcid.org/0000-0003-2264-9372"],
-  "@graph": [
-    { "@type": "ScholarlyArticle", "name": "Experimental validation of Helmholtz resonator arrays as zero-energy acoustic treatment for net-zero energy buildings", "author": ["Mohammad Mahdi Karbasbaf", "G. Ezaan"], "datePublished": "2026", "isPartOf": { "@type": "Periodical", "name": "Next Research" }, "sameAs": "https://doi.org/10.1016/j.nexres.2026.102016" },
-    { "@type": "ScholarlyArticle", "name": "From ornamentation to acoustics: A quantitative analysis of Tong Bori elements in Persian architectural heritage", "author": ["Mohammad Mahdi Karbasbaf", "G. Ezaan"], "datePublished": "2025", "isPartOf": { "@type": "Periodical", "name": "Digital Applications in Archaeology and Cultural Heritage" }, "sameAs": "https://doi.org/10.1016/j.daach.2025.e00433" },
-    { "@type": "ScholarlyArticle", "name": "Historical Evolution and Acoustic Significance of Sound Holes in Lutes", "author": ["Mohammad Mahdi Karbasbaf", "G. Ezaan"], "datePublished": "2024", "isPartOf": { "@type": "Periodical", "name": "Applied Acoustics" }, "sameAs": "https://doi.org/10.1016/j.apacoust.2023.109784" },
-    { "@type": "ScholarlyArticle", "name": "A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments: The Golden Method", "author": ["S. Jafari", "Mohammad Mahdi Karbasbaf"], "datePublished": "2017", "isPartOf": { "@type": "Periodical", "name": "Arts" }, "sameAs": "https://doi.org/10.3390/arts6040020" }
-  ]
+/* ==========================================================================
+   1. TOKENS
+   ========================================================================== */
+
+:root {
+  /* Palette — gold is a single-pixel tactical accent. Never a fill. */
+  --canvas: #FFFFFF;
+  --canvas-tint: #FAFAF8;
+  --ink: #191A17;
+  --ink-90: rgba(25, 26, 23, 0.9);
+  --ink-60: rgba(25, 26, 23, 0.6);
+  --ink-35: rgba(25, 26, 23, 0.35);
+  --ink-15: rgba(25, 26, 23, 0.15);
+  --ink-08: rgba(25, 26, 23, 0.08);
+  --gold: #C9974A;
+  --gold-soft: rgba(201, 151, 74, 0.35);
+  --gold-faint: rgba(201, 151, 74, 0.12);
+  --grey-muted: #75766F; /* AA-safe on white at large-text sizes */
+
+  /* Type families */
+  --font-display: 'Fraunces', 'Iowan Old Style', ui-serif, serif;
+  --font-body: 'Source Serif 4', 'Iowan Old Style', ui-serif, serif;
+  --font-ui: 'Inter', -apple-system, sans-serif;
+
+  /* Phi = 1.618 — fluid type scale, base 17px */
+  --t-caption: clamp(0.6154rem, 0.59rem + 0.13vw, 0.6875rem);
+  --t-nav:     clamp(0.8235rem, 0.78rem + 0.22vw, 0.9412rem);
+  --t-body:    clamp(0.9412rem, 0.90rem + 0.20vw, 1.0625rem);
+  --t-lede:    clamp(1.3529rem, 1.24rem + 0.55vw, 1.6875rem);
+  --t-h2:      clamp(1.8235rem, 1.55rem + 1.35vw, 2.75rem);
+  --t-h1:      clamp(2.5rem, 1.9rem + 3vw, 4.4375rem);
+  --t-hero:    clamp(3.2rem, 1.6rem + 8vw, 7.1875rem);
+
+  /* Phi spacing scale — base unit 17px */
+  --s-1: 0.382rem;
+  --s-2: 0.618rem;
+  --s-3: 1rem;
+  --s-4: 1.618rem;
+  --s-5: 2.618rem;
+  --s-6: 4.236rem;
+  --s-7: 6.854rem;
+  --s-8: 11.09rem;
+
+  /* Structural grid — rail:bout held at the golden ratio itself */
+  --rail-width: minmax(180px, 1fr);
+  --bout-width: minmax(0, 1.618fr);
+  --content-max: 1440px;
+  --gutter: var(--s-5);
+
+  /* Motion */
+  --ease-resonant: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-frame: 640ms;
+  --dur-quick: 280ms;
 }
-</script>
-</head>
-<body>
 
-<header class="site-header">
-  <div class="wrap">
-    <a href="index.html" class="brand">
-      Karbasbaf
-      <span>Archive of Resonance</span>
-    </a>
-    <nav class="nav-list" id="primary-nav" data-open="false" aria-label="Primary">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="book-designs.html">Book Designs</a>
-      <a href="research.html">Research</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
-      Menu
-    </button>
-  </div>
-</header>
+/* ==========================================================================
+   2. RESET
+   ========================================================================== */
 
-<main>
+*, *::before, *::after { box-sizing: border-box; }
 
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="wrap">
-      <div class="lute-grid">
-        <div class="rail">
-          <p class="eyebrow eyebrow--gold">Independent Researcher, Luthier &amp; Book Designer</p>
-        </div>
-        <div class="canvas">
-          <div class="hero-split">
-            <div>
-              <h1 class="hero-title" id="hero-title">
-                <span class="line-primary">Strings</span>
-                <span class="line-secondary">to Stars</span>
-              </h1>
-              <p class="lede">Resonance phenomena across terrestrial scales — from the soundhole of a Persian lute to the ornamented dome of a palace hall — read as a single, continuous instrument.</p>
-            </div>
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
 
-            <div class="plate plate--tall">
-              <!-- MASTER BLUEPRINT: Hero Calligraphy Master Artwork
-                   Physical rendering box: 1400 × 1700px (14:17, matches
-                   .plate--tall { aspect-ratio: 14 / 17 } exactly). Export
-                   @2x for retina. Composition: single-subject Thuluth
-                   calligraphic rendering of the artist's name, ink-black
-                   on near-white, generous negative space, no drop shadow.
-                   NOTE: source file not yet supplied — triggers the
-                   .frame--pending fallback until it is. -->
-              <div class="frame">
-                <img
-                  src="assets/images/hero-calligraphy.jpg"
-                  alt="Thuluth-script calligraphic rendering by Mohammad Mahdi Karbasbaf"
-                  width="1400" height="1700"
-                  loading="eager" fetchpriority="high" decoding="async">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
 
-  <section class="section" id="showcase" aria-labelledby="showcase-heading">
-    <div class="wrap">
-      <div class="section-head lute-grid">
-        <div class="rail">
-          <p class="eyebrow">Selected Covers</p>
-          <div class="spine-break" aria-hidden="true">
-            <svg viewBox="0 0 34 46" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 23 C 4 23, 5 4, 8.5 4 C 12 4, 12 34, 15.5 34 C 19 34, 19 12, 22.5 12 C 26 12, 26 27, 29.5 27 C 32 27, 33 23, 34 23" />
-            </svg>
-          </div>
-          <p class="caption">Book Design<br>Calligraphy<br>Typographic Plates</p>
-        </div>
-        <div class="canvas">
-          <h2 class="h2" id="showcase-heading">Five Covers,<br>One Spiral</h2>
-          <p class="body-text">Five plates, arranged as the Fibonacci square spiral itself — the same 1, 1, 2, 3, 5 construction used in the Golden Method (2017) to place a lute's soundhole. Select a cover to inspect it at full scale.</p>
-        </div>
-      </div>
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  line-height: 1.78;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-      <div class="book-showcase mt-7">
+body.scroll-locked {
+  overflow: hidden;
+}
 
-        <!-- MASTER BLUEPRINT: Plate 1 — Dominant cell (5×5 of the spiral)
-             Recommended source: 1600 × 2000px portrait book-cover scan.
-             Composition: "The Golden Method" cover — Thuluth title lockup
-             over a faint golden-spiral construction-diagram watermark.
-             NOTE: source file not yet supplied — falls back gracefully. -->
-        <button type="button" class="plate-trigger"
-          data-title="The Golden Method"
-          data-year="2017 — cover design"
-          data-medium="Letterpress-style cover, Thuluth title lockup over golden-spiral construction diagram"
-          data-image="assets/images/covers/cover-01-golden-method.jpg"
-          data-alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
-          data-doi="Companion volume to: A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments, Arts (2017)">
-          <span class="plate">
-            <span class="frame">
-              <img src="assets/images/covers/cover-01-golden-method.jpg"
-                alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
-                width="1600" height="2000" loading="eager" decoding="async">
-            </span>
-            <span class="caption" style="display:block; margin-top: var(--s-2);">
-              <span aria-hidden="true">I —</span> The Golden Method
-            </span>
-          </span>
-        </button>
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+h1, h2, h3, h4, p, figure { margin: 0; }
 
-        <!-- MASTER BLUEPRINT: Plate 2 — 3×3 spiral cell
-             Recommended source: 1400 × 1400px. Composition: Tong Bori
-             heritage volume cover — black vase-niche silhouette on cream.
-             NOTE: source file not yet supplied — falls back gracefully. -->
-        <button type="button" class="plate-trigger"
-          data-title="Ornament as Instrument"
-          data-year="2025 — cover design"
-          data-medium="Silhouette cover, single-color cutout on cream stock"
-          data-image="assets/images/covers/cover-02-tong-bori.jpg"
-          data-alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground"
-          data-doi="Companion volume to: From Ornamentation to Acoustics, Digital Applications in Archaeology and Cultural Heritage (2025)">
-          <span class="plate">
-            <span class="frame">
-              <img src="assets/images/covers/cover-02-tong-bori.jpg"
-                alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground"
-                width="1400" height="1400" loading="lazy" decoding="async">
-            </span>
-            <span class="caption" style="display:block; margin-top: var(--s-2);">
-              <span aria-hidden="true">II —</span> Ornament as Instrument
-            </span>
-          </span>
-        </button>
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
-        <!-- MASTER BLUEPRINT: Plate 3 — 2×2 spiral cell
-             Recommended source: 1200 × 1200px. Composition: triple-hole
-             soundhole motif as minimal typographic ornament, ink on white.
-             NOTE: source file not yet supplied — falls back gracefully. -->
-        <button type="button" class="plate-trigger"
-          data-title="Sound Holes"
-          data-year="2024 — cover design"
-          data-medium="Minimal typographic cover, triple-hole motif"
-          data-image="assets/images/covers/cover-03-sound-holes.jpg"
-          data-alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament"
-          data-doi="Companion volume to: Historical Evolution and Acoustic Significance of Sound Holes in Lutes, Applied Acoustics (2024)">
-          <span class="plate">
-            <span class="frame">
-              <img src="assets/images/covers/cover-03-sound-holes.jpg"
-                alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament"
-                width="1200" height="1200" loading="lazy" decoding="async">
-            </span>
-            <span class="caption" style="display:block; margin-top: var(--s-2);">
-              <span aria-hidden="true">III —</span> Sound Holes
-            </span>
-          </span>
-        </button>
+::selection {
+  background: var(--gold-faint);
+  color: var(--ink);
+}
 
-        <!-- MASTER BLUEPRINT: Plate 4 — 1×1 spiral cell
-             Recommended source: 1000 × 1000px. Composition: tight crop of
-             a single Helmholtz resonator sphere under raking light.
-             NOTE: source file not yet supplied — falls back gracefully. -->
-        <button type="button" class="plate-trigger"
-          data-title="Resonant Vessels"
-          data-year="2026 — cover design"
-          data-medium="Photographic cover, single Helmholtz resonator sphere, cropped tight"
-          data-image="assets/images/covers/cover-04-resonant-vessels.jpg"
-          data-alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator"
-          data-doi="Companion volume to: Experimental validation of Helmholtz resonator arrays, Next Research (2026)">
-          <span class="plate">
-            <span class="frame">
-              <img src="assets/images/covers/cover-04-resonant-vessels.jpg"
-                alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator"
-                width="1000" height="1000" loading="lazy" decoding="async">
-            </span>
-            <span class="caption" style="display:block; margin-top: var(--s-2);">
-              <span aria-hidden="true">IV —</span> Resonant Vessels
-            </span>
-          </span>
-        </button>
+:focus { outline: none; }
 
-        <!-- MASTER BLUEPRINT: Plate 5 — 1×1 spiral cell
-             Recommended source: 1000 × 1000px. Composition: nebula half of
-             the Strings-to-Stars diptych, cropped tight, no text overlay.
-             NOTE: source file not yet supplied — falls back gracefully. -->
-        <button type="button" class="plate-trigger"
-          data-title="Strings to Stars"
-          data-year="2025 — cover design"
-          data-medium="Photographic diptych cover, lute rosette / nebula pairing"
-          data-image="assets/images/covers/cover-05-strings-to-stars.jpg"
-          data-alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame"
-          data-doi="Companion volume to ongoing research: Investigating the Role of Resonance in Herbig-Haro Objects (in preparation)">
-          <span class="plate">
-            <span class="frame">
-              <img src="assets/images/covers/cover-05-strings-to-stars.jpg"
-                alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame"
-                width="1000" height="1000" loading="lazy" decoding="async">
-            </span>
-            <span class="caption" style="display:block; margin-top: var(--s-2);">
-              <span aria-hidden="true">V —</span> Strings to Stars
-            </span>
-          </span>
-        </button>
+:focus-visible {
+  outline: 1.5px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
 
-      </div>
+/* ==========================================================================
+   3. TYPOGRAPHY SYSTEM
+   ========================================================================== */
 
-      <p class="doi mt-6"><a href="book-designs.html">View the complete book design archive →</a></p>
-    </div>
-  </section>
+.eyebrow {
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--ink-60);
+}
 
-  <hr class="hr-gold wrap">
+.eyebrow--gold { color: var(--gold); }
 
-  <section class="section" aria-labelledby="about-heading">
-    <div class="wrap">
-      <div class="lute-grid">
-        <div class="rail">
-          <p class="eyebrow">The Researcher</p>
-          <div class="spine-break" aria-hidden="true">
-            <svg viewBox="0 0 34 46" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 23 C 4 23, 5 6, 8.5 6 C 12 6, 12 30, 15.5 30 C 19 30, 19 15, 22.5 15 C 26 15, 26 26, 29.5 26 C 32 26, 33 23, 34 23" />
-            </svg>
-          </div>
-          <p class="caption">Luthier<br>Calligrapher<br>Researcher</p>
-        </div>
-        <div class="canvas">
-          <h2 class="h2" id="about-heading">Foundation<br>in Craft</h2>
+h1, .h1 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--t-h1);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.04;
+  color: var(--ink);
+}
 
-          <!-- MASTER BLUEPRINT: Portrait / Workshop Image
-               Physical rendering box: 1600 × 1000px (16:10, matches
-               .plate--wide { aspect-ratio: 16 / 10 } exactly). Composition:
-               documentary black-and-white workshop photograph, natural
-               window light, no staged studio lighting.
-               NOTE: source file not yet supplied — falls back gracefully. -->
-          <div class="plate plate--wide mt-5">
-            <div class="frame">
-              <img src="assets/images/about-workshop.jpg"
-                alt="Documentary photograph of Mohammad Mahdi Karbasbaf constructing a traditional Persian stringed instrument"
-                width="1600" height="1000" loading="lazy" decoding="async">
-            </div>
-          </div>
+h2, .h2 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--t-h2);
+  font-weight: 480;
+  letter-spacing: -0.003em;
+  line-height: 1.12;
+  color: var(--ink);
+}
 
-          <p class="body-text dropcap mt-5">Years of hands-on work with musical instruments — investigating, building, and preserving them — led to the creation of the Golden Method, a mathematical approach for optimizing soundhole design. This practical experience revealed the deep acoustic wisdom embedded in centuries-old craftsmanship, providing the experiential foundation for all subsequent scientific research.</p>
+h3, .h3 {
+  font-family: var(--font-ui);
+  font-size: var(--t-body);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  color: var(--ink);
+}
 
-          <p class="body-text">Research later expanded into Persian architectural heritage, where related wave-analysis principles were shown to operate — through different physical mechanisms and at different frequency ranges — within ornamental elements long assumed to be purely decorative. Current work asks whether the same analytical language can be extended toward electromagnetic and plasma wave phenomena in astrophysical environments.</p>
+.hero-title {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--t-hero);
+  letter-spacing: -0.01em;
+  line-height: 0.96;
+}
 
-          <a href="about.html" class="doi mt-4" style="display:inline-block;">Read the full narrative →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+.hero-title .line-primary {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+}
 
-  <section class="section section--tinted section--tight">
-    <div class="wrap">
-      <div class="lute-grid">
-        <div class="rail">
-          <p class="eyebrow eyebrow--gold">Working Principle</p>
-        </div>
-        <div class="canvas">
-          <blockquote class="pull-quote">
-            The universe is not a die, but a dulcimer.
-            <cite>M. M. Karbasbaf</cite>
-          </blockquote>
-        </div>
-      </div>
-    </div>
-  </section>
+.hero-title .line-secondary {
+  display: block;
+  font-weight: 340;
+  font-style: italic;
+  color: var(--grey-muted);
+  margin-top: 0.05em;
+}
 
-  <section class="section" aria-labelledby="publications-heading">
-    <div class="wrap">
-      <div class="section-head lute-grid">
-        <div class="rail">
-          <p class="eyebrow">Selected Record</p>
-          <div class="spine-break" aria-hidden="true">
-            <svg viewBox="0 0 34 46" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 23 C 4 23, 5 3, 8.5 3 C 12 3, 12 36, 15.5 36 C 19 36, 19 10, 22.5 10 C 26 10, 26 29, 29.5 29 C 32 29, 33 23, 34 23" />
-            </svg>
-          </div>
-        </div>
-        <div class="canvas">
-          <h2 class="h2" id="publications-heading">Scholarly<br>Publications</h2>
-        </div>
-      </div>
+.lede {
+  font-family: var(--font-body);
+  font-size: var(--t-lede);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink-90);
+}
 
-      <div class="lute-grid">
-        <div class="rail" aria-hidden="true"></div>
-        <div class="canvas">
+.body-text {
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--ink-90);
+  max-width: 62ch;
+}
 
-          <article class="pub">
-            <span class="pub-number">I</span>
-            <h3 class="pub-title">Experimental validation of Helmholtz resonator arrays as zero-energy acoustic treatment for net-zero energy buildings</h3>
-            <p class="pub-venue caption">Next Research (Elsevier) · 2026 · Karbasbaf, M.M., Ezaan, G.</p>
-            <p class="doi mt-2"><a href="https://doi.org/10.1016/j.nexres.2026.102016" target="_blank" rel="noopener">doi.org/10.1016/j.nexres.2026.102016</a></p>
-          </article>
+.body-text + .body-text { margin-top: var(--s-4); }
 
-          <article class="pub">
-            <span class="pub-number">II</span>
-            <h3 class="pub-title">From Ornamentation to Acoustics: A Quantitative Analysis of Tong Bori Elements in Persian Architectural Heritage</h3>
-            <p class="pub-venue caption">Digital Applications in Archaeology and Cultural Heritage (Elsevier) · 2025 · Karbasbaf, M.M., Ezaan, G.</p>
-            <p class="doi mt-2"><a href="https://doi.org/10.1016/j.daach.2025.e00433" target="_blank" rel="noopener">doi.org/10.1016/j.daach.2025.e00433</a></p>
-          </article>
+.caption, .meta {
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-60);
+  line-height: 1.6;
+}
 
-          <article class="pub">
-            <span class="pub-number">III</span>
-            <h3 class="pub-title">Historical Evolution and Acoustic Significance of Sound Holes in Lutes</h3>
-            <p class="pub-venue caption">Applied Acoustics (Elsevier) · 2024 · Karbasbaf, M.M., Ezaan, G.</p>
-            <p class="doi mt-2"><a href="https://doi.org/10.1016/j.apacoust.2023.109784" target="_blank" rel="noopener">doi.org/10.1016/j.apacoust.2023.109784</a></p>
-          </article>
+.doi {
+  font-family: var(--font-body);
+  font-size: var(--t-caption);
+  font-style: italic;
+  color: var(--ink-60);
+  letter-spacing: 0.01em;
+}
 
-          <article class="pub">
-            <span class="pub-number">IV</span>
-            <h3 class="pub-title">A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments: The Golden Method</h3>
-            <p class="pub-venue caption">Arts · 2017 · Jafari, S., Karbasbaf, M.M.</p>
-            <p class="doi mt-2"><a href="https://doi.org/10.3390/arts6040020" target="_blank" rel="noopener">doi.org/10.3390/arts6040020</a></p>
-          </article>
+.doi a {
+  border-bottom: 1px solid var(--gold-soft);
+  transition: border-color var(--dur-frame) var(--ease-resonant);
+}
+.doi a:hover { border-color: var(--gold); }
 
-          <article class="pub">
-            <span class="pub-number">V</span>
-            <h3 class="pub-title">Investigating the Role of Resonance in Herbig-Haro (HH) Objects Embedded Within Gaseous Nebulae</h3>
-            <p class="pub-venue caption">Karbasbaf, M.M.</p>
-            <span class="pub-status">In Preparation</span>
-          </article>
+.dropcap::first-letter {
+  font-family: var(--font-display);
+  font-size: calc(var(--t-h1) * 0.618);
+  font-weight: 600;
+  float: left;
+  line-height: 0.82;
+  padding: 0.06em var(--s-2) 0 0;
+  color: var(--ink);
+}
 
-          <a href="research.html" class="doi mt-6" style="display:inline-block;">View the full research archive →</a>
+/* ==========================================================================
+   4. STRUCTURAL GRID — The Lute-Body Asymmetric System
+   ========================================================================== */
 
-        </div>
-      </div>
-    </div>
-  </section>
+.wrap {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--s-5);
+}
 
-</main>
+.lute-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-5);
+}
 
-<footer class="site-footer">
-  <div class="wrap">
-    <p class="caption">Mohammad Mahdi Karbasbaf<br>ORCID 0000-0003-2264-9372</p>
-    <p class="caption"><a href="mailto:karbasbaf@gmail.com">karbasbaf@gmail.com</a></p>
-    <p class="caption">
-      <a href="index.html">Home</a> &nbsp;·&nbsp;
-      <a href="book-designs.html">Book Designs</a> &nbsp;·&nbsp;
-      <a href="research.html">Research</a> &nbsp;·&nbsp;
-      <a href="about.html">About</a> &nbsp;·&nbsp;
-      <a href="contact.html">Contact</a>
-    </p>
-  </div>
-</footer>
+@media (min-width: 900px) {
+  .lute-grid {
+    grid-template-columns: var(--rail-width) var(--bout-width);
+    gap: var(--gutter);
+    align-items: start;
+  }
+}
 
-<div class="book-reveal" id="book-reveal" data-open="false" role="dialog" aria-modal="true" aria-labelledby="reveal-title" inert>
-  <div class="wrap">
-    <button type="button" class="reveal-close" id="reveal-close">
-      <span aria-hidden="true">✕</span> Close
-    </button>
-    <div class="reveal-body">
-      <div class="reveal-frame">
-        <img id="reveal-image" src="" alt="" decoding="async">
-      </div>
-      <div class="reveal-detail">
-        <p class="eyebrow eyebrow--gold" id="reveal-year"></p>
-        <h2 class="h2" id="reveal-title"></h2>
-        <p class="body-text" id="reveal-medium"></p>
-        <p class="doi" id="reveal-doi"></p>
-      </div>
-    </div>
-  </div>
-</div>
+.rail {
+  position: relative;
+  padding-right: var(--s-4);
+}
 
-<script>
-(function () {
-  'use strict';
+@media (min-width: 900px) {
+  .rail { text-align: right; }
+}
 
-  var navToggle = document.getElementById('nav-toggle');
-  var primaryNav = document.getElementById('primary-nav');
-  var body = document.body;
-  var desktopQuery = window.matchMedia('(min-width: 721px)');
+.rail > * + * { margin-top: var(--s-3); }
 
-  function openNav() {
-    primaryNav.setAttribute('data-open', 'true');
-    navToggle.setAttribute('aria-expanded', 'true');
-    body.classList.add('nav-scrim-active');
-    var firstLink = primaryNav.querySelector('a');
-    if (firstLink) firstLink.focus();
+.canvas { min-width: 0; }
+.canvas > * + * { margin-top: var(--s-4); }
+
+.section { padding-block: var(--s-7); }
+.section--tight { padding-block: var(--s-6); }
+.section--tinted { background: var(--canvas-tint); }
+.section-head { margin-bottom: var(--s-6); }
+.section-head .canvas > .h2 { margin-top: var(--s-2); }
+
+/* ==========================================================================
+   5. THE WAVEFORM SPINE — Signature Structural Element
+   ========================================================================== */
+
+.rail::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -1px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--gold-soft) 8%,
+    var(--gold-soft) 92%,
+    transparent 100%
+  );
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .rail::before { display: block; }
+}
+
+.spine-break {
+  display: none;
+  position: relative;
+  width: 34px;
+  margin: var(--s-2) 0 var(--s-2) auto;
+  overflow: visible;
+}
+
+@media (min-width: 900px) {
+  .spine-break { display: block; }
+}
+
+.spine-break svg { width: 100%; height: 46px; overflow: visible; }
+
+.spine-break path {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.1;
+  stroke-linecap: round;
+}
+
+.wave-divider {
+  width: 100%;
+  height: 32px;
+  margin: var(--s-6) 0;
+  opacity: 0.9;
+}
+
+.wave-divider path {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1px;
+  stroke-linecap: round;
+}
+
+.hr-gold {
+  border: none;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.55;
+  margin: var(--s-5) 0;
+}
+
+.hr-gold.wrap { max-width: var(--content-max); }
+
+.hr-ink {
+  border: none;
+  height: 1px;
+  background: var(--ink-15);
+  margin: var(--s-4) 0;
+}
+
+/* ==========================================================================
+   6. NAVIGATION
+   ========================================================================== */
+
+.site-header {
+  position: relative;
+  padding: var(--s-5) 0;
+  background: var(--canvas);
+  z-index: 40;
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: var(--t-body);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.brand span {
+  display: block;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: var(--t-caption);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  margin-top: 0.35em;
+}
+
+.nav-list {
+  display: flex;
+  gap: var(--s-6);
+  align-items: center;
+}
+
+.nav-list a {
+  font-family: var(--font-ui);
+  font-size: var(--t-nav);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink);
+  padding-bottom: 0.5em;
+  border-bottom: 1.5px solid transparent;
+  transition: color var(--dur-frame) var(--ease-resonant),
+              border-color var(--dur-frame) var(--ease-resonant);
+}
+
+.nav-list a:hover,
+.nav-list a[aria-current="page"] {
+  color: var(--ink);
+  border-color: var(--gold);
+}
+
+.nav-toggle { display: none; }
+
+@media (max-width: 720px) {
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: var(--font-ui);
+    font-size: var(--t-caption);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: 1px solid var(--ink-15);
+    padding: var(--s-1) var(--s-3);
+    transition: border-color var(--dur-quick) var(--ease-resonant);
   }
 
-  function closeNav(returnFocus) {
-    primaryNav.setAttribute('data-open', 'false');
-    navToggle.setAttribute('aria-expanded', 'false');
-    body.classList.remove('nav-scrim-active');
-    if (returnFocus) navToggle.focus();
+  .nav-toggle:hover { border-color: var(--gold); }
+
+  .nav-list {
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: min(78vw, 360px);
+    height: 100vh;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--s-5);
+    padding: var(--s-6);
+    background: var(--canvas);
+    border-left: 1px solid var(--ink-15);
+    transform: translateX(100%);
+    transition: transform var(--dur-frame) var(--ease-resonant);
+    visibility: hidden;
+    z-index: 50;
   }
 
-  function isNavOpen() {
-    return primaryNav.getAttribute('data-open') === 'true';
+  .nav-list[data-open="true"] {
+    transform: translateX(0);
+    visibility: visible;
   }
 
-  navToggle.addEventListener('click', function () {
-    if (isNavOpen()) { closeNav(true); } else { openNav(); }
-  });
-
-  document.addEventListener('click', function (event) {
-    if (!isNavOpen()) return;
-    var clickedInsideNav = primaryNav.contains(event.target);
-    var clickedToggle = navToggle.contains(event.target);
-    if (!clickedInsideNav && !clickedToggle) closeNav(false);
-  });
-
-  primaryNav.addEventListener('click', function (event) {
-    if (event.target.tagName === 'A') closeNav(false);
-  });
-
-  desktopQuery.addEventListener('change', function (event) {
-    if (event.matches && isNavOpen()) closeNav(false);
-  });
-
-  var reveal = document.getElementById('book-reveal');
-  var revealClose = document.getElementById('reveal-close');
-  var revealImage = document.getElementById('reveal-image');
-  var revealTitle = document.getElementById('reveal-title');
-  var revealYear = document.getElementById('reveal-year');
-  var revealMedium = document.getElementById('reveal-medium');
-  var revealDoi = document.getElementById('reveal-doi');
-  var triggers = Array.prototype.slice.call(document.querySelectorAll('.plate-trigger'));
-  var lastTrigger = null;
-
-  function focusableInReveal() {
-    return Array.prototype.slice.call(
-      reveal.querySelectorAll('button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])')
-    ).filter(function (el) { return el.offsetParent !== null; });
+  .nav-list a {
+    font-size: var(--t-lede);
+    letter-spacing: 0.02em;
+    font-family: var(--font-display);
+    font-weight: 480;
+    text-transform: none;
   }
 
-  function openReveal(trigger) {
-    lastTrigger = trigger;
-    revealImage.src = trigger.getAttribute('data-image');
-    revealImage.alt = trigger.getAttribute('data-alt') || '';
-    revealTitle.textContent = trigger.getAttribute('data-title') || '';
-    revealYear.textContent = trigger.getAttribute('data-year') || '';
-    revealMedium.textContent = trigger.getAttribute('data-medium') || '';
-    revealDoi.textContent = trigger.getAttribute('data-doi') || '';
+  body.nav-scrim-active::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(25, 26, 23, 0.35);
+    z-index: 39;
+  }
+}
 
-    reveal.removeAttribute('inert');
-    reveal.setAttribute('data-open', 'true');
-    body.classList.add('scroll-locked');
+@media (prefers-reduced-motion: reduce) {
+  .nav-list { transition: none; }
+}
 
-    window.requestAnimationFrame(function () { revealClose.focus(); });
+.site-footer {
+  border-top: 1px solid var(--ink-15);
+  padding: var(--s-6) 0;
+  margin-top: var(--s-8);
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+
+.site-footer .caption a {
+  color: var(--ink-60);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-frame) var(--ease-resonant), color var(--dur-frame) var(--ease-resonant);
+}
+.site-footer .caption a:hover {
+  color: var(--ink);
+  border-color: var(--gold);
+}
+
+/* ==========================================================================
+   7. HERO
+   ========================================================================== */
+
+.hero {
+  padding: var(--s-8) 0 var(--s-7);
+  position: relative;
+}
+
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: var(--s-6);
+}
+
+@media (min-width: 640px) {
+  .hero-split { grid-template-columns: 1.2fr 1fr; }
+}
+
+.hero .eyebrow {
+  opacity: 0;
+  animation: fade-rise 900ms var(--ease-resonant) forwards;
+  animation-delay: 80ms;
+}
+
+.hero-title {
+  margin-top: var(--s-3);
+  opacity: 0;
+  animation: fade-rise 1100ms var(--ease-resonant) forwards;
+  animation-delay: 220ms;
+}
+
+.hero .lede {
+  margin-top: var(--s-5);
+  max-width: 34ch;
+  opacity: 0;
+  animation: fade-rise 1100ms var(--ease-resonant) forwards;
+  animation-delay: 420ms;
+}
+
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .eyebrow, .hero-title, .hero .lede {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   8. THE BOOK COVER SHOWCASE — Fibonacci Spiral Reveal
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------
+   8.1 — THE MOSAIC
+   Five plates only — not an arbitrary curator's choice, but the exact
+   count of squares in a Fibonacci spiral truncated at 5: sides 1, 1, 2, 3,
+   5. Their bounding box is 8 × 5, a real convergent toward φ (8/5 = 1.6).
+   The container is locked to that ratio so every "square" cell actually
+   renders as a square, matching the geometric construction plate already
+   in the portfolio ("Golden Method, Geometric Overlay").
+
+   Reading order = spiral order = visual dominance order: the largest,
+   most recent or most significant cover leads.
+   ------------------------------------------------------------------------- */
+
+.book-showcase {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: var(--s-2);
+  aspect-ratio: 8 / 5;
+}
+
+.book-showcase .plate:nth-child(1) { grid-column: 1 / 6; grid-row: 1 / 6; }  /* 5×5 */
+.book-showcase .plate:nth-child(2) { grid-column: 6 / 9; grid-row: 1 / 4; }  /* 3×3 */
+.book-showcase .plate:nth-child(3) { grid-column: 6 / 8; grid-row: 4 / 6; }  /* 2×2 */
+.book-showcase .plate:nth-child(4) { grid-column: 8 / 9; grid-row: 4 / 5; }  /* 1×1 */
+.book-showcase .plate:nth-child(5) { grid-column: 8 / 9; grid-row: 5 / 6; }  /* 1×1 */
+
+.book-showcase .plate,
+.book-showcase .frame {
+  height: 100%;
+  width: 100%;
+}
+
+/* Below 900px the spiral cannot hold its proportions without crushing the
+   1×1 cells into illegible slivers — collapses to a single reading-order
+   column instead of trying to force the mosaic into a narrow viewport. */
+@media (max-width: 899px) {
+  .book-showcase {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    aspect-ratio: auto;
+    gap: var(--s-5);
   }
 
-  function closeReveal() {
-    reveal.setAttribute('data-open', 'false');
-    body.classList.remove('scroll-locked');
-
-    var finish = function () {
-      reveal.setAttribute('inert', '');
-      if (lastTrigger) lastTrigger.focus();
-    };
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      finish();
-    } else {
-      setTimeout(finish, 640);
-    }
+  .book-showcase .plate:nth-child(n) {
+    grid-column: auto;
+    grid-row: auto;
   }
 
-  function isRevealOpen() {
-    return reveal.getAttribute('data-open') === 'true';
+  .book-showcase .plate .frame {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   8.2 — THE COVER ITSELF: hover as "stepping closer"
+   No drop shadows anywhere. Depth and tactility come from three layered
+   cues instead: (1) a slow, heavy scale, (2) a raking-light sweep that
+   travels across the surface via background-position, and (3) a faint
+   paper-grain texture that only becomes perceptible at the closer
+   "inspection" distance. All GPU-composited (transform, opacity,
+   background-position) — no layout properties are touched on interaction.
+   ------------------------------------------------------------------------- */
+
+.book-showcase .frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--canvas-tint);
+  border: 1px solid var(--ink-15);
+  cursor: pointer;
+}
+
+.book-showcase .frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  backface-visibility: hidden;
+}
+
+/* Paper-grain texture — inline SVG feTurbulence, no image request.
+   Sits above the image at near-zero opacity until hover intensifies it
+   slightly, simulating the surface becoming legible under raking light. */
+.book-showcase .frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode: multiply;
+  opacity: 0.025;
+  pointer-events: none;
+}
+
+/* Raking-light sweep — a diagonal gradient parked off-canvas, only
+   travels across the surface on hover/focus for devices with real
+   pointers. Gated behind (hover: hover) so touch never gets a
+   stuck light-sweep after tap. */
+@media (hover: hover) and (pointer: fine) {
+  .book-showcase .frame::after {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background: linear-gradient(
+      115deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.22) 48%,
+      rgba(255, 255, 255, 0.06) 52%,
+      transparent 60%
+    );
+    background-size: 220% 220%;
+    background-position: -40% -40%;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    transition: background-position var(--dur-frame) var(--ease-resonant);
   }
 
-  triggers.forEach(function (trigger) {
-    trigger.addEventListener('click', function () { openReveal(trigger); });
-  });
-
-  revealClose.addEventListener('click', function () { closeReveal(); });
-
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-      if (isRevealOpen()) { closeReveal(); return; }
-      if (isNavOpen()) { closeNav(true); return; }
-    }
-
-    if (event.key === 'Tab' && isRevealOpen()) {
-      var focusable = focusableInReveal();
-      if (focusable.length === 0) return;
-
-      if (focusable.length === 1) {
-        event.preventDefault();
-        focusable[0].focus();
-        return;
-      }
-
-      var first = focusable[0];
-      var last = focusable[focusable.length - 1];
-
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    }
-  });
-
-  function markPending(img) {
-    var frame = img.closest('.frame');
-    if (!frame) return;
-    frame.classList.add('frame--pending');
-    if (!frame.querySelector('.frame-pending-label')) {
-      var label = document.createElement('span');
-      label.className = 'frame-pending-label';
-      label.textContent = img.alt || 'Artwork pending';
-      frame.appendChild(label);
-    }
+  .book-showcase .frame,
+  .book-showcase .frame img {
+    transition: transform var(--dur-frame) var(--ease-resonant),
+                border-color var(--dur-frame) var(--ease-resonant),
+                filter var(--dur-frame) var(--ease-resonant);
   }
 
-  function clearPending(img) {
-    var frame = img.closest('.frame');
-    if (!frame) return;
-    frame.classList.remove('frame--pending');
-    var label = frame.querySelector('.frame-pending-label');
-    if (label) label.remove();
+  .book-showcase .frame:hover,
+  .book-showcase .frame:focus-visible {
+    border-color: var(--gold-soft);
   }
 
-  document.querySelectorAll('.frame img').forEach(function (img) {
-    img.onerror = function () { markPending(img); };
-    img.onload = function () { clearPending(img); };
-    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
-      markPending(img);
-    }
-  });
-})();
-</script>
+  .book-showcase .frame:hover img,
+  .book-showcase .frame:focus-visible img {
+    transform: scale(1.035);
+    filter: contrast(1.03) brightness(1.015);
+  }
 
-</body>
-</html>
+  .book-showcase .frame:hover::after,
+  .book-showcase .frame:focus-visible::after {
+    background-position: 60% 60%;
+  }
+
+  .book-showcase .frame::before {
+    transition: opacity var(--dur-frame) var(--ease-resonant);
+  }
+
+  .book-showcase .frame:hover::before,
+  .book-showcase .frame:focus-visible::before {
+    opacity: 0.05;
+  }
+}
+
+/* Touch / coarse-pointer devices: no hover choreography, but a persistent
+   quiet affordance so it's clear the plate is tappable. */
+@media not all and (hover: hover) {
+  .book-showcase .frame {
+    border-color: var(--ink-15);
+  }
+}
+
+.book-showcase figcaption {
+  margin-top: var(--s-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-3);
+}
+
+/* Only the dominant (5×5) plate carries a caption at rest — the four
+   supporting covers reveal their captions on open, keeping the mosaic
+   itself quiet and letting the grid geometry do the talking. */
+.book-showcase .plate:not(:first-child) figcaption {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .book-showcase .plate figcaption { display: flex; }
+}
+
+/* -------------------------------------------------------------------------
+   8.3 — THE REVEAL: full-viewport archival presentation sheet
+   Not a lightbox. No dark scrim, no centered floating card. The reveal
+   IS the page for a moment — full white canvas, rail/bout layout reused
+   at full scale, a close control instead of a modal chrome. JS toggles
+   `data-open="true"` on `.book-reveal` and adds `.scroll-locked` to body.
+   ------------------------------------------------------------------------- */
+
+.book-reveal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--canvas);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.985);
+  transition: opacity var(--dur-frame) var(--ease-resonant),
+              transform var(--dur-frame) var(--ease-resonant),
+              visibility 0s linear var(--dur-frame);
+  overflow-y: auto;
+}
+
+.book-reveal[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: opacity var(--dur-frame) var(--ease-resonant),
+              transform var(--dur-frame) var(--ease-resonant),
+              visibility 0s linear 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-reveal {
+    transform: none;
+    transition: opacity var(--dur-quick) linear,
+                visibility 0s linear var(--dur-quick);
+  }
+  .book-reveal[data-open="true"] {
+    transition: opacity var(--dur-quick) linear, visibility 0s linear 0s;
+  }
+}
+
+.book-reveal .wrap {
+  padding-top: var(--s-6);
+  padding-bottom: var(--s-7);
+  min-height: 100%;
+}
+
+.reveal-close {
+  position: sticky;
+  top: var(--s-4);
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--ink-15);
+  padding: var(--s-2) var(--s-3);
+  background: var(--canvas);
+  transition: border-color var(--dur-quick) var(--ease-resonant),
+              color var(--dur-quick) var(--ease-resonant);
+  z-index: 2;
+}
+
+.reveal-close:hover,
+.reveal-close:focus-visible {
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.reveal-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-6);
+  margin-top: var(--s-5);
+}
+
+@media (min-width: 900px) {
+  .reveal-body {
+    grid-template-columns: 1.618fr 1fr;
+    align-items: start;
+    gap: var(--s-7);
+  }
+}
+
+.reveal-frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--canvas-tint);
+  border: 1px solid var(--ink-08);
+  aspect-ratio: 3 / 4;
+}
+
+.reveal-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--canvas-tint);
+}
+
+.reveal-detail .eyebrow { display: block; }
+
+.reveal-detail .h2 {
+  margin-top: var(--s-3);
+}
+
+.reveal-detail .body-text {
+  margin-top: var(--s-4);
+  max-width: 48ch;
+}
+
+.reveal-detail .doi {
+  display: block;
+  margin-top: var(--s-5);
+}
+
+/* ==========================================================================
+   9. GALLERY FRAMES & PLATES — general-purpose (research/architecture pages)
+   ========================================================================== */
+
+.plate { position: relative; }
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--canvas-tint);
+  border: 1px solid var(--ink-08);
+}
+
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  will-change: transform;
+  transition: transform var(--dur-frame) var(--ease-resonant);
+  backface-visibility: hidden;
+}
+
+.frame:hover img,
+.frame:focus-within img {
+  transform: scale(1.03);
+}
+
+.plate figcaption {
+  margin-top: var(--s-3);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-3);
+}
+
+.plate-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--s-6) var(--s-5);
+  align-items: start;
+}
+
+.plate--tall .frame { aspect-ratio: 14 / 17; }
+.plate--wide .frame { aspect-ratio: 16 / 10; }
+.plate--square .frame { aspect-ratio: 1 / 1; }
+
+/* ==========================================================================
+   10. PUBLICATION / RESEARCH BLOCKS
+   ========================================================================== */
+
+.pub {
+  padding-block: var(--s-6);
+  border-top: 1px solid var(--ink-15);
+}
+
+.pub:first-of-type { border-top: none; }
+
+.pub-number {
+  font-family: var(--font-display);
+  font-size: var(--t-lede);
+  font-weight: 340;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.pub-title {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--t-h2);
+  font-weight: 480;
+  letter-spacing: -0.002em;
+  line-height: 1.16;
+  margin-top: var(--s-2);
+}
+
+.pub-venue { margin-top: var(--s-2); }
+
+.pub-status {
+  display: inline-block;
+  margin-top: var(--s-2);
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-60);
+  border: 1px solid var(--ink-15);
+  padding: var(--s-1) var(--s-2);
+}
+
+/* ==========================================================================
+   11. TIMELINE
+   ========================================================================== */
+
+.timeline { position: relative; padding-left: var(--s-4); }
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  bottom: 0.5em;
+  width: 1px;
+  background: var(--ink-15);
+}
+
+.timeline-item { position: relative; padding-bottom: var(--s-6); }
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--s-4) * -1);
+  top: 0.4em;
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--gold);
+  background: var(--canvas);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-year {
+  font-family: var(--font-display);
+  font-size: var(--t-lede);
+  font-weight: 340;
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   12. PULL QUOTE
+   ========================================================================== */
+
+.pull-quote {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--t-h2);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.002em;
+  line-height: 1.3;
+  max-width: 20ch;
+  color: var(--ink);
+}
+
+.pull-quote cite {
+  display: block;
+  margin-top: var(--s-4);
+  font-family: var(--font-ui);
+  font-style: normal;
+  font-size: var(--t-caption);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+}
+
+/* ==========================================================================
+   13. FORM ELEMENTS — Contact Page
+   ========================================================================== */
+
+.field {
+  border-bottom: 1px solid var(--ink-15);
+  padding-bottom: var(--s-2);
+  transition: border-color var(--dur-frame) var(--ease-resonant);
+}
+
+.field:focus-within { border-color: var(--gold); }
+
+.field label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-60);
+  margin-bottom: var(--s-2);
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  color: var(--ink);
+  resize: vertical;
+}
+
+.field textarea { min-height: 7em; }
+
+.form-grid { display: grid; gap: var(--s-5); }
+
+.btn-submit {
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: var(--s-3) var(--s-5);
+  transition: background var(--dur-frame) var(--ease-resonant),
+              color var(--dur-frame) var(--ease-resonant),
+              border-color var(--dur-frame) var(--ease-resonant);
+  display: inline-block;
+}
+
+.btn-submit:hover {
+  background: var(--ink);
+  color: var(--canvas);
+}
+
+/* ==========================================================================
+   14. UTILITIES
+   ========================================================================== */
+
+.mt-1 { margin-top: var(--s-1); } .mt-2 { margin-top: var(--s-2); }
+.mt-3 { margin-top: var(--s-3); } .mt-4 { margin-top: var(--s-4); }
+.mt-5 { margin-top: var(--s-5); } .mt-6 { margin-top: var(--s-6); }
+.mt-7 { margin-top: var(--s-7); } .mt-8 { margin-top: var(--s-8); }
+
+.text-gold { color: var(--gold); }
+.text-ink-60 { color: var(--ink-60); }
+.no-transform { text-transform: none; }
+.center { text-align: center; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ==========================================================================
+   15. RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .wrap { padding: 0 var(--s-4); }
+  .section { padding-block: var(--s-6); }
+  .plate-gallery { gap: var(--s-5) var(--s-4); }
+  .reveal-close { top: var(--s-2); }
+}
+
+@media (min-width: 900px) and (max-width: 1100px) {
+  :root { --rail-width: minmax(220px, 1fr); }
+}
+
+/* ==========================================================================
+   16. PRINT — The Exhibition Catalog Paradigm
+   ========================================================================== */
+
+@media print {
+  @page { margin: 2.2cm 1.8cm; }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  body {
+    background: #FFFFFF;
+    color: #000000;
+    font-size: 11pt;
+    line-height: 1.6;
+  }
+
+  .site-header, .site-footer, .nav-toggle, .nav-list,
+  .btn-submit, .field, form, .book-reveal, .no-print {
+    display: none !important;
+  }
+
+  .lute-grid { display: block !important; }
+
+  .rail {
+    text-align: left;
+    padding-right: 0;
+    margin-bottom: 0.6em;
+  }
+
+  .rail::before { display: none; }
+  .spine-break { display: none !important; }
+
+  .hero-title, h1, .h1 { font-size: 26pt; }
+  .h2 { font-size: 16pt; }
+  .lede { font-size: 12pt; font-style: italic; }
+
+  a { color: #000000; text-decoration: underline; }
+
+  .frame img,
+  .book-showcase .frame img { filter: grayscale(100%); }
+
+  .book-showcase .frame::before,
+  .book-showcase .frame::after { display: none; }
+
+  .book-showcase {
+    display: block;
+  }
+  .book-showcase .plate {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 0.6cm;
+  }
+  .book-showcase .plate figcaption { display: flex !important; }
+
+  .pub, .plate, .section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .section {
+    padding-block: 0.8cm;
+    border-top: 0.5pt solid #999;
+  }
+
+  .wrap { max-width: 100%; padding: 0; }
+
+  .hr-gold, .hr-ink { background: #000; opacity: 1; }
+
+  .pull-quote { font-size: 15pt; }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #555;
+  }
+
+  .doi a::after { content: ""; }
+}
+
+/* ==========================================================================
+   17. IMAGE-FAILURE FALLBACK
+   Driven by the existing onerror/onload script in index.html
+   (markPending / clearPending). Moved here from an inline <head> <style>
+   block so every page shares one definition instead of each page
+   carrying its own copy. Keeps the aspect-ratio box intact — no CLS —
+   and surfaces the image's own alt text instead of a broken-image icon.
+   ========================================================================== */
+
+.frame--pending {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--canvas-tint),
+    var(--canvas-tint) 10px,
+    var(--ink-08) 10px,
+    var(--ink-08) 11px
+  );
+}
+
+.frame--pending img { display: none; }
+
+.frame-pending-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  text-align: center;
+  padding: var(--s-3);
+}
+
+@media print {
+  .frame--pending { background: var(--canvas-tint); }
+}
