@@ -128,11 +128,28 @@
             </div>
 
             <div class="plate plate--tall">
-  <div class="frame">
-     <!-- MASTER BLUEPRINT: Portrait asset. Dimensions: 1400x1700px. Aspect ratio: ~0.82. -->
-     <img src="images/final-web3-copy.jpg" alt="Mohammad Mahdi Karbasbaf - Resonance Hero">
-  </div>
-</div>
+              <!-- MASTER BLUEPRINT: Hero Calligraphy Master Artwork
+                   Physical rendering box: 1400 × 1700px (portrait, 14:17 —
+                   exactly matches .plate--tall { aspect-ratio: 14 / 17 } in
+                   style.css, so the CSS-enforced box and the intrinsic image
+                   ratio never fight each other; zero layout shift on load.
+                   Export @2x for retina (2800 × 3400px source).
+                   Composition: single-subject Thuluth-script calligraphic
+                   rendering of the artist's name, ink-black (#191A17)
+                   brushwork on a pure white or near-white (#FFFFFF–#FAFAF8)
+                   ground, generous negative space bleeding to all four
+                   edges — strokes occupy no more than 65% of the vertical
+                   frame. No drop shadow, no background texture, no framing
+                   border. Lighting: flat, even, scanned-document quality
+                   with true blacks and no gradient banding. -->
+              <div class="frame">
+                <img
+                  src="assets/images/hero-calligraphy.jpg"
+                  alt="Thuluth-script calligraphic rendering by Mohammad Mahdi Karbasbaf"
+                  width="1400" height="1700"
+                  loading="eager" fetchpriority="high" decoding="async">
+              </div>
+            </div>
 
           </div>
         </div>
