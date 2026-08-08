@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mohammad Mahdi Karbasbaf — Resonance Across Scales</title>
-<meta name="description" content="The research and design archive of Mohammad Mahdi Karbasbaf: acoustic heritage, the Golden Method, Persian architectural acoustics, and astrophysical wave analysis.">
+<meta name="description" content="The research and design archive of Mohammad Mahdi Karbasbaf: acoustic heritage, the Golden Method, Persian architectural acoustics, book cover design, and astrophysical wave analysis.">
 
-<!-- Google Fonts -->
+<!-- Google Fonts: Fraunces (display), Source Serif 4 (reading matter), Inter (utility) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,600&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- Master Stylesheet -->
 <link rel="stylesheet" href="style.css">
@@ -25,14 +25,16 @@
   "image": "https://karbasbaf-archive.example/assets/images/portrait.jpg",
   "email": "mailto:karbasbaf@gmail.com",
   "jobTitle": "Independent Researcher — Acoustics & Wave Phenomena",
-  "description": "Researcher investigating resonance phenomena across terrestrial and astrophysical scales, connecting traditional luthiery, Persian architectural acoustics, and wave-analysis methodology.",
+  "description": "Researcher and book designer investigating resonance phenomena across terrestrial and astrophysical scales, connecting traditional luthiery, Persian architectural acoustics, and wave-analysis methodology.",
   "knowsAbout": [
     "Archaeoacoustics",
     "Architectural Acoustics",
     "Musical Instrument Acoustics",
     "Computational Acoustics",
     "Astrophysical Wave Phenomena",
-    "Multi-Scale Wave Analysis"
+    "Multi-Scale Wave Analysis",
+    "Persian Calligraphy",
+    "Book Cover Design"
   ],
   "alumniOf": {
     "@type": "CollegeOrUniversity",
@@ -46,7 +48,7 @@
     {
       "@type": "ScholarlyArticle",
       "name": "Experimental validation of Helmholtz resonator arrays as zero-energy acoustic treatment for net-zero energy buildings",
-      "author": "Mohammad Mahdi Karbasbaf",
+      "author": ["Mohammad Mahdi Karbasbaf", "G. Ezaan"],
       "datePublished": "2026",
       "isPartOf": { "@type": "Periodical", "name": "Next Research" },
       "sameAs": "https://doi.org/10.1016/j.nexres.2026.102016"
@@ -54,7 +56,7 @@
     {
       "@type": "ScholarlyArticle",
       "name": "From ornamentation to acoustics: A quantitative analysis of Tong Bori elements in Persian architectural heritage",
-      "author": "Mohammad Mahdi Karbasbaf",
+      "author": ["Mohammad Mahdi Karbasbaf", "G. Ezaan"],
       "datePublished": "2025",
       "isPartOf": { "@type": "Periodical", "name": "Digital Applications in Archaeology and Cultural Heritage" },
       "sameAs": "https://doi.org/10.1016/j.daach.2025.e00433"
@@ -62,7 +64,7 @@
     {
       "@type": "ScholarlyArticle",
       "name": "Historical Evolution and Acoustic Significance of Sound Holes in Lutes",
-      "author": "Mohammad Mahdi Karbasbaf",
+      "author": ["Mohammad Mahdi Karbasbaf", "G. Ezaan"],
       "datePublished": "2024",
       "isPartOf": { "@type": "Periodical", "name": "Applied Acoustics" },
       "sameAs": "https://doi.org/10.1016/j.apacoust.2023.109784"
@@ -70,7 +72,7 @@
     {
       "@type": "ScholarlyArticle",
       "name": "A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments: The Golden Method",
-      "author": ["Mohammad Mahdi Karbasbaf", "S. Jafari"],
+      "author": ["S. Jafari", "Mohammad Mahdi Karbasbaf"],
       "datePublished": "2017",
       "isPartOf": { "@type": "Periodical", "name": "Arts" },
       "sameAs": "https://doi.org/10.3390/arts6040020"
@@ -90,52 +92,62 @@
       Karbasbaf
       <span>Archive of Resonance</span>
     </a>
-    <nav class="nav-list" id="primary-nav" aria-label="Primary">
+    <nav class="nav-list" id="primary-nav" data-open="false" aria-label="Primary">
       <a href="index.html" aria-current="page">Home</a>
       <a href="book-designs.html">Book Designs</a>
       <a href="research.html">Research</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      Menu
+    </button>
   </div>
 </header>
 
 <main>
 
   <!-- ==========================================================================
-       1. CINEMATIC HERO — Weight-Contrast Typography / Asymmetric Split
+       1. CINEMATIC HERO
        ========================================================================== -->
   <section class="hero">
     <div class="wrap">
       <div class="lute-grid">
         <div class="rail">
-          <p class="eyebrow eyebrow--gold">Independent Researcher &amp; Luthier</p>
+          <p class="eyebrow eyebrow--gold">Independent Researcher, Luthier &amp; Book Designer</p>
         </div>
         <div class="canvas">
-          <div class="lute-grid" style="grid-template-columns: 1.2fr 1fr; align-items: center; gap: var(--s-6);">
+          <div class="hero-split">
 
             <div>
               <h1 class="hero-title">
                 <span class="line-primary">Strings</span>
                 <span class="line-secondary">to Stars</span>
               </h1>
-              <p class="lede mt-5">Resonance phenomena across terrestrial scales — from the soundhole of a Persian lute to the ornamented dome of a palace hall — read as a single, continuous instrument.</p>
+              <p class="lede">Resonance phenomena across terrestrial scales — from the soundhole of a Persian lute to the ornamented dome of a palace hall — read as a single, continuous instrument.</p>
             </div>
 
             <div class="plate plate--tall">
               <!-- MASTER BLUEPRINT: Hero Calligraphy Master Artwork
-                   Canvas: 1400 x 1700px (portrait, roughly 4:4.9 ratio), export @2x for retina.
-                   Composition: single-subject Thuluth-script calligraphic rendering of the
-                   artist's name (or a chosen resonance-themed phrase), ink-black (#191A17)
-                   brushwork on a pure white or near-white (#FFFFFF–#FAFAF8) ground, generous
-                   negative space bleeding to all four edges — the strokes should occupy no
-                   more than 65% of the vertical frame so the composition reads as light and
-                   unforced rather than dense. No drop shadow, no background texture, no
-                   framing border — the ink itself is the only content. Lighting: flat, even,
-                   scanned-document quality with true blacks and no gradient banding. -->
+                   Physical rendering box: 1400 × 1700px (portrait, 14:17 —
+                   exactly matches .plate--tall { aspect-ratio: 14 / 17 } in
+                   style.css, so the CSS-enforced box and the intrinsic image
+                   ratio never fight each other; zero layout shift on load.
+                   Export @2x for retina (2800 × 3400px source).
+                   Composition: single-subject Thuluth-script calligraphic
+                   rendering of the artist's name, ink-black (#191A17)
+                   brushwork on a pure white or near-white (#FFFFFF–#FAFAF8)
+                   ground, generous negative space bleeding to all four
+                   edges — strokes occupy no more than 65% of the vertical
+                   frame. No drop shadow, no background texture, no framing
+                   border. Lighting: flat, even, scanned-document quality
+                   with true blacks and no gradient banding. -->
               <div class="frame">
-                <img src="assets/images/hero-calligraphy.jpg" alt="Thuluth-script calligraphic rendering by Mohammad Mahdi Karbasbaf" loading="lazy" width="1400" height="1700">
+                <img
+                  src="assets/images/hero-calligraphy.jpg"
+                  alt="Thuluth-script calligraphic rendering by Mohammad Mahdi Karbasbaf"
+                  width="1400" height="1700"
+                  loading="eager" fetchpriority="high" decoding="async">
               </div>
             </div>
 
@@ -146,141 +158,185 @@
   </section>
 
   <!-- ==========================================================================
-       2. VISUAL ARTWORK & BOOK DESIGN SHOWCASE — precedes biography
+       2. THE BOOK COVER SHOWCASE — Fibonacci Square Spiral (5 plates)
+       Sits directly beneath the hero, before any biographical content.
        ========================================================================== -->
-  <section class="section" id="showcase">
+  <section class="section" id="showcase" aria-labelledby="showcase-heading">
     <div class="wrap">
-      <div class="lute-grid">
+      <div class="section-head lute-grid">
         <div class="rail">
-          <p class="eyebrow">Selected Plates</p>
+          <p class="eyebrow">Selected Covers</p>
           <div class="spine-break" aria-hidden="true">
             <svg viewBox="0 0 34 46" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 23 C 4 23, 5 4, 8.5 4 C 12 4, 12 34, 15.5 34 C 19 34, 19 12, 22.5 12 C 26 12, 26 27, 29.5 27 C 32 27, 33 23, 34 23" />
             </svg>
           </div>
-          <p class="caption">Instrument Plates<br>Architectural Plates<br>Cosmic Plates</p>
+          <p class="caption">Book Design<br>Calligraphy<br>Typographic Plates</p>
         </div>
         <div class="canvas">
-          <h2 class="h2">From Strings<br>to Stars</h2>
-          <p class="body-text">A visual survey spanning the constructed instrument, the ornamented interior, and the resonant nebula — three scales of the same underlying question.</p>
+          <h2 class="h2" id="showcase-heading">Five Covers,<br>One Spiral</h2>
+          <p class="body-text">Five plates, arranged as the Fibonacci square spiral itself — the same 1, 1, 2, 3, 5 construction used in the Golden Method (2017) to place a lute's soundhole. Select a cover to inspect it at full scale.</p>
         </div>
       </div>
 
-      <div class="plate-gallery mt-7">
+      <div class="book-showcase mt-7">
 
-        <!-- MASTER BLUEPRINT: Plate 01 — "Lute Interior / Nebula Diptych"
-             Canvas: 1100 x 1540px (portrait, 3:4.2 ratio), export @2x for retina.
-             Composition: split-frame diptych — upper 55% shows the oval soundhole rosette
-             of a constructed Tār/lute in warm wood tones (#C9974A-adjacent ochres) shot
-             top-down under soft raking light; lower 45% shows a Herbig-Haro nebula frame
-             in matching warm-to-cool gradient so the two halves visually rhyme across the
-             seam. Keep a 4px true-white gutter between halves if compositing manually.
-             Background: pure white or off-white (#FAFAF8) matte outside the frame edge. -->
-        <figure class="plate plate--tall">
-          <div class="frame">
-            <img src="assets/images/plate-01-strings-to-stars.jpg" alt="Diptych: oval soundhole rosette of a constructed lute above a Herbig-Haro nebula frame" loading="lazy" width="1100" height="1540">
-          </div>
-          <figcaption>
-            <span class="caption">Plate I</span>
-            <span class="caption text-gold">Strings to Stars</span>
-          </figcaption>
-        </figure>
+        <!-- MASTER BLUEPRINT: Plate 1 — Dominant cell (5×5 of the spiral)
+             Physical rendering box: fills a true square cell at this plate's
+             grid position; object-fit: cover crops any source ratio safely.
+             Recommended source: 1600 × 2000px portrait book-cover scan.
+             Composition: "The Golden Method" monograph cover — Thuluth
+             title lockup in ink-black over a pale ground, with the golden
+             spiral soundhole-construction diagram reproduced faintly as a
+             single-color line-art watermark beneath the title, gold
+             (#C9974A) used only for the thinnest construction lines. -->
+        <button
+          type="button"
+          class="plate-trigger"
+          data-title="The Golden Method"
+          data-year="2017 — cover design"
+          data-medium="Letterpress-style cover, Thuluth title lockup over golden-spiral construction diagram"
+          data-image="assets/images/covers/cover-01-golden-method.jpg"
+          data-alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
+          data-doi="Companion volume to: A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments, Arts (2017)">
+          <span class="plate">
+            <span class="frame">
+              <img
+                src="assets/images/covers/cover-01-golden-method.jpg"
+                alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
+                width="1600" height="2000"
+                loading="eager" decoding="async">
+            </span>
+            <span class="caption" style="display:block; margin-top: var(--s-2);">
+              <span aria-hidden="true">I —</span> The Golden Method
+            </span>
+          </span>
+        </button>
 
-        <!-- MASTER BLUEPRINT: Plate 02 — "The Golden Method, Geometric Overlay"
-             Canvas: 1600 x 1000px (landscape, 16:10 ratio), export @2x.
-             Composition: grayscale photograph or line-art of a lute body with the
-             Fibonacci/golden-spiral construction lines overlaid in thin gold-tone
-             stroke (#C9974A, 1–1.5px equivalent), labelled points A/B/C/D visible.
-             Leave generous negative space at top-right (approx 20% of frame) for
-             potential caption overlay. Background: neutral grey or off-white paper
-             texture, desaturated, no high-contrast shadows. -->
-        <figure class="plate plate--wide">
-          <div class="frame">
-            <img src="assets/images/plate-02-golden-method.jpg" alt="Lute body diagram with golden ratio geometric construction lines overlaid" loading="lazy" width="1600" height="1000">
-          </div>
-          <figcaption>
-            <span class="caption">Plate II</span>
-            <span class="caption text-gold">The Golden Method</span>
-          </figcaption>
-        </figure>
+        <!-- MASTER BLUEPRINT: Plate 2 — 3×3 spiral cell
+             Recommended source: 1400 × 1400px, square-cropping tolerant.
+             Composition: cover for a Tong Bori heritage volume — the
+             vase-shaped niche silhouette from Ali Qapu's Music Hall
+             rendered as a single black cutout on cream, no gradient. -->
+        <button
+          type="button"
+          class="plate-trigger"
+          data-title="Ornament as Instrument"
+          data-year="2025 — cover design"
+          data-medium="Silhouette cover, single-color cutout on cream stock"
+          data-image="assets/images/covers/cover-02-tong-bori.jpg"
+          data-alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground"
+          data-doi="Companion volume to: From Ornamentation to Acoustics, Digital Applications in Archaeology and Cultural Heritage (2025)">
+          <span class="plate">
+            <span class="frame">
+              <img
+                src="assets/images/covers/cover-02-tong-bori.jpg"
+                alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground"
+                width="1400" height="1400"
+                loading="lazy" decoding="async">
+            </span>
+            <span class="caption" style="display:block; margin-top: var(--s-2);">
+              <span aria-hidden="true">II —</span> Ornament as Instrument
+            </span>
+          </span>
+        </button>
 
-        <!-- MASTER BLUEPRINT: Plate 03 — "Tong Bori Ornament, Macro Detail"
-             Canvas: 1100 x 1100px (square, 1:1 ratio), export @2x.
-             Composition: tight macro crop of Persian Muqarnas / Tong Bori ceiling
-             ornament in high-contrast black-and-white, deep shadow recesses (near
-             #191A17) against pale plaster highlights. Shoot or select an image with
-             a clear vase-shaped or oval void motif near centre-frame to echo the
-             soundhole imagery elsewhere on the site. Background: none — the
-             architecture fills the full frame edge-to-edge. -->
-        <figure class="plate plate--square">
-          <div class="frame">
-            <img src="assets/images/plate-03-tong-bori.jpg" alt="Macro detail of Tong Bori ornamental ceiling elements in high-contrast black and white" loading="lazy" width="1100" height="1100">
-          </div>
-          <figcaption>
-            <span class="caption">Plate III</span>
-            <span class="caption text-gold">Tong Bori Detail</span>
-          </figcaption>
-        </figure>
+        <!-- MASTER BLUEPRINT: Plate 3 — 2×2 spiral cell
+             Recommended source: 1200 × 1200px.
+             Composition: cover study for a short-necked lute history —
+             triple-hole soundhole motif repeated as a minimal typographic
+             ornament, ink-black on white, no illustration beyond the
+             three circular voids. -->
+        <button
+          type="button"
+          class="plate-trigger"
+          data-title="Sound Holes"
+          data-year="2024 — cover design"
+          data-medium="Minimal typographic cover, triple-hole motif"
+          data-image="assets/images/covers/cover-03-sound-holes.jpg"
+          data-alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament"
+          data-doi="Companion volume to: Historical Evolution and Acoustic Significance of Sound Holes in Lutes, Applied Acoustics (2024)">
+          <span class="plate">
+            <span class="frame">
+              <img
+                src="assets/images/covers/cover-03-sound-holes.jpg"
+                alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament"
+                width="1200" height="1200"
+                loading="lazy" decoding="async">
+            </span>
+            <span class="caption" style="display:block; margin-top: var(--s-2);">
+              <span aria-hidden="true">III —</span> Sound Holes
+            </span>
+          </span>
+        </button>
 
-        <!-- MASTER BLUEPRINT: Plate 04 — "Ali Qapu Music Hall, Book Cover Composition"
-             Canvas: 1100 x 1540px (portrait, 3:4.2 ratio), export @2x.
-             Composition: full-bleed cover-style composition of the Ali Qapu Music
-             Hall vase-niche wall, cropped so a single large niche silhouette sits
-             just off-centre (rule-of-thirds), rendered in warm sepia-to-charcoal
-             tone. Reserve bottom 15% of frame as a darker gradient band suitable
-             for overlaid title typography on the Book Designs page. -->
-        <figure class="plate plate--tall">
-          <div class="frame">
-            <img src="assets/images/plate-04-ali-qapu-cover.jpg" alt="Book-cover style composition of the Ali Qapu Palace Music Hall vase-niche wall" loading="lazy" width="1100" height="1540">
-          </div>
-          <figcaption>
-            <span class="caption">Plate IV</span>
-            <span class="caption text-gold">Ali Qapu, Isfahan</span>
-          </figcaption>
-        </figure>
+        <!-- MASTER BLUEPRINT: Plate 4 — 1×1 spiral cell
+             Recommended source: 1000 × 1000px.
+             Composition: cover fragment using the resonant-vessel array
+             photograph, cropped tight to a single sphere under raking
+             light — reads as an abstract dot at this scale, resolves to
+             the full image only in the reveal panel. -->
+        <button
+          type="button"
+          class="plate-trigger"
+          data-title="Resonant Vessels"
+          data-year="2026 — cover design"
+          data-medium="Photographic cover, single Helmholtz resonator sphere, cropped tight"
+          data-image="assets/images/covers/cover-04-resonant-vessels.jpg"
+          data-alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator"
+          data-doi="Companion volume to: Experimental validation of Helmholtz resonator arrays, Next Research (2026)">
+          <span class="plate">
+            <span class="frame">
+              <img
+                src="assets/images/covers/cover-04-resonant-vessels.jpg"
+                alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator"
+                width="1000" height="1000"
+                loading="lazy" decoding="async">
+            </span>
+            <span class="caption" style="display:block; margin-top: var(--s-2);">
+              <span aria-hidden="true">IV —</span> Resonant Vessels
+            </span>
+          </span>
+        </button>
 
-        <!-- MASTER BLUEPRINT: Plate 05 — "Waveform Study, Modal Decay"
-             Canvas: 1600 x 1000px (landscape, 16:10 ratio), export @2x.
-             Composition: minimal scientific plot re-rendered as an art object —
-             a single damped sine waveform (modal decay curve) drawn as a thin gold
-             line on pure white ground, no axis labels, no grid, generous margins
-             (at least 12% of frame on all sides). This plate should read as a
-             companion piece to the .spine-break motif used throughout the site. -->
-        <figure class="plate plate--wide">
-          <div class="frame">
-            <img src="assets/images/plate-05-waveform-study.jpg" alt="Minimalist gold line rendering of a damped sine waveform modal decay study" loading="lazy" width="1600" height="1000">
-          </div>
-          <figcaption>
-            <span class="caption">Plate V</span>
-            <span class="caption text-gold">Modal Decay Study</span>
-          </figcaption>
-        </figure>
-
-        <!-- MASTER BLUEPRINT: Plate 06 — "Resonant Vessel Array"
-             Canvas: 1100 x 1100px (square, 1:1 ratio), export @2x.
-             Composition: photograph or render of the spherical Helmholtz resonator
-             array (200-sphere acoustic chamber study) arranged in a grid, shot
-             from a raised 30° angle under soft diffuse light, mid-grey background
-             (#FAFAF8 to light warm grey), consistent shadow direction across all
-             spheres for a calm, catalog-plate stillness. -->
-        <figure class="plate plate--square">
-          <div class="frame">
-            <img src="assets/images/plate-06-resonant-vessels.jpg" alt="Grid array of spherical Helmholtz resonators photographed for the acoustic chamber study" loading="lazy" width="1100" height="1100">
-          </div>
-          <figcaption>
-            <span class="caption">Plate VI</span>
-            <span class="caption text-gold">Resonant Vessels</span>
-          </figcaption>
-        </figure>
+        <!-- MASTER BLUEPRINT: Plate 5 — 1×1 spiral cell
+             Recommended source: 1000 × 1000px.
+             Composition: cover fragment from the Strings-to-Stars diptych —
+             cropped to the nebula half only at this scale, warm-to-cool
+             gradient, no text overlay in the crop. -->
+        <button
+          type="button"
+          class="plate-trigger"
+          data-title="Strings to Stars"
+          data-year="2025 — cover design"
+          data-medium="Photographic diptych cover, lute rosette / nebula pairing"
+          data-image="assets/images/covers/cover-05-strings-to-stars.jpg"
+          data-alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame"
+          data-doi="Companion volume to ongoing research: Investigating the Role of Resonance in Herbig-Haro Objects (in preparation)">
+          <span class="plate">
+            <span class="frame">
+              <img
+                src="assets/images/covers/cover-05-strings-to-stars.jpg"
+                alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame"
+                width="1000" height="1000"
+                loading="lazy" decoding="async">
+            </span>
+            <span class="caption" style="display:block; margin-top: var(--s-2);">
+              <span aria-hidden="true">V —</span> Strings to Stars
+            </span>
+          </span>
+        </button>
 
       </div>
+
+      <p class="doi mt-6"><a href="book-designs.html">View the complete book design archive →</a></p>
     </div>
   </section>
 
-  <hr class="hr-gold wrap" style="max-width: var(--content-max); margin-left:auto; margin-right:auto;">
+  <hr class="hr-gold wrap">
 
   <!-- ==========================================================================
-       3. BIOGRAPHICAL / ABOUT NARRATIVE — after the art is witnessed
+       3. BIOGRAPHICAL / ABOUT NARRATIVE — after the artifacts are witnessed
        ========================================================================== -->
   <section class="section">
     <div class="wrap">
@@ -298,14 +354,20 @@
           <h2 class="h2">Foundation<br>in Craft</h2>
 
           <!-- MASTER BLUEPRINT: Portrait / Workshop Image
-               Canvas: 1600 x 1000px (landscape, 16:10 ratio), export @2x.
-               Composition: documentary-style black-and-white photograph of the
-               workshop or instrument construction in progress — hands, tools,
-               unfinished lute body — natural window light from one side, no
-               staged studio lighting. Sits directly beneath the section heading
-               inside the wide canvas column, full column width. -->
-          <div class="frame plate--wide mt-5">
-            <img src="assets/images/about-workshop.jpg" alt="Documentary photograph of Mohammad Mahdi Karbasbaf constructing a traditional Persian stringed instrument" loading="lazy" width="1600" height="1000">
+               Physical rendering box: 1600 × 1000px (16:10), matching
+               .plate--wide { aspect-ratio: 16 / 10 } exactly.
+               Composition: documentary-style black-and-white photograph
+               of the workshop or instrument construction in progress —
+               hands, tools, unfinished lute body — natural window light
+               from one side, no staged studio lighting. -->
+          <div class="plate plate--wide mt-5">
+            <div class="frame">
+              <img
+                src="assets/images/about-workshop.jpg"
+                alt="Documentary photograph of Mohammad Mahdi Karbasbaf constructing a traditional Persian stringed instrument"
+                width="1600" height="1000"
+                loading="lazy" decoding="async">
+            </div>
           </div>
 
           <p class="body-text dropcap mt-5">Years of hands-on work with musical instruments — investigating, building, and preserving them — led to the creation of the Golden Method, a mathematical approach for optimizing soundhole design. This practical experience revealed the deep acoustic wisdom embedded in centuries-old craftsmanship, providing the experiential foundation for all subsequent scientific research.</p>
@@ -357,7 +419,7 @@
       </div>
 
       <div class="lute-grid">
-        <div class="rail"></div>
+        <div class="rail" aria-hidden="true"></div>
         <div class="canvas">
 
           <article class="pub">
@@ -421,13 +483,193 @@
   </div>
 </footer>
 
+<!-- ==========================================================================
+     THE MONOGRAPH REVEAL — single shared panel, populated per plate
+     ========================================================================== -->
+<div class="book-reveal" id="book-reveal" data-open="false" role="dialog" aria-modal="true" aria-labelledby="reveal-title" inert>
+  <div class="wrap">
+    <button type="button" class="reveal-close" id="reveal-close">
+      <span aria-hidden="true">✕</span> Close
+    </button>
+    <div class="reveal-body">
+      <div class="reveal-frame">
+        <img id="reveal-image" src="" alt="" decoding="async">
+      </div>
+      <div class="reveal-detail">
+        <p class="eyebrow eyebrow--gold" id="reveal-year"></p>
+        <h2 class="h2" id="reveal-title"></h2>
+        <p class="body-text" id="reveal-medium"></p>
+        <p class="doi" id="reveal-doi"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     KINETICS — mobile drawer, book-reveal modal, focus trap
+     ========================================================================== -->
 <script>
-document.getElementById('nav-toggle').addEventListener('click', function () {
-  var nav = document.getElementById('primary-nav');
-  var open = nav.style.display === 'flex';
-  nav.style.display = open ? 'none' : 'flex';
-  this.setAttribute('aria-expanded', String(!open));
-});
+(function () {
+  'use strict';
+
+  /* ---------------------------------------------------------------------
+     1. MOBILE NAVIGATION DRAWER
+     --------------------------------------------------------------------- */
+  var navToggle = document.getElementById('nav-toggle');
+  var primaryNav = document.getElementById('primary-nav');
+  var body = document.body;
+  var desktopQuery = window.matchMedia('(min-width: 721px)');
+
+  function openNav() {
+    primaryNav.setAttribute('data-open', 'true');
+    navToggle.setAttribute('aria-expanded', 'true');
+    body.classList.add('nav-scrim-active');
+    var firstLink = primaryNav.querySelector('a');
+    if (firstLink) firstLink.focus();
+  }
+
+  function closeNav(returnFocus) {
+    primaryNav.setAttribute('data-open', 'false');
+    navToggle.setAttribute('aria-expanded', 'false');
+    body.classList.remove('nav-scrim-active');
+    if (returnFocus) navToggle.focus();
+  }
+
+  function isNavOpen() {
+    return primaryNav.getAttribute('data-open') === 'true';
+  }
+
+  navToggle.addEventListener('click', function () {
+    if (isNavOpen()) {
+      closeNav(true);
+    } else {
+      openNav();
+    }
+  });
+
+  // Close on outside click (the scrim area is the rest of the page).
+  document.addEventListener('click', function (event) {
+    if (!isNavOpen()) return;
+    var clickedInsideNav = primaryNav.contains(event.target);
+    var clickedToggle = navToggle.contains(event.target);
+    if (!clickedInsideNav && !clickedToggle) {
+      closeNav(false);
+    }
+  });
+
+  // Close when a nav link is chosen.
+  primaryNav.addEventListener('click', function (event) {
+    if (event.target.tagName === 'A') closeNav(false);
+  });
+
+  // Never leave the drawer stuck open if the viewport grows past the
+  // mobile breakpoint (e.g. rotating a tablet, or a resized window).
+  desktopQuery.addEventListener('change', function (event) {
+    if (event.matches && isNavOpen()) closeNav(false);
+  });
+
+  /* ---------------------------------------------------------------------
+     2. BOOK-REVEAL MODAL
+     --------------------------------------------------------------------- */
+  var reveal = document.getElementById('book-reveal');
+  var revealClose = document.getElementById('reveal-close');
+  var revealImage = document.getElementById('reveal-image');
+  var revealTitle = document.getElementById('reveal-title');
+  var revealYear = document.getElementById('reveal-year');
+  var revealMedium = document.getElementById('reveal-medium');
+  var revealDoi = document.getElementById('reveal-doi');
+  var triggers = Array.prototype.slice.call(document.querySelectorAll('.plate-trigger'));
+  var lastTrigger = null;
+
+  function focusableInReveal() {
+    return Array.prototype.slice.call(
+      reveal.querySelectorAll('button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])')
+    ).filter(function (el) { return el.offsetParent !== null; });
+  }
+
+  function openReveal(trigger) {
+    lastTrigger = trigger;
+
+    revealImage.src = trigger.getAttribute('data-image');
+    revealImage.alt = trigger.getAttribute('data-alt') || '';
+    revealTitle.textContent = trigger.getAttribute('data-title') || '';
+    revealYear.textContent = trigger.getAttribute('data-year') || '';
+    revealMedium.textContent = trigger.getAttribute('data-medium') || '';
+    revealDoi.textContent = trigger.getAttribute('data-doi') || '';
+
+    reveal.removeAttribute('inert');
+    reveal.setAttribute('data-open', 'true');
+    body.classList.add('scroll-locked');
+
+    // Move focus after the CSS transition begins, not before — avoids a
+    // focus jump that fires while the panel is still visually offscreen.
+    window.requestAnimationFrame(function () {
+      revealClose.focus();
+    });
+  }
+
+  function closeReveal() {
+    reveal.setAttribute('data-open', 'false');
+    body.classList.remove('scroll-locked');
+
+    var finish = function () {
+      reveal.setAttribute('inert', '');
+      if (lastTrigger) lastTrigger.focus();
+    };
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      finish();
+    } else {
+      setTimeout(finish, 640);
+    }
+  }
+
+  function isRevealOpen() {
+    return reveal.getAttribute('data-open') === 'true';
+  }
+
+  triggers.forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      openReveal(trigger);
+    });
+  });
+
+  revealClose.addEventListener('click', function () {
+    closeReveal();
+  });
+
+  /* ---------------------------------------------------------------------
+     3. FOCUS TRAP + ESCAPE (shared between nav drawer and reveal)
+     --------------------------------------------------------------------- */
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      if (isRevealOpen()) {
+        closeReveal();
+        return;
+      }
+      if (isNavOpen()) {
+        closeNav(true);
+        return;
+      }
+    }
+
+    if (event.key === 'Tab' && isRevealOpen()) {
+      var focusable = focusableInReveal();
+      if (focusable.length === 0) return;
+
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+})();
 </script>
 
 </body>
