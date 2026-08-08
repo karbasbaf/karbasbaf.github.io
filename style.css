@@ -374,33 +374,15 @@ h3, .h3 {
 .site-header {
   position: relative;
   padding: var(--s-5) 0;
-  background: var(--canvas);
+  background: transparent;
   z-index: 40;
 }
 
 .site-header .wrap {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: var(--s-4);
-}
-
-.brand {
-  font-family: var(--font-display);
-  font-size: var(--t-body);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-.brand span {
-  display: block;
-  font-family: var(--font-ui);
-  font-weight: 400;
-  font-size: var(--t-caption);
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--ink-60);
-  margin-top: 0.35em;
 }
 
 .nav-list {
@@ -523,25 +505,11 @@ h3, .h3 {
   position: relative;
 }
 
-.hero .eyebrow {
-  opacity: 0;
-  animation: fade-rise 900ms var(--ease-resonant) forwards;
-  animation-delay: 80ms;
-}
-
 .hero-title {
   margin-top: var(--s-3);
   opacity: 0;
   animation: fade-rise 1100ms var(--ease-resonant) forwards;
   animation-delay: 220ms;
-}
-
-.hero .lede {
-  margin-top: var(--s-5);
-  max-width: 34ch;
-  opacity: 0;
-  animation: fade-rise 1100ms var(--ease-resonant) forwards;
-  animation-delay: 420ms;
 }
 
 @keyframes fade-rise {
@@ -550,7 +518,7 @@ h3, .h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero .eyebrow, .hero-title, .hero .lede {
+  .hero-title {
     animation: none;
     opacity: 1;
   }
@@ -1231,39 +1199,52 @@ h3, .h3 {
 }
 
 /* ==========================================================================
-   18. THE CEILING CROWN & THE COALESCED HERO — homepage above-the-fold only
+   18. THE CEILING CROWN & THE PARALLEL HERO — homepage above-the-fold only
    ========================================================================== */
 
 /* -------------------------------------------------------------------------
    18.1 — Ceiling Crown
-   Sits as the true first element in <body>, so it occupies pixel zero
-   without any z-index/stacking-context trick against the opaque header.
-   Two layered backgrounds: a true 1px gold hairline at the very top edge,
-   plus a soft wash fading to transparent beneath it. --crown-asset and
-   --crown-asset-opacity are open hooks — drop a background-image and a
-   0–1 opacity value on :root (or on .ceiling-crown directly) to layer a
-   graphic in without touching this structural rule again.
+   True pixel-zero placement: fixed to the viewport rather than relying on
+   normal document flow, so it holds position regardless of scroll. It must
+   run BEHIND the nav text, which requires .site-header to have no opaque
+   background (see §6 — .site-header background is now `transparent`) so
+   this shows through the header's padding and gaps. Two layered
+   backgrounds: an extremely faint repeating hairline "ruling" (a nod to
+   letterpress/manuscript ledger lines) plus a soft vertical fade beneath
+   it. Both sit at 3–5% ink-grey opacity — never gold, never anything that
+   competes with nav-link legibility. z-index: -1 places it behind every
+   normal-flow element on the page (see stacking-order note below) while
+   still rendering above the plain white canvas background.
+
+   Stacking note: a position:fixed element paints in the same step as
+   other positioned descendants unless given a negative z-index, in which
+   case it paints in an earlier step than ordinary in-flow content. -1
+   here guarantees the crown never sits on top of hero text or nav links,
+   without needing to raise every other element's z-index to compensate.
    ------------------------------------------------------------------------- */
 
 .ceiling-crown {
-  position: relative;
-  width: 100%;
-  height: var(--s-2);
-  background:
-    linear-gradient(180deg, var(--gold) 0px, var(--gold) 1px, transparent 1px),
-    linear-gradient(180deg, var(--gold-faint) 0%, transparent 100%);
-  background-repeat: no-repeat;
-}
-
-.ceiling-crown::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: var(--crown-asset, none);
-  background-size: cover;
-  background-position: top center;
-  opacity: var(--crown-asset-opacity, 0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: clamp(150px, 20vw, 240px);
+  z-index: -1;
   pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(25, 26, 23, 0.035) 0px,
+      rgba(25, 26, 23, 0.035) 1px,
+      transparent 1px,
+      transparent 27px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(25, 26, 23, 0.05) 0%,
+      rgba(25, 26, 23, 0.018) 55%,
+      transparent 100%
+    );
 }
 
 @media print {
@@ -1271,11 +1252,14 @@ h3, .h3 {
 }
 
 /* -------------------------------------------------------------------------
-   18.2 — Hero-only: no vertical spine
-   Scoped strictly to .hero. Specificity (0,2,1) beats the base .rail::before
-   rule (0,1,1) regardless of source order, so this never needs !important
-   and never leaks into any other section or page — the spine stays fully
-   intact everywhere else, including further down this same page.
+   18.2 — Hero-only: no vertical spine, no rail
+   The new hero markup no longer uses .lute-grid/.rail/.canvas at all (see
+   index.html), so the spine hairline and spine-break SVG are structurally
+   absent here rather than merely hidden — nothing to override. This rule
+   is kept only as a defensive guard in case .rail markup is ever
+   reintroduced inside .hero without a matching markup review; it costs
+   nothing and prevents a silent regression. The spine remains fully
+   active everywhere else on this page and on every other page.
    ------------------------------------------------------------------------- */
 
 .hero .rail::before,
@@ -1284,58 +1268,104 @@ h3, .h3 {
 }
 
 /* -------------------------------------------------------------------------
-   18.3 — The Coalesced Composition
-   Replaces the old clean 1.2fr/1fr .hero-split. A 12-column track lets
-   the manifesto and the artwork overlap across columns 5–7 instead of
-   sitting in separate halves. This only works because the calligraphy
-   plate's own blueprint specifies generous negative space on its left
-   edge — the manifesto lands on that white ground, not on ink. The
-   trailing gradient wash on .hero-manifesto is a defensive fallback for
-   whatever gets dropped into that image slot later: if it isn't as
-   sparse as specified, the wash still guarantees text legibility without
-   a hard edge or a box behind the type.
+   18.3 — The Parallel Hero
+   A clean, non-overlapping 2-column grid at ≥960px — no shared columns,
+   no z-index layering between the two halves, no gradient-wash defensive
+   trick. Below 960px both columns collapse to a single fluid stack.
    ------------------------------------------------------------------------- */
 
-.hero-composition {
+.hero-parallel {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: 1fr;
   align-items: center;
-  gap: var(--s-5) 0;
-}
-
-.hero-manifesto {
-  grid-column: 1 / -1;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-artwork {
-  grid-column: 1 / -1;
-  position: relative;
-  z-index: 1;
-}
-
-@media (max-width: 959px) {
-  .hero-artwork { margin-top: var(--s-2); }
+  gap: var(--s-6);
+  opacity: 0;
+  animation: fade-rise 900ms var(--ease-resonant) forwards;
 }
 
 @media (min-width: 960px) {
-  .hero-manifesto {
-    grid-column: 1 / 8;
-    padding: var(--s-4) var(--s-6) var(--s-4) 0;
-    background: linear-gradient(
-      90deg,
-      var(--canvas) 58%,
-      rgba(255, 255, 255, 0.82) 78%,
-      rgba(255, 255, 255, 0) 100%
-    );
-  }
-
-  .hero-artwork {
-    grid-column: 5 / 13;
+  .hero-parallel {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-7);
   }
 }
 
-@media print {
-  .hero-manifesto { background: none; padding: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-parallel {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Typography — "A Feather / On the Breath of God". Both lines share
+   identical size, weight, and tracking (only color differs), so the two
+   lines read as one continuous lockup rather than a headline-plus-
+   subhead pairing. Fraunces has no condensed width axis on the weights
+   loaded here (opsz+wght only, no wdth) — the "condensed" character is
+   approximated with tight negative letter-spacing rather than faked with
+   a horizontal transform: scaleX(), which would distort the glyphs. */
+.feather-lockup {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--t-h1);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.feather-primary {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.feather-secondary {
+  display: block;
+  font-weight: 600;
+  color: var(--grey-muted);
+  margin-top: 0.12em;
+}
+
+/* The calligraphy artwork floats naked: no border, no background box, no
+   shadow. It still uses a zero-chrome .frame wrapper in the markup only
+   so the shared JS fallback (`.closest('.frame')`) keeps working if the
+   asset fails to load — all visual chrome that .frame normally supplies
+   is explicitly suppressed here via .frame--naked. */
+.hero-parallel-art { min-width: 0; }
+
+.frame--naked {
+  background: none;
+  border: none;
+}
+
+.frame--naked img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 14 / 17;
+  object-fit: contain;
+  transition: none;
+}
+
+.frame--naked:hover img,
+.frame--naked:focus-within img {
+  transform: none;
+}
+
+/* frame--pending fallback still needs a visible boundary when it's
+   active, even though the success-state .frame--naked has none — a
+   fallback with zero visual signal would be indistinguishable from an
+   empty column. */
+.frame--naked.frame--pending {
+  background: var(--canvas-tint);
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--canvas-tint),
+    var(--canvas-tint) 10px,
+    var(--ink-08) 10px,
+    var(--ink-08) 11px
+  );
+}
+
+.frame--naked.frame--pending img {
+  aspect-ratio: 14 / 17;
 }
