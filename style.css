@@ -374,15 +374,33 @@ h3, .h3 {
 .site-header {
   position: relative;
   padding: var(--s-5) 0;
-  background: transparent;
+  background: var(--canvas);
   z-index: 40;
 }
 
 .site-header .wrap {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: var(--s-4);
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: var(--t-body);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.brand span {
+  display: block;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: var(--t-caption);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  margin-top: 0.35em;
 }
 
 .nav-list {
@@ -505,11 +523,36 @@ h3, .h3 {
   position: relative;
 }
 
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: var(--s-6);
+}
+
+@media (min-width: 640px) {
+  .hero-split { grid-template-columns: 1.2fr 1fr; }
+}
+
+.hero .eyebrow {
+  opacity: 0;
+  animation: fade-rise 900ms var(--ease-resonant) forwards;
+  animation-delay: 80ms;
+}
+
 .hero-title {
   margin-top: var(--s-3);
   opacity: 0;
   animation: fade-rise 1100ms var(--ease-resonant) forwards;
   animation-delay: 220ms;
+}
+
+.hero .lede {
+  margin-top: var(--s-5);
+  max-width: 34ch;
+  opacity: 0;
+  animation: fade-rise 1100ms var(--ease-resonant) forwards;
+  animation-delay: 420ms;
 }
 
 @keyframes fade-rise {
@@ -518,7 +561,7 @@ h3, .h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-title {
+  .hero .eyebrow, .hero-title, .hero .lede {
     animation: none;
     opacity: 1;
   }
@@ -1160,185 +1203,7 @@ h3, .h3 {
 }
 
 /* ==========================================================================
-   17. THE CEILING CROWN & THE PARALLEL HERO — homepage above-the-fold only
-   ========================================================================== */
-
-/* -------------------------------------------------------------------------
-   17.1 — Ceiling Crown
-   True pixel-zero placement: position:absolute against the initial
-   containing block (the .ceiling-crown div is the first node in <body>,
-   and nothing between it and <html> is positioned), so it sits flush at
-   the very top-left of the page and scrolls away naturally with the rest
-   of the document rather than staying pinned. It must run BEHIND the nav
-   text, which requires .site-header to have no opaque background (see
-   §6 — .site-header background is `transparent`) so the crown art shows
-   through the header's padding and gaps. z-index:1 keeps it above the
-   plain white canvas and any unpositioned in-flow content, while still
-   sitting well below .site-header (z-index:40, see §6), so nav links are
-   always legible on top of it.
-
-   Asset is hardcoded to assets/images/yazd-crown.png. Sizing is strictly
-   background-size:contain / top center / no-repeat, at full opacity —
-   any fade or tonal treatment is handled upstream in the source PNG
-   itself, not re-created here in CSS. The box height is a fluid clamp
-   sized for a wide, shallow architectural strip; contain will letterbox
-   safely inside it at any aspect ratio without cropping.
-   ------------------------------------------------------------------------- */
-
-.ceiling-crown {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: clamp(140px, 18vw, 320px);
-  z-index: 1;
-  pointer-events: none;
-  background-image: url('assets/images/yazd-crown.png');
-  background-size: contain;
-  background-position: top center;
-  background-repeat: no-repeat;
-  opacity: 1;
-}
-
-@media print {
-  .ceiling-crown { display: none; }
-}
-
-/* -------------------------------------------------------------------------
-   17.2 — Hero-only: no vertical spine, no rail
-   The new hero markup no longer uses .lute-grid/.rail/.canvas at all (see
-   index.html), so the spine hairline and spine-break SVG are structurally
-   absent here rather than merely hidden — nothing to override. This rule
-   is kept only as a defensive guard in case .rail markup is ever
-   reintroduced inside .hero without a matching markup review; it costs
-   nothing and prevents a silent regression. The spine remains fully
-   active everywhere else on this page and on every other page.
-   ------------------------------------------------------------------------- */
-
-.hero .rail::before,
-.hero .spine-break {
-  display: none;
-}
-
-/* -------------------------------------------------------------------------
-   17.3 — The Parallel Hero
-   A clean, non-overlapping 2-column grid at ≥960px — no shared columns,
-   no z-index layering between the two halves, no gradient-wash defensive
-   trick. Below 960px both columns collapse to a single fluid stack.
-   ------------------------------------------------------------------------- */
-
-.hero-parallel {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  gap: var(--s-6);
-  opacity: 0;
-  animation: fade-rise 900ms var(--ease-resonant) forwards;
-}
-
-@media (min-width: 960px) {
-  .hero-parallel {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--s-7);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-parallel {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-/* Left column margins — kept deliberately generous so the manifesto
-   lockup never crowds the gutter or collides with the calligraphy
-   column's own breathing room. Sizing only: no font-family, weight,
-   letter-spacing, or size values are touched here. */
-.hero-parallel-text {
-  max-width: 46ch;
-}
-
-@media (min-width: 960px) {
-  .hero-parallel-text {
-    padding-right: var(--s-4);
-  }
-}
-
-/* Typography — "A Feather / On the Breath of God". Both lines share
-   identical size, weight, and tracking (only color differs), so the two
-   lines read as one continuous lockup rather than a headline-plus-
-   subhead pairing. Fraunces has no condensed width axis on the weights
-   loaded here (opsz+wght only, no wdth) — the "condensed" character is
-   approximated with tight negative letter-spacing rather than faked with
-   a horizontal transform: scaleX(), which would distort the glyphs. */
-.feather-lockup {
-  font-family: var(--font-display);
-  font-optical-sizing: auto;
-  font-size: var(--t-h1);
-  line-height: 1.04;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-}
-
-.feather-primary {
-  display: block;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.feather-secondary {
-  display: block;
-  font-weight: 600;
-  color: var(--grey-muted);
-  margin-top: 0.12em;
-}
-
-/* The calligraphy artwork floats naked: no border, no background box, no
-   shadow. It still uses a zero-chrome .frame wrapper in the markup only
-   so the shared JS fallback (`.closest('.frame')`) keeps working if the
-   asset fails to load — all visual chrome that .frame normally supplies
-   is explicitly suppressed here via .frame--naked. */
-.hero-parallel-art { min-width: 0; }
-
-.frame--naked {
-  background: none;
-  border: none;
-}
-
-.frame--naked img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 14 / 17;
-  object-fit: contain;
-  transition: none;
-}
-
-.frame--naked:hover img,
-.frame--naked:focus-within img {
-  transform: none;
-}
-
-/* frame--pending fallback still needs a visible boundary when it's
-   active, even though the success-state .frame--naked has none — a
-   fallback with zero visual signal would be indistinguishable from an
-   empty column. */
-.frame--naked.frame--pending {
-  background: var(--canvas-tint);
-  background-image: repeating-linear-gradient(
-    135deg,
-    var(--canvas-tint),
-    var(--canvas-tint) 10px,
-    var(--ink-08) 10px,
-    var(--ink-08) 11px
-  );
-}
-
-.frame--naked.frame--pending img {
-  aspect-ratio: 14 / 17;
-}
-
-/* ==========================================================================
-   18. IMAGE-FAILURE FALLBACK
+   17. IMAGE-FAILURE FALLBACK
    Driven by the existing onerror/onload script in index.html
    (markPending / clearPending). Moved here from an inline <head> <style>
    block so every page shares one definition instead of each page
