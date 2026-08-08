@@ -4,430 +4,703 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Designs — Mohammad Mahdi Karbasbaf</title>
-<meta name="description" content="Book cover design portfolio: commissioned and speculative covers for Middle Eastern, Islamic, and Persian literature, including original calligraphy and typographic print work.">
+<meta name="description" content="Selected book cover designs and typographic commissions by Mohammad Mahdi Karbasbaf, spanning Thuluth calligraphy, acoustic heritage research, and Persian architectural motifs.">
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Book Designs — Mohammad Mahdi Karbasbaf">
-<meta property="og:description" content="Book cover design portfolio for international publishers.">
-<meta property="og:image" content="https://yourdomain.com/assets/img/og-book-designs.jpg">
-<meta property="og:url" content="https://yourdomain.com/book-designs.html">
+<!-- Google Fonts: Fraunces (display), Source Serif 4 (reading matter), Inter (utility) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,600&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<!-- Master Stylesheet -->
 <link rel="stylesheet" href="style.css">
 
+<!-- JSON-LD: CollectionPage / ImageGallery, bridged to the researcher's academic identity -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Book Designs — Mohammad Mahdi Karbasbaf",
-  "url": "https://yourdomain.com/book-designs.html",
-  "about": "Book cover design portfolio for Middle Eastern, Islamic, and Persian literature",
-  "isPartOf": { "@id": "https://yourdomain.com/#website" },
-  "author": { "@id": "https://yourdomain.com/#person" }
+  "url": "https://karbasbaf-archive.example/book-designs.html",
+  "description": "Selected book cover designs and typographic commissions, most developed as companion volumes to peer-reviewed acoustic heritage research.",
+  "about": {
+    "@type": "Person",
+    "name": "Mohammad Mahdi Karbasbaf",
+    "sameAs": "https://orcid.org/0000-0003-2264-9372",
+    "jobTitle": "Independent Researcher — Acoustics & Wave Phenomena; Book Designer & Calligrapher"
+  },
+  "mainEntity": {
+    "@type": "ImageGallery",
+    "name": "Selected Book Cover Designs",
+    "creator": {
+      "@type": "Person",
+      "name": "Mohammad Mahdi Karbasbaf",
+      "sameAs": "https://orcid.org/0000-0003-2264-9372"
+    },
+    "image": [
+      {
+        "@type": "ImageObject",
+        "name": "The Golden Method",
+        "description": "Thuluth title lockup over a golden-spiral soundhole construction diagram.",
+        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-01-golden-method.jpg",
+        "isBasedOn": "https://doi.org/10.3390/arts6040020"
+      },
+      {
+        "@type": "ImageObject",
+        "name": "Ornament as Instrument",
+        "description": "Single-color vase-niche silhouette cover for a Tong Bori heritage volume.",
+        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-02-tong-bori.jpg",
+        "isBasedOn": "https://doi.org/10.1016/j.daach.2025.e00433"
+      },
+      {
+        "@type": "ImageObject",
+        "name": "Sound Holes",
+        "description": "Minimal typographic cover built from a triple-hole soundhole motif.",
+        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-03-sound-holes.jpg",
+        "isBasedOn": "https://doi.org/10.1016/j.apacoust.2023.109784"
+      },
+      {
+        "@type": "ImageObject",
+        "name": "Resonant Vessels",
+        "description": "Photographic cover cropped to a single spherical Helmholtz resonator.",
+        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-04-resonant-vessels.jpg",
+        "isBasedOn": "https://doi.org/10.1016/j.nexres.2026.102016"
+      },
+      {
+        "@type": "ImageObject",
+        "name": "Strings to Stars",
+        "description": "Diptych cover pairing a lute soundhole rosette with a Herbig-Haro nebula frame.",
+        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-05-strings-to-stars.jpg"
+      },
+      {
+        "@type": "ImageObject",
+        "name": "Kar-Bandi: Pattern as Frequency",
+        "description": "Cover study built from repeated Kar-Bandi geometric ceiling motifs.",
+        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-06-kar-bandi.jpg"
+      },
+      {
+        "@type": "ImageObject",
+        "name": "Double-Shell: Domes of the Mediterranean",
+        "description": "Section-drawing cover for a comparative study of double-shell dome construction.",
+        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-07-double-shell.jpg"
+      },
+      {
+        "@type": "ImageObject",
+        "name": "Tār & Setār: A Maker's Notebook",
+        "description": "Documentary-photography cover from the luthier's own workshop notebooks.",
+        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-08-makers-notebook.jpg"
+      }
+    ]
+  }
 }
 </script>
 </head>
 <body>
 
 <!-- ==========================================================================
-     GLOBAL HEADER / NAVIGATION — identical structure to index.html,
-     "Book Designs" marked active
+     HEADER — Global Lute-Body Navigation
      ========================================================================== -->
 <header class="site-header">
-  <div class="container site-header__inner">
-    <a href="index.html" class="site-logo">
-      M. M. Karbasbaf
-      <span>Book Design &amp; Persian Calligraphy</span>
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      Karbasbaf
+      <span>Archive of Resonance</span>
     </a>
-
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navPrimary">
-      <span></span>
-    </button>
-
-    <nav class="nav-primary" id="navPrimary">
+    <nav class="nav-list" id="primary-nav" data-open="false" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="book-designs.html" aria-current="page">Book Designs</a>
       <a href="research.html">Research</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      Menu
+    </button>
   </div>
 </header>
 
 <main>
 
-<!-- ==========================================================================
-     PAGE HEADER
-     ========================================================================== -->
-<section class="section section--tight">
-  <div class="container">
-    <span class="eyebrow">Portfolio</span>
-    <h1>Book Designs</h1>
-    <p class="lead">
-      Commissioned and speculative cover design for publishers of Middle Eastern,
-      Islamic, and Persian literature — built from original calligraphy, typographic
-      precision, and cultural knowledge rather than decorative pattern.
-    </p>
-  </div>
-</section>
-
-
-<!-- ==========================================================================
-     FILTER BAR
-     ========================================================================== -->
-<section class="container">
-  <div class="gallery-filters" id="filterBar">
-    <button type="button" class="is-active" data-filter="all">All</button>
-    <button type="button" data-filter="covers">Book Covers</button>
-    <button type="button" data-filter="print">Typography &amp; Print</button>
-    <button type="button" data-filter="speculative">Speculative Concepts</button>
-  </div>
-</section>
-
-
-<!-- ==========================================================================
-     PRIMARY WORK GRID
-     Each .work-item carries data-category so the filter JS can show/hide it.
-     Hover reveals title / author / publisher via .work-item__overlay.
-     ========================================================================== -->
-<section class="section section--tight">
-  <div class="container">
-    <div class="work-grid" id="workGrid">
-
-      <!-- ============================================================
-           GALLERY TRACK: BOOK COVERS (data-category="covers")
-           ASSET BLUEPRINT FOR THIS ENTIRE TRACK:
-           - Canvas: 1200 x 1600px (export at 2x source if possible: 2400 x 3200px, then downsize)
-           - Aspect ratio: 3:4 — must match exactly, or object-fit:cover will crop your composition
-             unpredictably. Design the cover flat/front-facing within this exact ratio.
-           - Composition: Flat front-cover face only (no spine, no 3D book mockup, no perspective tilt).
-             Center the cover with a small (40–60px at 1200px width) margin of neutral backdrop around
-             it OR bleed the cover edge-to-edge if the cover design itself has a strong border —
-             pick one approach per piece and stay consistent across the whole track.
-           - Background: neutral light gray (#F2F1EC or similar) if margin is used — never a colored
-             or textured studio backdrop, it will clash with the gallery-white page ground.
-           - Color/contrast: since the overlay caption appears on hover as a dark gradient rising from
-             the bottom of the frame, make sure your cover's own bottom third can survive a dark
-             gradient overlay on top of it — avoid placing critical title typography for the cover
-             itself in the bottom 25% of the composition where our hover caption will sit.
-           - File weight: JPG, quality 82, target 250–350KB each.
-           ============================================================ -->
-
-      <article class="work-item" data-category="covers">
-        <div class="work-item__frame">
-          <img src="assets/img/cover-desert-wind.jpg" alt="Book cover design, front cover, flat composition" loading="lazy">
-          <div class="work-item__overlay">
-            <h3 class="work-item__overlay-title">The Desert Wind</h3>
-            <span class="work-item__overlay-author">Novel by [Author Name]</span>
-            <span class="work-item__overlay-meta">Concept Design · Literary Fiction</span>
+  <!-- ==========================================================================
+       1. PAGE INTRO — quieter than the homepage hero, deliberately. The
+       cinematic .hero treatment is reserved for the identity statement on
+       index.html; a working gallery page opens on its own terms.
+       ========================================================================== -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="lute-grid">
+        <div class="rail">
+          <p class="eyebrow eyebrow--gold">Commissions &amp; Studies</p>
+          <div class="spine-break" aria-hidden="true">
+            <svg viewBox="0 0 34 46" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 23 C 4 23, 5 4, 8.5 4 C 12 4, 12 34, 15.5 34 C 19 34, 19 12, 22.5 12 C 26 12, 26 27, 29.5 27 C 32 27, 33 23, 34 23" />
+            </svg>
           </div>
         </div>
-      </article>
-
-      <article class="work-item" data-category="covers">
-        <div class="work-item__frame">
-          <img src="assets/img/cover-house-of-glass.jpg" alt="Book cover design, front cover, flat composition" loading="lazy">
-          <div class="work-item__overlay">
-            <h3 class="work-item__overlay-title">House of Glass</h3>
-            <span class="work-item__overlay-author">Novel by [Author Name]</span>
-            <span class="work-item__overlay-meta">Concept Design · Literary Fiction</span>
-          </div>
+        <div class="canvas">
+          <h1 class="h1">Book Designs</h1>
+          <p class="lede mt-4">Eight covers, most of them companion volumes to the research itself — the same geometry that governs a soundhole or a resonator array, set as a typographic problem instead of an acoustic one. Select any plate to inspect it at full scale.</p>
         </div>
-      </article>
-
-      <article class="work-item" data-category="covers">
-        <div class="work-item__frame">
-          <img src="assets/img/cover-sufi-path.jpg" alt="Book cover design, front cover, flat composition" loading="lazy">
-          <div class="work-item__overlay">
-            <h3 class="work-item__overlay-title">The Sufi Path</h3>
-            <span class="work-item__overlay-author">Nonfiction by [Author Name]</span>
-            <span class="work-item__overlay-meta">Concept Design · Religion &amp; Philosophy</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="work-item" data-category="covers">
-        <div class="work-item__frame">
-          <img src="assets/img/cover-isfahan-nights.jpg" alt="Book cover design, front cover, flat composition" loading="lazy">
-          <div class="work-item__overlay">
-            <h3 class="work-item__overlay-title">Isfahan Nights</h3>
-            <span class="work-item__overlay-author">Novel by [Author Name]</span>
-            <span class="work-item__overlay-meta">Concept Design · Historical Fiction</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="work-item" data-category="covers">
-        <div class="work-item__frame">
-          <img src="assets/img/cover-rumi-translations.jpg" alt="Book cover design, front cover, flat composition" loading="lazy">
-          <div class="work-item__overlay">
-            <h3 class="work-item__overlay-title">Rumi: Selected Translations</h3>
-            <span class="work-item__overlay-author">Translated by [Translator Name]</span>
-            <span class="work-item__overlay-meta">Concept Design · Poetry</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="work-item" data-category="covers">
-        <div class="work-item__frame">
-          <img src="assets/img/cover-shahnameh-echoes.jpg" alt="Book cover design, front cover, flat composition" loading="lazy">
-          <div class="work-item__overlay">
-            <h3 class="work-item__overlay-title">Echoes of the Shahnameh</h3>
-            <span class="work-item__overlay-author">Nonfiction by [Author Name]</span>
-            <span class="work-item__overlay-meta">Concept Design · History</span>
-          </div>
-        </div>
-      </article>
-
-
-      <!-- ============================================================
-           GALLERY TRACK: TYPOGRAPHY & PRINT (data-category="print")
-           ASSET BLUEPRINT FOR THIS ENTIRE TRACK:
-           - Canvas: 1200 x 1600px, same 3:4 ratio as covers — keeps the grid rhythm unbroken
-             when filters are toggled between tracks.
-           - Composition: these are NOT full book covers — they're typographic studies, spine
-             details, print ephemera (posters, title pages, colophons). Photograph or render them
-             as flat objects on a neutral surface, shot from directly above (true top-down, zero
-             perspective distortion) so type baselines stay perfectly horizontal in frame.
-           - Background: a slightly textured neutral surface (uncoated paper, light linen, or
-             matte gray) is appropriate here — more tactile/print-focused than the pure flat-color
-             backdrop used for covers, since this track is meant to communicate "craft object."
-           - Lighting: soft, diffused, single direction is fine (unlike covers, which should be flat-lit) —
-             a gentle raking light across letterpress or embossed type actually helps sell texture.
-           - File weight: JPG, quality 82, 250–350KB.
-           ============================================================ -->
-
-      <article class="work-item" data-category="print">
-        <div class="work-item__frame">
-          <img src="assets/img/print-titlepage-01.jpg" alt="Typographic title page design, print study" loading="lazy">
-          <div class="work-item__overlay">
-            <h3 class="work-item__overlay-title">Title Page Study</h3>
-            <span class="work-item__overlay-author">Nastaliq &amp; Latin Type Pairing</span>
-            <span class="work-item__overlay-meta">Typography · Print Study</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="work-item" data-category="print">
-        <div class="work-item__frame">
-          <img src="assets/img/print-spine-detail.jpg" alt="Book spine typography detail" loading="lazy">
-          <div class="work-item__overlay">
-            <h3 class="work-item__overlay-title">Spine Detail</h3>
-            <span class="work-item__overlay-author">Vertical Nastaliq Composition</span>
-            <span class="work-item__overlay-meta">Typography · Spine Study</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="work-item" data-category="print">
-        <div class="work-item__frame">
-          <img src="assets/img/print-poster-01.jpg" alt="Documentary poster typography detail" loading="lazy">
-          <div class="work-item__overlay">
-            <h3 class="work-item__overlay-title">Documentary Poster</h3>
-            <span class="work-item__overlay-author">Festival Screening Print</span>
-            <span class="work-item__overlay-meta">Print · Poster Design</span>
-          </div>
-        </div>
-      </article>
-
-
-      <!-- ============================================================
-           GALLERY TRACK: SPECULATIVE CONCEPTS (data-category="speculative")
-           These duplicate into the dedicated showcase section below at
-           larger scale — kept here too so the "All" and "Speculative
-           Concepts" filters both return a complete, correct set.
-           ASSET BLUEPRINT: identical spec to Book Covers above
-           (1200x1600px, 3:4, flat front-facing, neutral backdrop) —
-           consistency across covers/speculative matters more here than
-           elsewhere, since these sit side-by-side with commissioned-style
-           work and must read as equally finished, not "rougher."
-           ============================================================ -->
-
-      <article class="work-item" data-category="speculative">
-        <div class="work-item__frame">
-          <span class="tag-concept">Speculative</span>
-          <img src="assets/img/spec-pamuk-style.jpg" alt="Speculative book cover concept, front cover" loading="lazy">
-          <div class="work-item__overlay">
-            <h3 class="work-item__overlay-title">Speculative Cover Study</h3>
-            <span class="work-item__overlay-author">In the style of Orhan Pamuk's fiction</span>
-            <span class="work-item__overlay-meta">Speculative Concept · Literary Fiction</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="work-item" data-category="speculative">
-        <div class="work-item__frame">
-          <span class="tag-concept">Speculative</span>
-          <img src="assets/img/spec-shafak-style.jpg" alt="Speculative book cover concept, front cover" loading="lazy">
-          <div class="work-item__overlay">
-            <h3 class="work-item__overlay-title">Speculative Cover Study</h3>
-            <span class="work-item__overlay-author">In the style of Elif Shafak's fiction</span>
-            <span class="work-item__overlay-meta">Speculative Concept · Literary Fiction</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="work-item" data-category="speculative">
-        <div class="work-item__frame">
-          <span class="tag-concept">Speculative</span>
-          <img src="assets/img/spec-hosseini-style.jpg" alt="Speculative book cover concept, front cover" loading="lazy">
-          <div class="work-item__overlay">
-            <h3 class="work-item__overlay-title">Speculative Cover Study</h3>
-            <span class="work-item__overlay-author">In the style of Khaled Hosseini's fiction</span>
-            <span class="work-item__overlay-meta">Speculative Concept · Literary Fiction</span>
-          </div>
-        </div>
-      </article>
-
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- ==========================================================================
+       2. THE GALLERY WALL — asymmetric rhythm, arbitrary length, every
+       plate opens the shared .book-reveal panel defined in index.html's
+       markup pattern and re-declared once, below, for this page.
+       ========================================================================== -->
+  <section class="section section--tight" aria-labelledby="wall-heading">
+    <div class="wrap">
+      <h2 class="sr-only" id="wall-heading">Selected Cover Designs</h2>
 
-<!-- ==========================================================================
-     DEDICATED SPECULATIVE / CONCEPT SHOWCASE
-     Large-format 2-column presentation, deliberately separate from the
-     filterable grid above so it reads as a curated statement of creative
-     vision rather than "more of the same grid."
-     ========================================================================== -->
-<section class="section section--alt">
-  <div class="container">
-    <span class="eyebrow">Creative Vision</span>
-    <h2>Speculative Concepts</h2>
-    <p class="lead" style="margin-bottom: var(--space-lg);">
-      Unsolicited concept work for internationally published literary fiction —
-      built to demonstrate range across authors and traditions I have not yet
-      been commissioned to design for.
-    </p>
+      <div class="plate-gallery">
 
-    <!-- ============================================================
-         ASSET BLUEPRINT — SHOWCASE TRACK (large format)
-         - Canvas: 1600 x 1920px. Aspect ratio: 5:6 (matches .showcase-item__frame —
-           notably NOT the same 3:4 ratio as the grid above; this is intentionally
-           a slightly taller, more "framed art print" proportion to signal these
-           two pieces are the showstoppers of the page).
-         - Composition: flat front-cover face, generous internal margin — treat
-           each one like a gallery-mounted print, not a product shot. If your
-           cover design itself is edge-to-edge, that's fine, but the surrounding
-           page whitespace (handled by the grid gap, not the image) is doing the
-           "gallery mount" work, so don't add your own decorative border inside
-           the JPG itself.
-         - Only 2 images in this track by design — resist the urge to add more;
-           the whole point of this section is restraint after the density of the
-           grid above.
-         - File weight: JPG, quality 85 (higher than the grid images, since these
-           render larger on screen), target 400–500KB each.
-         ============================================================ -->
-    <div class="showcase-grid">
+        <!-- MASTER BLUEPRINT: Plate 1 — The Golden Method
+             Physical rendering box: 1600 × 1943px, matching
+             .plate--tall { aspect-ratio: 14 / 17 } exactly (1600/1943 ≈
+             0.8235 = 14/17). Composition: Thuluth title lockup in
+             ink-black over a faint golden-spiral construction diagram,
+             gold (#C9974A) reserved for the thinnest spiral lines only. -->
+        <button
+          type="button"
+          class="plate-trigger"
+          data-title="The Golden Method"
+          data-year="2017 — cover design"
+          data-medium="Letterpress-style cover, Thuluth title lockup over golden-spiral construction diagram"
+          data-image="assets/images/covers/cover-01-golden-method.jpg"
+          data-alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
+          data-doi="Companion volume to: A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments, Arts (2017)">
+          <span class="plate plate--tall">
+            <span class="frame">
+              <img
+                src="assets/images/covers/cover-01-golden-method.jpg"
+                alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
+                width="1600" height="1943"
+                loading="eager" decoding="async">
+            </span>
+            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
+              <span class="caption">I — The Golden Method</span>
+              <span class="caption text-gold">2017</span>
+            </span>
+          </span>
+        </button>
 
-      <div class="showcase-item">
-        <div class="showcase-item__frame">
-          <img src="assets/img/showcase-concept-01.jpg" alt="Large-format speculative book cover concept" loading="lazy">
+        <!-- MASTER BLUEPRINT: Plate 2 — Ornament as Instrument
+             Physical rendering box: 1920 × 1200px, matching
+             .plate--wide { aspect-ratio: 16 / 10 } exactly. Composition:
+             single black vase-niche silhouette cutout on a cream ground,
+             no gradient, no drop shadow. -->
+        <button
+          type="button"
+          class="plate-trigger"
+          data-title="Ornament as Instrument"
+          data-year="2025 — cover design"
+          data-medium="Silhouette cover, single-color cutout on cream stock"
+          data-image="assets/images/covers/cover-02-tong-bori.jpg"
+          data-alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground"
+          data-doi="Companion volume to: From Ornamentation to Acoustics, Digital Applications in Archaeology and Cultural Heritage (2025)">
+          <span class="plate plate--wide">
+            <span class="frame">
+              <img
+                src="assets/images/covers/cover-02-tong-bori.jpg"
+                alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground"
+                width="1920" height="1200"
+                loading="lazy" decoding="async">
+            </span>
+            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
+              <span class="caption">II — Ornament as Instrument</span>
+              <span class="caption text-gold">2025</span>
+            </span>
+          </span>
+        </button>
+
+        <!-- MASTER BLUEPRINT: Plate 3 — Sound Holes
+             Physical rendering box: 1400 × 1400px, matching
+             .plate--square { aspect-ratio: 1 / 1 } exactly. Composition:
+             three minimal circular voids arranged as a typographic
+             ornament, ink-black on white, no illustration beyond the
+             voids themselves. -->
+        <button
+          type="button"
+          class="plate-trigger"
+          data-title="Sound Holes"
+          data-year="2024 — cover design"
+          data-medium="Minimal typographic cover, triple-hole motif"
+          data-image="assets/images/covers/cover-03-sound-holes.jpg"
+          data-alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament"
+          data-doi="Companion volume to: Historical Evolution and Acoustic Significance of Sound Holes in Lutes, Applied Acoustics (2024)">
+          <span class="plate plate--square">
+            <span class="frame">
+              <img
+                src="assets/images/covers/cover-03-sound-holes.jpg"
+                alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament"
+                width="1400" height="1400"
+                loading="lazy" decoding="async">
+            </span>
+            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
+              <span class="caption">III — Sound Holes</span>
+              <span class="caption text-gold">2024</span>
+            </span>
+          </span>
+        </button>
+
+        <!-- MASTER BLUEPRINT: Plate 4 — Resonant Vessels
+             Physical rendering box: 1600 × 1943px, matching
+             .plate--tall { aspect-ratio: 14 / 17 } exactly. Composition:
+             tight photographic crop on a single spherical Helmholtz
+             resonator under raking light, mid-grey ground. -->
+        <button
+          type="button"
+          class="plate-trigger"
+          data-title="Resonant Vessels"
+          data-year="2026 — cover design"
+          data-medium="Photographic cover, single Helmholtz resonator sphere, cropped tight"
+          data-image="assets/images/covers/cover-04-resonant-vessels.jpg"
+          data-alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator"
+          data-doi="Companion volume to: Experimental validation of Helmholtz resonator arrays, Next Research (2026)">
+          <span class="plate plate--tall">
+            <span class="frame">
+              <img
+                src="assets/images/covers/cover-04-resonant-vessels.jpg"
+                alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator"
+                width="1600" height="1943"
+                loading="lazy" decoding="async">
+            </span>
+            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
+              <span class="caption">IV — Resonant Vessels</span>
+              <span class="caption text-gold">2026</span>
+            </span>
+          </span>
+        </button>
+
+        <!-- MASTER BLUEPRINT: Plate 5 — Strings to Stars
+             Physical rendering box: 1400 × 1400px, matching
+             .plate--square { aspect-ratio: 1 / 1 } exactly. Composition:
+             split-frame diptych, lute rosette above / nebula frame below,
+             4px true-white gutter between halves. -->
+        <button
+          type="button"
+          class="plate-trigger"
+          data-title="Strings to Stars"
+          data-year="Ongoing — cover design"
+          data-medium="Photographic diptych cover, lute rosette / nebula pairing"
+          data-image="assets/images/covers/cover-05-strings-to-stars.jpg"
+          data-alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame"
+          data-doi="Companion volume to ongoing research: Investigating the Role of Resonance in Herbig-Haro Objects (in preparation)">
+          <span class="plate plate--square">
+            <span class="frame">
+              <img
+                src="assets/images/covers/cover-05-strings-to-stars.jpg"
+                alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame"
+                width="1400" height="1400"
+                loading="lazy" decoding="async">
+            </span>
+            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
+              <span class="caption">V — Strings to Stars</span>
+              <span class="caption text-gold">Ongoing</span>
+            </span>
+          </span>
+        </button>
+
+        <!-- MASTER BLUEPRINT: Plate 6 — Kar-Bandi: Pattern as Frequency
+             Physical rendering box: 1920 × 1200px, matching
+             .plate--wide { aspect-ratio: 16 / 10 } exactly. Composition:
+             repeated Kar-Bandi geometric ceiling motif rendered as a flat
+             line-art pattern, ink-black on white, gold used only as a
+             single accent line marking one repeat unit. -->
+        <button
+          type="button"
+          class="plate-trigger"
+          data-title="Kar-Bandi: Pattern as Frequency"
+          data-year="Under review — cover study"
+          data-medium="Flat line-art cover, repeated Kar-Bandi ceiling motif"
+          data-image="assets/images/covers/cover-06-kar-bandi.jpg"
+          data-alt="Book cover study for Kar-Bandi: Pattern as Frequency, a repeated geometric ceiling motif in black line-art"
+          data-doi="Companion volume to: The Interplay of Aesthetic Geometric Patterns and Acoustic Functionality in Persian Architecture (under review)">
+          <span class="plate plate--wide">
+            <span class="frame">
+              <img
+                src="assets/images/covers/cover-06-kar-bandi.jpg"
+                alt="Book cover study for Kar-Bandi: Pattern as Frequency, a repeated geometric ceiling motif in black line-art"
+                width="1920" height="1200"
+                loading="lazy" decoding="async">
+            </span>
+            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
+              <span class="caption">VI — Kar-Bandi: Pattern as Frequency</span>
+              <span class="caption text-gold">Study</span>
+            </span>
+          </span>
+        </button>
+
+        <!-- MASTER BLUEPRINT: Plate 7 — Double-Shell: Domes of the Mediterranean
+             Physical rendering box: 1600 × 1943px, matching
+             .plate--tall { aspect-ratio: 14 / 17 } exactly. Composition:
+             architectural section-drawing of a double-shell dome, fine
+             black linework on white, no color beyond a single gold
+             hairline marking the shell gap. -->
+        <button
+          type="button"
+          class="plate-trigger"
+          data-title="Double-Shell: Domes of the Mediterranean"
+          data-year="Ongoing — cover study"
+          data-medium="Architectural section-drawing cover, fine black linework"
+          data-image="assets/images/covers/cover-07-double-shell.jpg"
+          data-alt="Book cover study for Double-Shell: Domes of the Mediterranean, a fine architectural section drawing"
+          data-doi="Companion volume to: Comparative Analysis of Double-Shell Domes in Medieval Mediterranean Cultures (ongoing research)">
+          <span class="plate plate--tall">
+            <span class="frame">
+              <img
+                src="assets/images/covers/cover-07-double-shell.jpg"
+                alt="Book cover study for Double-Shell: Domes of the Mediterranean, a fine architectural section drawing"
+                width="1600" height="1943"
+                loading="lazy" decoding="async">
+            </span>
+            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
+              <span class="caption">VII — Double-Shell Domes</span>
+              <span class="caption text-gold">Study</span>
+            </span>
+          </span>
+        </button>
+
+        <!-- MASTER BLUEPRINT: Plate 8 — Tār & Setār: A Maker's Notebook
+             Physical rendering box: 1400 × 1400px, matching
+             .plate--square { aspect-ratio: 1 / 1 } exactly. Composition:
+             black-and-white documentary photograph from the workshop —
+             hands, unfinished lute body, natural window light — the only
+             plate in the set with no companion paper behind it. -->
+        <button
+          type="button"
+          class="plate-trigger"
+          data-title="Tār &amp; Setār: A Maker's Notebook"
+          data-year="2023 — cover design"
+          data-medium="Documentary-photography cover, workshop notebook"
+          data-image="assets/images/covers/cover-08-makers-notebook.jpg"
+          data-alt="Book cover for Tar and Setar: A Maker's Notebook, a black-and-white documentary photograph from the workshop"
+          data-doi="Independent volume — luthier's workshop notebooks, 2015–present">
+          <span class="plate plate--square">
+            <span class="frame">
+              <img
+                src="assets/images/covers/cover-08-makers-notebook.jpg"
+                alt="Book cover for Tar and Setar: A Maker's Notebook, a black-and-white documentary photograph from the workshop"
+                width="1400" height="1400"
+                loading="lazy" decoding="async">
+            </span>
+            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
+              <span class="caption">VIII — A Maker's Notebook</span>
+              <span class="caption text-gold">2023</span>
+            </span>
+          </span>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. DESIGNER'S STATEMENT
+       ========================================================================== -->
+  <section class="section section--tinted section--tight">
+    <div class="wrap">
+      <div class="lute-grid">
+        <div class="rail">
+          <p class="eyebrow eyebrow--gold">On Cover Design</p>
         </div>
-        <div class="showcase-item__caption">
-          <h3>Concept: Persian Miniature Reinterpreted</h3>
-          <span class="text-small text-muted">Speculative · Literary Fiction</span>
+        <div class="canvas">
+          <blockquote class="pull-quote">
+            A cover is a soundhole for the book —
+            the one opening where you can hear
+            what the whole thing resonates at.
+            <cite>M. M. Karbasbaf</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. COMMISSION INDEX — scannable list, no metrics, no counters
+       ========================================================================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head lute-grid">
+        <div class="rail">
+          <p class="eyebrow">Full Index</p>
+          <div class="spine-break" aria-hidden="true">
+            <svg viewBox="0 0 34 46" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 23 C 4 23, 5 3, 8.5 3 C 12 3, 12 36, 15.5 36 C 19 36, 19 10, 22.5 10 C 26 10, 26 29, 29.5 29 C 32 29, 33 23, 34 23" />
+            </svg>
+          </div>
+        </div>
+        <div class="canvas">
+          <h2 class="h2">Commission<br>Index</h2>
         </div>
       </div>
 
-      <div class="showcase-item">
-        <div class="showcase-item__frame">
-          <img src="assets/img/showcase-concept-02.jpg" alt="Large-format speculative book cover concept" loading="lazy">
-        </div>
-        <div class="showcase-item__caption">
-          <h3>Concept: Thuluth as Structural Cover Element</h3>
-          <span class="text-small text-muted">Speculative · Poetry in Translation</span>
+      <div class="lute-grid">
+        <div class="rail" aria-hidden="true"></div>
+        <div class="canvas">
+
+          <article class="pub">
+            <span class="pub-number">I</span>
+            <h3 class="pub-title">The Golden Method</h3>
+            <p class="pub-venue caption">Cover design · 2017 · Companion to Arts, 6(4), 20</p>
+          </article>
+
+          <article class="pub">
+            <span class="pub-number">II</span>
+            <h3 class="pub-title">Ornament as Instrument</h3>
+            <p class="pub-venue caption">Cover design · 2025 · Companion to Digital Applications in Archaeology and Cultural Heritage</p>
+          </article>
+
+          <article class="pub">
+            <span class="pub-number">III</span>
+            <h3 class="pub-title">Sound Holes</h3>
+            <p class="pub-venue caption">Cover design · 2024 · Companion to Applied Acoustics</p>
+          </article>
+
+          <article class="pub">
+            <span class="pub-number">IV</span>
+            <h3 class="pub-title">Resonant Vessels</h3>
+            <p class="pub-venue caption">Cover design · 2026 · Companion to Next Research</p>
+          </article>
+
+          <article class="pub">
+            <span class="pub-number">V</span>
+            <h3 class="pub-title">Strings to Stars</h3>
+            <p class="pub-venue caption">Cover design · Ongoing · Companion to in-preparation Herbig-Haro study</p>
+          </article>
+
+          <article class="pub">
+            <span class="pub-number">VI</span>
+            <h3 class="pub-title">Kar-Bandi: Pattern as Frequency</h3>
+            <p class="pub-venue caption">Cover study · Companion to under-review Kar-Bandi paper</p>
+            <span class="pub-status">Under Review</span>
+          </article>
+
+          <article class="pub">
+            <span class="pub-number">VII</span>
+            <h3 class="pub-title">Double-Shell: Domes of the Mediterranean</h3>
+            <p class="pub-venue caption">Cover study · Companion to ongoing dome research</p>
+            <span class="pub-status">Ongoing</span>
+          </article>
+
+          <article class="pub">
+            <span class="pub-number">VIII</span>
+            <h3 class="pub-title">Tār &amp; Setār: A Maker's Notebook</h3>
+            <p class="pub-venue caption">Cover design · 2023 · Independent volume, no companion paper</p>
+          </article>
+
+          <p class="doi mt-6"><a href="contact.html">Enquire about a commission →</a></p>
+
         </div>
       </div>
-
     </div>
-  </div>
-</section>
-
-
-<!-- ==========================================================================
-     CALL TO ACTION
-     ========================================================================== -->
-<section class="section text-center">
-  <div class="container container--narrow">
-    <span class="eyebrow">Commissioning a Cover?</span>
-    <h2>Let's Discuss Your Book</h2>
-    <a href="contact.html" class="btn btn--primary" style="margin-top: var(--space-sm);">Start a Conversation</a>
-  </div>
-</section>
+  </section>
 
 </main>
 
-
 <!-- ==========================================================================
-     GLOBAL FOOTER — identical to index.html
+     FOOTER
      ========================================================================== -->
 <footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <h4>M. M. Karbasbaf</h4>
-        <p style="color: var(--color-text-inverse-muted); max-width: 32ch;">Book cover design and Persian calligraphy for publishers of Middle Eastern, Islamic, and Persian literature.</p>
-      </div>
-      <div>
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="book-designs.html">Book Designs</a></li>
-          <li><a href="research.html">Research</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Connect</h4>
-        <ul>
-          <li><a href="https://www.behance.net/YOUR_HANDLE" target="_blank" rel="noopener">Behance</a></li>
-          <li><a href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="mailto:you@yourdomain.com">you@yourdomain.com</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 Mohammad Mahdi Karbasbaf. All rights reserved.</span>
-      <span>Based in Turkey</span>
-    </div>
+  <div class="wrap">
+    <p class="caption">Mohammad Mahdi Karbasbaf<br>ORCID 0000-0003-2264-9372</p>
+    <p class="caption"><a href="mailto:karbasbaf@gmail.com">karbasbaf@gmail.com</a></p>
+    <p class="caption">
+      <a href="index.html">Home</a> &nbsp;·&nbsp;
+      <a href="book-designs.html">Book Designs</a> &nbsp;·&nbsp;
+      <a href="research.html">Research</a> &nbsp;·&nbsp;
+      <a href="about.html">About</a> &nbsp;·&nbsp;
+      <a href="contact.html">Contact</a>
+    </p>
   </div>
 </footer>
 
+<!-- ==========================================================================
+     THE MONOGRAPH REVEAL — single shared panel, populated per plate
+     (identical structure to index.html, so the CSS in style.css needs no
+     page-specific overrides)
+     ========================================================================== -->
+<div class="book-reveal" id="book-reveal" data-open="false" role="dialog" aria-modal="true" aria-labelledby="reveal-title" inert>
+  <div class="wrap">
+    <button type="button" class="reveal-close" id="reveal-close">
+      <span aria-hidden="true">✕</span> Close
+    </button>
+    <div class="reveal-body">
+      <div class="reveal-frame">
+        <img id="reveal-image" src="" alt="" decoding="async">
+      </div>
+      <div class="reveal-detail">
+        <p class="eyebrow eyebrow--gold" id="reveal-year"></p>
+        <h2 class="h2" id="reveal-title"></h2>
+        <p class="body-text" id="reveal-medium"></p>
+        <p class="doi" id="reveal-doi"></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ==========================================================================
-     MOBILE NAV TOGGLE — identical to index.html
+     KINETICS — mobile drawer, book-reveal modal, focus trap
+     (identical logic to index.html; reused verbatim so both pages behave
+     the same way rather than maintaining two diverging scripts)
      ========================================================================== -->
 <script>
-  const navToggle = document.getElementById('navToggle');
-  const navPrimary = document.getElementById('navPrimary');
-  navToggle.addEventListener('click', () => {
-    const isOpen = navPrimary.classList.toggle('is-open');
-    navToggle.setAttribute('aria-expanded', isOpen);
+(function () {
+  'use strict';
+
+  /* ---------------------------------------------------------------------
+     1. MOBILE NAVIGATION DRAWER
+     --------------------------------------------------------------------- */
+  var navToggle = document.getElementById('nav-toggle');
+  var primaryNav = document.getElementById('primary-nav');
+  var body = document.body;
+  var desktopQuery = window.matchMedia('(min-width: 721px)');
+
+  function openNav() {
+    primaryNav.setAttribute('data-open', 'true');
+    navToggle.setAttribute('aria-expanded', 'true');
+    body.classList.add('nav-scrim-active');
+    var firstLink = primaryNav.querySelector('a');
+    if (firstLink) firstLink.focus();
+  }
+
+  function closeNav(returnFocus) {
+    primaryNav.setAttribute('data-open', 'false');
+    navToggle.setAttribute('aria-expanded', 'false');
+    body.classList.remove('nav-scrim-active');
+    if (returnFocus) navToggle.focus();
+  }
+
+  function isNavOpen() {
+    return primaryNav.getAttribute('data-open') === 'true';
+  }
+
+  navToggle.addEventListener('click', function () {
+    if (isNavOpen()) {
+      closeNav(true);
+    } else {
+      openNav();
+    }
   });
-</script>
 
-<!-- ==========================================================================
-     FILTER TAB LOGIC — vanilla JS, no dependencies
-     ========================================================================== -->
-<script>
-  const filterBar = document.getElementById('filterBar');
-  const workItems = document.querySelectorAll('#workGrid .work-item');
+  document.addEventListener('click', function (event) {
+    if (!isNavOpen()) return;
+    var clickedInsideNav = primaryNav.contains(event.target);
+    var clickedToggle = navToggle.contains(event.target);
+    if (!clickedInsideNav && !clickedToggle) {
+      closeNav(false);
+    }
+  });
 
-  filterBar.addEventListener('click', (e) => {
-    const btn = e.target.closest('button[data-filter]');
-    if (!btn) return;
+  primaryNav.addEventListener('click', function (event) {
+    if (event.target.tagName === 'A') closeNav(false);
+  });
 
-    filterBar.querySelectorAll('button').forEach(b => b.classList.remove('is-active'));
-    btn.classList.add('is-active');
+  desktopQuery.addEventListener('change', function (event) {
+    if (event.matches && isNavOpen()) closeNav(false);
+  });
 
-    const filter = btn.dataset.filter;
-    workItems.forEach(item => {
-      const matches = filter === 'all' || item.dataset.category === filter;
-      item.classList.toggle('is-hidden', !matches);
+  /* ---------------------------------------------------------------------
+     2. BOOK-REVEAL MODAL
+     --------------------------------------------------------------------- */
+  var reveal = document.getElementById('book-reveal');
+  var revealClose = document.getElementById('reveal-close');
+  var revealImage = document.getElementById('reveal-image');
+  var revealTitle = document.getElementById('reveal-title');
+  var revealYear = document.getElementById('reveal-year');
+  var revealMedium = document.getElementById('reveal-medium');
+  var revealDoi = document.getElementById('reveal-doi');
+  var triggers = Array.prototype.slice.call(document.querySelectorAll('.plate-trigger'));
+  var lastTrigger = null;
+
+  function focusableInReveal() {
+    return Array.prototype.slice.call(
+      reveal.querySelectorAll('button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])')
+    ).filter(function (el) { return el.offsetParent !== null; });
+  }
+
+  function openReveal(trigger) {
+    lastTrigger = trigger;
+
+    revealImage.src = trigger.getAttribute('data-image');
+    revealImage.alt = trigger.getAttribute('data-alt') || '';
+    revealTitle.textContent = trigger.getAttribute('data-title') || '';
+    revealYear.textContent = trigger.getAttribute('data-year') || '';
+    revealMedium.textContent = trigger.getAttribute('data-medium') || '';
+    revealDoi.textContent = trigger.getAttribute('data-doi') || '';
+
+    reveal.removeAttribute('inert');
+    reveal.setAttribute('data-open', 'true');
+    body.classList.add('scroll-locked');
+
+    window.requestAnimationFrame(function () {
+      revealClose.focus();
+    });
+  }
+
+  function closeReveal() {
+    reveal.setAttribute('data-open', 'false');
+    body.classList.remove('scroll-locked');
+
+    var finish = function () {
+      reveal.setAttribute('inert', '');
+      if (lastTrigger) lastTrigger.focus();
+    };
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      finish();
+    } else {
+      setTimeout(finish, 640);
+    }
+  }
+
+  function isRevealOpen() {
+    return reveal.getAttribute('data-open') === 'true';
+  }
+
+  triggers.forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      openReveal(trigger);
     });
   });
+
+  revealClose.addEventListener('click', function () {
+    closeReveal();
+  });
+
+  /* ---------------------------------------------------------------------
+     3. FOCUS TRAP + ESCAPE (shared between nav drawer and reveal)
+     --------------------------------------------------------------------- */
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      if (isRevealOpen()) {
+        closeReveal();
+        return;
+      }
+      if (isNavOpen()) {
+        closeNav(true);
+        return;
+      }
+    }
+
+    if (event.key === 'Tab' && isRevealOpen()) {
+      var focusable = focusableInReveal();
+      if (focusable.length === 0) return;
+
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+})();
 </script>
 
 </body>
