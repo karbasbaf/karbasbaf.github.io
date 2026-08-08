@@ -1165,46 +1165,39 @@ h3, .h3 {
 
 /* -------------------------------------------------------------------------
    17.1 — Ceiling Crown
-   True pixel-zero placement as the first node inside <body> (see
-   index.html). Hardcoded to the master architectural sketch asset,
-   assets/images/yazd-crown.png — the designer manages that file's own
-   fade/opacity in their graphic-design software before export, so this
-   rule renders it at full alpha (opacity: 1.0) and applies no filtering,
-   tinting, or fading of its own. Stretches the full viewport width
-   (width: 100%) and sits at true pixel-zero (top: 0; left: 0) using
-   position: absolute rather than fixed, so it scrolls away with the
-   document instead of pinning to the viewport. background-size: contain
-   with background-position: top center keeps the artwork's full
-   proportions intact and anchored to the top edge; background-repeat:
-   no-repeat prevents any tiling.
+   True pixel-zero placement: position:absolute against the initial
+   containing block (the .ceiling-crown div is the first node in <body>,
+   and nothing between it and <html> is positioned), so it sits flush at
+   the very top-left of the page and scrolls away naturally with the rest
+   of the document rather than staying pinned. It must run BEHIND the nav
+   text, which requires .site-header to have no opaque background (see
+   §6 — .site-header background is `transparent`) so the crown art shows
+   through the header's padding and gaps. z-index:1 keeps it above the
+   plain white canvas and any unpositioned in-flow content, while still
+   sitting well below .site-header (z-index:40, see §6), so nav links are
+   always legible on top of it.
 
-   It must run BEHIND the nav layer: .site-header keeps a transparent
-   background (see §6) and a z-index of 40, so the header's own painting
-   order stacks above this element's z-index: 1 wherever the two
-   overlap, letting the crown show through the header's padding and
-   gaps while the nav links stay perfectly legible.
-
-   Stacking note: because .ceiling-crown carries a *positive* z-index,
-   it paints above ordinary z-index:auto positioned content later in the
-   document — including .hero, which sits immediately below the header.
-   §17.2 gives .hero its own explicit z-index: 2 purely as a stacking
-   guard, so the hero's manifesto typography and calligraphy plate are
-   never obscured where the crown's height bleeds past the header.
+   Asset is hardcoded to assets/images/yazd-crown.png. Sizing is strictly
+   background-size:contain / top center / no-repeat, at full opacity —
+   any fade or tonal treatment is handled upstream in the source PNG
+   itself, not re-created here in CSS. The box height is a fluid clamp
+   sized for a wide, shallow architectural strip; contain will letterbox
+   safely inside it at any aspect ratio without cropping.
    ------------------------------------------------------------------------- */
 
 .ceiling-crown {
-  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: clamp(140px, 18vw, 320px);
   z-index: 1;
-  height: clamp(150px, 20vw, 320px);
   pointer-events: none;
-  opacity: 1.0;
   background-image: url('assets/images/yazd-crown.png');
   background-size: contain;
   background-position: top center;
   background-repeat: no-repeat;
+  opacity: 1;
 }
 
 @media print {
@@ -1212,7 +1205,7 @@ h3, .h3 {
 }
 
 /* -------------------------------------------------------------------------
-   17.2 — Hero-only: no vertical spine, no rail — plus a stacking guard
+   17.2 — Hero-only: no vertical spine, no rail
    The new hero markup no longer uses .lute-grid/.rail/.canvas at all (see
    index.html), so the spine hairline and spine-break SVG are structurally
    absent here rather than merely hidden — nothing to override. This rule
@@ -1220,20 +1213,11 @@ h3, .h3 {
    reintroduced inside .hero without a matching markup review; it costs
    nothing and prevents a silent regression. The spine remains fully
    active everywhere else on this page and on every other page.
-
-   .hero already has position: relative from §7; adding z-index: 2 here
-   is a pure stacking guard (see the note in 17.1) — it changes no visual
-   position or spacing, it only guarantees the hero's own content always
-   paints above the ceiling-crown backdrop.
    ------------------------------------------------------------------------- */
 
 .hero .rail::before,
 .hero .spine-break {
   display: none;
-}
-
-.hero {
-  z-index: 2;
 }
 
 /* -------------------------------------------------------------------------
@@ -1263,6 +1247,20 @@ h3, .h3 {
   .hero-parallel {
     animation: none;
     opacity: 1;
+  }
+}
+
+/* Left column margins — kept deliberately generous so the manifesto
+   lockup never crowds the gutter or collides with the calligraphy
+   column's own breathing room. Sizing only: no font-family, weight,
+   letter-spacing, or size values are touched here. */
+.hero-parallel-text {
+  max-width: 46ch;
+}
+
+@media (min-width: 960px) {
+  .hero-parallel-text {
+    padding-right: var(--s-4);
   }
 }
 
