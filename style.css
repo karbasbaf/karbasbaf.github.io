@@ -523,17 +523,6 @@ h3, .h3 {
   position: relative;
 }
 
-.hero-split {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  gap: var(--s-6);
-}
-
-@media (min-width: 640px) {
-  .hero-split { grid-template-columns: 1.2fr 1fr; }
-}
-
 .hero .eyebrow {
   opacity: 0;
   animation: fade-rise 900ms var(--ease-resonant) forwards;
@@ -1239,4 +1228,114 @@ h3, .h3 {
 
 @media print {
   .frame--pending { background: var(--canvas-tint); }
+}
+
+/* ==========================================================================
+   18. THE CEILING CROWN & THE COALESCED HERO — homepage above-the-fold only
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------
+   18.1 — Ceiling Crown
+   Sits as the true first element in <body>, so it occupies pixel zero
+   without any z-index/stacking-context trick against the opaque header.
+   Two layered backgrounds: a true 1px gold hairline at the very top edge,
+   plus a soft wash fading to transparent beneath it. --crown-asset and
+   --crown-asset-opacity are open hooks — drop a background-image and a
+   0–1 opacity value on :root (or on .ceiling-crown directly) to layer a
+   graphic in without touching this structural rule again.
+   ------------------------------------------------------------------------- */
+
+.ceiling-crown {
+  position: relative;
+  width: 100%;
+  height: var(--s-2);
+  background:
+    linear-gradient(180deg, var(--gold) 0px, var(--gold) 1px, transparent 1px),
+    linear-gradient(180deg, var(--gold-faint) 0%, transparent 100%);
+  background-repeat: no-repeat;
+}
+
+.ceiling-crown::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--crown-asset, none);
+  background-size: cover;
+  background-position: top center;
+  opacity: var(--crown-asset-opacity, 0);
+  pointer-events: none;
+}
+
+@media print {
+  .ceiling-crown { display: none; }
+}
+
+/* -------------------------------------------------------------------------
+   18.2 — Hero-only: no vertical spine
+   Scoped strictly to .hero. Specificity (0,2,1) beats the base .rail::before
+   rule (0,1,1) regardless of source order, so this never needs !important
+   and never leaks into any other section or page — the spine stays fully
+   intact everywhere else, including further down this same page.
+   ------------------------------------------------------------------------- */
+
+.hero .rail::before,
+.hero .spine-break {
+  display: none;
+}
+
+/* -------------------------------------------------------------------------
+   18.3 — The Coalesced Composition
+   Replaces the old clean 1.2fr/1fr .hero-split. A 12-column track lets
+   the manifesto and the artwork overlap across columns 5–7 instead of
+   sitting in separate halves. This only works because the calligraphy
+   plate's own blueprint specifies generous negative space on its left
+   edge — the manifesto lands on that white ground, not on ink. The
+   trailing gradient wash on .hero-manifesto is a defensive fallback for
+   whatever gets dropped into that image slot later: if it isn't as
+   sparse as specified, the wash still guarantees text legibility without
+   a hard edge or a box behind the type.
+   ------------------------------------------------------------------------- */
+
+.hero-composition {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  gap: var(--s-5) 0;
+}
+
+.hero-manifesto {
+  grid-column: 1 / -1;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-artwork {
+  grid-column: 1 / -1;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 959px) {
+  .hero-artwork { margin-top: var(--s-2); }
+}
+
+@media (min-width: 960px) {
+  .hero-manifesto {
+    grid-column: 1 / 8;
+    padding: var(--s-4) var(--s-6) var(--s-4) 0;
+    background: linear-gradient(
+      90deg,
+      var(--canvas) 58%,
+      rgba(255, 255, 255, 0.82) 78%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  .hero-artwork {
+    grid-column: 5 / 13;
+  }
+}
+
+@media print {
+  .hero-manifesto { background: none; padding: 0; }
 }
