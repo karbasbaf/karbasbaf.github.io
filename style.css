@@ -1,17 +1,24 @@
 /* ==========================================================================
-   KARBASBAF ARCHIVE — MASTER STYLE ENGINE
+   KARBASBAF ARCHIVE — MASTER STYLE ENGINE, v3
    The Phi-Based Resonating Sheet
-   φ = 1.618 — every spatial and typographic interval derives from this ratio
+   φ = 1.618 — every spatial, typographic, and structural interval derives
+   from this ratio. The book-cover showcase grid below is not decorated
+   with the golden ratio — it is CONSTRUCTED from the same Fibonacci square
+   spiral (1, 1, 2, 3, 5) used in "The Golden Method" (Arts, 2017) for
+   lute soundhole placement. Form and subject are the same geometry.
+
+   Type system: Fraunces (display) + Source Serif 4 (reading matter) +
+   Inter (utility: nav, caption, labels).
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,600&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap');
 
 /* ==========================================================================
-   1. TOKENS — Canvas, Ink, and the Phi Scale
+   1. TOKENS
    ========================================================================== */
 
 :root {
-  /* Palette */
+  /* Palette — gold is a single-pixel tactical accent. Never a fill. */
   --canvas: #FFFFFF;
   --canvas-tint: #FAFAF8;
   --ink: #191A17;
@@ -23,33 +30,33 @@
   --gold: #C9974A;
   --gold-soft: rgba(201, 151, 74, 0.35);
   --gold-faint: rgba(201, 151, 74, 0.12);
-  --grey-muted: #8E8F8A;
+  --grey-muted: #75766F; /* AA-safe on white at large-text sizes */
 
   /* Type families */
-  --font-display: 'Oswald', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-display: 'Fraunces', 'Iowan Old Style', ui-serif, serif;
+  --font-body: 'Source Serif 4', 'Iowan Old Style', ui-serif, serif;
+  --font-ui: 'Inter', -apple-system, sans-serif;
 
   /* Phi = 1.618 — fluid type scale, base 17px */
-  --t-caption: clamp(0.6154rem, 0.59rem + 0.13vw, 0.6875rem);   /* 10.5px */
-  --t-nav:     clamp(0.8235rem, 0.78rem + 0.22vw, 0.9412rem);   /* 13–15px, elevated nav scale */
-  --t-body:    clamp(0.9412rem, 0.90rem + 0.20vw, 1.0625rem);   /* 17px   */
-  --t-lede:    clamp(1.3529rem, 1.24rem + 0.55vw, 1.6875rem);   /* 27px   */
-  --t-h2:      clamp(1.8235rem, 1.55rem + 1.35vw, 2.75rem);     /* 44px   */
-  --t-h1:      clamp(2.5rem, 1.9rem + 3vw, 4.4375rem);          /* 71px   */
-  --t-hero:    clamp(3.2rem, 1.6rem + 8vw, 7.1875rem);          /* 115px  */
+  --t-caption: clamp(0.6154rem, 0.59rem + 0.13vw, 0.6875rem);
+  --t-nav:     clamp(0.8235rem, 0.78rem + 0.22vw, 0.9412rem);
+  --t-body:    clamp(0.9412rem, 0.90rem + 0.20vw, 1.0625rem);
+  --t-lede:    clamp(1.3529rem, 1.24rem + 0.55vw, 1.6875rem);
+  --t-h2:      clamp(1.8235rem, 1.55rem + 1.35vw, 2.75rem);
+  --t-h1:      clamp(2.5rem, 1.9rem + 3vw, 4.4375rem);
+  --t-hero:    clamp(3.2rem, 1.6rem + 8vw, 7.1875rem);
 
   /* Phi spacing scale — base unit 17px */
-  --s-1: 0.382rem;   /*  ~6.5px  φ⁻² */
-  --s-2: 0.618rem;   /*  ~10.5px φ⁻¹ */
-  --s-3: 1rem;       /*  17px    φ⁰  */
-  --s-4: 1.618rem;   /*  ~27.5px φ¹  */
-  --s-5: 2.618rem;   /*  ~44.5px φ²  */
-  --s-6: 4.236rem;   /*  ~72px   φ³  */
-  --s-7: 6.854rem;   /*  ~116px  φ⁴  */
-  --s-8: 11.09rem;   /*  ~188px  φ⁵  */
+  --s-1: 0.382rem;
+  --s-2: 0.618rem;
+  --s-3: 1rem;
+  --s-4: 1.618rem;
+  --s-5: 2.618rem;
+  --s-6: 4.236rem;
+  --s-7: 6.854rem;
+  --s-8: 11.09rem;
 
-  /* Structural grid */
-  --grid-split: 1fr 1.618fr;
+  /* Structural grid — rail:bout held at the golden ratio itself */
   --rail-width: minmax(180px, 1fr);
   --bout-width: minmax(0, 1.618fr);
   --content-max: 1440px;
@@ -58,6 +65,7 @@
   /* Motion */
   --ease-resonant: cubic-bezier(0.16, 1, 0.3, 1);
   --dur-frame: 640ms;
+  --dur-quick: 280ms;
 }
 
 /* ==========================================================================
@@ -69,6 +77,10 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 
 body {
@@ -83,15 +95,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-img, svg { display: block; max-width: 100%; }
-
-a {
-  color: inherit;
-  text-decoration: none;
+body.scroll-locked {
+  overflow: hidden;
 }
 
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; margin: 0; padding: 0; }
-
 h1, h2, h3, h4, p, figure { margin: 0; }
 
 button {
@@ -107,12 +117,20 @@ button {
   color: var(--ink);
 }
 
+:focus { outline: none; }
+
+:focus-visible {
+  outline: 1.5px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
 /* ==========================================================================
    3. TYPOGRAPHY SYSTEM
    ========================================================================== */
 
 .eyebrow {
-  font-family: var(--font-display);
+  font-family: var(--font-ui);
   font-size: var(--t-caption);
   font-weight: 500;
   text-transform: uppercase;
@@ -124,63 +142,62 @@ button {
 
 h1, .h1 {
   font-family: var(--font-display);
+  font-optical-sizing: auto;
   font-size: var(--t-h1);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.005em;
   line-height: 1.04;
   color: var(--ink);
 }
 
 h2, .h2 {
   font-family: var(--font-display);
+  font-optical-sizing: auto;
   font-size: var(--t-h2);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  line-height: 1.1;
+  font-weight: 480;
+  letter-spacing: -0.003em;
+  line-height: 1.12;
   color: var(--ink);
 }
 
 h3, .h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-ui);
   font-size: var(--t-body);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   line-height: 1.4;
   color: var(--ink);
 }
 
 .hero-title {
   font-family: var(--font-display);
+  font-optical-sizing: auto;
   font-size: var(--t-hero);
-  text-transform: uppercase;
   letter-spacing: -0.01em;
   line-height: 0.96;
 }
 
-/* First line: ultra-bold structural charcoal — the visual anchor */
 .hero-title .line-primary {
   display: block;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--ink);
 }
 
-/* Subsequent lines: light, muted, poetic counterweight */
 .hero-title .line-secondary {
   display: block;
-  font-weight: 300;
+  font-weight: 340;
+  font-style: italic;
   color: var(--grey-muted);
-  margin-top: 0.06em;
+  margin-top: 0.05em;
 }
 
 .lede {
   font-family: var(--font-body);
   font-size: var(--t-lede);
-  font-weight: 300;
+  font-weight: 400;
   font-style: italic;
-  line-height: 1.55;
+  line-height: 1.5;
   color: var(--ink-90);
 }
 
@@ -196,7 +213,7 @@ h3, .h3 {
 .body-text + .body-text { margin-top: var(--s-4); }
 
 .caption, .meta {
-  font-family: var(--font-display);
+  font-family: var(--font-ui);
   font-size: var(--t-caption);
   font-weight: 400;
   text-transform: uppercase;
@@ -210,7 +227,7 @@ h3, .h3 {
   font-size: var(--t-caption);
   font-style: italic;
   color: var(--ink-60);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 .doi a {
@@ -221,7 +238,7 @@ h3, .h3 {
 
 .dropcap::first-letter {
   font-family: var(--font-display);
-  font-size: 3.4em;
+  font-size: calc(var(--t-h1) * 0.618);
   font-weight: 600;
   float: left;
   line-height: 0.82;
@@ -259,36 +276,19 @@ h3, .h3 {
 }
 
 @media (min-width: 900px) {
-  .rail {
-    text-align: right;
-    border-right: 1px solid transparent; /* spine lives in ::before */
-  }
+  .rail { text-align: right; }
 }
 
 .rail > * + * { margin-top: var(--s-3); }
 
-.canvas {
-  min-width: 0;
-}
-
+.canvas { min-width: 0; }
 .canvas > * + * { margin-top: var(--s-4); }
 
-/* Section rhythm */
-.section {
-  padding-block: var(--s-7);
-}
-
+.section { padding-block: var(--s-7); }
 .section--tight { padding-block: var(--s-6); }
-
-.section--tinted {
-  background: var(--canvas-tint);
-}
-
-.section-head {
-  margin-bottom: var(--s-6);
-}
-
-.section-head .h2 { margin-top: var(--s-2); }
+.section--tinted { background: var(--canvas-tint); }
+.section-head { margin-bottom: var(--s-6); }
+.section-head .canvas > .h2 { margin-top: var(--s-2); }
 
 /* ==========================================================================
    5. THE WAVEFORM SPINE — Signature Structural Element
@@ -327,11 +327,7 @@ h3, .h3 {
   .spine-break { display: block; }
 }
 
-.spine-break svg {
-  width: 100%;
-  height: 46px;
-  overflow: visible;
-}
+.spine-break svg { width: 100%; height: 46px; overflow: visible; }
 
 .spine-break path {
   fill: none;
@@ -340,7 +336,6 @@ h3, .h3 {
   stroke-linecap: round;
 }
 
-/* Standalone full-width waveform divider, used between major page sections */
 .wave-divider {
   width: 100%;
   height: 32px;
@@ -355,7 +350,6 @@ h3, .h3 {
   stroke-linecap: round;
 }
 
-/* Plain hairline rule, gold, used sparingly and never as a fill */
 .hr-gold {
   border: none;
   height: 1px;
@@ -363,6 +357,8 @@ h3, .h3 {
   opacity: 0.55;
   margin: var(--s-5) 0;
 }
+
+.hr-gold.wrap { max-width: var(--content-max); }
 
 .hr-ink {
   border: none;
@@ -393,17 +389,18 @@ h3, .h3 {
   font-family: var(--font-display);
   font-size: var(--t-body);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.02em;
 }
 
 .brand span {
   display: block;
-  font-weight: 300;
+  font-family: var(--font-ui);
+  font-weight: 400;
   font-size: var(--t-caption);
-  letter-spacing: 0.3em;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
   color: var(--ink-60);
-  margin-top: 0.2em;
+  margin-top: 0.35em;
 }
 
 .nav-list {
@@ -413,11 +410,11 @@ h3, .h3 {
 }
 
 .nav-list a {
-  font-family: var(--font-display);
+  font-family: var(--font-ui);
   font-size: var(--t-nav);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   color: var(--ink);
   padding-bottom: 0.5em;
   border-bottom: 1.5px solid transparent;
@@ -431,23 +428,67 @@ h3, .h3 {
   border-color: var(--gold);
 }
 
-.nav-toggle {
-  display: none;
-}
+.nav-toggle { display: none; }
 
 @media (max-width: 720px) {
-  .nav-list {
-    display: none;
-  }
   .nav-toggle {
-    display: block;
-    font-family: var(--font-display);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: var(--font-ui);
     font-size: var(--t-caption);
+    font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     border: 1px solid var(--ink-15);
     padding: var(--s-1) var(--s-3);
+    transition: border-color var(--dur-quick) var(--ease-resonant);
   }
+
+  .nav-toggle:hover { border-color: var(--gold); }
+
+  .nav-list {
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: min(78vw, 360px);
+    height: 100vh;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--s-5);
+    padding: var(--s-6);
+    background: var(--canvas);
+    border-left: 1px solid var(--ink-15);
+    transform: translateX(100%);
+    transition: transform var(--dur-frame) var(--ease-resonant);
+    visibility: hidden;
+    z-index: 50;
+  }
+
+  .nav-list[data-open="true"] {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .nav-list a {
+    font-size: var(--t-lede);
+    letter-spacing: 0.02em;
+    font-family: var(--font-display);
+    font-weight: 480;
+    text-transform: none;
+  }
+
+  body.nav-scrim-active::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(25, 26, 23, 0.35);
+    z-index: 39;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-list { transition: none; }
 }
 
 .site-footer {
@@ -480,6 +521,17 @@ h3, .h3 {
 .hero {
   padding: var(--s-8) 0 var(--s-7);
   position: relative;
+}
+
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: var(--s-6);
+}
+
+@media (min-width: 640px) {
+  .hero-split { grid-template-columns: 1.2fr 1fr; }
 }
 
 .hero .eyebrow {
@@ -516,12 +568,311 @@ h3, .h3 {
 }
 
 /* ==========================================================================
-   8. GALLERY FRAMES & PLATES — Book Covers / Figures
+   8. THE BOOK COVER SHOWCASE — Fibonacci Spiral Reveal
    ========================================================================== */
 
-.plate {
-  position: relative;
+/* -------------------------------------------------------------------------
+   8.1 — THE MOSAIC
+   Five plates only — not an arbitrary curator's choice, but the exact
+   count of squares in a Fibonacci spiral truncated at 5: sides 1, 1, 2, 3,
+   5. Their bounding box is 8 × 5, a real convergent toward φ (8/5 = 1.6).
+   The container is locked to that ratio so every "square" cell actually
+   renders as a square, matching the geometric construction plate already
+   in the portfolio ("Golden Method, Geometric Overlay").
+
+   Reading order = spiral order = visual dominance order: the largest,
+   most recent or most significant cover leads.
+   ------------------------------------------------------------------------- */
+
+.book-showcase {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: var(--s-2);
+  aspect-ratio: 8 / 5;
 }
+
+.book-showcase .plate:nth-child(1) { grid-column: 1 / 6; grid-row: 1 / 6; }  /* 5×5 */
+.book-showcase .plate:nth-child(2) { grid-column: 6 / 9; grid-row: 1 / 4; }  /* 3×3 */
+.book-showcase .plate:nth-child(3) { grid-column: 6 / 8; grid-row: 4 / 6; }  /* 2×2 */
+.book-showcase .plate:nth-child(4) { grid-column: 8 / 9; grid-row: 4 / 5; }  /* 1×1 */
+.book-showcase .plate:nth-child(5) { grid-column: 8 / 9; grid-row: 5 / 6; }  /* 1×1 */
+
+.book-showcase .plate,
+.book-showcase .frame {
+  height: 100%;
+  width: 100%;
+}
+
+/* Below 900px the spiral cannot hold its proportions without crushing the
+   1×1 cells into illegible slivers — collapses to a single reading-order
+   column instead of trying to force the mosaic into a narrow viewport. */
+@media (max-width: 899px) {
+  .book-showcase {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    aspect-ratio: auto;
+    gap: var(--s-5);
+  }
+
+  .book-showcase .plate:nth-child(n) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .book-showcase .plate .frame {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   8.2 — THE COVER ITSELF: hover as "stepping closer"
+   No drop shadows anywhere. Depth and tactility come from three layered
+   cues instead: (1) a slow, heavy scale, (2) a raking-light sweep that
+   travels across the surface via background-position, and (3) a faint
+   paper-grain texture that only becomes perceptible at the closer
+   "inspection" distance. All GPU-composited (transform, opacity,
+   background-position) — no layout properties are touched on interaction.
+   ------------------------------------------------------------------------- */
+
+.book-showcase .frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--canvas-tint);
+  border: 1px solid var(--ink-15);
+  cursor: pointer;
+}
+
+.book-showcase .frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  backface-visibility: hidden;
+}
+
+/* Paper-grain texture — inline SVG feTurbulence, no image request.
+   Sits above the image at near-zero opacity until hover intensifies it
+   slightly, simulating the surface becoming legible under raking light. */
+.book-showcase .frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode: multiply;
+  opacity: 0.025;
+  pointer-events: none;
+}
+
+/* Raking-light sweep — a diagonal gradient parked off-canvas, only
+   travels across the surface on hover/focus for devices with real
+   pointers. Gated behind (hover: hover) so touch never gets a
+   stuck light-sweep after tap. */
+@media (hover: hover) and (pointer: fine) {
+  .book-showcase .frame::after {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background: linear-gradient(
+      115deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.22) 48%,
+      rgba(255, 255, 255, 0.06) 52%,
+      transparent 60%
+    );
+    background-size: 220% 220%;
+    background-position: -40% -40%;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    transition: background-position var(--dur-frame) var(--ease-resonant);
+  }
+
+  .book-showcase .frame,
+  .book-showcase .frame img {
+    transition: transform var(--dur-frame) var(--ease-resonant),
+                border-color var(--dur-frame) var(--ease-resonant),
+                filter var(--dur-frame) var(--ease-resonant);
+  }
+
+  .book-showcase .frame:hover,
+  .book-showcase .frame:focus-visible {
+    border-color: var(--gold-soft);
+  }
+
+  .book-showcase .frame:hover img,
+  .book-showcase .frame:focus-visible img {
+    transform: scale(1.035);
+    filter: contrast(1.03) brightness(1.015);
+  }
+
+  .book-showcase .frame:hover::after,
+  .book-showcase .frame:focus-visible::after {
+    background-position: 60% 60%;
+  }
+
+  .book-showcase .frame::before {
+    transition: opacity var(--dur-frame) var(--ease-resonant);
+  }
+
+  .book-showcase .frame:hover::before,
+  .book-showcase .frame:focus-visible::before {
+    opacity: 0.05;
+  }
+}
+
+/* Touch / coarse-pointer devices: no hover choreography, but a persistent
+   quiet affordance so it's clear the plate is tappable. */
+@media not all and (hover: hover) {
+  .book-showcase .frame {
+    border-color: var(--ink-15);
+  }
+}
+
+.book-showcase figcaption {
+  margin-top: var(--s-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-3);
+}
+
+/* Only the dominant (5×5) plate carries a caption at rest — the four
+   supporting covers reveal their captions on open, keeping the mosaic
+   itself quiet and letting the grid geometry do the talking. */
+.book-showcase .plate:not(:first-child) figcaption {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .book-showcase .plate figcaption { display: flex; }
+}
+
+/* -------------------------------------------------------------------------
+   8.3 — THE REVEAL: full-viewport archival presentation sheet
+   Not a lightbox. No dark scrim, no centered floating card. The reveal
+   IS the page for a moment — full white canvas, rail/bout layout reused
+   at full scale, a close control instead of a modal chrome. JS toggles
+   `data-open="true"` on `.book-reveal` and adds `.scroll-locked` to body.
+   ------------------------------------------------------------------------- */
+
+.book-reveal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--canvas);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.985);
+  transition: opacity var(--dur-frame) var(--ease-resonant),
+              transform var(--dur-frame) var(--ease-resonant),
+              visibility 0s linear var(--dur-frame);
+  overflow-y: auto;
+}
+
+.book-reveal[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: opacity var(--dur-frame) var(--ease-resonant),
+              transform var(--dur-frame) var(--ease-resonant),
+              visibility 0s linear 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-reveal {
+    transform: none;
+    transition: opacity var(--dur-quick) linear,
+                visibility 0s linear var(--dur-quick);
+  }
+  .book-reveal[data-open="true"] {
+    transition: opacity var(--dur-quick) linear, visibility 0s linear 0s;
+  }
+}
+
+.book-reveal .wrap {
+  padding-top: var(--s-6);
+  padding-bottom: var(--s-7);
+  min-height: 100%;
+}
+
+.reveal-close {
+  position: sticky;
+  top: var(--s-4);
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--ink-15);
+  padding: var(--s-2) var(--s-3);
+  background: var(--canvas);
+  transition: border-color var(--dur-quick) var(--ease-resonant),
+              color var(--dur-quick) var(--ease-resonant);
+  z-index: 2;
+}
+
+.reveal-close:hover,
+.reveal-close:focus-visible {
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.reveal-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-6);
+  margin-top: var(--s-5);
+}
+
+@media (min-width: 900px) {
+  .reveal-body {
+    grid-template-columns: 1.618fr 1fr;
+    align-items: start;
+    gap: var(--s-7);
+  }
+}
+
+.reveal-frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--canvas-tint);
+  border: 1px solid var(--ink-08);
+  aspect-ratio: 3 / 4;
+}
+
+.reveal-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--canvas-tint);
+}
+
+.reveal-detail .eyebrow { display: block; }
+
+.reveal-detail .h2 {
+  margin-top: var(--s-3);
+}
+
+.reveal-detail .body-text {
+  margin-top: var(--s-4);
+  max-width: 48ch;
+}
+
+.reveal-detail .doi {
+  display: block;
+  margin-top: var(--s-5);
+}
+
+/* ==========================================================================
+   9. GALLERY FRAMES & PLATES — general-purpose (research/architecture pages)
+   ========================================================================== */
+
+.plate { position: relative; }
 
 .frame {
   position: relative;
@@ -540,7 +891,8 @@ h3, .h3 {
   backface-visibility: hidden;
 }
 
-.frame:hover img {
+.frame:hover img,
+.frame:focus-within img {
   transform: scale(1.03);
 }
 
@@ -556,18 +908,15 @@ h3, .h3 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--s-6) var(--s-5);
+  align-items: start;
 }
 
-.plate-gallery .plate:nth-child(3n+2) {
-  margin-top: var(--s-6);
-}
-
-.plate--tall .frame { aspect-ratio: 3 / 4.2; }
+.plate--tall .frame { aspect-ratio: 14 / 17; }
 .plate--wide .frame { aspect-ratio: 16 / 10; }
 .plate--square .frame { aspect-ratio: 1 / 1; }
 
 /* ==========================================================================
-   9. PUBLICATION / RESEARCH BLOCKS
+   10. PUBLICATION / RESEARCH BLOCKS
    ========================================================================== */
 
 .pub {
@@ -580,45 +929,41 @@ h3, .h3 {
 .pub-number {
   font-family: var(--font-display);
   font-size: var(--t-lede);
-  font-weight: 300;
+  font-weight: 340;
+  font-style: italic;
   color: var(--gold);
   line-height: 1;
 }
 
 .pub-title {
   font-family: var(--font-display);
+  font-optical-sizing: auto;
   font-size: var(--t-h2);
-  font-weight: 500;
-  text-transform: none;
-  letter-spacing: 0.005em;
-  line-height: 1.15;
+  font-weight: 480;
+  letter-spacing: -0.002em;
+  line-height: 1.16;
   margin-top: var(--s-2);
 }
 
-.pub-venue {
-  margin-top: var(--s-2);
-}
+.pub-venue { margin-top: var(--s-2); }
 
 .pub-status {
   display: inline-block;
   margin-top: var(--s-2);
-  font-family: var(--font-display);
+  font-family: var(--font-ui);
   font-size: var(--t-caption);
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   color: var(--ink-60);
   border: 1px solid var(--ink-15);
   padding: var(--s-1) var(--s-2);
 }
 
 /* ==========================================================================
-   10. TIMELINE
+   11. TIMELINE
    ========================================================================== */
 
-.timeline {
-  position: relative;
-  padding-left: var(--s-4);
-}
+.timeline { position: relative; padding-left: var(--s-4); }
 
 .timeline::before {
   content: "";
@@ -630,19 +975,17 @@ h3, .h3 {
   background: var(--ink-15);
 }
 
-.timeline-item {
-  position: relative;
-  padding-bottom: var(--s-6);
-}
+.timeline-item { position: relative; padding-bottom: var(--s-6); }
 
 .timeline-item::before {
   content: "";
   position: absolute;
   left: calc(var(--s-4) * -1);
-  top: 0.35em;
-  width: 7px;
-  height: 7px;
-  background: var(--gold);
+  top: 0.4em;
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--gold);
+  background: var(--canvas);
   border-radius: 50%;
   transform: translateX(-50%);
 }
@@ -652,21 +995,22 @@ h3, .h3 {
 .timeline-year {
   font-family: var(--font-display);
   font-size: var(--t-lede);
-  font-weight: 300;
+  font-weight: 340;
   color: var(--ink);
 }
 
 /* ==========================================================================
-   11. PULL QUOTE
+   12. PULL QUOTE
    ========================================================================== */
 
 .pull-quote {
   font-family: var(--font-display);
+  font-optical-sizing: auto;
   font-size: var(--t-h2);
-  font-weight: 300;
-  text-transform: none;
-  letter-spacing: 0.005em;
-  line-height: 1.28;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.002em;
+  line-height: 1.3;
   max-width: 20ch;
   color: var(--ink);
 }
@@ -674,16 +1018,16 @@ h3, .h3 {
 .pull-quote cite {
   display: block;
   margin-top: var(--s-4);
-  font-family: var(--font-display);
+  font-family: var(--font-ui);
   font-style: normal;
   font-size: var(--t-caption);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-60);
 }
 
 /* ==========================================================================
-   12. FORM ELEMENTS — Contact Page
+   13. FORM ELEMENTS — Contact Page
    ========================================================================== */
 
 .field {
@@ -696,10 +1040,10 @@ h3, .h3 {
 
 .field label {
   display: block;
-  font-family: var(--font-display);
+  font-family: var(--font-ui);
   font-size: var(--t-caption);
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   color: var(--ink-60);
   margin-bottom: var(--s-2);
 }
@@ -718,16 +1062,14 @@ h3, .h3 {
 
 .field textarea { min-height: 7em; }
 
-.form-grid {
-  display: grid;
-  gap: var(--s-5);
-}
+.form-grid { display: grid; gap: var(--s-5); }
 
 .btn-submit {
-  font-family: var(--font-display);
+  font-family: var(--font-ui);
   font-size: var(--t-caption);
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   color: var(--ink);
   border: 1px solid var(--ink);
   padding: var(--s-3) var(--s-5);
@@ -743,7 +1085,7 @@ h3, .h3 {
 }
 
 /* ==========================================================================
-   13. UTILITIES
+   14. UTILITIES
    ========================================================================== */
 
 .mt-1 { margin-top: var(--s-1); } .mt-2 { margin-top: var(--s-2); }
@@ -762,24 +1104,26 @@ h3, .h3 {
 }
 
 /* ==========================================================================
-   14. RESPONSIVE ADJUSTMENTS
+   15. RESPONSIVE ADJUSTMENTS
    ========================================================================== */
 
 @media (max-width: 640px) {
   .wrap { padding: 0 var(--s-4); }
   .section { padding-block: var(--s-6); }
   .plate-gallery { gap: var(--s-5) var(--s-4); }
-  .plate-gallery .plate:nth-child(3n+2) { margin-top: 0; }
+  .reveal-close { top: var(--s-2); }
+}
+
+@media (min-width: 900px) and (max-width: 1100px) {
+  :root { --rail-width: minmax(220px, 1fr); }
 }
 
 /* ==========================================================================
-   15. PRINT — The Exhibition Catalog Paradigm
+   16. PRINT — The Exhibition Catalog Paradigm
    ========================================================================== */
 
 @media print {
-  @page {
-    margin: 2.2cm 1.8cm;
-  }
+  @page { margin: 2.2cm 1.8cm; }
 
   * {
     -webkit-print-color-adjust: exact;
@@ -796,17 +1140,14 @@ h3, .h3 {
   }
 
   .site-header, .site-footer, .nav-toggle, .nav-list,
-  .btn-submit, .field, form, .no-print {
+  .btn-submit, .field, form, .book-reveal, .no-print {
     display: none !important;
   }
 
-  .lute-grid {
-    display: block !important;
-  }
+  .lute-grid { display: block !important; }
 
   .rail {
     text-align: left;
-    border-right: none;
     padding-right: 0;
     margin-bottom: 0.6em;
   }
@@ -820,9 +1161,21 @@ h3, .h3 {
 
   a { color: #000000; text-decoration: underline; }
 
-  .frame img {
-    filter: grayscale(100%);
+  .frame img,
+  .book-showcase .frame img { filter: grayscale(100%); }
+
+  .book-showcase .frame::before,
+  .book-showcase .frame::after { display: none; }
+
+  .book-showcase {
+    display: block;
   }
+  .book-showcase .plate {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 0.6cm;
+  }
+  .book-showcase .plate figcaption { display: flex !important; }
 
   .pub, .plate, .section {
     break-inside: avoid;
@@ -846,5 +1199,5 @@ h3, .h3 {
     color: #555;
   }
 
-  .doi a::after { content: ""; } /* avoid duplicating already-visible DOI text */
+  .doi a::after { content: ""; }
 }
