@@ -1201,3 +1201,92 @@ h3, .h3 {
 
   .doi a::after { content: ""; }
 }
+
+/* ==========================================================================
+   17. ABOVE-THE-FOLD OVERHAUL — Ceiling Crown & Hero Fusion (index.html only)
+   ------------------------------------------------------------------------
+   Every rule below is scoped under body.page-home so the shared .site-header,
+   .lute-grid, .rail, .frame, and .plate rules used on every other page of
+   the archive remain completely untouched. Nothing in §§1–16 above was
+   edited to build this section.
+   ========================================================================== */
+
+/* 17.1 — The tactile full-width ceiling crown.
+   Sits at true pixel-zero, full viewport width, behind the nav layer.
+   A height is required for the background image to paint at all (an
+   absolutely-positioned empty div with no declared height collapses to
+   0px); clamp() keeps the crown proportionate from small phones up to
+   wide desktop glass without ever being specified by the source spec. */
+body.page-home .ceiling-crown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(11rem, 22vw, 26rem);
+  background-image: url('assets/images/yazd-crown.png');
+  background-size: contain;
+  background-position: top center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  z-index: 1;
+  pointer-events: none; /* decorative — never intercepts nav or hero clicks */
+}
+
+/* Lift the header and main content into their own stacking context above
+   the crown. Without this, browsers paint an absolutely-positioned z-index
+   layer over ordinary in-flow content wherever the two geometrically
+   overlap — which would risk the crown drawing on top of the hero
+   typography the moment the artwork is taller than the header. The header
+   already sits at z-index 40 and opaque canvas white, so it fully masks
+   the crown behind it exactly as specified; main simply guarantees the
+   manifesto and calligraphy plate stay legible if the crown extends past
+   the header's own height. */
+body.page-home .site-header { position: relative; z-index: 40; }
+body.page-home main { position: relative; z-index: 2; }
+
+/* 17.2 — Zero-clutter header flank.
+   The brand lockup has been removed from the markup entirely, leaving the
+   left flank as pure negative whitespace. The five nav links are pulled
+   into a tight cluster against the right edge — flex-end, not the
+   space-between used site-wide, so nothing stretches to fill the gap. */
+body.page-home .site-header .wrap {
+  justify-content: flex-end;
+}
+
+/* 17.3 — Hero canvas fusion.
+   The hero no longer runs through .lute-grid/.rail, so the waveform-spine
+   hairline (.rail::before) and the gold eyebrow it carried simply don't
+   exist on this viewport — nothing to override, nothing to hide. Left and
+   right sides now share one continuous white surface. */
+body.page-home .hero { background: var(--canvas); }
+
+/* 17.4 — Pure 2-column parallel grid, no intersections.
+   Hold the hero to a single stacked column through tablet, and only split
+   into the manifesto / calligraphy pair once the viewport has genuine
+   room for both at full weight (≥960px). This supersedes the general
+   640px split used elsewhere in the file for this section only. */
+@media (min-width: 640px) and (max-width: 959.98px) {
+  body.page-home .hero-split { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 960px) {
+  body.page-home .hero-split {
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--s-7);
+    align-items: center;
+  }
+}
+
+/* The calligraphy plate floats naked: no card, no border, no tint. This
+   overrides .frame's general-purpose museum-mount treatment for the hero
+   instance only — every other .frame on every other page (covers, the
+   workshop portrait) keeps its border and tint exactly as before. */
+body.page-home .hero .frame {
+  background: transparent;
+  border: none;
+}
+
+body.page-home .hero .frame:hover img,
+body.page-home .hero .frame:focus-within img {
+  transform: none;
+}
