@@ -1212,44 +1212,31 @@ h3, .h3 {
    ========================================================================== */
 
 /* -------------------------------------------------------------------------
-   17.1 — THE CEILING CROWN: root-cause fix + mobile/desktop reconstruction
+   17.1 — THE CEILING CROWN: component isolation via flow, not stacking
 
-   DIAGNOSIS of the invisible-crown bug (both viewports):
-   The previous pass added `body.page-home .hero { background: var(--canvas); }`
-   to "fuse" the hero into one white surface. That was redundant — body is
-   already #FFFFFF — but it was also destructive: `main` had been given
-   `position:relative; z-index:2` so hero typography would always paint
-   above the crown's `z-index:1`. That's correct for legibility, but it
-   also meant the *entire* hero box — including that opaque white
-   background — painted as a single unit above the crown. Combined with
-   the header's own opaque canvas background directly above it, the crown
-   was sandwiched between two solid white layers with no visible seam at
-   any viewport. It was never a missing-file or path problem; it was two
-   coats of white paint. The fix below removes that opaque hero background
-   (§17.3) so the crown shows through hero's transparent whitespace, and
-   restructures the crown itself so it can never be masked again.
+   Why the crown could "bleed" into the hero at odd zoom levels: it was
+   z-index'd to sit *behind* the header and, by design, behind the hero's
+   transparent whitespace too — an intentional overlap ("fusion") that
+   depended on precise stacking math holding up across every zoom and
+   viewport combination. Stacking math is exactly the kind of thing that
+   gets fragile under browser zoom, where sub-pixel rounding differs from
+   engine to engine. The fix removes the dependency entirely rather than
+   tuning it further: on desktop the crown is now a strictly in-flow block
+   with position:static, exactly like its already-flawless mobile
+   counterpart. In-flow boxes physically reserve their own vertical space
+   and cannot be bled into or overlapped by anything after them — not at
+   any zoom level, not at any viewport width. There is no z-index left to
+   fight.
 
-   MOBILE (<768px): the crown is a normal in-flow block, full width, with
-   its own reserved height. Nothing can overlap it because nothing is
-   asked to — the header (and its menu toggle) simply comes next in
-   document order, landing cleanly below the crown's lower edge with zero
-   z-index arithmetic and zero risk of the two ever colliding.
-
-   DESKTOP (≥768px): the crown returns to absolute, pixel-zero, sitting
-   behind the nav layer (z-index 1 vs. the header's 40) exactly as
-   specified, with a soft mask-image fade at its lower edge so the
-   architectural sketch dissolves into the white canvas rather than
-   ending on a hard rule — the "breathtaking, museum-grade fusion" the
-   brief calls for.
-
-   Sizing uses `background-size: contain` inside a clamp()-driven height,
-   which is the correct tool here: contain guarantees the full artwork is
-   always visible with zero cropping at any box size (unlike cover, which
-   crops), so it already satisfies "never clips" without needing to know
-   the source PNG's exact intrinsic ratio up front. The clamp() supplies
-   the min-height / fluid-scaling half of the brief. --crown-h is a single
-   custom property so the mobile spacer height and the desktop artwork
-   height can never drift out of sync with each other. */
+   The one wrinkle: in-flow order follows DOM order, and the crown's DOM
+   position (first child of body, before <header>) is load-bearing for
+   the mobile layout that's already signed off — moving the node would
+   also silently reorder mobile, which nobody asked for. So the desktop
+   reordering is done visually, in CSS only, with flexbox `order` on
+   body's direct children. The DOM — and every screen reader's reading
+   order — is untouched; only paint order changes, and only at ≥768px.
+   Mobile's markup, CSS, and visual order are all byte-for-byte what they
+   were when this was signed off as flawless. */
 
 body.page-home {
   --crown-h: clamp(9rem, 40vw, 14rem);
@@ -1269,28 +1256,31 @@ body.page-home .ceiling-crown {
 
 @media (min-width: 768px) {
   body.page-home {
-    --crown-h: clamp(11rem, 22vw, 26rem);
+    --crown-h: clamp(11rem, 20vw, 27rem);
   }
+
+  /* Reorder body's direct children visually — header first, then the
+     crown, then the page content — without touching DOM/reading order.
+     book-reveal is position:fixed and script has no box, so neither
+     participates in flex layout; nothing to assign them. */
+  body.page-home {
+    display: flex;
+    flex-direction: column;
+  }
+
+  body.page-home .site-header { order: 1; }
 
   body.page-home .ceiling-crown {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    mask-image: linear-gradient(to bottom, black 55%, transparent 97%);
-    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 97%);
+    order: 2;
+    /* No position, no top/left, no z-index, no mask-image — the crown is
+       a plain block sitting in normal flow. It cannot overlap anything
+       below it because normal flow makes that geometrically impossible. */
+    margin-bottom: var(--s-6); /* §17.1b — the definitive safety margin */
   }
-}
 
-/* Header and main are lifted into their own positive-z-index layers so
-   their content always paints above the crown (header masks it entirely
-   behind its own opaque bar by design; main just guarantees the hero
-   manifesto and calligraphy plate stay legible if the artwork's fluid
-   height ever runs past the header on very short viewports). Harmless on
-   mobile, where the crown isn't positioned at all and there's nothing to
-   stack against. */
-body.page-home .site-header { position: relative; z-index: 40; }
-body.page-home main { position: relative; z-index: 2; }
+  body.page-home main { order: 3; }
+  body.page-home .site-footer { order: 4; }
+}
 
 /* 17.2 — Zero-clutter header flank.
    The brand lockup has been removed from the markup entirely, leaving the
@@ -1303,34 +1293,68 @@ body.page-home .site-header .wrap {
 }
 
 /* 17.3 — Hero canvas fusion.
-   No background rule here on purpose (see the §17.1 diagnosis above) —
-   the hero stays transparent so the crown can show through its top
-   padding and the negative space around the manifesto. The hero no
-   longer runs through .lute-grid/.rail either, so the waveform-spine
-   hairline (.rail::before) and the gold eyebrow it carried simply don't
-   exist on this section — nothing to override, nothing to hide. */
+   The hero carries no background rule — it simply shows body's own white
+   (--canvas), and now that the crown lives in its own isolated flow track
+   above it with a definitive margin gap, there's no overlap left to
+   manage either way. The hero no longer runs through .lute-grid/.rail, so
+   the waveform-spine hairline (.rail::before) and the gold eyebrow it
+   carried simply don't exist on this section — nothing to override,
+   nothing to hide. Left and right sides share one continuous white
+   surface. */
 
-/* 17.4 — Pure 2-column parallel grid, no intersections.
-   Hold the hero to a single stacked column through tablet, and only split
-   into the manifesto / calligraphy pair once the viewport has genuine
-   room for both at full weight (≥960px). This supersedes the general
-   640px split used elsewhere in the file for this section only. */
+/* -------------------------------------------------------------------------
+   17.4 — WIDESCREEN HERO: a golden-ratio cinematic composition
+
+   Two changes work together here. First, the hero's .wrap is allowed to
+   exceed the site's standard 1440px content ceiling on genuinely wide
+   glass — every other section keeps the original --content-max
+   untouched, so the reading measure of body copy elsewhere on the page
+   never changes. Second, the calligraphy frame trades its old portrait
+   14:17 box (.plate--tall, still used nowhere else) for a landscape
+   1.618:1 rectangle — φ itself, expressed as a horizontal frame instead
+   of a vertical one, in keeping with the file's own "every spatial
+   interval derives from this ratio" governing principle. The manifesto
+   column is set to stretch and its content is centered vertically inside
+   a flex column, so its bounding box matches the image's shorter,
+   wider presence exactly — one shared horizontal band instead of two
+   columns of mismatched height. Scoped to ≥960px, the same threshold
+   already governing the 2-column split, so tablet keeps its clean single
+   stacked column untouched. */
 @media (min-width: 640px) and (max-width: 959.98px) {
   body.page-home .hero-split { grid-template-columns: 1fr; }
 }
 
 @media (min-width: 960px) {
   body.page-home .hero-split {
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1fr 1.4fr;
+    align-items: stretch;
     gap: var(--s-7);
-    align-items: center;
+  }
+
+  body.page-home .hero-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  body.page-home .hero .wrap {
+    max-width: min(96vw, 1800px);
   }
 }
 
 /* The calligraphy plate floats naked: no card, no border, no tint. This
    overrides .frame's general-purpose museum-mount treatment for the hero
    instance only — every other .frame on every other page (covers, the
-   workshop portrait) keeps its border and tint exactly as before. */
+   workshop portrait) keeps its border and tint exactly as before. The
+   1.618:1 cinematic aspect-ratio lives here too, scoped to the hero, so
+   the site-wide .plate--tall / .plate--wide / .plate--square utilities in
+   §9 stay exactly as originally engineered for every other page. */
+body.page-home .hero .plate--cinema .frame {
+  aspect-ratio: 1.618 / 1;
+}
+
 body.page-home .hero .frame {
   background: transparent;
   border: none;
