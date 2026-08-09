@@ -1211,54 +1211,104 @@ h3, .h3 {
    edited to build this section.
    ========================================================================== */
 
-/* 17.1 — The tactile full-width ceiling crown.
-   Sits at true pixel-zero, full viewport width, behind the nav layer.
-   A height is required for the background image to paint at all (an
-   absolutely-positioned empty div with no declared height collapses to
-   0px); clamp() keeps the crown proportionate from small phones up to
-   wide desktop glass without ever being specified by the source spec. */
+/* -------------------------------------------------------------------------
+   17.1 — THE CEILING CROWN: root-cause fix + mobile/desktop reconstruction
+
+   DIAGNOSIS of the invisible-crown bug (both viewports):
+   The previous pass added `body.page-home .hero { background: var(--canvas); }`
+   to "fuse" the hero into one white surface. That was redundant — body is
+   already #FFFFFF — but it was also destructive: `main` had been given
+   `position:relative; z-index:2` so hero typography would always paint
+   above the crown's `z-index:1`. That's correct for legibility, but it
+   also meant the *entire* hero box — including that opaque white
+   background — painted as a single unit above the crown. Combined with
+   the header's own opaque canvas background directly above it, the crown
+   was sandwiched between two solid white layers with no visible seam at
+   any viewport. It was never a missing-file or path problem; it was two
+   coats of white paint. The fix below removes that opaque hero background
+   (§17.3) so the crown shows through hero's transparent whitespace, and
+   restructures the crown itself so it can never be masked again.
+
+   MOBILE (<768px): the crown is a normal in-flow block, full width, with
+   its own reserved height. Nothing can overlap it because nothing is
+   asked to — the header (and its menu toggle) simply comes next in
+   document order, landing cleanly below the crown's lower edge with zero
+   z-index arithmetic and zero risk of the two ever colliding.
+
+   DESKTOP (≥768px): the crown returns to absolute, pixel-zero, sitting
+   behind the nav layer (z-index 1 vs. the header's 40) exactly as
+   specified, with a soft mask-image fade at its lower edge so the
+   architectural sketch dissolves into the white canvas rather than
+   ending on a hard rule — the "breathtaking, museum-grade fusion" the
+   brief calls for.
+
+   Sizing uses `background-size: contain` inside a clamp()-driven height,
+   which is the correct tool here: contain guarantees the full artwork is
+   always visible with zero cropping at any box size (unlike cover, which
+   crops), so it already satisfies "never clips" without needing to know
+   the source PNG's exact intrinsic ratio up front. The clamp() supplies
+   the min-height / fluid-scaling half of the brief. --crown-h is a single
+   custom property so the mobile spacer height and the desktop artwork
+   height can never drift out of sync with each other. */
+
+body.page-home {
+  --crown-h: clamp(9rem, 40vw, 14rem);
+}
+
 body.page-home .ceiling-crown {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: static;
   width: 100%;
-  height: clamp(11rem, 22vw, 26rem);
+  height: var(--crown-h);
   background-image: url('assets/images/yazd-crown.png');
   background-size: contain;
   background-position: top center;
   background-repeat: no-repeat;
   opacity: 1;
-  z-index: 1;
   pointer-events: none; /* decorative — never intercepts nav or hero clicks */
 }
 
-/* Lift the header and main content into their own stacking context above
-   the crown. Without this, browsers paint an absolutely-positioned z-index
-   layer over ordinary in-flow content wherever the two geometrically
-   overlap — which would risk the crown drawing on top of the hero
-   typography the moment the artwork is taller than the header. The header
-   already sits at z-index 40 and opaque canvas white, so it fully masks
-   the crown behind it exactly as specified; main simply guarantees the
-   manifesto and calligraphy plate stay legible if the crown extends past
-   the header's own height. */
+@media (min-width: 768px) {
+  body.page-home {
+    --crown-h: clamp(11rem, 22vw, 26rem);
+  }
+
+  body.page-home .ceiling-crown {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    mask-image: linear-gradient(to bottom, black 55%, transparent 97%);
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 97%);
+  }
+}
+
+/* Header and main are lifted into their own positive-z-index layers so
+   their content always paints above the crown (header masks it entirely
+   behind its own opaque bar by design; main just guarantees the hero
+   manifesto and calligraphy plate stay legible if the artwork's fluid
+   height ever runs past the header on very short viewports). Harmless on
+   mobile, where the crown isn't positioned at all and there's nothing to
+   stack against. */
 body.page-home .site-header { position: relative; z-index: 40; }
 body.page-home main { position: relative; z-index: 2; }
 
 /* 17.2 — Zero-clutter header flank.
    The brand lockup has been removed from the markup entirely, leaving the
-   left flank as pure negative whitespace. The five nav links are pulled
-   into a tight cluster against the right edge — flex-end, not the
-   space-between used site-wide, so nothing stretches to fill the gap. */
+   left flank as pure negative whitespace. The five nav links (or, on
+   mobile, the single menu toggle) are pulled into a tight cluster against
+   the right edge — flex-end, not the space-between used site-wide, so
+   nothing stretches to fill the gap. */
 body.page-home .site-header .wrap {
   justify-content: flex-end;
 }
 
 /* 17.3 — Hero canvas fusion.
-   The hero no longer runs through .lute-grid/.rail, so the waveform-spine
+   No background rule here on purpose (see the §17.1 diagnosis above) —
+   the hero stays transparent so the crown can show through its top
+   padding and the negative space around the manifesto. The hero no
+   longer runs through .lute-grid/.rail either, so the waveform-spine
    hairline (.rail::before) and the gold eyebrow it carried simply don't
-   exist on this viewport — nothing to override, nothing to hide. Left and
-   right sides now share one continuous white surface. */
-body.page-home .hero { background: var(--canvas); }
+   exist on this section — nothing to override, nothing to hide. */
 
 /* 17.4 — Pure 2-column parallel grid, no intersections.
    Hold the hero to a single stacked column through tablet, and only split
@@ -1289,4 +1339,31 @@ body.page-home .hero .frame {
 body.page-home .hero .frame:hover img,
 body.page-home .hero .frame:focus-within img {
   transform: none;
+}
+
+/* -------------------------------------------------------------------------
+   17.5 — HORIZONTAL ALBUM SYMMETRY for the five-plate Fibonacci spiral
+
+   The 1, 1, 2, 3, 5 construction is asymmetric by definition — one
+   dominant square carries roughly five-eighths of the mosaic's area, the
+   remaining four cascade into the other three-eighths. That imbalance
+   *is* the Golden Method being illustrated (§8.1's own comments call this
+   out: "reading order = spiral order = visual dominance order"), and the
+   archive holds exactly five real covers — no sixth image, caption, DOI,
+   or alt text exists to fill an even 3-and-3 or 6-up grid without
+   fabricating a book that was never designed. Rebalancing it honestly
+   means adjusting the frame around the spiral, not the spiral itself: at
+   wide desktop widths the mosaic is now held to a calmer max-width and
+   re-centred within the section, with a touch more air between cells, so
+   it reads as a deliberately framed plate rather than a full-bleed mass
+   pinned toward one flank. Scoped to the same ≥900px range where the true
+   2-D spiral grid is active — below that the original file already
+   collapses it to a single reading-order column with its own gap, which
+   is left completely untouched. */
+@media (min-width: 900px) {
+  body.page-home #showcase .book-showcase {
+    max-width: 62rem;
+    margin-inline: auto;
+    gap: var(--s-3);
+  }
 }
