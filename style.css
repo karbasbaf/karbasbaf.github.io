@@ -922,6 +922,37 @@ h3, .h3 {
 .plate--wide .frame { aspect-ratio: 16 / 10; }
 .plate--square .frame { aspect-ratio: 1 / 1; }
 
+/* Missing-artwork fallback. The site's own script (bottom of index.html)
+   already adds .frame--pending and appends a .frame-pending-label span
+   whenever a cover image 404s — but until now neither had any CSS at
+   all, so the fallback state was raw, unstyled alt text spilling out of
+   its frame with no boundary (visible in earlier screenshots as
+   overflowing text). Every .frame that isn't loaded yet now reads as a
+   deliberate placeholder plate instead of a broken page. */
+.frame--pending {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--canvas-tint);
+}
+
+.frame--pending img { display: none; }
+
+.frame-pending-label {
+  position: absolute;
+  inset: var(--s-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  letter-spacing: 0.04em;
+  line-height: 1.55;
+  color: var(--ink-60);
+}
+
 /* ==========================================================================
    10. PUBLICATION / RESEARCH BLOCKS
    ========================================================================== */
@@ -1384,30 +1415,162 @@ body.page-home .hero .frame:focus-within img {
 }
 
 /* -------------------------------------------------------------------------
-   17.5 — HORIZONTAL ALBUM SYMMETRY for the five-plate Fibonacci spiral
+   17.5 — THE EDITORIAL COVER GALLERY: a complete re-architecture
 
-   The 1, 1, 2, 3, 5 construction is asymmetric by definition — one
-   dominant square carries roughly five-eighths of the mosaic's area, the
-   remaining four cascade into the other three-eighths. That imbalance
-   *is* the Golden Method being illustrated (§8.1's own comments call this
-   out: "reading order = spiral order = visual dominance order"), and the
-   archive holds exactly five real covers — no sixth image, caption, DOI,
-   or alt text exists to fill an even 3-and-3 or 6-up grid without
-   fabricating a book that was never designed. Rebalancing it honestly
-   means adjusting the frame around the spiral, not the spiral itself: at
-   wide desktop widths the mosaic is now held to a calmer max-width and
-   re-centred within the section, with a touch more air between cells, so
-   it reads as a deliberately framed plate rather than a full-bleed mass
-   pinned toward one flank. Scoped to the same ≥900px range where the true
-   2-D spiral grid is active — below that the original file already
-   collapses it to a single reading-order column with its own gap, which
-   is left completely untouched. */
-@media (min-width: 900px) {
-  body.page-home #showcase .book-showcase {
-    max-width: 62rem;
-    margin-inline: auto;
-    gap: var(--s-3);
+   The prior mosaic (§8, .book-showcase) staged the five covers as a
+   literal 1,1,2,3,5 Fibonacci spiral — a lovely idea on paper, but at
+   real viewport sizes four of the five plates rendered smaller than a
+   postage stamp, each carrying a permanently-visible caption that, on
+   this page, fought the "text functions as graphic art" spirit
+   established in the hero above it. That whole approach is retired for
+   index.html specifically. .book-showcase itself is untouched in §8, in
+   case book-designs.html or another page still relies on it — this
+   section builds an entirely new, unrelated component instead:
+   .cover-gallery. */
+
+/* Layout: CSS multi-column ("masonry") rather than a hand-placed grid —
+   robust at any viewport with zero row-height arithmetic, and the
+   natural column-fill produces the asymmetric, staggered installation
+   rhythm on its own once each cover carries a distinct aspect-ratio
+   (below): tall, square, and wide plates interleave unevenly down each
+   column, the way prints hang salon-style rather than pinned to a table.
+   Scales from a single generous column on mobile up to three on wide
+   glass — three, not more, so every plate stays large enough to "read
+   the fine typography... with the naked eye," per the brief. */
+body.page-home .cover-gallery {
+  column-count: 1;
+  column-gap: var(--s-6);
+}
+
+body.page-home .cover-gallery .cover-card {
+  display: block;
+  width: 100%;
+  break-inside: avoid;
+  margin-bottom: var(--s-6);
+}
+
+@media (min-width: 700px) {
+  body.page-home .cover-gallery { column-count: 2; column-gap: var(--s-7); }
+  body.page-home .cover-gallery .cover-card { margin-bottom: var(--s-7); }
+}
+
+@media (min-width: 1180px) {
+  body.page-home .cover-gallery { column-count: 3; }
+}
+
+/* Five covers, five distinct proportions — portrait, square, and
+   landscape plates interleaved on purpose. Uniform ratios here would
+   collapse the multi-column flow straight back into rigid rows; uneven
+   heights are what makes it read as a curated installation instead. */
+body.page-home .cover-gallery .cover-card:nth-child(1) .frame { aspect-ratio: 3 / 4; }
+body.page-home .cover-gallery .cover-card:nth-child(2) .frame { aspect-ratio: 1 / 1; }
+body.page-home .cover-gallery .cover-card:nth-child(3) .frame { aspect-ratio: 4 / 5; }
+body.page-home .cover-gallery .cover-card:nth-child(4) .frame { aspect-ratio: 5 / 4; }
+body.page-home .cover-gallery .cover-card:nth-child(5) .frame { aspect-ratio: 16 / 10; }
+
+/* The plate itself: pristine and captionless at rest. No border, no
+   tint panel, no drop shadow — the cover is the only thing on the
+   canvas, full-bleed within its own frame. */
+body.page-home .cover-gallery .frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--canvas-tint);
+  border: none;
+  cursor: pointer;
+}
+
+body.page-home .cover-gallery .frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  backface-visibility: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.page-home .cover-gallery .frame img {
+    transition: transform 640ms cubic-bezier(0.16, 1, 0.3, 1);
   }
+
+  body.page-home .cover-gallery .frame:hover img,
+  body.page-home .cover-gallery .frame:focus-visible img {
+    transform: scale(1.045);
+  }
+}
+
+/* The hover reveal: opaque white, heavy-eased, GPU-composited (opacity +
+   transform only, nothing that triggers layout). Title stands beside
+   year and medium rather than "author / publisher" — every volume here
+   is written and designed by the same hand and carries no commercial
+   publisher imprint, so fabricating publisher names would be dishonest;
+   this surfaces the real metadata that already lives in the markup
+   instead. Gated behind (hover: hover) so touch devices never get a
+   metadata panel stuck open after a tap — the full detail is always one
+   tap away regardless, via the existing full-viewport reveal (§8.3). */
+body.page-home .cover-gallery .cover-meta {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: var(--s-5);
+  background: #FFFFFF;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.page-home .cover-gallery .cover-meta {
+    transition: opacity 640ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 640ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  body.page-home .cover-gallery .frame:hover .cover-meta,
+  body.page-home .cover-gallery .frame:focus-visible .cover-meta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body.page-home .cover-gallery .cover-meta-num {
+  font-family: var(--font-display);
+  font-size: var(--t-lede);
+  font-weight: 340;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1;
+}
+
+body.page-home .cover-gallery .cover-meta-title {
+  margin-top: var(--s-2);
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--t-lede);
+  font-weight: 480;
+  line-height: 1.16;
+  color: var(--ink);
+}
+
+body.page-home .cover-gallery .cover-meta-sub {
+  margin-top: var(--s-2);
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-60);
+}
+
+/* Macro spacing: a deeper, more deliberate gap separating the widescreen
+   hero above from this dramatically larger gallery, and an equally
+   generous close before the gold rule that transitions into the
+   supporting academic sections below. Section's site-wide padding-block
+   (§3, var(--s-7)) still governs every other section on every other
+   page; this bumps only #showcase, only on index.html. */
+body.page-home #showcase {
+  padding-top: var(--s-8);
+  padding-bottom: var(--s-8);
 }
 
 /* -------------------------------------------------------------------------
