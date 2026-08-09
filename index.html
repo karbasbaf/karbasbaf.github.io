@@ -130,125 +130,129 @@
           <p class="caption">Book Design<br>Calligraphy<br>Typographic Plates</p>
         </div>
         <div class="canvas">
-          <h2 class="h2" id="showcase-heading">Five Covers,<br>One Spiral</h2>
-          <p class="body-text">Five plates, arranged as the Fibonacci square spiral itself — the same 1, 1, 2, 3, 5 construction used in the Golden Method (2017) to place a lute's soundhole. Select a cover to inspect it at full scale.</p>
+          <h2 class="h2" id="showcase-heading">Five Covers,<br>One Practice</h2>
+          <p class="body-text">Five volumes, designed alongside the research they illustrate — from the golden-spiral construction diagram folded into "The Golden Method" itself to the lute-rosette / nebula diptych closing "Strings to Stars." Select a cover to inspect it at full scale.</p>
         </div>
       </div>
 
-      <div class="book-showcase mt-7">
+      <div class="cover-gallery mt-7">
 
-        <!-- MASTER BLUEPRINT: Plate 1 — Dominant cell (5×5 of the spiral)
-             Recommended source: 1600 × 2000px portrait book-cover scan.
-             Composition: "The Golden Method" cover — Thuluth title lockup
-             over a faint golden-spiral construction-diagram watermark.
-             NOTE: source file not yet supplied — falls back gracefully. -->
-        <button type="button" class="plate-trigger"
+        <!-- MASTER BLUEPRINT: Cover 1 — "The Golden Method"
+             Recommended source: 1600 × 2000px portrait scan (rendered at
+             a 3:4 crop via .cover-card:nth-child(1) .frame). Composition:
+             Thuluth title lockup over a faint golden-spiral construction-
+             diagram watermark.
+             NOTE: source file not yet supplied — falls back gracefully
+             via the site-wide .frame--pending state (§9). -->
+        <button type="button" class="plate-trigger cover-card"
           data-title="The Golden Method"
           data-year="2017 — cover design"
           data-medium="Letterpress-style cover, Thuluth title lockup over golden-spiral construction diagram"
           data-image="assets/images/covers/cover-01-golden-method.jpg"
           data-alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
           data-doi="Companion volume to: A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments, Arts (2017)">
-          <span class="plate">
-            <span class="frame">
-              <img src="assets/images/covers/cover-01-golden-method.jpg"
-                alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
-                width="1600" height="2000" loading="eager" decoding="async">
-            </span>
-            <span class="caption" style="display:block; margin-top: var(--s-2);">
-              <span aria-hidden="true">I —</span> The Golden Method
+          <span class="frame">
+            <img src="assets/images/covers/cover-01-golden-method.jpg"
+              alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
+              width="1600" height="2000" loading="eager" decoding="async">
+            <span class="cover-meta" aria-hidden="true">
+              <span class="cover-meta-num">I</span>
+              <span class="cover-meta-title">The Golden Method</span>
+              <span class="cover-meta-sub">2017 — Cover Design</span>
             </span>
           </span>
         </button>
 
-        <!-- MASTER BLUEPRINT: Plate 2 — 3×3 spiral cell
-             Recommended source: 1400 × 1400px. Composition: Tong Bori
-             heritage volume cover — black vase-niche silhouette on cream.
+        <!-- MASTER BLUEPRINT: Cover 2 — "Ornament as Instrument"
+             Recommended source: 1400 × 1400px square scan. Composition:
+             black vase-niche silhouette on cream stock.
              NOTE: source file not yet supplied — falls back gracefully. -->
-        <button type="button" class="plate-trigger"
+        <button type="button" class="plate-trigger cover-card"
           data-title="Ornament as Instrument"
           data-year="2025 — cover design"
           data-medium="Silhouette cover, single-color cutout on cream stock"
           data-image="assets/images/covers/cover-02-tong-bori.jpg"
           data-alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground"
           data-doi="Companion volume to: From Ornamentation to Acoustics, Digital Applications in Archaeology and Cultural Heritage (2025)">
-          <span class="plate">
-            <span class="frame">
-              <img src="assets/images/covers/cover-02-tong-bori.jpg"
-                alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground"
-                width="1400" height="1400" loading="lazy" decoding="async">
-            </span>
-            <span class="caption" style="display:block; margin-top: var(--s-2);">
-              <span aria-hidden="true">II —</span> Ornament as Instrument
+          <span class="frame">
+            <img src="assets/images/covers/cover-02-tong-bori.jpg"
+              alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground"
+              width="1400" height="1400" loading="lazy" decoding="async">
+            <span class="cover-meta" aria-hidden="true">
+              <span class="cover-meta-num">II</span>
+              <span class="cover-meta-title">Ornament as Instrument</span>
+              <span class="cover-meta-sub">2025 — Cover Design</span>
             </span>
           </span>
         </button>
 
-        <!-- MASTER BLUEPRINT: Plate 3 — 2×2 spiral cell
+        <!-- MASTER BLUEPRINT: Cover 3 — "Sound Holes"
              Recommended source: 1200 × 1200px. Composition: triple-hole
-             soundhole motif as minimal typographic ornament, ink on white.
+             soundhole motif as minimal typographic ornament, ink on
+             white.
              NOTE: source file not yet supplied — falls back gracefully. -->
-        <button type="button" class="plate-trigger"
+        <button type="button" class="plate-trigger cover-card"
           data-title="Sound Holes"
           data-year="2024 — cover design"
           data-medium="Minimal typographic cover, triple-hole motif"
           data-image="assets/images/covers/cover-03-sound-holes.jpg"
           data-alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament"
           data-doi="Companion volume to: Historical Evolution and Acoustic Significance of Sound Holes in Lutes, Applied Acoustics (2024)">
-          <span class="plate">
-            <span class="frame">
-              <img src="assets/images/covers/cover-03-sound-holes.jpg"
-                alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament"
-                width="1200" height="1200" loading="lazy" decoding="async">
-            </span>
-            <span class="caption" style="display:block; margin-top: var(--s-2);">
-              <span aria-hidden="true">III —</span> Sound Holes
+          <span class="frame">
+            <img src="assets/images/covers/cover-03-sound-holes.jpg"
+              alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament"
+              width="1200" height="1200" loading="lazy" decoding="async">
+            <span class="cover-meta" aria-hidden="true">
+              <span class="cover-meta-num">III</span>
+              <span class="cover-meta-title">Sound Holes</span>
+              <span class="cover-meta-sub">2024 — Cover Design</span>
             </span>
           </span>
         </button>
 
-        <!-- MASTER BLUEPRINT: Plate 4 — 1×1 spiral cell
+        <!-- MASTER BLUEPRINT: Cover 4 — "Resonant Vessels"
              Recommended source: 1000 × 1000px. Composition: tight crop of
              a single Helmholtz resonator sphere under raking light.
              NOTE: source file not yet supplied — falls back gracefully. -->
-        <button type="button" class="plate-trigger"
+        <button type="button" class="plate-trigger cover-card"
           data-title="Resonant Vessels"
           data-year="2026 — cover design"
           data-medium="Photographic cover, single Helmholtz resonator sphere, cropped tight"
           data-image="assets/images/covers/cover-04-resonant-vessels.jpg"
           data-alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator"
           data-doi="Companion volume to: Experimental validation of Helmholtz resonator arrays, Next Research (2026)">
-          <span class="plate">
-            <span class="frame">
-              <img src="assets/images/covers/cover-04-resonant-vessels.jpg"
-                alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator"
-                width="1000" height="1000" loading="lazy" decoding="async">
-            </span>
-            <span class="caption" style="display:block; margin-top: var(--s-2);">
-              <span aria-hidden="true">IV —</span> Resonant Vessels
+          <span class="frame">
+            <img src="assets/images/covers/cover-04-resonant-vessels.jpg"
+              alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator"
+              width="1000" height="1000" loading="lazy" decoding="async">
+            <span class="cover-meta" aria-hidden="true">
+              <span class="cover-meta-num">IV</span>
+              <span class="cover-meta-title">Resonant Vessels</span>
+              <span class="cover-meta-sub">2026 — Cover Design</span>
             </span>
           </span>
         </button>
 
-        <!-- MASTER BLUEPRINT: Plate 5 — 1×1 spiral cell
-             Recommended source: 1000 × 1000px. Composition: nebula half of
-             the Strings-to-Stars diptych, cropped tight, no text overlay.
+        <!-- MASTER BLUEPRINT: Cover 5 — "Strings to Stars"
+             Recommended source: 1600 × 1000px landscape diptych scan.
+             Composition: nebula half of the Strings-to-Stars diptych,
+             cropped wide, no text overlay.
              NOTE: source file not yet supplied — falls back gracefully. -->
-        <button type="button" class="plate-trigger"
+        <button type="button" class="plate-trigger cover-card"
           data-title="Strings to Stars"
           data-year="2025 — cover design"
           data-medium="Photographic diptych cover, lute rosette / nebula pairing"
           data-image="assets/images/covers/cover-05-strings-to-stars.jpg"
           data-alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame"
           data-doi="Companion volume to ongoing research: Investigating the Role of Resonance in Herbig-Haro Objects (in preparation)">
-          <span class="plate">
-            <span class="frame">
-              <img src="assets/images/covers/cover-05-strings-to-stars.jpg"
-                alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame"
-                width="1000" height="1000" loading="lazy" decoding="async">
-            </span>
-            <span class="caption" style="display:block; margin-top: var(--s-2);">
-              <span aria-hidden="true">V —</span> Strings to Stars
+          <span class="frame">
+            <img src="assets/images/covers/cover-05-strings-to-stars.jpg"
+              alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame"
+              width="1600" height="1000" loading="lazy" decoding="async">
+            <span class="cover-meta" aria-hidden="true">
+              <span class="cover-meta-num">V</span>
+              <span class="cover-meta-title">Strings to Stars</span>
+              <span class="cover-meta-sub">2025 — Cover Design</span>
             </span>
           </span>
         </button>
