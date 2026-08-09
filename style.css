@@ -431,13 +431,14 @@ h3, .h3 {
 .nav-toggle { display: none; }
 
 @media (max-width: 720px) {
-  /* The header bar is lifted above the full-screen nav panel (z-index 60
-     vs. the panel's 50) so it stays visible as a persistent top strip
-     while the menu is open — the toggle button remains exactly where the
-     user tapped it and doubles as the close affordance, in addition to
-     the existing Escape-key and tap-a-link close paths already wired in
-     the script below. This override lives only inside this ≤720px query;
-     the header's original z-index:40 (§6) is untouched everywhere else. */
+  /* The header bar is lifted above the nav panel and its scrim (z-index
+     60 vs. the panel's 50 and the scrim's 45) so it stays visible as a
+     persistent top strip while the menu is open — the toggle button
+     remains exactly where the user tapped it and doubles as the close
+     affordance, in addition to the existing Escape-key, tap-a-link, and
+     tap-outside close paths already wired in the script below. This
+     override lives only inside this ≤720px query; the header's original
+     z-index:40 (§6) is untouched everywhere else. */
   .site-header { z-index: 60; }
 
   .nav-toggle {
@@ -457,23 +458,27 @@ h3, .h3 {
   .nav-toggle:hover,
   .nav-toggle[aria-expanded="true"] { border-color: var(--gold); }
 
-  /* Full-screen white takeover — no parent flex constraints, no partial
-     drawer, no scrim layer needed underneath it since it is fully opaque
-     and covers the entire viewport on its own. */
+  /* A true side-drawer, not a full-screen block: 78vw (within the
+     requested 75–80% range), anchored to the right edge, sliding in on
+     transform only (GPU-composited). It stays a solid, fully legible
+     surface for the five links; the translucency lives in the scrim
+     below it instead, over the page that's still showing in the
+     remaining ~22vw on the left. */
   .nav-list {
     position: fixed !important;
     top: 0;
-    left: 0;
-    width: 100vw;
+    right: 0;
+    left: auto;
+    width: 78vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: var(--s-5);
+    gap: var(--s-6);
     padding: var(--s-7) var(--s-6);
     background: #FFFFFF;
-    border-left: none;
+    border-left: 1px solid var(--ink-15);
     transform: translateX(100%);
     transition: transform var(--dur-frame) var(--ease-resonant);
     visibility: hidden;
@@ -491,6 +496,28 @@ h3, .h3 {
     font-family: var(--font-display);
     font-weight: 480;
     text-transform: none;
+  }
+
+  /* The scrim: a soft, blurred, translucent veil over the exposed left
+     ~22vw — the crown and calligraphy stay visually present and
+     "beautifully hinted" behind it rather than being cut off by a hard
+     edge, giving the drawer real cinematic depth instead of feeling like
+     a page swap. Decorative only (pointer-events: none) — the existing
+     document-level click listener in the script already closes the nav
+     on any outside tap regardless of what intercepts the click. Sits
+     below the header (60) and the drawer (50) but above everything else
+     on the page. .nav-scrim-active is toggled by the same openNav() /
+     closeNav() functions that already drive [data-open] — no script
+     changes needed to wire this back up. */
+  body.nav-scrim-active::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px) brightness(0.98);
+    -webkit-backdrop-filter: blur(12px) brightness(0.98);
+    z-index: 45;
+    pointer-events: none;
   }
 }
 
@@ -1200,7 +1227,8 @@ h3, .h3 {
   a { color: #000000; text-decoration: underline; }
 
   .frame img,
-  .book-showcase .frame img { filter: grayscale(100%); }
+  .book-showcase .frame img,
+  .cover-gallery .frame img { filter: grayscale(100%); }
 
   .book-showcase .frame::before,
   .book-showcase .frame::after { display: none; }
@@ -1215,7 +1243,28 @@ h3, .h3 {
   }
   .book-showcase .plate figcaption { display: flex !important; }
 
-  .pub, .plate, .section {
+  /* .cover-gallery (§17.5) is index.html's replacement for .book-showcase
+     — multi-column masonry doesn't paginate predictably, so print falls
+     back to a simple stacked block list, each cover protected from
+     splitting across a page break the same way .plate already is above. */
+  .cover-gallery {
+    column-count: 1 !important;
+    display: block;
+  }
+  .cover-gallery .cover-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 0.6cm;
+  }
+  .cover-gallery .cover-meta {
+    position: static !important;
+    opacity: 1 !important;
+    transform: none !important;
+    background: transparent !important;
+    padding: 0.2cm 0 0 !important;
+  }
+
+  .pub, .plate, .cover-card, .section {
     break-inside: avoid;
     page-break-inside: avoid;
   }
@@ -1280,6 +1329,11 @@ body.page-home {
   --crown-h: clamp(9rem, 40vw, 14rem);
 }
 
+/* ASSET IDENTIFIER: assets/images/yazd-crown.png
+   Source: the architectural line-drawing sketch of the Yazd skyline
+   (wind-towers / badgirs, domes, mud-brick massing) already supplied and
+   confirmed rendering correctly as of this pass. No further export
+   needed for this asset — filename and path below are exact and final. */
 body.page-home .ceiling-crown {
   position: static;
   width: 100%;
@@ -1390,6 +1444,24 @@ body.page-home .site-header .wrap {
 @media (min-width: 1200px) {
   body.page-home .hero .wrap {
     max-width: min(96vw, 1800px);
+  }
+}
+
+/* -------------------------------------------------------------------------
+   17.4b — MOBILE HERO PULL-UP
+
+   .hero's base rule (§7) carries padding-top: var(--s-8) — ~177px, tuned
+   for desktop where the hero sits directly under a slim single-row nav.
+   On mobile that same 177px stacks on top of a crown that's already
+   9–14rem tall and a header row on top of that, pushing "Strings to
+   Stars" nearly to the middle of the screen with a dead, unintentional
+   gap above it — exactly what the screenshot showed. Mobile gets its own
+   much tighter top padding instead, so the manifesto sits directly and
+   deliberately beneath the nav line. Bottom padding is untouched — only
+   the top has ever been the problem. */
+@media (max-width: 767.98px) {
+  body.page-home .hero {
+    padding-top: var(--s-5);
   }
 }
 
