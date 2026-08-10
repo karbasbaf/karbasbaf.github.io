@@ -4,107 +4,65 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Designs — Mohammad Mahdi Karbasbaf</title>
-<meta name="description" content="Selected book cover designs and typographic commissions by Mohammad Mahdi Karbasbaf, spanning Thuluth calligraphy, acoustic heritage research, and Persian architectural motifs.">
+<meta name="description" content="The complete book design archive of Mohammad Mahdi Karbasbaf: editorial book covers, fine-art Thuluth and Nastaliq calligraphy, and structural typographic plates.">
 
-<!-- Google Fonts: Fraunces (display), Source Serif 4 (reading matter), Inter (utility) -->
+<!-- Font stack: Fraunces (display) + Source Serif 4 (reading matter) +
+     Inter (utility) — the exact three families style.css already loads
+     for every other page. This page intentionally does NOT introduce
+     Oswald: doing so would fracture the "seamless architectural anchor"
+     continuity this page is explicitly meant to preserve. See the closing
+     note in chat for the full reasoning. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,600&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-<!-- Master Stylesheet -->
 <link rel="stylesheet" href="style.css">
 
-<!-- JSON-LD: CollectionPage / ImageGallery, bridged to the researcher's academic identity -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Book Designs — Mohammad Mahdi Karbasbaf",
   "url": "https://karbasbaf-archive.example/book-designs.html",
-  "description": "Selected book cover designs and typographic commissions, most developed as companion volumes to peer-reviewed acoustic heritage research.",
+  "description": "Editorial book covers, fine-art Thuluth and Nastaliq calligraphy, and structural typographic plates by Mohammad Mahdi Karbasbaf.",
+  "isPartOf": { "@type": "WebSite", "name": "Karbasbaf Archive", "url": "https://karbasbaf-archive.example/" },
   "about": {
     "@type": "Person",
     "name": "Mohammad Mahdi Karbasbaf",
-    "sameAs": "https://orcid.org/0000-0003-2264-9372",
-    "jobTitle": "Independent Researcher — Acoustics & Wave Phenomena; Book Designer & Calligrapher"
+    "sameAs": "https://orcid.org/0000-0003-2264-9372"
   },
   "mainEntity": {
-    "@type": "ImageGallery",
-    "name": "Selected Book Cover Designs",
-    "creator": {
-      "@type": "Person",
-      "name": "Mohammad Mahdi Karbasbaf",
-      "sameAs": "https://orcid.org/0000-0003-2264-9372"
-    },
-    "image": [
-      {
-        "@type": "ImageObject",
-        "name": "The Golden Method",
-        "description": "Thuluth title lockup over a golden-spiral soundhole construction diagram.",
-        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-01-golden-method.jpg",
-        "isBasedOn": "https://doi.org/10.3390/arts6040020"
-      },
-      {
-        "@type": "ImageObject",
-        "name": "Ornament as Instrument",
-        "description": "Single-color vase-niche silhouette cover for a Tong Bori heritage volume.",
-        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-02-tong-bori.jpg",
-        "isBasedOn": "https://doi.org/10.1016/j.daach.2025.e00433"
-      },
-      {
-        "@type": "ImageObject",
-        "name": "Sound Holes",
-        "description": "Minimal typographic cover built from a triple-hole soundhole motif.",
-        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-03-sound-holes.jpg",
-        "isBasedOn": "https://doi.org/10.1016/j.apacoust.2023.109784"
-      },
-      {
-        "@type": "ImageObject",
-        "name": "Resonant Vessels",
-        "description": "Photographic cover cropped to a single spherical Helmholtz resonator.",
-        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-04-resonant-vessels.jpg",
-        "isBasedOn": "https://doi.org/10.1016/j.nexres.2026.102016"
-      },
-      {
-        "@type": "ImageObject",
-        "name": "Strings to Stars",
-        "description": "Diptych cover pairing a lute soundhole rosette with a Herbig-Haro nebula frame.",
-        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-05-strings-to-stars.jpg"
-      },
-      {
-        "@type": "ImageObject",
-        "name": "Kar-Bandi: Pattern as Frequency",
-        "description": "Cover study built from repeated Kar-Bandi geometric ceiling motifs.",
-        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-06-kar-bandi.jpg"
-      },
-      {
-        "@type": "ImageObject",
-        "name": "Double-Shell: Domes of the Mediterranean",
-        "description": "Section-drawing cover for a comparative study of double-shell dome construction.",
-        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-07-double-shell.jpg"
-      },
-      {
-        "@type": "ImageObject",
-        "name": "Tār & Setār: A Maker's Notebook",
-        "description": "Documentary-photography cover from the luthier's own workshop notebooks.",
-        "contentUrl": "https://karbasbaf-archive.example/assets/images/covers/cover-08-makers-notebook.jpg"
-      }
+    "@type": "ItemList",
+    "itemListOrder": "https://schema.org/ItemListUnordered",
+    "numberOfItems": 10,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "The Golden Method", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2017", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-golden-method.jpg" } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "CreativeWork", "name": "Ornament as Instrument", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2025", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-ornament-instrument.jpg" } },
+      { "@type": "ListItem", "position": 3, "item": { "@type": "CreativeWork", "name": "Sound Holes", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2024", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-sound-holes.jpg" } },
+      { "@type": "ListItem", "position": 4, "item": { "@type": "CreativeWork", "name": "Resonant Vessels", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-resonant-vessels.jpg" } },
+      { "@type": "ListItem", "position": 5, "item": { "@type": "CreativeWork", "name": "Strings to Stars", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2025", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-strings-to-stars.jpg" } },
+      { "@type": "ListItem", "position": 6, "item": { "@type": "CreativeWork", "name": "Thuluth Study — Karbasbaf Lockup", "genre": "Fine Art Calligraphy", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2025", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-thuluth-study.jpg" } },
+      { "@type": "ListItem", "position": 7, "item": { "@type": "CreativeWork", "name": "Nastaliq Folio No. 1", "genre": "Fine Art Calligraphy", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2023", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-nastaliq-folio.jpg" } },
+      { "@type": "ListItem", "position": 8, "item": { "@type": "CreativeWork", "name": "Golden Spiral Construction Plate", "genre": "Typographic Plate", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2017", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-golden-spiral-plate.jpg" } },
+      { "@type": "ListItem", "position": 9, "item": { "@type": "CreativeWork", "name": "Soundhole Geometry Index", "genre": "Typographic Plate", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2024", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-soundhole-index-plate.jpg" } },
+      { "@type": "ListItem", "position": 10, "item": { "@type": "CreativeWork", "name": "Waveform Type Specimen", "genre": "Typographic Plate", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-waveform-specimen.jpg" } }
     ]
   }
 }
 </script>
 </head>
-<body>
+<body class="page-home page-book-designs">
 
-<!-- ==========================================================================
-     HEADER — Global Lute-Body Navigation
-     ========================================================================== -->
+<!-- MASTER BLUEPRINT: Ceiling Crown
+     Asset Identifier: assets/images/yazd-crown.png — the identical asset
+     already live on index.html (referenced as a CSS background-image on
+     .ceiling-crown, style.css §17.1). Mirrored here node-for-node so the
+     crown reads as one continuous structural element across pages rather
+     than a per-page decoration. No new export needed. -->
+<div class="ceiling-crown" aria-hidden="true"></div>
+
 <header class="site-header">
   <div class="wrap">
-    <a href="index.html" class="brand">
-      Karbasbaf
-      <span>Archive of Resonance</span>
-    </a>
     <nav class="nav-list" id="primary-nav" data-open="false" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="book-designs.html" aria-current="page">Book Designs</a>
@@ -120,395 +78,331 @@
 
 <main>
 
-  <!-- ==========================================================================
-       1. PAGE INTRO — quieter than the homepage hero, deliberately. The
-       cinematic .hero treatment is reserved for the identity statement on
-       index.html; a working gallery page opens on its own terms.
-       ========================================================================== -->
-  <section class="section section--tight">
+  <section class="section" aria-labelledby="portfolio-heading">
     <div class="wrap">
-      <div class="lute-grid">
-        <div class="rail">
-          <p class="eyebrow eyebrow--gold">Commissions &amp; Studies</p>
-          <div class="spine-break" aria-hidden="true">
-            <svg viewBox="0 0 34 46" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 23 C 4 23, 5 4, 8.5 4 C 12 4, 12 34, 15.5 34 C 19 34, 19 12, 22.5 12 C 26 12, 26 27, 29.5 27 C 32 27, 33 23, 34 23" />
-            </svg>
-          </div>
-        </div>
-        <div class="canvas">
-          <h1 class="h1">Book Designs</h1>
-          <p class="lede mt-4">Eight covers, most of them companion volumes to the research itself — the same geometry that governs a soundhole or a resonator array, set as a typographic problem instead of an acoustic one. Select any plate to inspect it at full scale.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ==========================================================================
-       2. THE GALLERY WALL — asymmetric rhythm, arbitrary length, every
-       plate opens the shared .book-reveal panel defined in index.html's
-       markup pattern and re-declared once, below, for this page.
-       ========================================================================== -->
-  <section class="section section--tight" aria-labelledby="wall-heading">
-    <div class="wrap">
-      <h2 class="sr-only" id="wall-heading">Selected Cover Designs</h2>
-
-      <div class="plate-gallery">
-
-        <!-- MASTER BLUEPRINT: Plate 1 — The Golden Method
-             Physical rendering box: 1600 × 1943px, matching
-             .plate--tall { aspect-ratio: 14 / 17 } exactly (1600/1943 ≈
-             0.8235 = 14/17). Composition: Thuluth title lockup in
-             ink-black over a faint golden-spiral construction diagram,
-             gold (#C9974A) reserved for the thinnest spiral lines only. -->
-        <button
-          type="button"
-          class="plate-trigger"
-          data-title="The Golden Method"
-          data-year="2017 — cover design"
-          data-medium="Letterpress-style cover, Thuluth title lockup over golden-spiral construction diagram"
-          data-image="assets/images/covers/cover-01-golden-method.jpg"
-          data-alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
-          data-doi="Companion volume to: A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments, Arts (2017)">
-          <span class="plate plate--tall">
-            <span class="frame">
-              <img
-                src="assets/images/covers/cover-01-golden-method.jpg"
-                alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
-                width="1600" height="1943"
-                loading="eager" decoding="async">
-            </span>
-            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
-              <span class="caption">I — The Golden Method</span>
-              <span class="caption text-gold">2017</span>
-            </span>
-          </span>
-        </button>
-
-        <!-- MASTER BLUEPRINT: Plate 2 — Ornament as Instrument
-             Physical rendering box: 1920 × 1200px, matching
-             .plate--wide { aspect-ratio: 16 / 10 } exactly. Composition:
-             single black vase-niche silhouette cutout on a cream ground,
-             no gradient, no drop shadow. -->
-        <button
-          type="button"
-          class="plate-trigger"
-          data-title="Ornament as Instrument"
-          data-year="2025 — cover design"
-          data-medium="Silhouette cover, single-color cutout on cream stock"
-          data-image="assets/images/covers/cover-02-tong-bori.jpg"
-          data-alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground"
-          data-doi="Companion volume to: From Ornamentation to Acoustics, Digital Applications in Archaeology and Cultural Heritage (2025)">
-          <span class="plate plate--wide">
-            <span class="frame">
-              <img
-                src="assets/images/covers/cover-02-tong-bori.jpg"
-                alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground"
-                width="1920" height="1200"
-                loading="lazy" decoding="async">
-            </span>
-            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
-              <span class="caption">II — Ornament as Instrument</span>
-              <span class="caption text-gold">2025</span>
-            </span>
-          </span>
-        </button>
-
-        <!-- MASTER BLUEPRINT: Plate 3 — Sound Holes
-             Physical rendering box: 1400 × 1400px, matching
-             .plate--square { aspect-ratio: 1 / 1 } exactly. Composition:
-             three minimal circular voids arranged as a typographic
-             ornament, ink-black on white, no illustration beyond the
-             voids themselves. -->
-        <button
-          type="button"
-          class="plate-trigger"
-          data-title="Sound Holes"
-          data-year="2024 — cover design"
-          data-medium="Minimal typographic cover, triple-hole motif"
-          data-image="assets/images/covers/cover-03-sound-holes.jpg"
-          data-alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament"
-          data-doi="Companion volume to: Historical Evolution and Acoustic Significance of Sound Holes in Lutes, Applied Acoustics (2024)">
-          <span class="plate plate--square">
-            <span class="frame">
-              <img
-                src="assets/images/covers/cover-03-sound-holes.jpg"
-                alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament"
-                width="1400" height="1400"
-                loading="lazy" decoding="async">
-            </span>
-            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
-              <span class="caption">III — Sound Holes</span>
-              <span class="caption text-gold">2024</span>
-            </span>
-          </span>
-        </button>
-
-        <!-- MASTER BLUEPRINT: Plate 4 — Resonant Vessels
-             Physical rendering box: 1600 × 1943px, matching
-             .plate--tall { aspect-ratio: 14 / 17 } exactly. Composition:
-             tight photographic crop on a single spherical Helmholtz
-             resonator under raking light, mid-grey ground. -->
-        <button
-          type="button"
-          class="plate-trigger"
-          data-title="Resonant Vessels"
-          data-year="2026 — cover design"
-          data-medium="Photographic cover, single Helmholtz resonator sphere, cropped tight"
-          data-image="assets/images/covers/cover-04-resonant-vessels.jpg"
-          data-alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator"
-          data-doi="Companion volume to: Experimental validation of Helmholtz resonator arrays, Next Research (2026)">
-          <span class="plate plate--tall">
-            <span class="frame">
-              <img
-                src="assets/images/covers/cover-04-resonant-vessels.jpg"
-                alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator"
-                width="1600" height="1943"
-                loading="lazy" decoding="async">
-            </span>
-            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
-              <span class="caption">IV — Resonant Vessels</span>
-              <span class="caption text-gold">2026</span>
-            </span>
-          </span>
-        </button>
-
-        <!-- MASTER BLUEPRINT: Plate 5 — Strings to Stars
-             Physical rendering box: 1400 × 1400px, matching
-             .plate--square { aspect-ratio: 1 / 1 } exactly. Composition:
-             split-frame diptych, lute rosette above / nebula frame below,
-             4px true-white gutter between halves. -->
-        <button
-          type="button"
-          class="plate-trigger"
-          data-title="Strings to Stars"
-          data-year="Ongoing — cover design"
-          data-medium="Photographic diptych cover, lute rosette / nebula pairing"
-          data-image="assets/images/covers/cover-05-strings-to-stars.jpg"
-          data-alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame"
-          data-doi="Companion volume to ongoing research: Investigating the Role of Resonance in Herbig-Haro Objects (in preparation)">
-          <span class="plate plate--square">
-            <span class="frame">
-              <img
-                src="assets/images/covers/cover-05-strings-to-stars.jpg"
-                alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame"
-                width="1400" height="1400"
-                loading="lazy" decoding="async">
-            </span>
-            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
-              <span class="caption">V — Strings to Stars</span>
-              <span class="caption text-gold">Ongoing</span>
-            </span>
-          </span>
-        </button>
-
-        <!-- MASTER BLUEPRINT: Plate 6 — Kar-Bandi: Pattern as Frequency
-             Physical rendering box: 1920 × 1200px, matching
-             .plate--wide { aspect-ratio: 16 / 10 } exactly. Composition:
-             repeated Kar-Bandi geometric ceiling motif rendered as a flat
-             line-art pattern, ink-black on white, gold used only as a
-             single accent line marking one repeat unit. -->
-        <button
-          type="button"
-          class="plate-trigger"
-          data-title="Kar-Bandi: Pattern as Frequency"
-          data-year="Under review — cover study"
-          data-medium="Flat line-art cover, repeated Kar-Bandi ceiling motif"
-          data-image="assets/images/covers/cover-06-kar-bandi.jpg"
-          data-alt="Book cover study for Kar-Bandi: Pattern as Frequency, a repeated geometric ceiling motif in black line-art"
-          data-doi="Companion volume to: The Interplay of Aesthetic Geometric Patterns and Acoustic Functionality in Persian Architecture (under review)">
-          <span class="plate plate--wide">
-            <span class="frame">
-              <img
-                src="assets/images/covers/cover-06-kar-bandi.jpg"
-                alt="Book cover study for Kar-Bandi: Pattern as Frequency, a repeated geometric ceiling motif in black line-art"
-                width="1920" height="1200"
-                loading="lazy" decoding="async">
-            </span>
-            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
-              <span class="caption">VI — Kar-Bandi: Pattern as Frequency</span>
-              <span class="caption text-gold">Study</span>
-            </span>
-          </span>
-        </button>
-
-        <!-- MASTER BLUEPRINT: Plate 7 — Double-Shell: Domes of the Mediterranean
-             Physical rendering box: 1600 × 1943px, matching
-             .plate--tall { aspect-ratio: 14 / 17 } exactly. Composition:
-             architectural section-drawing of a double-shell dome, fine
-             black linework on white, no color beyond a single gold
-             hairline marking the shell gap. -->
-        <button
-          type="button"
-          class="plate-trigger"
-          data-title="Double-Shell: Domes of the Mediterranean"
-          data-year="Ongoing — cover study"
-          data-medium="Architectural section-drawing cover, fine black linework"
-          data-image="assets/images/covers/cover-07-double-shell.jpg"
-          data-alt="Book cover study for Double-Shell: Domes of the Mediterranean, a fine architectural section drawing"
-          data-doi="Companion volume to: Comparative Analysis of Double-Shell Domes in Medieval Mediterranean Cultures (ongoing research)">
-          <span class="plate plate--tall">
-            <span class="frame">
-              <img
-                src="assets/images/covers/cover-07-double-shell.jpg"
-                alt="Book cover study for Double-Shell: Domes of the Mediterranean, a fine architectural section drawing"
-                width="1600" height="1943"
-                loading="lazy" decoding="async">
-            </span>
-            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
-              <span class="caption">VII — Double-Shell Domes</span>
-              <span class="caption text-gold">Study</span>
-            </span>
-          </span>
-        </button>
-
-        <!-- MASTER BLUEPRINT: Plate 8 — Tār & Setār: A Maker's Notebook
-             Physical rendering box: 1400 × 1400px, matching
-             .plate--square { aspect-ratio: 1 / 1 } exactly. Composition:
-             black-and-white documentary photograph from the workshop —
-             hands, unfinished lute body, natural window light — the only
-             plate in the set with no companion paper behind it. -->
-        <button
-          type="button"
-          class="plate-trigger"
-          data-title="Tār &amp; Setār: A Maker's Notebook"
-          data-year="2023 — cover design"
-          data-medium="Documentary-photography cover, workshop notebook"
-          data-image="assets/images/covers/cover-08-makers-notebook.jpg"
-          data-alt="Book cover for Tar and Setar: A Maker's Notebook, a black-and-white documentary photograph from the workshop"
-          data-doi="Independent volume — luthier's workshop notebooks, 2015–present">
-          <span class="plate plate--square">
-            <span class="frame">
-              <img
-                src="assets/images/covers/cover-08-makers-notebook.jpg"
-                alt="Book cover for Tar and Setar: A Maker's Notebook, a black-and-white documentary photograph from the workshop"
-                width="1400" height="1400"
-                loading="lazy" decoding="async">
-            </span>
-            <span class="plate figcaption" style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--s-3); margin-top:var(--s-3);">
-              <span class="caption">VIII — A Maker's Notebook</span>
-              <span class="caption text-gold">2023</span>
-            </span>
-          </span>
-        </button>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       3. DESIGNER'S STATEMENT
-       ========================================================================== -->
-  <section class="section section--tinted section--tight">
-    <div class="wrap">
-      <div class="lute-grid">
-        <div class="rail">
-          <p class="eyebrow eyebrow--gold">On Cover Design</p>
-        </div>
-        <div class="canvas">
-          <blockquote class="pull-quote">
-            A cover is a soundhole for the book —
-            the one opening where you can hear
-            what the whole thing resonates at.
-            <cite>M. M. Karbasbaf</cite>
-          </blockquote>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       4. COMMISSION INDEX — scannable list, no metrics, no counters
-       ========================================================================== -->
-  <section class="section">
-    <div class="wrap">
       <div class="section-head lute-grid">
         <div class="rail">
-          <p class="eyebrow">Full Index</p>
+          <p class="eyebrow eyebrow--gold">Complete Archive</p>
           <div class="spine-break" aria-hidden="true">
             <svg viewBox="0 0 34 46" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 23 C 4 23, 5 3, 8.5 3 C 12 3, 12 36, 15.5 36 C 19 36, 19 10, 22.5 10 C 26 10, 26 29, 29.5 29 C 32 29, 33 23, 34 23" />
             </svg>
           </div>
+          <p class="caption mt-4">Book Design<br>Calligraphy<br>Typographic Plates</p>
         </div>
         <div class="canvas">
-          <h2 class="h2">Commission<br>Index</h2>
+          <h1 class="h1" id="portfolio-heading">Book Designs</h1>
+          <p class="body-text mt-4">Ten plates spanning three disciplines — editorial book covers, fine-art Thuluth and Nastaliq calligraphy, and the structural typographic plates that sit between research and ornament. Filter by discipline, or browse the complete archive below. Select any plate to inspect it at full scale.</p>
         </div>
       </div>
 
-      <div class="lute-grid">
-        <div class="rail" aria-hidden="true"></div>
-        <div class="canvas">
+      <nav class="portfolio-filter" aria-label="Filter portfolio by category">
+        <button type="button" class="filter-trigger" data-filter="all" aria-pressed="true">All Archive</button>
+        <button type="button" class="filter-trigger" data-filter="covers" aria-pressed="false">Editorial Book Covers</button>
+        <button type="button" class="filter-trigger" data-filter="calligraphy" aria-pressed="false">Fine Art Calligraphy</button>
+        <button type="button" class="filter-trigger" data-filter="plates" aria-pressed="false">Typographic Plates</button>
+      </nav>
 
-          <article class="pub">
-            <span class="pub-number">I</span>
-            <h3 class="pub-title">The Golden Method</h3>
-            <p class="pub-venue caption">Cover design · 2017 · Companion to Arts, 6(4), 20</p>
-          </article>
+      <div class="portfolio-grid">
 
-          <article class="pub">
-            <span class="pub-number">II</span>
-            <h3 class="pub-title">Ornament as Instrument</h3>
-            <p class="pub-venue caption">Cover design · 2025 · Companion to Digital Applications in Archaeology and Cultural Heritage</p>
-          </article>
+        <!-- MASTER BLUEPRINT: Portfolio Item 1 — "The Golden Method"
+             Asset Identifier: assets/images/portfolio/portfolio-golden-method.jpg
+             Category: Editorial Book Cover (data-category="covers")
+             Target dimensions: 1600 × 2000px portrait scan, rendered at a
+             3:4 crop via .portfolio-item:nth-child(1) .frame.
+             Lighting / background: flat scan or copy-stand shot, even
+             diffuse lighting, no glare off the cover stock, true-to-print
+             color.
+             Composition: Thuluth title lockup over a faint golden-spiral
+             construction-diagram watermark.
+             NOTE: source file not yet supplied — falls back gracefully
+             via the site-wide .frame--pending state (§9). -->
+        <button type="button" class="plate-trigger portfolio-item" data-category="covers"
+          data-title="The Golden Method"
+          data-year="2017 — cover design"
+          data-medium="Letterpress-style cover, Thuluth title lockup over golden-spiral construction diagram"
+          data-image="assets/images/portfolio/portfolio-golden-method.jpg"
+          data-alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
+          data-doi="Companion volume to: A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments, Arts (2017)">
+          <span class="frame">
+            <img src="assets/images/portfolio/portfolio-golden-method.jpg"
+              alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
+              width="1600" height="2000" loading="eager" decoding="async">
+            <span class="portfolio-meta" aria-hidden="true">
+              <span class="portfolio-meta-title">The Golden Method</span>
+              <span class="portfolio-meta-sub">2017 — Cover Design</span>
+            </span>
+          </span>
+        </button>
 
-          <article class="pub">
-            <span class="pub-number">III</span>
-            <h3 class="pub-title">Sound Holes</h3>
-            <p class="pub-venue caption">Cover design · 2024 · Companion to Applied Acoustics</p>
-          </article>
+        <!-- MASTER BLUEPRINT: Portfolio Item 2 — "Ornament as Instrument"
+             Asset Identifier: assets/images/portfolio/portfolio-ornament-instrument.jpg
+             Category: Editorial Book Cover (data-category="covers")
+             Target dimensions: 1400 × 1400px square scan.
+             Lighting / background: flat scan or copy-stand shot, even
+             diffuse lighting, cream stock rendered true-to-color.
+             Composition: black vase-niche silhouette on cream ground.
+             NOTE: source file not yet supplied — falls back gracefully. -->
+        <button type="button" class="plate-trigger portfolio-item" data-category="covers"
+          data-title="Ornament as Instrument"
+          data-year="2025 — cover design"
+          data-medium="Silhouette cover, single-color cutout on cream stock"
+          data-image="assets/images/portfolio/portfolio-ornament-instrument.jpg"
+          data-alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground"
+          data-doi="Companion volume to: From Ornamentation to Acoustics, Digital Applications in Archaeology and Cultural Heritage (2025)">
+          <span class="frame">
+            <img src="assets/images/portfolio/portfolio-ornament-instrument.jpg"
+              alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground"
+              width="1400" height="1400" loading="lazy" decoding="async">
+            <span class="portfolio-meta" aria-hidden="true">
+              <span class="portfolio-meta-title">Ornament as Instrument</span>
+              <span class="portfolio-meta-sub">2025 — Cover Design</span>
+            </span>
+          </span>
+        </button>
 
-          <article class="pub">
-            <span class="pub-number">IV</span>
-            <h3 class="pub-title">Resonant Vessels</h3>
-            <p class="pub-venue caption">Cover design · 2026 · Companion to Next Research</p>
-          </article>
+        <!-- MASTER BLUEPRINT: Portfolio Item 3 — "Sound Holes"
+             Asset Identifier: assets/images/portfolio/portfolio-sound-holes.jpg
+             Category: Editorial Book Cover (data-category="covers")
+             Target dimensions: 1200 × 1500px portrait scan (rendered at a
+             4:5 crop via .portfolio-item:nth-child(3) .frame).
+             Lighting / background: flat scan, even diffuse lighting,
+             pure-white ground.
+             Composition: triple-hole soundhole motif as minimal
+             typographic ornament, ink on white.
+             NOTE: source file not yet supplied — falls back gracefully. -->
+        <button type="button" class="plate-trigger portfolio-item" data-category="covers"
+          data-title="Sound Holes"
+          data-year="2024 — cover design"
+          data-medium="Minimal typographic cover, triple-hole motif"
+          data-image="assets/images/portfolio/portfolio-sound-holes.jpg"
+          data-alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament"
+          data-doi="Companion volume to: Historical Evolution and Acoustic Significance of Sound Holes in Lutes, Applied Acoustics (2024)">
+          <span class="frame">
+            <img src="assets/images/portfolio/portfolio-sound-holes.jpg"
+              alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament"
+              width="1200" height="1500" loading="lazy" decoding="async">
+            <span class="portfolio-meta" aria-hidden="true">
+              <span class="portfolio-meta-title">Sound Holes</span>
+              <span class="portfolio-meta-sub">2024 — Cover Design</span>
+            </span>
+          </span>
+        </button>
 
-          <article class="pub">
-            <span class="pub-number">V</span>
-            <h3 class="pub-title">Strings to Stars</h3>
-            <p class="pub-venue caption">Cover design · Ongoing · Companion to in-preparation Herbig-Haro study</p>
-          </article>
+        <!-- MASTER BLUEPRINT: Portfolio Item 4 — "Resonant Vessels"
+             Asset Identifier: assets/images/portfolio/portfolio-resonant-vessels.jpg
+             Category: Editorial Book Cover (data-category="covers")
+             Target dimensions: 1500 × 1200px landscape crop (rendered at
+             a 5:4 crop via .portfolio-item:nth-child(4) .frame).
+             Lighting / background: raking studio light, dark neutral
+             backdrop to isolate the sphere's form.
+             Composition: tight crop of a single Helmholtz resonator
+             sphere under raking light.
+             NOTE: source file not yet supplied — falls back gracefully. -->
+        <button type="button" class="plate-trigger portfolio-item" data-category="covers"
+          data-title="Resonant Vessels"
+          data-year="2026 — cover design"
+          data-medium="Photographic cover, single Helmholtz resonator sphere, cropped tight"
+          data-image="assets/images/portfolio/portfolio-resonant-vessels.jpg"
+          data-alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator"
+          data-doi="Companion volume to: Experimental validation of Helmholtz resonator arrays, Next Research (2026)">
+          <span class="frame">
+            <img src="assets/images/portfolio/portfolio-resonant-vessels.jpg"
+              alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator"
+              width="1500" height="1200" loading="lazy" decoding="async">
+            <span class="portfolio-meta" aria-hidden="true">
+              <span class="portfolio-meta-title">Resonant Vessels</span>
+              <span class="portfolio-meta-sub">2026 — Cover Design</span>
+            </span>
+          </span>
+        </button>
 
-          <article class="pub">
-            <span class="pub-number">VI</span>
-            <h3 class="pub-title">Kar-Bandi: Pattern as Frequency</h3>
-            <p class="pub-venue caption">Cover study · Companion to under-review Kar-Bandi paper</p>
-            <span class="pub-status">Under Review</span>
-          </article>
+        <!-- MASTER BLUEPRINT: Portfolio Item 5 — "Strings to Stars"
+             Asset Identifier: assets/images/portfolio/portfolio-strings-to-stars.jpg
+             Category: Editorial Book Cover (data-category="covers")
+             Target dimensions: 1600 × 1000px wide landscape diptych scan
+             (16:10, matching the hero's own cinematic frame).
+             Lighting / background: flat scan, even diffuse lighting,
+             true-to-print color on both diptych halves.
+             Composition: nebula half of the Strings-to-Stars diptych,
+             cropped wide, no text overlay.
+             NOTE: source file not yet supplied — falls back gracefully. -->
+        <button type="button" class="plate-trigger portfolio-item" data-category="covers"
+          data-title="Strings to Stars"
+          data-year="2025 — cover design"
+          data-medium="Photographic diptych cover, lute rosette / nebula pairing"
+          data-image="assets/images/portfolio/portfolio-strings-to-stars.jpg"
+          data-alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame"
+          data-doi="Companion volume to ongoing research: Investigating the Role of Resonance in Herbig-Haro Objects (in preparation)">
+          <span class="frame">
+            <img src="assets/images/portfolio/portfolio-strings-to-stars.jpg"
+              alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame"
+              width="1600" height="1000" loading="lazy" decoding="async">
+            <span class="portfolio-meta" aria-hidden="true">
+              <span class="portfolio-meta-title">Strings to Stars</span>
+              <span class="portfolio-meta-sub">2025 — Cover Design</span>
+            </span>
+          </span>
+        </button>
 
-          <article class="pub">
-            <span class="pub-number">VII</span>
-            <h3 class="pub-title">Double-Shell: Domes of the Mediterranean</h3>
-            <p class="pub-venue caption">Cover study · Companion to ongoing dome research</p>
-            <span class="pub-status">Ongoing</span>
-          </article>
+        <!-- MASTER BLUEPRINT: Portfolio Item 6 — "Thuluth Study — Karbasbaf Lockup"
+             Asset Identifier: assets/images/portfolio/portfolio-thuluth-study.jpg
+             Category: Fine Art Calligraphy (data-category="calligraphy")
+             Target dimensions: 1200 × 1500px portrait crop (4:5, matching
+             .portfolio-item:nth-child(6) .frame).
+             Lighting / background: flat scan or copy-stand shot, pure
+             white ground, no shadow falloff at the edges of the ink.
+             Composition: a standalone study of the same Thuluth name
+             lockup used in the hero artwork — ink black on near-white,
+             generous negative space, no drop shadow.
+             NOTE: source file not yet supplied — falls back gracefully. -->
+        <button type="button" class="plate-trigger portfolio-item" data-category="calligraphy"
+          data-title="Thuluth Study — Karbasbaf Lockup"
+          data-year="2025 — calligraphy study"
+          data-medium="Ink on paper, Thuluth script, single-subject name lockup"
+          data-image="assets/images/portfolio/portfolio-thuluth-study.jpg"
+          data-alt="Fine art calligraphy study of a Thuluth-script name lockup, ink black on near-white ground">
+          <span class="frame">
+            <img src="assets/images/portfolio/portfolio-thuluth-study.jpg"
+              alt="Fine art calligraphy study of a Thuluth-script name lockup, ink black on near-white ground"
+              width="1200" height="1500" loading="lazy" decoding="async">
+            <span class="portfolio-meta" aria-hidden="true">
+              <span class="portfolio-meta-title">Thuluth Study — Karbasbaf Lockup</span>
+              <span class="portfolio-meta-sub">2025 — Calligraphy</span>
+            </span>
+          </span>
+        </button>
 
-          <article class="pub">
-            <span class="pub-number">VIII</span>
-            <h3 class="pub-title">Tār &amp; Setār: A Maker's Notebook</h3>
-            <p class="pub-venue caption">Cover design · 2023 · Independent volume, no companion paper</p>
-          </article>
+        <!-- MASTER BLUEPRINT: Portfolio Item 7 — "Nastaliq Folio No. 1"
+             Asset Identifier: assets/images/portfolio/portfolio-nastaliq-folio.jpg
+             Category: Fine Art Calligraphy (data-category="calligraphy")
+             Target dimensions: 1400 × 1400px square scan.
+             Lighting / background: flat scan, even diffuse lighting,
+             cream or aged-paper ground rendered true-to-color.
+             Composition: a Nastaliq folio page — flowing diagonal
+             baseline composition, single verse or fragment, generous
+             margins.
+             NOTE: source file not yet supplied — falls back gracefully. -->
+        <button type="button" class="plate-trigger portfolio-item" data-category="calligraphy"
+          data-title="Nastaliq Folio No. 1"
+          data-year="2023 — calligraphy folio"
+          data-medium="Ink on paper, Nastaliq script, single-page folio composition"
+          data-image="assets/images/portfolio/portfolio-nastaliq-folio.jpg"
+          data-alt="Fine art Nastaliq calligraphy folio, flowing diagonal script composition on cream paper">
+          <span class="frame">
+            <img src="assets/images/portfolio/portfolio-nastaliq-folio.jpg"
+              alt="Fine art Nastaliq calligraphy folio, flowing diagonal script composition on cream paper"
+              width="1400" height="1400" loading="lazy" decoding="async">
+            <span class="portfolio-meta" aria-hidden="true">
+              <span class="portfolio-meta-title">Nastaliq Folio No. 1</span>
+              <span class="portfolio-meta-sub">2023 — Calligraphy</span>
+            </span>
+          </span>
+        </button>
 
-          <p class="doi mt-6"><a href="contact.html">Enquire about a commission →</a></p>
+        <!-- MASTER BLUEPRINT: Portfolio Item 8 — "Golden Spiral Construction Plate"
+             Asset Identifier: assets/images/portfolio/portfolio-golden-spiral-plate.jpg
+             Category: Typographic Plate (data-category="plates")
+             Target dimensions: 1500 × 1200px landscape crop (5:4,
+             matching .portfolio-item:nth-child(8) .frame).
+             Lighting / background: flat vector/scan export, pure white
+             ground, crisp construction-line contrast.
+             Composition: the golden-spiral soundhole construction diagram
+             itself — the geometric plate from "The Golden Method" (Arts,
+             2017), reproduced as a standalone technical plate rather than
+             a cover watermark.
+             NOTE: source file not yet supplied — falls back gracefully. -->
+        <button type="button" class="plate-trigger portfolio-item" data-category="plates"
+          data-title="Golden Spiral Construction Plate"
+          data-year="2017 — structural plate"
+          data-medium="Technical construction diagram, golden-spiral soundhole geometry"
+          data-image="assets/images/portfolio/portfolio-golden-spiral-plate.jpg"
+          data-alt="Technical plate showing the golden-spiral construction diagram used to place a lute soundhole"
+          data-doi="Structural plate from: A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments, Arts (2017)">
+          <span class="frame">
+            <img src="assets/images/portfolio/portfolio-golden-spiral-plate.jpg"
+              alt="Technical plate showing the golden-spiral construction diagram used to place a lute soundhole"
+              width="1500" height="1200" loading="lazy" decoding="async">
+            <span class="portfolio-meta" aria-hidden="true">
+              <span class="portfolio-meta-title">Golden Spiral Construction Plate</span>
+              <span class="portfolio-meta-sub">2017 — Typographic Plate</span>
+            </span>
+          </span>
+        </button>
 
-        </div>
+        <!-- MASTER BLUEPRINT: Portfolio Item 9 — "Soundhole Geometry Index"
+             Asset Identifier: assets/images/portfolio/portfolio-soundhole-index-plate.jpg
+             Category: Typographic Plate (data-category="plates")
+             Target dimensions: 1200 × 1600px portrait crop (3:4, matching
+             .portfolio-item:nth-child(9) .frame).
+             Lighting / background: flat vector/scan export, pure white
+             ground.
+             Composition: an indexed grid of soundhole silhouette variants
+             set as a typographic specimen sheet — numbered, captioned in
+             small caps, laid out like a type foundry's own specimen page.
+             NOTE: source file not yet supplied — falls back gracefully. -->
+        <button type="button" class="plate-trigger portfolio-item" data-category="plates"
+          data-title="Soundhole Geometry Index"
+          data-year="2024 — structural plate"
+          data-medium="Typographic specimen sheet, indexed soundhole silhouette variants"
+          data-image="assets/images/portfolio/portfolio-soundhole-index-plate.jpg"
+          data-alt="Typographic specimen plate indexing multiple soundhole silhouette variants in a numbered grid"
+          data-doi="Structural plate from: Historical Evolution and Acoustic Significance of Sound Holes in Lutes, Applied Acoustics (2024)">
+          <span class="frame">
+            <img src="assets/images/portfolio/portfolio-soundhole-index-plate.jpg"
+              alt="Typographic specimen plate indexing multiple soundhole silhouette variants in a numbered grid"
+              width="1200" height="1600" loading="lazy" decoding="async">
+            <span class="portfolio-meta" aria-hidden="true">
+              <span class="portfolio-meta-title">Soundhole Geometry Index</span>
+              <span class="portfolio-meta-sub">2024 — Typographic Plate</span>
+            </span>
+          </span>
+        </button>
+
+        <!-- MASTER BLUEPRINT: Portfolio Item 10 — "Waveform Type Specimen"
+             Asset Identifier: assets/images/portfolio/portfolio-waveform-specimen.jpg
+             Category: Typographic Plate (data-category="plates")
+             Target dimensions: 1600 × 1000px wide landscape export
+             (16:10, matching .portfolio-item:nth-child(10) .frame).
+             Lighting / background: flat vector/scan export, pure white
+             ground.
+             Composition: a single continuous waveform line rendered as a
+             custom display-type baseline — letterforms riding the crest
+             and trough of one acoustic waveform, the closing plate of the
+             set.
+             NOTE: source file not yet supplied — falls back gracefully. -->
+        <button type="button" class="plate-trigger portfolio-item" data-category="plates"
+          data-title="Waveform Type Specimen"
+          data-year="2026 — structural plate"
+          data-medium="Custom display-type specimen, letterforms set along a single waveform baseline"
+          data-image="assets/images/portfolio/portfolio-waveform-specimen.jpg"
+          data-alt="Typographic plate showing display letterforms riding the crest and trough of a single acoustic waveform">
+          <span class="frame">
+            <img src="assets/images/portfolio/portfolio-waveform-specimen.jpg"
+              alt="Typographic plate showing display letterforms riding the crest and trough of a single acoustic waveform"
+              width="1600" height="1000" loading="lazy" decoding="async">
+            <span class="portfolio-meta" aria-hidden="true">
+              <span class="portfolio-meta-title">Waveform Type Specimen</span>
+              <span class="portfolio-meta-sub">2026 — Typographic Plate</span>
+            </span>
+          </span>
+        </button>
+
       </div>
+
     </div>
   </section>
 
 </main>
 
-<!-- ==========================================================================
-     FOOTER
-     ========================================================================== -->
 <footer class="site-footer">
   <div class="wrap">
     <p class="caption">Mohammad Mahdi Karbasbaf<br>ORCID 0000-0003-2264-9372</p>
     <p class="caption"><a href="mailto:karbasbaf@gmail.com">karbasbaf@gmail.com</a></p>
     <p class="caption">
       <a href="index.html">Home</a> &nbsp;·&nbsp;
-      <a href="book-designs.html">Book Designs</a> &nbsp;·&nbsp;
+      <a href="book-designs.html" aria-current="page">Book Designs</a> &nbsp;·&nbsp;
       <a href="research.html">Research</a> &nbsp;·&nbsp;
       <a href="about.html">About</a> &nbsp;·&nbsp;
       <a href="contact.html">Contact</a>
@@ -516,11 +410,6 @@
   </div>
 </footer>
 
-<!-- ==========================================================================
-     THE MONOGRAPH REVEAL — single shared panel, populated per plate
-     (identical structure to index.html, so the CSS in style.css needs no
-     page-specific overrides)
-     ========================================================================== -->
 <div class="book-reveal" id="book-reveal" data-open="false" role="dialog" aria-modal="true" aria-labelledby="reveal-title" inert>
   <div class="wrap">
     <button type="button" class="reveal-close" id="reveal-close">
@@ -540,18 +429,10 @@
   </div>
 </div>
 
-<!-- ==========================================================================
-     KINETICS — mobile drawer, book-reveal modal, focus trap
-     (identical logic to index.html; reused verbatim so both pages behave
-     the same way rather than maintaining two diverging scripts)
-     ========================================================================== -->
 <script>
 (function () {
   'use strict';
 
-  /* ---------------------------------------------------------------------
-     1. MOBILE NAVIGATION DRAWER
-     --------------------------------------------------------------------- */
   var navToggle = document.getElementById('nav-toggle');
   var primaryNav = document.getElementById('primary-nav');
   var body = document.body;
@@ -577,20 +458,14 @@
   }
 
   navToggle.addEventListener('click', function () {
-    if (isNavOpen()) {
-      closeNav(true);
-    } else {
-      openNav();
-    }
+    if (isNavOpen()) { closeNav(true); } else { openNav(); }
   });
 
   document.addEventListener('click', function (event) {
     if (!isNavOpen()) return;
     var clickedInsideNav = primaryNav.contains(event.target);
     var clickedToggle = navToggle.contains(event.target);
-    if (!clickedInsideNav && !clickedToggle) {
-      closeNav(false);
-    }
+    if (!clickedInsideNav && !clickedToggle) closeNav(false);
   });
 
   primaryNav.addEventListener('click', function (event) {
@@ -601,9 +476,6 @@
     if (event.matches && isNavOpen()) closeNav(false);
   });
 
-  /* ---------------------------------------------------------------------
-     2. BOOK-REVEAL MODAL
-     --------------------------------------------------------------------- */
   var reveal = document.getElementById('book-reveal');
   var revealClose = document.getElementById('reveal-close');
   var revealImage = document.getElementById('reveal-image');
@@ -622,7 +494,6 @@
 
   function openReveal(trigger) {
     lastTrigger = trigger;
-
     revealImage.src = trigger.getAttribute('data-image');
     revealImage.alt = trigger.getAttribute('data-alt') || '';
     revealTitle.textContent = trigger.getAttribute('data-title') || '';
@@ -634,9 +505,7 @@
     reveal.setAttribute('data-open', 'true');
     body.classList.add('scroll-locked');
 
-    window.requestAnimationFrame(function () {
-      revealClose.focus();
-    });
+    window.requestAnimationFrame(function () { revealClose.focus(); });
   }
 
   function closeReveal() {
@@ -660,33 +529,26 @@
   }
 
   triggers.forEach(function (trigger) {
-    trigger.addEventListener('click', function () {
-      openReveal(trigger);
-    });
+    trigger.addEventListener('click', function () { openReveal(trigger); });
   });
 
-  revealClose.addEventListener('click', function () {
-    closeReveal();
-  });
+  revealClose.addEventListener('click', function () { closeReveal(); });
 
-  /* ---------------------------------------------------------------------
-     3. FOCUS TRAP + ESCAPE (shared between nav drawer and reveal)
-     --------------------------------------------------------------------- */
   document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
-      if (isRevealOpen()) {
-        closeReveal();
-        return;
-      }
-      if (isNavOpen()) {
-        closeNav(true);
-        return;
-      }
+      if (isRevealOpen()) { closeReveal(); return; }
+      if (isNavOpen()) { closeNav(true); return; }
     }
 
     if (event.key === 'Tab' && isRevealOpen()) {
       var focusable = focusableInReveal();
       if (focusable.length === 0) return;
+
+      if (focusable.length === 1) {
+        event.preventDefault();
+        focusable[0].focus();
+        return;
+      }
 
       var first = focusable[0];
       var last = focusable[focusable.length - 1];
@@ -699,6 +561,51 @@
         first.focus();
       }
     }
+  });
+
+  function markPending(img) {
+    var frame = img.closest('.frame');
+    if (!frame) return;
+    frame.classList.add('frame--pending');
+    if (!frame.querySelector('.frame-pending-label')) {
+      var label = document.createElement('span');
+      label.className = 'frame-pending-label';
+      label.textContent = img.alt || 'Artwork pending';
+      frame.appendChild(label);
+    }
+  }
+
+  function clearPending(img) {
+    var frame = img.closest('.frame');
+    if (!frame) return;
+    frame.classList.remove('frame--pending');
+    var label = frame.querySelector('.frame-pending-label');
+    if (label) label.remove();
+  }
+
+  document.querySelectorAll('.frame img').forEach(function (img) {
+    img.onerror = function () { markPending(img); };
+    img.onload = function () { clearPending(img); };
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
+      markPending(img);
+    }
+  });
+
+  /* Filter engine — under 15 lines, opacity/transform only (§18.3 in
+     style.css owns the transition and .is-hidden rule), so a click never
+     forces a synchronous layout read. */
+  var filterTriggers = Array.prototype.slice.call(document.querySelectorAll('.filter-trigger'));
+  var portfolioItems = Array.prototype.slice.call(document.querySelectorAll('.portfolio-item'));
+
+  filterTriggers.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filterTriggers.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+      var filter = btn.getAttribute('data-filter');
+      portfolioItems.forEach(function (item) {
+        var show = filter === 'all' || item.getAttribute('data-category') === filter;
+        item.classList.toggle('is-hidden', !show);
+      });
+    });
   });
 })();
 </script>
