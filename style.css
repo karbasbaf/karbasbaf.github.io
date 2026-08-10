@@ -1706,3 +1706,232 @@ body.page-home .pub-title {
   border-color: var(--gold);
   color: var(--ink);
 }
+
+/* ==========================================================================
+   18. BOOK-DESIGNS.HTML — THE PORTFOLIO PAGE (page-book-designs only)
+   ------------------------------------------------------------------------
+   Purely additive: nothing above this line was touched to build this
+   section. book-designs.html's <body> carries two classes —
+   class="page-home page-book-designs". page-home is reused deliberately,
+   not by accident: it's what already drives the shared site chrome (the
+   ceiling crown's positioning/sizing in §17.1, and the header's
+   flex-end link cluster in §17.2), and every one of those selectors
+   requires page-home *together with* an element that only exists on the
+   homepage (.hero, #showcase, .pub-title, …) — none of which are present
+   here, so they simply never match. page-book-designs is the second,
+   page-book-designs. class, scoping everything genuinely new below.
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------
+   18.1 — THE FILTER BAR: a silent typographic index, not a UI widget
+
+   Four plain-text buttons on the bare canvas, tracked and spaced like a
+   catalogue's own running head rather than styled as pills or tabs — no
+   borders, no background fills at rest. The active state is carried
+   entirely by weight, color, and a thin gold underline, consistent with
+   the single-pixel-accent rule the whole site already follows for its
+   active nav link (§6). Generous horizontal gaps do the "immense
+   breathing room" work instead of any visible container chrome. */
+.portfolio-filter {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--s-6);
+  row-gap: var(--s-3);
+  padding: var(--s-7) 0 var(--s-6);
+}
+
+.filter-trigger {
+  font-family: var(--font-ui);
+  font-size: var(--t-nav);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  padding-bottom: var(--s-2);
+  border-bottom: 1px solid transparent;
+  transition: color var(--dur-quick) var(--ease-resonant),
+              border-color var(--dur-quick) var(--ease-resonant);
+}
+
+.filter-trigger:hover {
+  color: var(--ink);
+}
+
+.filter-trigger[aria-pressed="true"] {
+  color: var(--ink);
+  font-weight: 600;
+  border-bottom-color: var(--gold);
+}
+
+@media (max-width: 640px) {
+  .portfolio-filter {
+    column-gap: var(--s-5);
+    padding: var(--s-6) 0 var(--s-5);
+  }
+}
+
+/* -------------------------------------------------------------------------
+   18.2 — THE PORTFOLIO GRID: same multi-column technique as .cover-gallery
+   (§17.5), an independent component rather than a literal reuse of it —
+   this page needs a filterable data-category on every item and a
+   center-anchored (not bottom-anchored) hover reveal, so a shared class
+   would mean two different interaction contracts fighting over one
+   selector. The underlying idea is identical: CSS multi-column masonry,
+   varied aspect-ratios per item, organic stagger with zero row-height
+   arithmetic, robust at any viewport or zoom level. */
+.portfolio-grid {
+  column-count: 1;
+  column-gap: var(--s-6);
+}
+
+.portfolio-item {
+  display: block;
+  width: 100%;
+  break-inside: avoid;
+  margin-bottom: var(--s-6);
+}
+
+@media (min-width: 700px) {
+  .portfolio-grid { column-count: 2; column-gap: var(--s-7); }
+  .portfolio-item { margin-bottom: var(--s-7); }
+}
+
+@media (min-width: 1180px) {
+  .portfolio-grid { column-count: 3; }
+}
+
+/* Ten plates, ten proportions — portrait, square, and landscape frames
+   interleaved on purpose so the multi-column flow reads as a curated
+   installation rather than a uniform table. */
+.portfolio-item:nth-child(1)  .frame { aspect-ratio: 3 / 4;  }
+.portfolio-item:nth-child(2)  .frame { aspect-ratio: 1 / 1;  }
+.portfolio-item:nth-child(3)  .frame { aspect-ratio: 4 / 5;  }
+.portfolio-item:nth-child(4)  .frame { aspect-ratio: 5 / 4;  }
+.portfolio-item:nth-child(5)  .frame { aspect-ratio: 16 / 10; }
+.portfolio-item:nth-child(6)  .frame { aspect-ratio: 4 / 5;  }
+.portfolio-item:nth-child(7)  .frame { aspect-ratio: 1 / 1;  }
+.portfolio-item:nth-child(8)  .frame { aspect-ratio: 5 / 4;  }
+.portfolio-item:nth-child(9)  .frame { aspect-ratio: 3 / 4;  }
+.portfolio-item:nth-child(10) .frame { aspect-ratio: 16 / 10; }
+
+/* The plate: pristine and captionless at rest — identical resting-state
+   philosophy to .cover-gallery. No border, no tint panel, no shadow. */
+.portfolio-grid .frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--canvas-tint);
+  border: none;
+  cursor: pointer;
+}
+
+.portfolio-grid .frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  backface-visibility: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-grid .frame img {
+    transition: transform 640ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .portfolio-grid .frame:hover img,
+  .portfolio-grid .frame:focus-visible img {
+    transform: scale(1.045);
+  }
+}
+
+/* The hover reveal: 100% opaque museum white, Title / Year / Medium
+   set dead-center — small-scale, black ink, no gold accent here (gold
+   stays reserved for active/selected states per the filter bar above,
+   keeping its meaning consistent across the page rather than doubling
+   as decoration). Gated behind (hover: hover) so touch devices never
+   get a panel stuck open after a tap; full detail is always one tap
+   away via the existing full-viewport reveal sheet (§8.3). */
+.portfolio-meta {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--s-5);
+  background: #FFFFFF;
+  opacity: 0;
+  transform: scale(0.98);
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-meta {
+    transition: opacity 640ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 640ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .portfolio-grid .frame:hover .portfolio-meta,
+  .portfolio-grid .frame:focus-visible .portfolio-meta {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.portfolio-meta-title {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--t-lede);
+  font-weight: 480;
+  line-height: 1.16;
+  color: var(--ink);
+}
+
+.portfolio-meta-sub {
+  margin-top: var(--s-2);
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-60);
+}
+
+/* -------------------------------------------------------------------------
+   18.3 — THE FILTER ENGINE'S VISUAL HALF (the JS half lives in the page's
+   own <script>, at the bottom of book-designs.html)
+
+   Filtered-out items fade to transparent and scale down fractionally —
+   opacity and transform only, both compositor-driven, so filtering never
+   forces a synchronous layout recalculation. They deliberately stay in
+   the column flow rather than being removed from it: collapsing a
+   multi-column masonry's gaps on every click *is* the layout thrash this
+   section exists to avoid, so a held, invisible slot beats a jumping
+   grid. pointer-events:none keeps a hidden plate from swallowing clicks
+   meant for whatever the reflow has placed near it. */
+.portfolio-item {
+  transition: opacity 520ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-item.is-hidden {
+  opacity: 0;
+  transform: scale(0.97) translateY(6px);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-item,
+  .portfolio-meta,
+  .portfolio-grid .frame img {
+    transition: none !important;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   18.4 — MACRO SPACING for the portfolio page, matching the depth
+   established for #showcase on the homepage (§17.5.4) rather than the
+   site's default --s-7 section rhythm — the same "definitive, deep, and
+   harmonious" gap philosophy, applied consistently on the page whose
+   entire purpose is the covers themselves. */
+body.page-book-designs main .section:first-of-type {
+  padding-top: var(--s-6);
+  padding-bottom: var(--s-8);
+}
