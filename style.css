@@ -1935,3 +1935,119 @@ body.page-book-designs main .section:first-of-type {
   padding-top: var(--s-6);
   padding-bottom: var(--s-8);
 }
+
+/* ==========================================================================
+   19. RESEARCH.HTML — THE SCHOLARLY CITATION DIRECTORY (page-research only)
+   ------------------------------------------------------------------------
+   Purely additive, same contract as §18: nothing above this line is
+   touched. research.html's <body> carries class="page-home page-research"
+   — page-home for the same free chrome inheritance explained at the top
+   of §18 (crown + header flank), page-research scoping everything below,
+   which is new to this page alone.
+   ========================================================================== */
+
+/* A second :root block — valid CSS, and the cleanest way to add exactly
+   one new custom property without touching the original token block in
+   §1. --border-editorial is a semantic alias, not a new color: it points
+   at the same --ink-15 hairline value already used for every other
+   divider on the site (.hr-ink, .pub, .frame's border), so this page's
+   dividers stay in lockstep with the rest of the system by construction,
+   not by coincidence. */
+:root {
+  --border-editorial: var(--ink-15);
+}
+
+/* -------------------------------------------------------------------------
+   19.1 — THE CITATION INDEX: a printed monograph catalog, not a card list
+
+   No boxes, no shadows, no background fills — a single running column of
+   entries separated only by a hairline, the way an Oxford University
+   Press catalog folio or a CV's own publication list is actually
+   typeset. Generous block padding per entry does the "immensely
+   spacious, pure, and quiet" work; the hairline is the only visible
+   structure. */
+.citation-index {
+  max-width: 52rem;
+}
+
+.citation-entry {
+  padding: var(--s-7) 0;
+  border-bottom: 1px solid var(--border-editorial);
+}
+
+.citation-entry:first-child {
+  padding-top: var(--s-6);
+}
+
+.citation-entry:last-child {
+  border-bottom: none;
+}
+
+.citation-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--t-lede);
+  font-weight: 340;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.citation-title {
+  margin-top: var(--s-3);
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.75rem);
+  font-weight: 480;
+  line-height: 1.28;
+  color: var(--ink);
+  max-width: 42ch;
+}
+
+.citation-meta {
+  margin-top: var(--s-3);
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  font-style: italic;
+  color: var(--ink-60);
+  line-height: 1.6;
+}
+
+.citation-meta em {
+  font-style: normal;
+  color: var(--ink-90);
+}
+
+.citation-entry .doi {
+  display: inline-block;
+  margin-top: var(--s-3);
+}
+
+/* Paper V carries no DOI yet — a quiet, non-interactive status line at
+   the same visual weight as .doi so the entry doesn't read as "broken"
+   or unfinished, just honestly labeled. No hover kinetics: it isn't a
+   link and shouldn't invite a click that goes nowhere. */
+.citation-status {
+  display: inline-block;
+  margin-top: var(--s-3);
+  font-family: var(--font-body);
+  font-size: var(--t-caption);
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--ink-35);
+}
+
+@media (max-width: 640px) {
+  .citation-entry { padding: var(--s-6) 0; }
+  .citation-title { max-width: none; }
+}
+
+/* -------------------------------------------------------------------------
+   19.2 — MACRO SPACING, matching the same "definitive, deep" section
+   depth already established for the homepage showcase (§17.5.4) and the
+   book-designs archive (§18.4) rather than the site's default --s-7
+   rhythm — consistent depth philosophy across all three content pages. */
+body.page-research main .section:first-of-type {
+  padding-top: var(--s-6);
+  padding-bottom: var(--s-8);
+}
