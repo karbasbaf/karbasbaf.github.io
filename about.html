@@ -3,373 +3,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — Mohammad Mahdi Karbasbaf</title>
-<meta name="description" content="From building Persian instruments by hand to designing book covers for international publishers — the interdisciplinary story of Mohammad Mahdi Karbasbaf.">
+<title>About — A Biography in Resonance, by Mohammad Mahdi Karbasbaf</title>
+<meta name="description" content="The biography of Mohammad Mahdi Karbasbaf: from hands-on lutherie and the Golden Method, through wave analysis in Persian architectural heritage, to current research in astrophysical resonance.">
 
-<meta property="og:type" content="profile">
-<meta property="og:title" content="About — Mohammad Mahdi Karbasbaf">
-<meta property="og:description" content="The interdisciplinary story connecting traditional lutherie, acoustic research, Persian calligraphy, and book cover design.">
-<meta property="og:image" content="https://yourdomain.com/assets/img/og-about.jpg">
-<meta property="og:url" content="https://yourdomain.com/about.html">
+<!-- Font stack: Fraunces (display) + Source Serif 4 (reading matter) +
+     Inter (utility) — the exact three families style.css already loads
+     for every other page. No new families introduced here. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,600&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="stylesheet" href="style.css">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "url": "https://yourdomain.com/about.html",
-  "mainEntity": { "@id": "https://yourdomain.com/#person" }
+  "@type": ["AboutPage", "ProfilePage"],
+  "name": "About — Mohammad Mahdi Karbasbaf",
+  "url": "https://karbasbaf-archive.example/about.html",
+  "description": "The biography of Mohammad Mahdi Karbasbaf: from hands-on lutherie and the Golden Method, through wave analysis in Persian architectural heritage, to current research in astrophysical resonance.",
+  "isPartOf": { "@type": "WebSite", "name": "Karbasbaf Archive", "url": "https://karbasbaf-archive.example/" },
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Mohammad Mahdi Karbasbaf",
+    "image": "https://karbasbaf-archive.example/assets/images/biography-studio.jpg",
+    "sameAs": "https://orcid.org/0000-0003-2264-9372",
+    "description": "Independent researcher, luthier, and book designer working across acoustics, Persian architectural heritage, lutherie, and astrophysical resonance.",
+    "knowsAbout": [
+      "Acoustics",
+      "Lutherie",
+      "Persian Architectural Heritage",
+      "Sound-Hole Geometry",
+      "Astrophysical Resonance",
+      "Thuluth and Nastaliq Calligraphy",
+      "Editorial Book Design"
+    ]
+  }
 }
 </script>
 </head>
-<body>
+<body class="page-home page-about">
 
-<!-- ==========================================================================
-     GLOBAL HEADER / NAVIGATION — "About" marked active
-     ========================================================================== -->
+<!-- MASTER BLUEPRINT: Ceiling Crown
+     Asset Identifier: assets/images/yazd-crown.png — the identical asset
+     already live on index.html, book-designs.html, and research.html
+     (referenced as a CSS background-image on .ceiling-crown, style.css
+     §17.1). Mirrored here node-for-node so the crown reads as one
+     continuous structural element across every page. No new export
+     needed. -->
+<div class="ceiling-crown" aria-hidden="true"></div>
+
 <header class="site-header">
-  <div class="container site-header__inner">
-    <a href="index.html" class="site-logo">
-      M. M. Karbasbaf
-      <span>Book Design &amp; Persian Calligraphy</span>
-    </a>
-
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navPrimary">
-      <span></span>
-    </button>
-
-    <nav class="nav-primary" id="navPrimary">
+  <div class="wrap">
+    <nav class="nav-list" id="primary-nav" data-open="false" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="book-designs.html">Book Designs</a>
       <a href="research.html">Research</a>
       <a href="about.html" aria-current="page">About</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      Menu
+    </button>
   </div>
 </header>
 
 <main>
 
-<!-- ==========================================================================
-     PAGE HEADER
-     ========================================================================== -->
-<section class="section section--tight">
-  <div class="container container--narrow">
-    <span class="eyebrow">About</span>
-    <h1>Strings to Stars</h1>
-  </div>
-</section>
+  <section class="section" aria-labelledby="about-heading">
+    <div class="wrap">
 
-
-<!-- ==========================================================================
-     DUAL-COLUMN PORTRAIT + NARRATIVE
-     ========================================================================== -->
-<section class="section section--tight">
-  <div class="container">
-    <div class="about-grid">
-
-      <div class="about-grid__portrait">
-        <!-- ============================================================
-             ASSET BLUEPRINT — PROFESSIONAL PORTRAIT
-             - Canvas: 1400 x 1750px. Aspect ratio: 4:5 (matches .about-grid__portrait-frame).
-             - Composition: three-quarter or straight-on portrait, shoulders-up or
-               half-length, shot in a real working environment (your studio, instrument
-               workshop, or a plain wall) rather than a stock-photo white-seamless
-               backdrop — this page is about authenticity, not corporate headshot polish.
-             - Lighting: warm, directional "museum" lighting — a single soft key light
-               from one side, allowing gentle shadow to fall across the face for depth,
-               rather than flat, shadowless studio lighting. Think gallery portrait
-               photography, not LinkedIn headshot.
-             - Color treatment: either full warm-toned color (avoid cool/blue color
-               casts entirely — everything on this site is warm gold + charcoal) OR a
-               high-contrast monochrome treatment with slightly lifted blacks (not pure
-               #000) so it sits comfortably against the #FFFFFF page background without
-               looking like a harsh newsprint scan. Pick ONE treatment and apply it
-               consistently if you later add more portraits elsewhere on the site.
-             - Framing note: a thin gold offset frame is already rendered in CSS behind
-               this image (a 1px gold border shifted 14px up-left) — leave a small amount
-               of visual "quiet" near the top-left edge of your composition so it doesn't
-               fight with that frame element.
-             - File weight: JPG, quality 85, target under 450KB.
-             ============================================================ -->
-        <div class="about-grid__portrait-frame">
-          <img src="assets/img/portrait-mohammad.jpg" alt="Portrait of Mohammad Mahdi Karbasbaf in his studio" loading="lazy">
+      <div class="section-head lute-grid">
+        <div class="rail">
+          <p class="eyebrow eyebrow--gold">About</p>
+          <div class="spine-break" aria-hidden="true">
+            <svg viewBox="0 0 34 46" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 23 C 4 23, 5 3, 8.5 3 C 12 3, 12 36, 15.5 36 C 19 36, 19 10, 22.5 10 C 26 10, 26 29, 29.5 29 C 32 29, 33 23, 34 23" />
+            </svg>
+          </div>
+          <p class="caption mt-4">Lutherie<br>Architectural Heritage<br>Astrophysics</p>
         </div>
-        <p class="about-grid__portrait-caption">Mohammad Mahdi Karbasbaf, in studio</p>
+        <div class="canvas">
+          <h1 class="h1" id="about-heading">A Biography in Resonance</h1>
+          <p class="body-text mt-4">Two chapters, one continuous line of inquiry — from a workbench to a research desk, the instrument changes but the question doesn't: where does a wave decide to speak, and what shape is it asking to be given?</p>
+        </div>
       </div>
 
-      <div class="about-grid__narrative">
-        <p class="lead">
-          I build instruments by hand. I have spent years inside the walls of a
-          17th-century palace, listening for what its architecture was designed
-          to do to sound. I write in scripts that take a decade to steady the
-          hand for. And now I design book covers — because all four of these
-          practices are, underneath, the same discipline: finding the hidden
-          structure inside something beautiful.
-        </p>
+      <div class="bio-manuscript mt-8">
 
-        <p>
-          My work began with the Tār and the Setār — traditional Persian
-          string instruments I learned to build and restore by hand, long
-          before I had language for why their proportions mattered. Building
-          an instrument teaches you that beauty and function are not separate
-          decisions; the curve of a soundboard is also its acoustic behavior.
-          That lesson followed me into research.
-        </p>
+        <div class="bio-frame">
+          <!-- MASTER BLUEPRINT: Documentary Studio Portrait
+               Asset Identifier: assets/images/biography-studio.jpg —
+               Documentary photograph of Mohammad Mahdi Karbasbaf
+               constructing a traditional Persian stringed instrument.
+               Target dimensions: 1600 × 2000px portrait scan (4:5,
+               matching .bio-frame .frame { aspect-ratio: 4 / 5 } exactly).
+               Lighting / background: natural window light, no staged
+               studio strobes; workshop environment visible but
+               unstyled — tools, wood shavings, an instrument mid-build
+               all left as found, not art-directed into a clean set.
+               Composition: documentary, not posed — hands actively
+               engaged with the instrument, black-and-white or desaturated
+               tone to sit quietly beside the ink-on-paper calligraphy
+               used elsewhere in the archive.
+               NOTE: source file not yet supplied — falls back gracefully
+               via the site-wide .frame--pending state (§9). -->
+          <div class="frame">
+            <img src="assets/images/biography-studio.jpg"
+              alt="Documentary photograph of Mohammad Mahdi Karbasbaf constructing a traditional Persian stringed instrument in his workshop"
+              width="1600" height="2000" loading="eager" fetchpriority="high" decoding="async">
+          </div>
+        </div>
 
-        <p>
-          At Ali Qapu Palace in Isfahan — a UNESCO World Heritage site — I
-          studied how its 17th-century architecture shapes sound, work that
-          became peer-reviewed research published in Elsevier's <em>Applied
-          Acoustics</em> and <em>Digital Applications in Archaeology and
-          Cultural Heritage</em>. Palace walls, it turns out, were acoustic
-          instruments too; no one had simply asked them the right questions
-          yet.
-        </p>
+        <div class="bio-chapters">
 
-        <p>
-          Calligraphy runs alongside all of this. I practice Nastaliq and
-          Thuluth — Persian and Arabic script traditions that demand years of
-          disciplined repetition before a single letterform is trustworthy.
-          Every calligraphic element I produce is original, hand-written
-          artwork, never a digital font — because a font can reproduce a
-          letterform's shape, but not the physical decision made in the
-          moment of writing it.
-        </p>
+          <article class="bio-chapter" aria-labelledby="chapter-1-title">
+            <span class="bio-chapter-number" aria-hidden="true">I</span>
+            <h2 class="bio-chapter-title" id="chapter-1-title">Foundation in Craft</h2>
+            <p>The work begins at the workbench, not the desk. Years spent in hands-on contact with stringed instruments — investigating, building, and repairing traditional Persian lutes — meant learning first through the hands, and only later through measurement: why one soundhole speaks and another sits mute, why a maker's inherited instinct for proportion so often lands exactly where the physics would have predicted, if anyone had thought to ask it the question first.</p>
+            <p>That inherited instinct became the starting point for the Golden Method — an attempt to make explicit the acoustic wisdom already embedded, wordlessly, in centuries of craftsmanship, and to give soundhole design a geometry that could be taught rather than only inherited. The instrument stayed the same. What changed was the willingness to ask a craft tradition to explain itself in the language of resonance.</p>
+          </article>
 
-        <p>
-          Book cover design is where these threads meet. A cover for a book
-          on Persian history or Sufi poetry needs more than a striking image —
-          it needs to be made by someone who has actually stood inside the
-          tradition it represents. That is the work I now do for international
-          publishers: covers built from research, calligraphy, and a decade of
-          hand-practiced discipline, not from stock imagery or borrowed
-          pattern.
-        </p>
+          <article class="bio-chapter" aria-labelledby="chapter-2-title">
+            <span class="bio-chapter-number" aria-hidden="true">II</span>
+            <h2 class="bio-chapter-title" id="chapter-2-title">Expansion of Wave Analysis</h2>
+            <p>The same question — where does a wave decide to speak? — turned out not to belong to instruments alone. Extending that acoustic lens to Persian architectural heritage revealed wave-analysis principles quietly operating within structural ornamental elements long assumed to be purely decorative: the tong bori, the muqarnas vault, the perforated lattice, each one behaving, under analysis, less like ornament and more like an instrument that had simply never been asked to perform.</p>
+            <p>Current research follows that same principle further outward still — toward electromagnetic and plasma wave phenomena in astrophysical and nebular environments, where resonance operates at a scale no workbench could ever hold, but where the underlying question hasn't changed at all: given a cavity, a boundary, a medium capable of oscillation, what shape does the wave ask to be given, and what is listening for the answer.</p>
+          </article>
 
-        <dl class="credentials-list" style="margin-top: var(--space-lg);">
-          <div>
-            <dt>Design Discipline</dt>
-            <dd>Book Cover Design, Typography, Print</dd>
-          </div>
-          <div>
-            <dt>Calligraphy</dt>
-            <dd>Nastaliq, Thuluth (10+ years practice)</dd>
-          </div>
-          <div>
-            <dt>Research Fields</dt>
-            <dd>Architectural Acoustics, Signal Processing</dd>
-          </div>
-          <div>
-            <dt>Instrument Building</dt>
-            <dd>Tār, Setār — construction &amp; restoration</dd>
-          </div>
-          <div>
-            <dt>Languages</dt>
-            <dd>English, Persian, Turkish</dd>
-          </div>
-          <div>
-            <dt>Based In</dt>
-            <dd>Turkey</dd>
-          </div>
-        </dl>
+          <p class="archive-cta mt-6"><a href="research.html">View the full research archive →</a></p>
 
-        <a href="assets/cv/karbasbaf-cv.pdf" class="btn btn--gold" style="margin-top: var(--space-md);" target="_blank" rel="noopener">
-          Download CV (PDF)
-        </a>
+        </div>
+
       </div>
 
     </div>
-  </div>
-</section>
-
-
-<!-- ==========================================================================
-     SUPPLEMENTARY WORKSHOP / STUDIO IMAGE STRIP
-     ========================================================================== -->
-<section class="section section--tight">
-  <div class="container">
-    <span class="eyebrow">In Practice</span>
-    <h3 style="text-transform:none; letter-spacing:0.02rem; margin-bottom: var(--space-md);">Workshop &amp; Studio</h3>
-
-    <div class="workshop-strip">
-
-      <!-- ============================================================
-           ASSET BLUEPRINT — WORKSHOP/STUDIO STRIP (3 images)
-           - Canvas: 1200 x 1200px each. Aspect ratio: 1:1 (square — deliberately
-             different from the 4:5 portrait above, so this strip reads as
-             documentary "process" imagery rather than more posed portraiture).
-           - Composition: candid, in-progress shots — hands working on an
-             instrument's soundboard, a calligraphy piece mid-stroke with ink
-             and reed pen visible, a workbench or research notebook. Avoid
-             posed "look at camera" shots here entirely; these three images
-             exist to prove the hands-on practice behind the credentials above.
-           - Lighting: same warm, single-direction "museum" lighting as the
-             portrait — consistency across all photography on this page matters
-             more than any single image being dramatic on its own.
-           - Color/treatment: match whatever treatment (full color or monochrome)
-             you chose for the portrait above — these three plus the portrait
-             should read as one coherent photographic set, not four different
-             styles.
-           - File weight: JPG, quality 80, target under 300KB each (these are
-             smaller on-screen than the portrait, so they can compress harder).
-           ============================================================ -->
-      <div class="workshop-strip__frame">
-        <img src="assets/img/workshop-01.jpg" alt="Hands at work on a traditional Persian instrument soundboard" loading="lazy">
-      </div>
-      <div class="workshop-strip__frame">
-        <img src="assets/img/workshop-02.jpg" alt="Calligraphy in progress with reed pen and ink" loading="lazy">
-      </div>
-      <div class="workshop-strip__frame">
-        <img src="assets/img/workshop-03.jpg" alt="Research notebook and workbench detail" loading="lazy">
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ==========================================================================
-     PULL-QUOTE — hidden mathematics of beauty
-     ========================================================================== -->
-<section class="section section--inverse">
-  <div class="container container--narrow">
-    <blockquote class="pull-quote" style="max-width: 54ch;">
-      From building Persian instruments by hand, to decoding acoustic secrets in a
-      17th-century UNESCO palace, to designing book covers that resonate — my work
-      has always been about finding the hidden mathematics of beauty.
-      <cite>Mohammad Mahdi Karbasbaf</cite>
-    </blockquote>
-  </div>
-</section>
-
-
-<!-- ==========================================================================
-     CHRONOLOGY OF PRACTICE — timeline
-     ========================================================================== -->
-<section class="section">
-  <div class="container container--narrow">
-    <span class="eyebrow">A Decade in Practice</span>
-    <h2 style="margin-bottom: var(--space-lg);">Chronology of Practice</h2>
-
-    <div class="timeline">
-
-      <div class="timeline__entry">
-        <span class="timeline__year">[Year]</span>
-        <h4 style="margin: var(--space-2xs) 0;">First Instrument Built</h4>
-        <p class="text-small text-muted">Began hand-building and restoring traditional Persian string instruments, including the Tār and Setār.</p>
-      </div>
-
-      <div class="timeline__entry">
-        <span class="timeline__year">[Year]</span>
-        <h4 style="margin: var(--space-2xs) 0;">Calligraphy Training Begins</h4>
-        <p class="text-small text-muted">Began formal, disciplined practice in Nastaliq script.</p>
-      </div>
-
-      <div class="timeline__entry">
-        <span class="timeline__year">[Year]</span>
-        <h4 style="margin: var(--space-2xs) 0;">Thuluth Script Practice</h4>
-        <p class="text-small text-muted">Extended calligraphic practice to Thuluth script tradition.</p>
-      </div>
-
-      <div class="timeline__entry">
-        <span class="timeline__year">[Year]</span>
-        <h4 style="margin: var(--space-2xs) 0;">Ali Qapu Palace Field Research Begins</h4>
-        <p class="text-small text-muted">Began on-site acoustic research at Ali Qapu Palace, Isfahan, a UNESCO World Heritage site.</p>
-      </div>
-
-      <div class="timeline__entry">
-        <span class="timeline__year">[Year]</span>
-        <h4 style="margin: var(--space-2xs) 0;">Published in Applied Acoustics</h4>
-        <p class="text-small text-muted">First peer-reviewed paper published in Elsevier's <em>Applied Acoustics</em>.</p>
-      </div>
-
-      <div class="timeline__entry">
-        <span class="timeline__year">[Year]</span>
-        <h4 style="margin: var(--space-2xs) 0;">Published in Digital Applications in Archaeology &amp; Cultural Heritage</h4>
-        <p class="text-small text-muted">Second peer-reviewed paper published, focused on digital documentation methods for acoustic heritage.</p>
-      </div>
-
-      <div class="timeline__entry">
-        <span class="timeline__year">[Year]</span>
-        <h4 style="margin: var(--space-2xs) 0;">Transition into Book Cover Design</h4>
-        <p class="text-small text-muted">Began applying calligraphic and cultural research background to international book cover design.</p>
-      </div>
-
-      <div class="timeline__entry" style="padding-bottom: 0;">
-        <span class="timeline__year">Present</span>
-        <h4 style="margin: var(--space-2xs) 0;">International Design Practice</h4>
-        <p class="text-small text-muted">Designing book covers and original calligraphic artwork for publishers of Middle Eastern, Islamic, and Persian literature.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ==========================================================================
-     CALL TO ACTION
-     ========================================================================== -->
-<section class="section section--alt text-center">
-  <div class="container container--narrow">
-    <span class="eyebrow">Interested in Working Together?</span>
-    <h2>Let's Talk About Your Book</h2>
-    <a href="contact.html" class="btn btn--primary" style="margin-top: var(--space-sm);">Start a Conversation</a>
-  </div>
-</section>
+  </section>
 
 </main>
 
-
-<!-- ==========================================================================
-     GLOBAL FOOTER
-     ========================================================================== -->
 <footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <h4>M. M. Karbasbaf</h4>
-        <p style="color: var(--color-text-inverse-muted); max-width: 32ch;">Book cover design and Persian calligraphy for publishers of Middle Eastern, Islamic, and Persian literature.</p>
-      </div>
-      <div>
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="book-designs.html">Book Designs</a></li>
-          <li><a href="research.html">Research</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Connect</h4>
-        <ul>
-          <li><a href="https://www.behance.net/YOUR_HANDLE" target="_blank" rel="noopener">Behance</a></li>
-          <li><a href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="mailto:you@yourdomain.com">you@yourdomain.com</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 Mohammad Mahdi Karbasbaf. All rights reserved.</span>
-      <span>Based in Turkey</span>
-    </div>
+  <div class="wrap">
+    <p class="caption">Mohammad Mahdi Karbasbaf<br>ORCID 0000-0003-2264-9372</p>
+    <p class="caption"><a href="mailto:karbasbaf@gmail.com">karbasbaf@gmail.com</a></p>
+    <p class="caption">
+      <a href="index.html">Home</a> &nbsp;·&nbsp;
+      <a href="book-designs.html">Book Designs</a> &nbsp;·&nbsp;
+      <a href="research.html">Research</a> &nbsp;·&nbsp;
+      <a href="about.html" aria-current="page">About</a> &nbsp;·&nbsp;
+      <a href="contact.html">Contact</a>
+    </p>
   </div>
 </footer>
 
-
-<!-- ==========================================================================
-     MOBILE NAV TOGGLE
-     ========================================================================== -->
 <script>
-  const navToggle = document.getElementById('navToggle');
-  const navPrimary = document.getElementById('navPrimary');
-  navToggle.addEventListener('click', () => {
-    const isOpen = navPrimary.classList.toggle('is-open');
-    navToggle.setAttribute('aria-expanded', isOpen);
+(function () {
+  'use strict';
+
+  /* Mobile navigation only — this page has no image-plate triggers (the
+     studio portrait is a static documentary photograph, not a
+     .plate-trigger), so the book-reveal modal and its focus-trap logic
+     (present on index.html and book-designs.html) are intentionally not
+     duplicated here. The image-fallback script IS still needed, since
+     this page does carry one live <img>. */
+
+  var navToggle = document.getElementById('nav-toggle');
+  var primaryNav = document.getElementById('primary-nav');
+  var body = document.body;
+  var desktopQuery = window.matchMedia('(min-width: 721px)');
+
+  function openNav() {
+    primaryNav.setAttribute('data-open', 'true');
+    navToggle.setAttribute('aria-expanded', 'true');
+    body.classList.add('nav-scrim-active');
+    var firstLink = primaryNav.querySelector('a');
+    if (firstLink) firstLink.focus();
+  }
+
+  function closeNav(returnFocus) {
+    primaryNav.setAttribute('data-open', 'false');
+    navToggle.setAttribute('aria-expanded', 'false');
+    body.classList.remove('nav-scrim-active');
+    if (returnFocus) navToggle.focus();
+  }
+
+  function isNavOpen() {
+    return primaryNav.getAttribute('data-open') === 'true';
+  }
+
+  navToggle.addEventListener('click', function () {
+    if (isNavOpen()) { closeNav(true); } else { openNav(); }
   });
+
+  document.addEventListener('click', function (event) {
+    if (!isNavOpen()) return;
+    var clickedInsideNav = primaryNav.contains(event.target);
+    var clickedToggle = navToggle.contains(event.target);
+    if (!clickedInsideNav && !clickedToggle) closeNav(false);
+  });
+
+  primaryNav.addEventListener('click', function (event) {
+    if (event.target.tagName === 'A') closeNav(false);
+  });
+
+  desktopQuery.addEventListener('change', function (event) {
+    if (event.matches && isNavOpen()) closeNav(false);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && isNavOpen()) closeNav(true);
+  });
+
+  function markPending(img) {
+    var frame = img.closest('.frame');
+    if (!frame) return;
+    frame.classList.add('frame--pending');
+    if (!frame.querySelector('.frame-pending-label')) {
+      var label = document.createElement('span');
+      label.className = 'frame-pending-label';
+      label.textContent = img.alt || 'Image pending';
+      frame.appendChild(label);
+    }
+  }
+
+  function clearPending(img) {
+    var frame = img.closest('.frame');
+    if (!frame) return;
+    frame.classList.remove('frame--pending');
+    var label = frame.querySelector('.frame-pending-label');
+    if (label) label.remove();
+  }
+
+  document.querySelectorAll('.frame img').forEach(function (img) {
+    img.onerror = function () { markPending(img); };
+    img.onload = function () { clearPending(img); };
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
+      markPending(img);
+    }
+  });
+})();
 </script>
 
 </body>
