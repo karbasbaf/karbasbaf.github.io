@@ -2051,3 +2051,201 @@ body.page-research main .section:first-of-type {
   padding-top: var(--s-6);
   padding-bottom: var(--s-8);
 }
+
+/* ==========================================================================
+   20. ABOUT.HTML — THE NARRATIVE MANUSCRIPT (page-about only)
+   ------------------------------------------------------------------------
+   Purely additive, same contract as §18 and §19: nothing above this line
+   is touched. about.html's <body> carries class="page-home page-about" —
+   page-home for the same free chrome inheritance explained at the top of
+   §18 (crown + header flank), page-about scoping everything below.
+
+   LAYOUT DECISION: rather than a stacked hero-plus-columns template, the
+   portrait and the two biographical chapters share a single two-track
+   manuscript grid — the photograph sticks in place in its own column
+   while the reader moves through Chapter I and Chapter II beside it, the
+   way a museum wall-text keeps one portrait fixed beside a long block of
+   didactic copy rather than repeating the image per paragraph. It's the
+   one page in the archive built around a scroll-linked relationship
+   between image and text instead of a static split, which is deliberate:
+   this is the one page that is *about* a person, not an artifact. */
+.bio-manuscript {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-7);
+}
+
+.bio-frame {
+  position: relative;
+}
+
+.bio-frame .frame {
+  aspect-ratio: 4 / 5;
+  border: none;
+  background: var(--canvas-tint);
+}
+
+.bio-chapters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-8);
+}
+
+.bio-chapter-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--t-lede);
+  font-weight: 340;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.bio-chapter-title {
+  margin-top: var(--s-3);
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: clamp(1.6rem, 1.35rem + 1vw, 2.375rem);
+  font-weight: 480;
+  line-height: 1.18;
+  color: var(--ink);
+}
+
+/* The strict 45–55ch editorial measure this page was asked for — a
+   dedicated max-width on the chapter body copy rather than reusing
+   .body-text's own site-wide 62ch (§2), which is tuned for the wider
+   academic paragraphs elsewhere and would read too long for a two-column
+   manuscript layout this narrow. */
+.bio-chapter p {
+  margin-top: var(--s-4);
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--ink-90);
+  max-width: 52ch;
+}
+
+.bio-chapter p + p {
+  margin-top: var(--s-3);
+}
+
+@media (min-width: 860px) {
+  .bio-manuscript {
+    grid-template-columns: 1fr 1.15fr;
+    align-items: start;
+    gap: var(--s-8);
+  }
+
+  /* The sticky offset accounts for the header's own height so the
+     portrait settles just beneath the nav line rather than under it —
+     var(--s-6) alone would leave it riding partially behind the header
+     on shorter viewports. */
+  .bio-frame {
+    position: sticky;
+    top: calc(var(--s-6) + 4.5rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .bio-manuscript { gap: var(--s-6); }
+  .bio-chapters { gap: var(--s-7); }
+  .bio-chapter p { max-width: none; }
+}
+
+/* Macro spacing, matching the same "definitive, deep" section depth
+   already established across the homepage showcase, the book-designs
+   archive, and the research index. */
+body.page-about main .section:first-of-type {
+  padding-top: var(--s-6);
+  padding-bottom: var(--s-8);
+}
+
+/* ==========================================================================
+   21. CONTACT.HTML — THE CORRESPONDENCE INDEX (page-contact only)
+   ------------------------------------------------------------------------
+   Purely additive, same contract as §§18–20: nothing above this line is
+   touched. contact.html's <body> carries class="page-home page-contact"
+   — page-home for the same free chrome inheritance explained at the top
+   of §18 (crown + header flank), page-contact scoping everything below.
+   No new tokens needed here: --border-editorial already exists (§19) as
+   a genuine shared custom property, not a page-scoped one, so this
+   section reuses it directly rather than redeclaring it.
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------
+   21.1 — THE CORRESPONDENCE INDEX
+
+   Same governing idea as .citation-index (§19.1): a single running
+   column, no boxes, no shadows, separated only by a hairline — four
+   channels of correspondence typeset like an index rather than a
+   contact form. A small tracked label identifies each channel; the
+   destination itself is set at display scale, since on a page whose
+   entire purpose is "how do I reach this person," the destination is
+   the content, not a caption underneath it. */
+.contact-index {
+  max-width: 40rem;
+}
+
+.contact-entry {
+  padding: var(--s-6) 0;
+  border-bottom: 1px solid var(--border-editorial);
+}
+
+.contact-entry:first-child {
+  padding-top: var(--s-6);
+}
+
+.contact-entry:last-child {
+  border-bottom: none;
+}
+
+.contact-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+}
+
+.contact-link {
+  display: inline-block;
+  margin-top: var(--s-2);
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: clamp(1.35rem, 1.15rem + 1vw, 2.125rem);
+  font-weight: 480;
+  line-height: 1.2;
+  color: var(--ink);
+  border-bottom: 1px solid transparent;
+  transition: color var(--dur-quick) var(--ease-resonant),
+              border-color var(--dur-quick) var(--ease-resonant);
+}
+
+.contact-link:hover,
+.contact-link:focus-visible {
+  color: var(--gold);
+  border-bottom-color: var(--gold-soft);
+}
+
+.contact-entry-note {
+  margin-top: var(--s-2);
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  font-style: italic;
+  color: var(--ink-60);
+}
+
+@media (max-width: 640px) {
+  .contact-entry { padding: var(--s-5) 0; }
+}
+
+/* -------------------------------------------------------------------------
+   21.2 — MACRO SPACING, matching the same "definitive, deep" section
+   depth established across every other content page in the archive. */
+body.page-contact main .section:first-of-type {
+  padding-top: var(--s-6);
+  padding-bottom: var(--s-8);
+}
