@@ -15,18 +15,51 @@
 
 <link rel="stylesheet" href="style.css">
 
+<!-- Favicon / app-icon set: same site-wide files as index.html — see
+     that file's MASTER BLUEPRINT comment for the full asset spec and
+     rationale. -->
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="canonical" href="https://www.karbasbaf.com/about.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Karbasbaf Archive">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://www.karbasbaf.com/about.html">
+<meta property="og:title" content="About — A Biography in Resonance, by Mohammad Mahdi Karbasbaf">
+<meta property="og:description" content="The biography of Mohammad Mahdi Karbasbaf: from hands-on lutherie and the Golden Method, through wave analysis in Persian architectural heritage, to current research in astrophysical resonance.">
+<!-- og:image uses the page's own documentary workshop portrait — the
+     one image most representative of "this page is a biography." Its
+     4:5 portrait ratio shares the same social-crop caveat noted on the
+     other pages: a dedicated 1200×630 export would give tighter control
+     over how it crops as a share-card, if that ever matters here. Not
+     supplied yet — same .frame--pending fallback applies on-page. -->
+<meta property="og:image" content="https://www.karbasbaf.com/assets/images/biography-studio.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="2000">
+<meta property="og:image:alt" content="Documentary photograph of Mohammad Mahdi Karbasbaf constructing a traditional Persian stringed instrument in his workshop">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — A Biography in Resonance, by Mohammad Mahdi Karbasbaf">
+<meta name="twitter:description" content="The biography of Mohammad Mahdi Karbasbaf: from hands-on lutherie and the Golden Method, through wave analysis in Persian architectural heritage, to current research in astrophysical resonance.">
+<meta name="twitter:image" content="https://www.karbasbaf.com/assets/images/biography-studio.jpg">
+<meta name="twitter:image:alt" content="Documentary photograph of Mohammad Mahdi Karbasbaf constructing a traditional Persian stringed instrument in his workshop">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": ["AboutPage", "ProfilePage"],
   "name": "About — Mohammad Mahdi Karbasbaf",
-  "url": "https://karbasbaf-archive.example/about.html",
+  "url": "https://www.karbasbaf.com/about.html",
   "description": "The biography of Mohammad Mahdi Karbasbaf: from hands-on lutherie and the Golden Method, through wave analysis in Persian architectural heritage, to current research in astrophysical resonance.",
-  "isPartOf": { "@type": "WebSite", "name": "Karbasbaf Archive", "url": "https://karbasbaf-archive.example/" },
+  "isPartOf": { "@type": "WebSite", "name": "Karbasbaf Archive", "url": "https://www.karbasbaf.com/" },
   "mainEntity": {
     "@type": "Person",
     "name": "Mohammad Mahdi Karbasbaf",
-    "image": "https://karbasbaf-archive.example/assets/images/biography-studio.jpg",
+    "image": "https://www.karbasbaf.com/assets/images/biography-studio.jpg",
     "sameAs": "https://orcid.org/0000-0003-2264-9372",
     "description": "Independent researcher, luthier, and book designer working across acoustics, Persian architectural heritage, lutherie, and astrophysical resonance.",
     "knowsAbout": [
@@ -43,6 +76,8 @@
 </script>
 </head>
 <body class="page-home page-about">
+
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- MASTER BLUEPRINT: Ceiling Crown
      Asset Identifier: assets/images/yazd-crown.png — the identical asset
@@ -68,7 +103,7 @@
   </div>
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
 
   <section class="section" aria-labelledby="about-heading">
     <div class="wrap">
@@ -145,7 +180,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p class="caption">Mohammad Mahdi Karbasbaf<br>ORCID 0000-0003-2264-9372</p>
-    <p class="caption"><a href="mailto:karbasbaf@gmail.com">karbasbaf@gmail.com</a></p>
+    <p class="caption"><a href="mailto:info@karbasbaf.com">info@karbasbaf.com</a></p>
     <p class="caption">
       <a href="index.html">Home</a> &nbsp;·&nbsp;
       <a href="book-designs.html">Book Designs</a> &nbsp;·&nbsp;
@@ -237,7 +272,15 @@
   document.querySelectorAll('.frame img').forEach(function (img) {
     img.onerror = function () { markPending(img); };
     img.onload = function () { clearPending(img); };
-    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
+
+    /* [Pre-launch audit — JS Integrity] Same lazy-image fix applied to
+       index.html and book-designs.html's copies of this script. This
+       page's one image is loading="eager", so the bug was dormant here
+       — but the check is corrected anyway for sitewide consistency, in
+       case a lazy-loaded image is ever added to this page later. See
+       index.html's version of this comment for the full explanation. */
+    var isDeferred = img.getAttribute('loading') === 'lazy';
+    if (!isDeferred && img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
       markPending(img);
     }
   });
