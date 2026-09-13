@@ -11,7 +11,20 @@
    Inter (utility: nav, caption, labels).
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,600&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap');
+/* [Pre-launch audit — Bug Fix] The @import that used to sit here has been
+   removed. Every page's <head> already loads this exact same Fraunces /
+   Source Serif 4 / Inter family string via <link rel="preconnect"> +
+   <link rel="stylesheet">, which is the fast path (the browser can start
+   the font fetch in parallel with everything else). An @import at the top
+   of a stylesheet is a second, redundant request for the identical fonts,
+   and — worse — it's render-blocking: the browser must fetch and parse the
+   imported sheet before it can finish parsing the rest of THIS file,
+   delaying every rule below by a full extra round trip. Removing it costs
+   nothing (the <link> tags already do the job) and removes a duplicate
+   request plus a render-blocking hop. If a future page is ever added
+   without the <link> tags in its <head>, fonts will silently fall back to
+   the browser default rather than 404 — no visual break, just a missing
+   custom typeface, which is the safer failure mode anyway. */
 
 /* ==========================================================================
    1. TOKENS
@@ -23,13 +36,35 @@
   --canvas-tint: #FAFAF8;
   --ink: #191A17;
   --ink-90: rgba(25, 26, 23, 0.9);
+  /* [Pre-launch audit] Verified, not assumed: --ink-60 flattened onto
+     --canvas measures 4.59:1, and onto --canvas-tint measures 4.52:1 —
+     both clear WCAG AA passes (≥4.5:1) at the small caption/label sizes
+     this token is used at sitewide (.eyebrow, .caption, .doi, .pub-venue,
+     .citation-meta, .contact-label, .field label, and others). The margin
+     above the 4.5:1 line is real but not large (roughly a tenth of a
+     point), so if this token's opacity is ever nudged down for a purely
+     visual reason, re-check the ratio before shipping it. */
   --ink-60: rgba(25, 26, 23, 0.6);
+  /* [Pre-launch audit] Verified: --ink-35 measures only ~2.2:1 on both
+     --canvas and --canvas-tint — a hard WCAG AA fail at any text size
+     (needs 4.5:1 for normal text, 3:1 even for large text). Its one call
+     site (.citation-status, §19.1) has been moved to --ink-60 instead,
+     so nothing in the shipped CSS currently sets text color to this
+     token. Left defined here as a documented point on the tonal scale
+     for non-text use (a low-contrast fill or hairline, say) — do not
+     wire it to a color: declaration without re-verifying contrast first. */
   --ink-35: rgba(25, 26, 23, 0.35);
   --ink-15: rgba(25, 26, 23, 0.15);
   --ink-08: rgba(25, 26, 23, 0.08);
   --gold: #C9974A;
   --gold-soft: rgba(201, 151, 74, 0.35);
   --gold-faint: rgba(201, 151, 74, 0.12);
+  /* [Pre-launch audit] Verified, not assumed: --grey-muted measures
+     4.59:1 on --canvas — the claim below actually understates it; this
+     is a clear AA pass even at normal text size, not just "large text."
+     Its one call site (.hero-title .line-secondary) is set against
+     --canvas only (the hero carries no background rule, §17.3) and is
+     large display type regardless, so it was always safe either way. */
   --grey-muted: #75766F; /* AA-safe on white at large-text sizes */
 
   /* Type families */
@@ -602,184 +637,26 @@ h3, .h3 {
 }
 
 /* ==========================================================================
-   8. THE BOOK COVER SHOWCASE — Fibonacci Spiral Reveal
+   8. THE FULL-VIEWPORT REVEAL SHEET
+   ------------------------------------------------------------------------
+   [Pre-launch audit — Cleanup] This section originally held three
+   subsections: 8.1 (.book-showcase's Fibonacci-spiral mosaic grid), 8.2
+   (.book-showcase's paper-grain/raking-light hover choreography), and 8.3
+   (.book-reveal, the shared full-viewport reveal sheet). Direct inspection
+   of all six pages in this project (index.html, book-designs.html,
+   about.html, contact.html, research.html) confirmed .book-showcase was
+   referenced nowhere — .cover-gallery (§17.5) and .portfolio-grid (§18.2)
+   had fully superseded it. 8.1 and 8.2 have been removed accordingly, at
+   explicit request, once that finding was confirmed.
+
+   What remains below (still numbered 8.3, deliberately not renumbered to
+   8.1, so this comment continues to explain the gap for anyone reading the
+   file later) is NOT exclusive to .book-showcase and was kept: it's the
+   shared full-viewport reveal sheet that index.html's own .cover-gallery
+   buttons already open via #book-reveal (see the JS at the bottom of
+   index.html) — deleting it would have broken the homepage's working
+   cover-reveal modal, so it stays exactly as it was.
    ========================================================================== */
-
-/* -------------------------------------------------------------------------
-   8.1 — THE MOSAIC
-   Five plates only — not an arbitrary curator's choice, but the exact
-   count of squares in a Fibonacci spiral truncated at 5: sides 1, 1, 2, 3,
-   5. Their bounding box is 8 × 5, a real convergent toward φ (8/5 = 1.6).
-   The container is locked to that ratio so every "square" cell actually
-   renders as a square, matching the geometric construction plate already
-   in the portfolio ("Golden Method, Geometric Overlay").
-
-   Reading order = spiral order = visual dominance order: the largest,
-   most recent or most significant cover leads.
-   ------------------------------------------------------------------------- */
-
-.book-showcase {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: var(--s-2);
-  aspect-ratio: 8 / 5;
-}
-
-.book-showcase .plate:nth-child(1) { grid-column: 1 / 6; grid-row: 1 / 6; }  /* 5×5 */
-.book-showcase .plate:nth-child(2) { grid-column: 6 / 9; grid-row: 1 / 4; }  /* 3×3 */
-.book-showcase .plate:nth-child(3) { grid-column: 6 / 8; grid-row: 4 / 6; }  /* 2×2 */
-.book-showcase .plate:nth-child(4) { grid-column: 8 / 9; grid-row: 4 / 5; }  /* 1×1 */
-.book-showcase .plate:nth-child(5) { grid-column: 8 / 9; grid-row: 5 / 6; }  /* 1×1 */
-
-.book-showcase .plate,
-.book-showcase .frame {
-  height: 100%;
-  width: 100%;
-}
-
-/* Below 900px the spiral cannot hold its proportions without crushing the
-   1×1 cells into illegible slivers — collapses to a single reading-order
-   column instead of trying to force the mosaic into a narrow viewport. */
-@media (max-width: 899px) {
-  .book-showcase {
-    grid-template-columns: 1fr;
-    grid-template-rows: none;
-    aspect-ratio: auto;
-    gap: var(--s-5);
-  }
-
-  .book-showcase .plate:nth-child(n) {
-    grid-column: auto;
-    grid-row: auto;
-  }
-
-  .book-showcase .plate .frame {
-    aspect-ratio: 3 / 4;
-  }
-}
-
-/* -------------------------------------------------------------------------
-   8.2 — THE COVER ITSELF: hover as "stepping closer"
-   No drop shadows anywhere. Depth and tactility come from three layered
-   cues instead: (1) a slow, heavy scale, (2) a raking-light sweep that
-   travels across the surface via background-position, and (3) a faint
-   paper-grain texture that only becomes perceptible at the closer
-   "inspection" distance. All GPU-composited (transform, opacity,
-   background-position) — no layout properties are touched on interaction.
-   ------------------------------------------------------------------------- */
-
-.book-showcase .frame {
-  position: relative;
-  overflow: hidden;
-  background: var(--canvas-tint);
-  border: 1px solid var(--ink-15);
-  cursor: pointer;
-}
-
-.book-showcase .frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  backface-visibility: hidden;
-}
-
-/* Paper-grain texture — inline SVG feTurbulence, no image request.
-   Sits above the image at near-zero opacity until hover intensifies it
-   slightly, simulating the surface becoming legible under raking light. */
-.book-showcase .frame::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  mix-blend-mode: multiply;
-  opacity: 0.025;
-  pointer-events: none;
-}
-
-/* Raking-light sweep — a diagonal gradient parked off-canvas, only
-   travels across the surface on hover/focus for devices with real
-   pointers. Gated behind (hover: hover) so touch never gets a
-   stuck light-sweep after tap. */
-@media (hover: hover) and (pointer: fine) {
-  .book-showcase .frame::after {
-    content: "";
-    position: absolute;
-    inset: -20%;
-    background: linear-gradient(
-      115deg,
-      transparent 40%,
-      rgba(255, 255, 255, 0.22) 48%,
-      rgba(255, 255, 255, 0.06) 52%,
-      transparent 60%
-    );
-    background-size: 220% 220%;
-    background-position: -40% -40%;
-    mix-blend-mode: overlay;
-    pointer-events: none;
-    transition: background-position var(--dur-frame) var(--ease-resonant);
-  }
-
-  .book-showcase .frame,
-  .book-showcase .frame img {
-    transition: transform var(--dur-frame) var(--ease-resonant),
-                border-color var(--dur-frame) var(--ease-resonant),
-                filter var(--dur-frame) var(--ease-resonant);
-  }
-
-  .book-showcase .frame:hover,
-  .book-showcase .frame:focus-visible {
-    border-color: var(--gold-soft);
-  }
-
-  .book-showcase .frame:hover img,
-  .book-showcase .frame:focus-visible img {
-    transform: scale(1.035);
-    filter: contrast(1.03) brightness(1.015);
-  }
-
-  .book-showcase .frame:hover::after,
-  .book-showcase .frame:focus-visible::after {
-    background-position: 60% 60%;
-  }
-
-  .book-showcase .frame::before {
-    transition: opacity var(--dur-frame) var(--ease-resonant);
-  }
-
-  .book-showcase .frame:hover::before,
-  .book-showcase .frame:focus-visible::before {
-    opacity: 0.05;
-  }
-}
-
-/* Touch / coarse-pointer devices: no hover choreography, but a persistent
-   quiet affordance so it's clear the plate is tappable. */
-@media not all and (hover: hover) {
-  .book-showcase .frame {
-    border-color: var(--ink-15);
-  }
-}
-
-.book-showcase figcaption {
-  margin-top: var(--s-2);
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--s-3);
-}
-
-/* Only the dominant (5×5) plate carries a caption at rest — the four
-   supporting covers reveal their captions on open, keeping the mosaic
-   itself quiet and letting the grid geometry do the talking. */
-.book-showcase .plate:not(:first-child) figcaption {
-  display: none;
-}
-
-@media (max-width: 899px) {
-  .book-showcase .plate figcaption { display: flex; }
-}
 
 /* -------------------------------------------------------------------------
    8.3 — THE REVEAL: full-viewport archival presentation sheet
@@ -1227,26 +1104,21 @@ h3, .h3 {
   a { color: #000000; text-decoration: underline; }
 
   .frame img,
-  .book-showcase .frame img,
-  .cover-gallery .frame img { filter: grayscale(100%); }
+  .cover-gallery .frame img,
+  .portfolio-grid .frame img { filter: grayscale(100%); }
 
-  .book-showcase .frame::before,
-  .book-showcase .frame::after { display: none; }
-
-  .book-showcase {
-    display: block;
-  }
-  .book-showcase .plate {
-    break-inside: avoid;
-    page-break-inside: avoid;
-    margin-bottom: 0.6cm;
-  }
-  .book-showcase .plate figcaption { display: flex !important; }
-
-  /* .cover-gallery (§17.5) is index.html's replacement for .book-showcase
-     — multi-column masonry doesn't paginate predictably, so print falls
-     back to a simple stacked block list, each cover protected from
-     splitting across a page break the same way .plate already is above. */
+  /* [Pre-launch audit — Cleanup] .book-showcase's own print rules used
+     to live here (forcing it to display:block, protecting each .plate
+     from splitting across a page break, forcing figcaptions visible) —
+     removed along with the class itself in §8, confirmed dead across
+     all six pages of the project. .cover-gallery (§17.5, index.html)
+     and .portfolio-grid (§18.2, book-designs.html) get the equivalent
+     print treatment below: multi-column masonry doesn't paginate
+     predictably, so print falls back to a simple stacked block list for
+     each, every plate protected from splitting across a page break the
+     same way .pub / .plate / .cover-card already are further down this
+     section. [Pre-launch audit, book-designs.html pass] .portfolio-grid
+     didn't have this treatment as of the previous pass — added now. */
   .cover-gallery {
     column-count: 1 !important;
     display: block;
@@ -1263,6 +1135,27 @@ h3, .h3 {
     background: transparent !important;
     padding: 0.2cm 0 0 !important;
   }
+
+  .portfolio-grid {
+    column-count: 1 !important;
+    display: block;
+  }
+  .portfolio-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 0.6cm;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+  .portfolio-meta {
+    position: static !important;
+    opacity: 1 !important;
+    transform: none !important;
+    background: transparent !important;
+    padding: 0.2cm 0 0 !important;
+  }
+  .portfolio-filter { display: none !important; }
 
   .pub, .plate, .cover-card, .section {
     break-inside: avoid;
@@ -1489,16 +1382,17 @@ body.page-home .hero .frame:focus-within img {
 /* -------------------------------------------------------------------------
    17.5 — THE EDITORIAL COVER GALLERY: a complete re-architecture
 
-   The prior mosaic (§8, .book-showcase) staged the five covers as a
-   literal 1,1,2,3,5 Fibonacci spiral — a lovely idea on paper, but at
-   real viewport sizes four of the five plates rendered smaller than a
-   postage stamp, each carrying a permanently-visible caption that, on
-   this page, fought the "text functions as graphic art" spirit
-   established in the hero above it. That whole approach is retired for
-   index.html specifically. .book-showcase itself is untouched in §8, in
-   case book-designs.html or another page still relies on it — this
-   section builds an entirely new, unrelated component instead:
-   .cover-gallery. */
+   The prior mosaic (formerly §8.1/8.2, .book-showcase) staged the five
+   covers as a literal 1,1,2,3,5 Fibonacci spiral — a lovely idea on
+   paper, but at real viewport sizes four of the five plates rendered
+   smaller than a postage stamp, each carrying a permanently-visible
+   caption that, on this page, fought the "text functions as graphic
+   art" spirit established in the hero above it. That whole approach is
+   retired for index.html specifically. [Pre-launch audit — Cleanup]
+   .book-showcase has since been confirmed dead across all six pages of
+   the project and removed outright from §8 (see that section's own
+   comment for the full account) — this section builds an entirely new,
+   unrelated component instead: .cover-gallery. */
 
 /* Layout: CSS multi-column ("masonry") rather than a hand-placed grid —
    robust at any viewport with zero row-height arithmetic, and the
@@ -2026,7 +1920,14 @@ body.page-book-designs main .section:first-of-type {
 /* Paper V carries no DOI yet — a quiet, non-interactive status line at
    the same visual weight as .doi so the entry doesn't read as "broken"
    or unfinished, just honestly labeled. No hover kinetics: it isn't a
-   link and shouldn't invite a click that goes nowhere. */
+   link and shouldn't invite a click that goes nowhere.
+   [Pre-launch audit — Bug Fix] This rule's color previously read
+   --ink-35, which directly contradicted the "same visual weight as
+   .doi" sentence above (.doi is --ink-60) and measured only ~2.2:1
+   against either background — a hard WCAG AA failure at this
+   font-size. Corrected to --ink-60, which now makes the comment above
+   literally true and clears AA (~4.5–4.6:1; see the verified figures
+   on the --ink-60 token itself in §1). */
 .citation-status {
   display: inline-block;
   margin-top: var(--s-3);
@@ -2034,7 +1935,7 @@ body.page-book-designs main .section:first-of-type {
   font-size: var(--t-caption);
   font-style: italic;
   letter-spacing: 0.02em;
-  color: var(--ink-35);
+  color: var(--ink-60);
 }
 
 @media (max-width: 640px) {
@@ -2248,4 +2149,53 @@ body.page-about main .section:first-of-type {
 body.page-contact main .section:first-of-type {
   padding-top: var(--s-6);
   padding-bottom: var(--s-8);
+}
+
+/* ==========================================================================
+   22. SKIP LINK — ACCESSIBILITY UTILITY (site-wide)
+   ------------------------------------------------------------------------
+   New section, added during the pre-launch audit — purely additive,
+   nothing above this line was touched to make room for it.
+
+   One skip-to-content link, meant to be the very first focusable element
+   in the DOM on every page (see the corresponding markup note just inside
+   <body> in index.html; the same single line should be added to the other
+   four pages in their own review pass — none of them currently have it
+   either). It sits off-canvas, fully out of the way, until it receives
+   keyboard focus, at which point it becomes a real, on-brand control —
+   same ink/gold/Inter treatment as every other focusable element on the
+   site, not a generic browser-default outline box dropped on top of the
+   design. This lets a keyboard or screen-reader user jump straight past
+   the identical five-link primary nav repeated at the top of every page
+   and land directly in that page's actual content — exactly the kind of
+   repetitive boilerplate skip-links exist to solve.
+   ========================================================================== */
+
+.skip-link {
+  position: fixed;
+  top: var(--s-3);
+  left: var(--s-3);
+  z-index: 200; /* above the book-reveal modal (100) and nav panel (60) —
+                   deliberately the topmost layer on the page, since it
+                   only ever needs to appear before any other layer has
+                   had a chance to open. */
+  transform: translateY(-150%);
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--ink);
+  transition: transform var(--dur-quick) var(--ease-resonant);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link { transition: none; }
 }
