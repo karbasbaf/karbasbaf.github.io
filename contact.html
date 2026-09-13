@@ -15,27 +15,56 @@
 
 <link rel="stylesheet" href="style.css">
 
+<!-- Favicon / app-icon set: same site-wide files as index.html — see
+     that file's MASTER BLUEPRINT comment for the full asset spec and
+     rationale. -->
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="canonical" href="https://www.karbasbaf.com/contact.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Karbasbaf Archive">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://www.karbasbaf.com/contact.html">
+<meta property="og:title" content="Contact — Mohammad Mahdi Karbasbaf">
+<meta property="og:description" content="Contact Mohammad Mahdi Karbasbaf — independent researcher, luthier, and book designer. Email, ORCID, Google Scholar, and ResearchGate.">
+<!-- og:image: same situation as research.html — no page-specific
+     photographic asset exists for a plain contact index, so this reuses
+     the hero calligraphy artwork as the site's consistent "masthead"
+     fallback rather than inventing a new, unplanned image reference. -->
+<meta property="og:image" content="https://www.karbasbaf.com/assets/images/hero-calligraphy.jpg">
+<meta property="og:image:width" content="1618">
+<meta property="og:image:height" content="1000">
+<meta property="og:image:alt" content="Thuluth-script calligraphic rendering by Mohammad Mahdi Karbasbaf">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact — Mohammad Mahdi Karbasbaf">
+<meta name="twitter:description" content="Contact Mohammad Mahdi Karbasbaf — independent researcher, luthier, and book designer. Email, ORCID, Google Scholar, and ResearchGate.">
+<meta name="twitter:image" content="https://www.karbasbaf.com/assets/images/hero-calligraphy.jpg">
+<meta name="twitter:image:alt" content="Thuluth-script calligraphic rendering by Mohammad Mahdi Karbasbaf">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   "name": "Contact — Mohammad Mahdi Karbasbaf",
-  "url": "https://karbasbaf-archive.example/contact.html",
-  "isPartOf": { "@type": "WebSite", "name": "Karbasbaf Archive", "url": "https://karbasbaf-archive.example/" },
+  "url": "https://www.karbasbaf.com/contact.html",
+  "isPartOf": { "@type": "WebSite", "name": "Karbasbaf Archive", "url": "https://www.karbasbaf.com/" },
   "mainEntity": {
     "@type": "Person",
     "name": "Mohammad Mahdi Karbasbaf",
     "email": "mailto:info@karbasbaf.com",
-    "sameAs": [
-      "https://orcid.org/0000-0003-2264-9372",
-      "https://scholar.google.com/citations?user=REPLACE_WITH_SCHOLAR_ID",
-      "https://www.researchgate.net/profile/REPLACE_WITH_RESEARCHGATE_SLUG"
-    ]
+    "sameAs": "https://orcid.org/0000-0003-2264-9372"
   }
 }
 </script>
 </head>
 <body class="page-home page-contact">
+
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- MASTER BLUEPRINT: Ceiling Crown
      Asset Identifier: assets/images/yazd-crown.png — the identical asset
@@ -60,7 +89,7 @@
   </div>
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
 
   <section class="section" aria-labelledby="contact-heading">
     <div class="wrap">
@@ -84,8 +113,13 @@
       <div class="contact-index mt-8">
 
         <div class="contact-entry">
-          <span class="contact-label">Email</span>
+          <span class="contact-label">Email — Primary</span>
           <a class="contact-link" href="mailto:info@karbasbaf.com">info@karbasbaf.com</a>
+        </div>
+
+        <div class="contact-entry">
+          <span class="contact-label">Email — Gmail</span>
+          <a class="contact-link" href="mailto:karbasbaf@gmail.com">karbasbaf@gmail.com</a>
         </div>
 
         <div class="contact-entry">
