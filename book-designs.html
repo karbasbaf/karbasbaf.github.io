@@ -18,14 +18,51 @@
 
 <link rel="stylesheet" href="style.css">
 
+<!-- Favicon / app-icon set: same site-wide files as index.html — see
+     that file's MASTER BLUEPRINT comment for the full asset spec and
+     rationale. Not repeated verbatim on every page to avoid duplicating
+     the same block five times over; the files themselves must still be
+     linked from each page's own <head>, browsers don't share a favicon
+     link across pages without an explicit manifest reference. -->
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="canonical" href="https://www.karbasbaf.com/book-designs.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Karbasbaf Archive">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://www.karbasbaf.com/book-designs.html">
+<meta property="og:title" content="Book Designs — Mohammad Mahdi Karbasbaf">
+<meta property="og:description" content="The complete book design archive of Mohammad Mahdi Karbasbaf: editorial book covers, fine-art Thuluth and Nastaliq calligraphy, and structural typographic plates.">
+<!-- og:image uses the lead item in the archive, "The Golden Method"
+     (also position 1 in the JSON-LD ItemList below). Its 3:4 portrait
+     ratio is further from the 1.91:1 landscape most platforms crop
+     share-cards to than the homepage's own og:image was — worth a
+     dedicated 1200×630 landscape export later if a cleaner share-card
+     crop matters (see PRE-LAUNCH CHECKLIST). Not supplied yet, same
+     .frame--pending fallback applies on-page. -->
+<meta property="og:image" content="https://www.karbasbaf.com/assets/images/portfolio/portfolio-golden-method.jpg">
+<meta property="og:image:width" content="1500">
+<meta property="og:image:height" content="2000">
+<meta property="og:image:alt" content="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Book Designs — Mohammad Mahdi Karbasbaf">
+<meta name="twitter:description" content="The complete book design archive of Mohammad Mahdi Karbasbaf: editorial book covers, fine-art Thuluth and Nastaliq calligraphy, and structural typographic plates.">
+<meta name="twitter:image" content="https://www.karbasbaf.com/assets/images/portfolio/portfolio-golden-method.jpg">
+<meta name="twitter:image:alt" content="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Book Designs — Mohammad Mahdi Karbasbaf",
-  "url": "https://karbasbaf-archive.example/book-designs.html",
+  "url": "https://www.karbasbaf.com/book-designs.html",
   "description": "Editorial book covers, fine-art Thuluth and Nastaliq calligraphy, and structural typographic plates by Mohammad Mahdi Karbasbaf.",
-  "isPartOf": { "@type": "WebSite", "name": "Karbasbaf Archive", "url": "https://karbasbaf-archive.example/" },
+  "isPartOf": { "@type": "WebSite", "name": "Karbasbaf Archive", "url": "https://www.karbasbaf.com/" },
   "about": {
     "@type": "Person",
     "name": "Mohammad Mahdi Karbasbaf",
@@ -36,22 +73,24 @@
     "itemListOrder": "https://schema.org/ItemListUnordered",
     "numberOfItems": 10,
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "The Golden Method", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2017", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-golden-method.jpg" } },
-      { "@type": "ListItem", "position": 2, "item": { "@type": "CreativeWork", "name": "Ornament as Instrument", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2025", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-ornament-instrument.jpg" } },
-      { "@type": "ListItem", "position": 3, "item": { "@type": "CreativeWork", "name": "Sound Holes", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2024", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-sound-holes.jpg" } },
-      { "@type": "ListItem", "position": 4, "item": { "@type": "CreativeWork", "name": "Resonant Vessels", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-resonant-vessels.jpg" } },
-      { "@type": "ListItem", "position": 5, "item": { "@type": "CreativeWork", "name": "Strings to Stars", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2025", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-strings-to-stars.jpg" } },
-      { "@type": "ListItem", "position": 6, "item": { "@type": "CreativeWork", "name": "Thuluth Study — Karbasbaf Lockup", "genre": "Fine Art Calligraphy", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2025", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-thuluth-study.jpg" } },
-      { "@type": "ListItem", "position": 7, "item": { "@type": "CreativeWork", "name": "Nastaliq Folio No. 1", "genre": "Fine Art Calligraphy", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2023", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-nastaliq-folio.jpg" } },
-      { "@type": "ListItem", "position": 8, "item": { "@type": "CreativeWork", "name": "Golden Spiral Construction Plate", "genre": "Typographic Plate", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2017", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-golden-spiral-plate.jpg" } },
-      { "@type": "ListItem", "position": 9, "item": { "@type": "CreativeWork", "name": "Soundhole Geometry Index", "genre": "Typographic Plate", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2024", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-soundhole-index-plate.jpg" } },
-      { "@type": "ListItem", "position": 10, "item": { "@type": "CreativeWork", "name": "Waveform Type Specimen", "genre": "Typographic Plate", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://karbasbaf-archive.example/assets/images/portfolio/portfolio-waveform-specimen.jpg" } }
+      { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "The Golden Method", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2017", "image": "https://www.karbasbaf.com/assets/images/portfolio/portfolio-golden-method.jpg" } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "CreativeWork", "name": "Ornament as Instrument", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2025", "image": "https://www.karbasbaf.com/assets/images/portfolio/portfolio-ornament-instrument.jpg" } },
+      { "@type": "ListItem", "position": 3, "item": { "@type": "CreativeWork", "name": "Sound Holes", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2024", "image": "https://www.karbasbaf.com/assets/images/portfolio/portfolio-sound-holes.jpg" } },
+      { "@type": "ListItem", "position": 4, "item": { "@type": "CreativeWork", "name": "Resonant Vessels", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://www.karbasbaf.com/assets/images/portfolio/portfolio-resonant-vessels.jpg" } },
+      { "@type": "ListItem", "position": 5, "item": { "@type": "CreativeWork", "name": "Strings to Stars", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2025", "image": "https://www.karbasbaf.com/assets/images/portfolio/portfolio-strings-to-stars.jpg" } },
+      { "@type": "ListItem", "position": 6, "item": { "@type": "CreativeWork", "name": "Thuluth Study — Karbasbaf Lockup", "genre": "Fine Art Calligraphy", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2025", "image": "https://www.karbasbaf.com/assets/images/portfolio/portfolio-thuluth-study.jpg" } },
+      { "@type": "ListItem", "position": 7, "item": { "@type": "CreativeWork", "name": "Nastaliq Folio No. 1", "genre": "Fine Art Calligraphy", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2023", "image": "https://www.karbasbaf.com/assets/images/portfolio/portfolio-nastaliq-folio.jpg" } },
+      { "@type": "ListItem", "position": 8, "item": { "@type": "CreativeWork", "name": "Golden Spiral Construction Plate", "genre": "Typographic Plate", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2017", "image": "https://www.karbasbaf.com/assets/images/portfolio/portfolio-golden-spiral-plate.jpg" } },
+      { "@type": "ListItem", "position": 9, "item": { "@type": "CreativeWork", "name": "Soundhole Geometry Index", "genre": "Typographic Plate", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2024", "image": "https://www.karbasbaf.com/assets/images/portfolio/portfolio-soundhole-index-plate.jpg" } },
+      { "@type": "ListItem", "position": 10, "item": { "@type": "CreativeWork", "name": "Waveform Type Specimen", "genre": "Typographic Plate", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://www.karbasbaf.com/assets/images/portfolio/portfolio-waveform-specimen.jpg" } }
     ]
   }
 }
 </script>
 </head>
 <body class="page-home page-book-designs">
+
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- MASTER BLUEPRINT: Ceiling Crown
      Asset Identifier: assets/images/yazd-crown.png — the identical asset
@@ -76,7 +115,7 @@
   </div>
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
 
   <section class="section" aria-labelledby="portfolio-heading">
     <div class="wrap">
@@ -109,8 +148,12 @@
         <!-- MASTER BLUEPRINT: Portfolio Item 1 — "The Golden Method"
              Asset Identifier: assets/images/portfolio/portfolio-golden-method.jpg
              Category: Editorial Book Cover (data-category="covers")
-             Target dimensions: 1600 × 2000px portrait scan, rendered at a
-             3:4 crop via .portfolio-item:nth-child(1) .frame.
+             Target dimensions: 1500 × 2000px portrait scan (exactly 3:4,
+             matching .portfolio-item:nth-child(1) .frame — corrected from
+             an earlier 1600×2000 spec, which was actually 4:5 and
+             contradicted the "3:4 crop" this comment already claimed;
+             fixed during the pre-launch audit, identical correction to
+             index.html's own cover-golden-method.jpg — see CHANGELOG).
              Lighting / background: flat scan or copy-stand shot, even
              diffuse lighting, no glare off the cover stock, true-to-print
              color.
@@ -128,12 +171,13 @@
           <span class="frame">
             <img src="assets/images/portfolio/portfolio-golden-method.jpg"
               alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
-              width="1600" height="2000" loading="eager" decoding="async">
+              width="1500" height="2000" loading="eager" decoding="async">
             <span class="portfolio-meta" aria-hidden="true">
               <span class="portfolio-meta-title">The Golden Method</span>
               <span class="portfolio-meta-sub">2017 — Cover Design</span>
             </span>
           </span>
+          <span class="sr-only"> — Select to view full size</span>
         </button>
 
         <!-- MASTER BLUEPRINT: Portfolio Item 2 — "Ornament as Instrument"
@@ -160,6 +204,7 @@
               <span class="portfolio-meta-sub">2025 — Cover Design</span>
             </span>
           </span>
+          <span class="sr-only"> — Select to view full size</span>
         </button>
 
         <!-- MASTER BLUEPRINT: Portfolio Item 3 — "Sound Holes"
@@ -188,6 +233,7 @@
               <span class="portfolio-meta-sub">2024 — Cover Design</span>
             </span>
           </span>
+          <span class="sr-only"> — Select to view full size</span>
         </button>
 
         <!-- MASTER BLUEPRINT: Portfolio Item 4 — "Resonant Vessels"
@@ -216,6 +262,7 @@
               <span class="portfolio-meta-sub">2026 — Cover Design</span>
             </span>
           </span>
+          <span class="sr-only"> — Select to view full size</span>
         </button>
 
         <!-- MASTER BLUEPRINT: Portfolio Item 5 — "Strings to Stars"
@@ -244,6 +291,7 @@
               <span class="portfolio-meta-sub">2025 — Cover Design</span>
             </span>
           </span>
+          <span class="sr-only"> — Select to view full size</span>
         </button>
 
         <!-- MASTER BLUEPRINT: Portfolio Item 6 — "Thuluth Study — Karbasbaf Lockup"
@@ -272,6 +320,7 @@
               <span class="portfolio-meta-sub">2025 — Calligraphy</span>
             </span>
           </span>
+          <span class="sr-only"> — Select to view full size</span>
         </button>
 
         <!-- MASTER BLUEPRINT: Portfolio Item 7 — "Nastaliq Folio No. 1"
@@ -299,6 +348,7 @@
               <span class="portfolio-meta-sub">2023 — Calligraphy</span>
             </span>
           </span>
+          <span class="sr-only"> — Select to view full size</span>
         </button>
 
         <!-- MASTER BLUEPRINT: Portfolio Item 8 — "Golden Spiral Construction Plate"
@@ -329,6 +379,7 @@
               <span class="portfolio-meta-sub">2017 — Typographic Plate</span>
             </span>
           </span>
+          <span class="sr-only"> — Select to view full size</span>
         </button>
 
         <!-- MASTER BLUEPRINT: Portfolio Item 9 — "Soundhole Geometry Index"
@@ -358,6 +409,7 @@
               <span class="portfolio-meta-sub">2024 — Typographic Plate</span>
             </span>
           </span>
+          <span class="sr-only"> — Select to view full size</span>
         </button>
 
         <!-- MASTER BLUEPRINT: Portfolio Item 10 — "Waveform Type Specimen"
@@ -387,6 +439,7 @@
               <span class="portfolio-meta-sub">2026 — Typographic Plate</span>
             </span>
           </span>
+          <span class="sr-only"> — Select to view full size</span>
         </button>
 
       </div>
@@ -399,7 +452,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p class="caption">Mohammad Mahdi Karbasbaf<br>ORCID 0000-0003-2264-9372</p>
-    <p class="caption"><a href="mailto:karbasbaf@gmail.com">karbasbaf@gmail.com</a></p>
+    <p class="caption"><a href="mailto:info@karbasbaf.com">info@karbasbaf.com</a></p>
     <p class="caption">
       <a href="index.html">Home</a> &nbsp;·&nbsp;
       <a href="book-designs.html" aria-current="page">Book Designs</a> &nbsp;·&nbsp;
@@ -410,7 +463,7 @@
   </div>
 </footer>
 
-<div class="book-reveal" id="book-reveal" data-open="false" role="dialog" aria-modal="true" aria-labelledby="reveal-title" inert>
+<div class="book-reveal" id="book-reveal" data-open="false" role="dialog" aria-modal="true" aria-labelledby="reveal-title" aria-describedby="reveal-medium reveal-doi" inert>
   <div class="wrap">
     <button type="button" class="reveal-close" id="reveal-close">
       <span aria-hidden="true">✕</span> Close
@@ -586,14 +639,44 @@
   document.querySelectorAll('.frame img').forEach(function (img) {
     img.onerror = function () { markPending(img); };
     img.onload = function () { clearPending(img); };
-    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
+
+    /* Only images that were NOT deferred (loading="eager", or no loading
+       attribute at all) have necessarily already had a request dispatched
+       by the time this script runs at the bottom of body — for those,
+       complete === true with naturalWidth === 0 reliably means "already
+       failed" and it's safe to mark them pending immediately, with no
+       flash of a broken-image icon first. loading="lazy" images are
+       deliberately deferred by the browser until they near the viewport;
+       at parse time they haven't been given any chance to load at all, so
+       this same synchronous check would misidentify a perfectly healthy
+       below-the-fold image as pending before its request has even been
+       sent. Lazy images are left to the onerror/onload handlers above
+       instead, which fire correctly whenever the browser actually
+       attempts the deferred load, however far in the future that is.
+       [Pre-launch audit — JS Integrity] Identical fix to index.html's
+       own version of this same script. */
+    var isDeferred = img.getAttribute('loading') === 'lazy';
+    if (!isDeferred && img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
       markPending(img);
     }
   });
 
   /* Filter engine — under 15 lines, opacity/transform only (§18.3 in
      style.css owns the transition and .is-hidden rule), so a click never
-     forces a synchronous layout read. */
+     forces a synchronous layout read.
+     [Pre-launch audit — Bug Fix] Filtered-out items previously only got
+     .is-hidden (opacity:0, pointer-events:none via CSS) — which hides
+     them visually and blocks mouse clicks, but does nothing to remove
+     them from the keyboard tab order or the accessibility tree. A
+     keyboard user tabbing through a filtered view would still land on
+     invisible, supposedly-filtered-out buttons; a screen-reader user
+     moving through the page linearly would still encounter and be able
+     to activate them. Each item's `inert` attribute is now toggled
+     alongside `.is-hidden` — the same native, already-used-elsewhere
+     mechanism (§8.3's reveal sheet) that removes an element from focus,
+     hit-testing, and the accessibility tree in one step, with no extra
+     ARIA bookkeeping needed. Purely additive to the transition/opacity
+     styling in style.css §18.3 — nothing there needed to change. */
   var filterTriggers = Array.prototype.slice.call(document.querySelectorAll('.filter-trigger'));
   var portfolioItems = Array.prototype.slice.call(document.querySelectorAll('.portfolio-item'));
 
@@ -604,6 +687,11 @@
       portfolioItems.forEach(function (item) {
         var show = filter === 'all' || item.getAttribute('data-category') === filter;
         item.classList.toggle('is-hidden', !show);
+        if (show) {
+          item.removeAttribute('inert');
+        } else {
+          item.setAttribute('inert', '');
+        }
       });
     });
   });
