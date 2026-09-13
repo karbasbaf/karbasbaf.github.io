@@ -6,24 +6,12 @@
 <title>Book Designs — Mohammad Mahdi Karbasbaf</title>
 <meta name="description" content="The complete book design archive of Mohammad Mahdi Karbasbaf: editorial covers, structural typographic plates, and fine-art Thuluth and Nastaliq calligraphy.">
 
-<!-- Font stack: Fraunces (display) + Source Serif 4 (reading matter) +
-     Inter (utility) — the exact three families style.css already loads
-     for every other page. This page intentionally does NOT introduce
-     Oswald: doing so would fracture the "seamless architectural anchor"
-     continuity this page is explicitly meant to preserve. See the closing
-     note in chat for the full reasoning. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,600&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
-<!-- Favicon / app-icon set: same site-wide files as index.html — see
-     that file's MASTER BLUEPRINT comment for the full asset spec and
-     rationale. Not repeated verbatim on every page to avoid duplicating
-     the same block five times over; the files themselves must still be
-     linked from each page's own <head>, browsers don't share a favicon
-     link across pages without an explicit manifest reference. -->
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -37,13 +25,6 @@
 <meta property="og:url" content="https://www.karbasbaf.com/book-designs.html">
 <meta property="og:title" content="Book Designs — Mohammad Mahdi Karbasbaf">
 <meta property="og:description" content="The complete book design archive of Mohammad Mahdi Karbasbaf: editorial covers, structural typographic plates, and fine-art Thuluth and Nastaliq calligraphy.">
-<!-- og:image uses the lead item in the archive, "The Golden Method"
-     (also position 1 in the JSON-LD ItemList below). Its 3:4 portrait
-     ratio is further from the 1.91:1 landscape most platforms crop
-     share-cards to than the homepage's own og:image was — worth a
-     dedicated 1200×630 landscape export later if a cleaner share-card
-     crop matters (see PRE-LAUNCH CHECKLIST). Not supplied yet, same
-     .frame--pending fallback applies on-page. -->
 <meta property="og:image" content="https://www.karbasbaf.com/assets/images/portfolio/portfolio-golden-method.jpg">
 <meta property="og:image:width" content="1500">
 <meta property="og:image:height" content="2000">
@@ -92,12 +73,6 @@
 
 <a class="skip-link" href="#main-content">Skip to content</a>
 
-<!-- MASTER BLUEPRINT: Ceiling Crown
-     Asset Identifier: assets/images/yazd-crown.png — the identical asset
-     already live on index.html (referenced as a CSS background-image on
-     .ceiling-crown, style.css §17.1). Mirrored here node-for-node so the
-     crown reads as one continuous structural element across pages rather
-     than a per-page decoration. No new export needed. -->
 <div class="ceiling-crown" aria-hidden="true"></div>
 
 <header class="site-header">
@@ -144,22 +119,6 @@
 
       <div class="portfolio-grid">
 
-        <!-- MASTER BLUEPRINT: Portfolio Item 1 — "The Golden Method"
-             Asset Identifier: assets/images/portfolio/portfolio-golden-method.jpg
-             Category: Book Design (data-category="book-design")
-             Target dimensions: 1500 × 2000px portrait scan (exactly 3:4,
-             matching .portfolio-item:nth-child(1) .frame — corrected from
-             an earlier 1600×2000 spec, which was actually 4:5 and
-             contradicted the "3:4 crop" this comment already claimed;
-             fixed during the pre-launch audit, identical correction to
-             index.html's own cover-golden-method.jpg — see CHANGELOG).
-             Lighting / background: flat scan or copy-stand shot, even
-             diffuse lighting, no glare off the cover stock, true-to-print
-             color.
-             Composition: Thuluth title lockup over a faint golden-spiral
-             construction-diagram watermark.
-             NOTE: source file not yet supplied — falls back gracefully
-             via the site-wide .frame--pending state (§9). -->
         <button type="button" class="plate-trigger portfolio-item" data-category="book-design"
           data-title="The Golden Method"
           data-year="2017 — cover design"
@@ -179,14 +138,6 @@
           <span class="sr-only"> — Select to view full size</span>
         </button>
 
-        <!-- MASTER BLUEPRINT: Portfolio Item 2 — "Ornament as Instrument"
-             Asset Identifier: assets/images/portfolio/portfolio-ornament-instrument.jpg
-             Category: Book Design (data-category="book-design")
-             Target dimensions: 1400 × 1400px square scan.
-             Lighting / background: flat scan or copy-stand shot, even
-             diffuse lighting, cream stock rendered true-to-color.
-             Composition: black vase-niche silhouette on cream ground.
-             NOTE: source file not yet supplied — falls back gracefully. -->
         <button type="button" class="plate-trigger portfolio-item" data-category="book-design"
           data-title="Ornament as Instrument"
           data-year="2025 — cover design"
@@ -206,16 +157,6 @@
           <span class="sr-only"> — Select to view full size</span>
         </button>
 
-        <!-- MASTER BLUEPRINT: Portfolio Item 3 — "Sound Holes"
-             Asset Identifier: assets/images/portfolio/portfolio-sound-holes.jpg
-             Category: Book Design (data-category="book-design")
-             Target dimensions: 1200 × 1500px portrait scan (rendered at a
-             4:5 crop via .portfolio-item:nth-child(3) .frame).
-             Lighting / background: flat scan, even diffuse lighting,
-             pure-white ground.
-             Composition: triple-hole soundhole motif as minimal
-             typographic ornament, ink on white.
-             NOTE: source file not yet supplied — falls back gracefully. -->
         <button type="button" class="plate-trigger portfolio-item" data-category="book-design"
           data-title="Sound Holes"
           data-year="2024 — cover design"
@@ -235,16 +176,6 @@
           <span class="sr-only"> — Select to view full size</span>
         </button>
 
-        <!-- MASTER BLUEPRINT: Portfolio Item 4 — "Resonant Vessels"
-             Asset Identifier: assets/images/portfolio/portfolio-resonant-vessels.jpg
-             Category: Book Design (data-category="book-design")
-             Target dimensions: 1500 × 1200px landscape crop (rendered at
-             a 5:4 crop via .portfolio-item:nth-child(4) .frame).
-             Lighting / background: raking studio light, dark neutral
-             backdrop to isolate the sphere's form.
-             Composition: tight crop of a single Helmholtz resonator
-             sphere under raking light.
-             NOTE: source file not yet supplied — falls back gracefully. -->
         <button type="button" class="plate-trigger portfolio-item" data-category="book-design"
           data-title="Resonant Vessels"
           data-year="2026 — cover design"
@@ -264,16 +195,6 @@
           <span class="sr-only"> — Select to view full size</span>
         </button>
 
-        <!-- MASTER BLUEPRINT: Portfolio Item 5 — "Strings to Stars"
-             Asset Identifier: assets/images/portfolio/portfolio-strings-to-stars.jpg
-             Category: Book Design (data-category="book-design")
-             Target dimensions: 1600 × 1000px wide landscape diptych scan
-             (16:10, matching the hero's own cinematic frame).
-             Lighting / background: flat scan, even diffuse lighting,
-             true-to-print color on both diptych halves.
-             Composition: nebula half of the Strings-to-Stars diptych,
-             cropped wide, no text overlay.
-             NOTE: source file not yet supplied — falls back gracefully. -->
         <button type="button" class="plate-trigger portfolio-item" data-category="book-design"
           data-title="Strings to Stars"
           data-year="2025 — cover design"
@@ -293,17 +214,6 @@
           <span class="sr-only"> — Select to view full size</span>
         </button>
 
-        <!-- MASTER BLUEPRINT: Portfolio Item 6 — "Thuluth Study — Karbasbaf Lockup"
-             Asset Identifier: assets/images/portfolio/portfolio-thuluth-study.jpg
-             Category: Fine Art Calligraphy (data-category="calligraphy")
-             Target dimensions: 1200 × 1500px portrait crop (4:5, matching
-             .portfolio-item:nth-child(6) .frame).
-             Lighting / background: flat scan or copy-stand shot, pure
-             white ground, no shadow falloff at the edges of the ink.
-             Composition: a standalone study of the same Thuluth name
-             lockup used in the hero artwork — ink black on near-white,
-             generous negative space, no drop shadow.
-             NOTE: source file not yet supplied — falls back gracefully. -->
         <button type="button" class="plate-trigger portfolio-item" data-category="calligraphy"
           data-title="Thuluth Study — Karbasbaf Lockup"
           data-year="2025 — calligraphy study"
@@ -322,16 +232,6 @@
           <span class="sr-only"> — Select to view full size</span>
         </button>
 
-        <!-- MASTER BLUEPRINT: Portfolio Item 7 — "Nastaliq Folio No. 1"
-             Asset Identifier: assets/images/portfolio/portfolio-nastaliq-folio.jpg
-             Category: Fine Art Calligraphy (data-category="calligraphy")
-             Target dimensions: 1400 × 1400px square scan.
-             Lighting / background: flat scan, even diffuse lighting,
-             cream or aged-paper ground rendered true-to-color.
-             Composition: a Nastaliq folio page — flowing diagonal
-             baseline composition, single verse or fragment, generous
-             margins.
-             NOTE: source file not yet supplied — falls back gracefully. -->
         <button type="button" class="plate-trigger portfolio-item" data-category="calligraphy"
           data-title="Nastaliq Folio No. 1"
           data-year="2023 — calligraphy folio"
@@ -350,18 +250,6 @@
           <span class="sr-only"> — Select to view full size</span>
         </button>
 
-        <!-- MASTER BLUEPRINT: Portfolio Item 8 — "Golden Spiral Construction Plate"
-             Asset Identifier: assets/images/portfolio/portfolio-golden-spiral-plate.jpg
-             Category: Book Design (data-category="book-design")
-             Target dimensions: 1500 × 1200px landscape crop (5:4,
-             matching .portfolio-item:nth-child(8) .frame).
-             Lighting / background: flat vector/scan export, pure white
-             ground, crisp construction-line contrast.
-             Composition: the golden-spiral soundhole construction diagram
-             itself — the geometric plate from "The Golden Method" (Arts,
-             2017), reproduced as a standalone technical plate rather than
-             a cover watermark.
-             NOTE: source file not yet supplied — falls back gracefully. -->
         <button type="button" class="plate-trigger portfolio-item" data-category="book-design"
           data-title="Golden Spiral Construction Plate"
           data-year="2017 — structural plate"
@@ -381,17 +269,6 @@
           <span class="sr-only"> — Select to view full size</span>
         </button>
 
-        <!-- MASTER BLUEPRINT: Portfolio Item 9 — "Soundhole Geometry Index"
-             Asset Identifier: assets/images/portfolio/portfolio-soundhole-index-plate.jpg
-             Category: Book Design (data-category="book-design")
-             Target dimensions: 1200 × 1600px portrait crop (3:4, matching
-             .portfolio-item:nth-child(9) .frame).
-             Lighting / background: flat vector/scan export, pure white
-             ground.
-             Composition: an indexed grid of soundhole silhouette variants
-             set as a typographic specimen sheet — numbered, captioned in
-             small caps, laid out like a type foundry's own specimen page.
-             NOTE: source file not yet supplied — falls back gracefully. -->
         <button type="button" class="plate-trigger portfolio-item" data-category="book-design"
           data-title="Soundhole Geometry Index"
           data-year="2024 — structural plate"
@@ -411,18 +288,6 @@
           <span class="sr-only"> — Select to view full size</span>
         </button>
 
-        <!-- MASTER BLUEPRINT: Portfolio Item 10 — "Waveform Type Specimen"
-             Asset Identifier: assets/images/portfolio/portfolio-waveform-specimen.jpg
-             Category: Book Design (data-category="book-design")
-             Target dimensions: 1600 × 1000px wide landscape export
-             (16:10, matching .portfolio-item:nth-child(10) .frame).
-             Lighting / background: flat vector/scan export, pure white
-             ground.
-             Composition: a single continuous waveform line rendered as a
-             custom display-type baseline — letterforms riding the crest
-             and trough of one acoustic waveform, the closing plate of the
-             set.
-             NOTE: source file not yet supplied — falls back gracefully. -->
         <button type="button" class="plate-trigger portfolio-item" data-category="book-design"
           data-title="Waveform Type Specimen"
           data-year="2026 — structural plate"
@@ -645,10 +510,6 @@
     }
   });
 
-  /* Filter engine — simplified to two categories: 'book-design' and
-     'calligraphy', plus the 'all' view that shows everything. The logic
-     is unchanged: opacity/transform via .is-hidden (§18.3 CSS), plus
-     inert toggling for proper keyboard/screen-reader exclusion. */
   var filterTriggers = Array.prototype.slice.call(document.querySelectorAll('.filter-trigger'));
   var portfolioItems = Array.prototype.slice.call(document.querySelectorAll('.portfolio-item'));
 
