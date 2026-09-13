@@ -12,56 +12,161 @@
 
 <link rel="stylesheet" href="style.css">
 
-<style>
-  .frame--pending {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: repeating-linear-gradient(
-      135deg,
-      var(--canvas-tint),
-      var(--canvas-tint) 10px,
-      var(--ink-08) 10px,
-      var(--ink-08) 11px
-    );
-  }
-  .frame--pending img { display: none; }
-  .frame-pending-label {
-    display: block;
-    font-family: var(--font-ui);
-    font-size: var(--t-caption);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-60);
-    text-align: center;
-    padding: var(--s-3);
-  }
-</style>
+<!-- MASTER BLUEPRINT: Favicon & App Icon Set
+     Asset Identifiers (all at site root, sibling to index.html):
+       favicon.ico          — 32×32, classic multi-res .ico fallback
+       favicon.svg          — scalable vector mark; modern browsers prefer
+                               this over the .ico when both are present
+       apple-touch-icon.png — 180×180, iOS/iPadOS home-screen icon
+       site.webmanifest     — references icon-192.png (192×192) and
+                               icon-512.png (512×512) for Android/PWA use
+     NOTE: this is a wholly new asset category — none of these five files
+     exist yet anywhere in the repository, and nothing here renames or
+     restructures a path that was already specified elsewhere. Until
+     they're supplied, browsers fall back to their own default icon;
+     nothing breaks, it just isn't branded yet. See the PRE-LAUNCH
+     CHECKLIST for the full list. -->
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<!-- Canonical URL. Production domain confirmed: www.karbasbaf.com. -->
+<link rel="canonical" href="https://www.karbasbaf.com/">
+
+<!-- Open Graph — deliberately reuses the exact title/description already
+     set above rather than authoring parallel copy that could drift out of
+     sync with it over time. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Karbasbaf Archive">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://www.karbasbaf.com/">
+<meta property="og:title" content="Mohammad Mahdi Karbasbaf — Resonance Across Scales">
+<meta property="og:description" content="The research and design archive of Mohammad Mahdi Karbasbaf: acoustic heritage, the Golden Method, Persian architectural acoustics, book cover design, and astrophysical wave analysis.">
+<!-- og:image points at the hero calligraphy artwork — the closest thing
+     this archive has to a "brand mark" already, and already specified
+     below as .plate--cinema's asset. It isn't supplied yet (same
+     .frame--pending fallback applies to it on-page), and its 1.618:1
+     ratio is close to but not exactly the 1.91:1 most platforms crop
+     share-cards to — see the PRE-LAUNCH CHECKLIST for a note on
+     exporting a dedicated 1200×630 crop if tighter control over social
+     cropping is wanted later. -->
+<meta property="og:image" content="https://www.karbasbaf.com/assets/images/hero-calligraphy.jpg">
+<meta property="og:image:width" content="1618">
+<meta property="og:image:height" content="1000">
+<meta property="og:image:alt" content="Thuluth-script calligraphic rendering by Mohammad Mahdi Karbasbaf">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mohammad Mahdi Karbasbaf — Resonance Across Scales">
+<meta name="twitter:description" content="The research and design archive of Mohammad Mahdi Karbasbaf: acoustic heritage, the Golden Method, Persian architectural acoustics, book cover design, and astrophysical wave analysis.">
+<meta name="twitter:image" content="https://www.karbasbaf.com/assets/images/hero-calligraphy.jpg">
+<meta name="twitter:image:alt" content="Thuluth-script calligraphic rendering by Mohammad Mahdi Karbasbaf">
+
+<!-- MASTER BLUEPRINT: Dedicated Portrait / Headshot
+     Asset Identifier: assets/images/portrait.jpg
+     Recommended dimensions: 1000 × 1000px (square — works cleanly for
+     both schema.org Person.image and most social/share-card use without
+     an additional crop).
+     Composition: a real, current headshot — natural light, no studio
+     backdrop or staged lighting rig, consistent with the documentary,
+     unstyled photographic language used everywhere else in this archive
+     (see the workshop photograph's own MASTER BLUEPRINT note further
+     down this file for the same "unstyled, as found" direction).
+     NOTE — temporary substitution: this file does not exist yet, so the
+     JSON-LD Person.image field below still points at the already-planned
+     assets/images/about-workshop.jpg as a stand-in. The moment
+     portrait.jpg is actually supplied, update that one field to point
+     here instead — nothing else needs to change. -->
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Mohammad Mahdi Karbasbaf",
-  "alternateName": "M. M. Karbasbaf",
-  "url": "https://karbasbaf-archive.example/",
-  "image": "https://karbasbaf-archive.example/assets/images/portrait.jpg",
-  "email": "mailto:karbasbaf@gmail.com",
-  "jobTitle": "Independent Researcher — Acoustics & Wave Phenomena",
-  "description": "Researcher and book designer investigating resonance phenomena across terrestrial and astrophysical scales, connecting traditional luthiery, Persian architectural acoustics, and wave-analysis methodology.",
-  "knowsAbout": ["Archaeoacoustics", "Architectural Acoustics", "Musical Instrument Acoustics", "Computational Acoustics", "Astrophysical Wave Phenomena", "Multi-Scale Wave Analysis", "Persian Calligraphy", "Book Cover Design"],
-  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Qazvin Azad University", "sameAs": "https://www.qiau.ac.ir/" },
-  "sameAs": ["https://orcid.org/0000-0003-2264-9372"],
-  "@graph": [
-    { "@type": "ScholarlyArticle", "name": "Experimental validation of Helmholtz resonator arrays as zero-energy acoustic treatment for net-zero energy buildings", "author": ["Mohammad Mahdi Karbasbaf", "G. Ezaan"], "datePublished": "2026", "isPartOf": { "@type": "Periodical", "name": "Next Research" }, "sameAs": "https://doi.org/10.1016/j.nexres.2026.102016" },
-    { "@type": "ScholarlyArticle", "name": "From ornamentation to acoustics: A quantitative analysis of Tong Bori elements in Persian architectural heritage", "author": ["Mohammad Mahdi Karbasbaf", "G. Ezaan"], "datePublished": "2025", "isPartOf": { "@type": "Periodical", "name": "Digital Applications in Archaeology and Cultural Heritage" }, "sameAs": "https://doi.org/10.1016/j.daach.2025.e00433" },
-    { "@type": "ScholarlyArticle", "name": "Historical Evolution and Acoustic Significance of Sound Holes in Lutes", "author": ["Mohammad Mahdi Karbasbaf", "G. Ezaan"], "datePublished": "2024", "isPartOf": { "@type": "Periodical", "name": "Applied Acoustics" }, "sameAs": "https://doi.org/10.1016/j.apacoust.2023.109784" },
-    { "@type": "ScholarlyArticle", "name": "A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments: The Golden Method", "author": ["S. Jafari", "Mohammad Mahdi Karbasbaf"], "datePublished": "2017", "isPartOf": { "@type": "Periodical", "name": "Arts" }, "sameAs": "https://doi.org/10.3390/arts6040020" }
+  "@type": ["WebPage", "ProfilePage"],
+  "name": "Mohammad Mahdi Karbasbaf — Resonance Across Scales",
+  "url": "https://www.karbasbaf.com/",
+  "description": "The research and design archive of Mohammad Mahdi Karbasbaf: acoustic heritage, the Golden Method, Persian architectural acoustics, book cover design, and astrophysical wave analysis.",
+  "isPartOf": { "@type": "WebSite", "name": "Karbasbaf Archive", "url": "https://www.karbasbaf.com/" },
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Mohammad Mahdi Karbasbaf",
+    "alternateName": "M. M. Karbasbaf",
+    "url": "https://www.karbasbaf.com/",
+    "image": "https://www.karbasbaf.com/assets/images/about-workshop.jpg",
+    "email": "mailto:info@karbasbaf.com",
+    "jobTitle": "Independent Researcher — Acoustics & Wave Phenomena",
+    "description": "Researcher and book designer investigating resonance phenomena across terrestrial and astrophysical scales, connecting traditional luthiery, Persian architectural acoustics, and wave-analysis methodology.",
+    "knowsAbout": ["Archaeoacoustics", "Architectural Acoustics", "Musical Instrument Acoustics", "Computational Acoustics", "Astrophysical Wave Phenomena", "Multi-Scale Wave Analysis", "Persian Calligraphy", "Book Cover Design"],
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Qazvin Azad University", "sameAs": "https://www.qiau.ac.ir/" },
+    "sameAs": ["https://orcid.org/0000-0003-2264-9372"]
+  },
+  "hasPart": [
+    {
+      "@type": "ScholarlyArticle",
+      "headline": "Experimental validation of Helmholtz resonator arrays as zero-energy acoustic treatment for net-zero energy buildings",
+      "author": [
+        { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" },
+        { "@type": "Person", "name": "G. Ezaan" }
+      ],
+      "isPartOf": { "@type": "Periodical", "name": "Next Research" },
+      "publisher": { "@type": "Organization", "name": "Elsevier" },
+      "datePublished": "2026",
+      "sameAs": "https://doi.org/10.1016/j.nexres.2026.102016",
+      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.1016/j.nexres.2026.102016" }
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "headline": "From ornamentation to acoustics: A quantitative analysis of Tong Bori elements in Persian architectural heritage",
+      "author": [
+        { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" },
+        { "@type": "Person", "name": "G. Ezaan" }
+      ],
+      "isPartOf": { "@type": "Periodical", "name": "Digital Applications in Archaeology and Cultural Heritage" },
+      "publisher": { "@type": "Organization", "name": "Elsevier" },
+      "datePublished": "2025",
+      "sameAs": "https://doi.org/10.1016/j.daach.2025.e00433",
+      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.1016/j.daach.2025.e00433" }
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "headline": "Historical Evolution and Acoustic Significance of Sound Holes in Lutes",
+      "author": [
+        { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" },
+        { "@type": "Person", "name": "G. Ezaan" }
+      ],
+      "isPartOf": { "@type": "Periodical", "name": "Applied Acoustics" },
+      "publisher": { "@type": "Organization", "name": "Elsevier" },
+      "datePublished": "2024",
+      "sameAs": "https://doi.org/10.1016/j.apacoust.2023.109784",
+      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.1016/j.apacoust.2023.109784" }
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "headline": "A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments: The Golden Method",
+      "author": [
+        { "@type": "Person", "name": "S. Jafari" },
+        { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }
+      ],
+      "isPartOf": { "@type": "Periodical", "name": "Arts" },
+      "datePublished": "2017",
+      "sameAs": "https://doi.org/10.3390/arts6040020",
+      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.3390/arts6040020" }
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "headline": "Investigating the Role of Resonance in Herbig-Haro (HH) Objects Embedded Within Gaseous Nebulae",
+      "author": [
+        { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }
+      ],
+      "creativeWorkStatus": "InProgress",
+      "description": "In preparation — forthcoming."
+    }
   ]
 }
 </script>
 </head>
 <body class="page-home">
+
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- MASTER BLUEPRINT: Ceiling Crown
      Asset Identifier: assets/images/yazd-crown.png (referenced as a CSS
@@ -86,7 +191,7 @@
   </div>
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
 
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap">
@@ -100,18 +205,6 @@
         </div>
 
         <div class="plate plate--cinema">
-          <!-- MASTER BLUEPRINT: Hero Calligraphy Master Artwork
-               Asset Identifier: assets/images/hero-calligraphy.jpg
-               Physical rendering box: 1618 × 1000px (φ = 1.618:1, matches
-               .plate--cinema { aspect-ratio: 1.618 / 1 } exactly — a
-               horizontal, cinematic frame rather than the portrait crop
-               used previously). Export @2x for retina. Composition:
-               single-subject Thuluth calligraphic rendering of the
-               artist's name, ink-black on near-white, generous negative
-               space, no drop shadow, composed to read comfortably within
-               a wide landscape frame.
-               NOTE: source file not yet supplied — triggers the
-               .frame--pending fallback until it is. -->
           <div class="frame">
             <img
               src="assets/images/hero-calligraphy.jpg"
@@ -143,135 +236,61 @@
       </div>
 
       <div class="cover-gallery mt-7">
-
-        <!-- MASTER BLUEPRINT: Cover 1 — "The Golden Method"
-             Asset Identifier: assets/images/covers/cover-golden-method.jpg
-             Recommended source: 1600 × 2000px portrait scan (rendered at
-             a 3:4 crop via .cover-card:nth-child(1) .frame). Composition:
-             Thuluth title lockup over a faint golden-spiral construction-
-             diagram watermark.
-             NOTE: source file not yet supplied — falls back gracefully
-             via the site-wide .frame--pending state (§9). -->
-        <button type="button" class="plate-trigger cover-card"
-          data-title="The Golden Method"
-          data-year="2017 — cover design"
-          data-medium="Letterpress-style cover, Thuluth title lockup over golden-spiral construction diagram"
-          data-image="assets/images/covers/cover-golden-method.jpg"
-          data-alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
-          data-doi="Companion volume to: A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments, Arts (2017)">
+        <button type="button" class="plate-trigger cover-card" data-title="The Golden Method" data-year="2017 — cover design" data-medium="Letterpress-style cover, Thuluth title lockup over golden-spiral construction diagram" data-image="assets/images/covers/cover-golden-method.jpg" data-alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram" data-doi="Companion volume to: A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments, Arts (2017)">
           <span class="frame">
-            <img src="assets/images/covers/cover-golden-method.jpg"
-              alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram"
-              width="1600" height="2000" loading="eager" decoding="async">
+            <img src="assets/images/covers/cover-golden-method.jpg" alt="Book cover for The Golden Method, featuring a Thuluth calligraphy title over a faint golden spiral soundhole diagram" width="1500" height="2000" loading="eager" decoding="async">
             <span class="cover-meta" aria-hidden="true">
               <span class="cover-meta-num">I</span>
               <span class="cover-meta-title">The Golden Method</span>
               <span class="cover-meta-sub">2017 — Cover Design</span>
             </span>
           </span>
+          <span class="sr-only"> — Select to view full size</span>
         </button>
-
-        <!-- MASTER BLUEPRINT: Cover 2 — "Ornament as Instrument"
-             Asset Identifier: assets/images/covers/cover-ornament-instrument.jpg
-             (renamed from the earlier placeholder "cover-02-tong-bori.jpg"
-             — that filename referenced the research subject rather than
-             the book's own title, an inconsistency corrected here.)
-             Recommended source: 1400 × 1400px square scan. Composition:
-             black vase-niche silhouette on cream stock.
-             NOTE: source file not yet supplied — falls back gracefully. -->
-        <button type="button" class="plate-trigger cover-card"
-          data-title="Ornament as Instrument"
-          data-year="2025 — cover design"
-          data-medium="Silhouette cover, single-color cutout on cream stock"
-          data-image="assets/images/covers/cover-ornament-instrument.jpg"
-          data-alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground"
-          data-doi="Companion volume to: From Ornamentation to Acoustics, Digital Applications in Archaeology and Cultural Heritage (2025)">
+        <button type="button" class="plate-trigger cover-card" data-title="Ornament as Instrument" data-year="2025 — cover design" data-medium="Silhouette cover, single-color cutout on cream stock" data-image="assets/images/covers/cover-ornament-instrument.jpg" data-alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground" data-doi="Companion volume to: From Ornamentation to Acoustics, Digital Applications in Archaeology and Cultural Heritage (2025)">
           <span class="frame">
-            <img src="assets/images/covers/cover-ornament-instrument.jpg"
-              alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground"
-              width="1400" height="1400" loading="lazy" decoding="async">
+            <img src="assets/images/covers/cover-ornament-instrument.jpg" alt="Book cover for Ornament as Instrument, a black vase-niche silhouette on a cream ground" width="1400" height="1400" loading="lazy" decoding="async">
             <span class="cover-meta" aria-hidden="true">
               <span class="cover-meta-num">II</span>
               <span class="cover-meta-title">Ornament as Instrument</span>
               <span class="cover-meta-sub">2025 — Cover Design</span>
             </span>
           </span>
+          <span class="sr-only"> — Select to view full size</span>
         </button>
-
-        <!-- MASTER BLUEPRINT: Cover 3 — "Sound Holes"
-             Asset Identifier: assets/images/covers/cover-sound-holes.jpg
-             Recommended source: 1200 × 1200px. Composition: triple-hole
-             soundhole motif as minimal typographic ornament, ink on
-             white.
-             NOTE: source file not yet supplied — falls back gracefully. -->
-        <button type="button" class="plate-trigger cover-card"
-          data-title="Sound Holes"
-          data-year="2024 — cover design"
-          data-medium="Minimal typographic cover, triple-hole motif"
-          data-image="assets/images/covers/cover-sound-holes.jpg"
-          data-alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament"
-          data-doi="Companion volume to: Historical Evolution and Acoustic Significance of Sound Holes in Lutes, Applied Acoustics (2024)">
+        <button type="button" class="plate-trigger cover-card" data-title="Sound Holes" data-year="2024 — cover design" data-medium="Minimal typographic cover, triple-hole motif" data-image="assets/images/covers/cover-sound-holes.jpg" data-alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament" data-doi="Companion volume to: Historical Evolution and Acoustic Significance of Sound Holes in Lutes, Applied Acoustics (2024)">
           <span class="frame">
-            <img src="assets/images/covers/cover-sound-holes.jpg"
-              alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament"
-              width="1200" height="1200" loading="lazy" decoding="async">
+            <img src="assets/images/covers/cover-sound-holes.jpg" alt="Book cover for Sound Holes, showing three minimal circular voids arranged as a typographic ornament" width="1200" height="1500" loading="lazy" decoding="async">
             <span class="cover-meta" aria-hidden="true">
               <span class="cover-meta-num">III</span>
               <span class="cover-meta-title">Sound Holes</span>
               <span class="cover-meta-sub">2024 — Cover Design</span>
             </span>
           </span>
+          <span class="sr-only"> — Select to view full size</span>
         </button>
-
-        <!-- MASTER BLUEPRINT: Cover 4 — "Resonant Vessels"
-             Asset Identifier: assets/images/covers/cover-resonant-vessels.jpg
-             Recommended source: 1000 × 1000px. Composition: tight crop of
-             a single Helmholtz resonator sphere under raking light.
-             NOTE: source file not yet supplied — falls back gracefully. -->
-        <button type="button" class="plate-trigger cover-card"
-          data-title="Resonant Vessels"
-          data-year="2026 — cover design"
-          data-medium="Photographic cover, single Helmholtz resonator sphere, cropped tight"
-          data-image="assets/images/covers/cover-resonant-vessels.jpg"
-          data-alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator"
-          data-doi="Companion volume to: Experimental validation of Helmholtz resonator arrays, Next Research (2026)">
+        <button type="button" class="plate-trigger cover-card" data-title="Resonant Vessels" data-year="2026 — cover design" data-medium="Photographic cover, single Helmholtz resonator sphere, cropped tight" data-image="assets/images/covers/cover-resonant-vessels.jpg" data-alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator" data-doi="Companion volume to: Experimental validation of Helmholtz resonator arrays, Next Research (2026)">
           <span class="frame">
-            <img src="assets/images/covers/cover-resonant-vessels.jpg"
-              alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator"
-              width="1000" height="1000" loading="lazy" decoding="async">
+            <img src="assets/images/covers/cover-resonant-vessels.jpg" alt="Book cover for Resonant Vessels, a tightly cropped photograph of a single spherical Helmholtz resonator" width="1500" height="1200" loading="lazy" decoding="async">
             <span class="cover-meta" aria-hidden="true">
               <span class="cover-meta-num">IV</span>
               <span class="cover-meta-title">Resonant Vessels</span>
               <span class="cover-meta-sub">2026 — Cover Design</span>
             </span>
           </span>
+          <span class="sr-only"> — Select to view full size</span>
         </button>
-
-        <!-- MASTER BLUEPRINT: Cover 5 — "Strings to Stars"
-             Asset Identifier: assets/images/covers/cover-strings-to-stars.jpg
-             Recommended source: 1600 × 1000px landscape diptych scan.
-             Composition: nebula half of the Strings-to-Stars diptych,
-             cropped wide, no text overlay.
-             NOTE: source file not yet supplied — falls back gracefully. -->
-        <button type="button" class="plate-trigger cover-card"
-          data-title="Strings to Stars"
-          data-year="2025 — cover design"
-          data-medium="Photographic diptych cover, lute rosette / nebula pairing"
-          data-image="assets/images/covers/cover-strings-to-stars.jpg"
-          data-alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame"
-          data-doi="Companion volume to ongoing research: Investigating the Role of Resonance in Herbig-Haro Objects (in preparation)">
+        <button type="button" class="plate-trigger cover-card" data-title="Strings to Stars" data-year="2025 — cover design" data-medium="Photographic diptych cover, lute rosette / nebula pairing" data-image="assets/images/covers/cover-strings-to-stars.jpg" data-alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame" data-doi="Companion volume to ongoing research: Investigating the Role of Resonance in Herbig-Haro Objects (in preparation)">
           <span class="frame">
-            <img src="assets/images/covers/cover-strings-to-stars.jpg"
-              alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame"
-              width="1600" height="1000" loading="lazy" decoding="async">
+            <img src="assets/images/covers/cover-strings-to-stars.jpg" alt="Book cover for Strings to Stars, a diptych pairing a lute soundhole rosette with a Herbig-Haro nebula frame" width="1600" height="1000" loading="lazy" decoding="async">
             <span class="cover-meta" aria-hidden="true">
               <span class="cover-meta-num">V</span>
               <span class="cover-meta-title">Strings to Stars</span>
               <span class="cover-meta-sub">2025 — Cover Design</span>
             </span>
           </span>
+          <span class="sr-only"> — Select to view full size</span>
         </button>
-
       </div>
 
       <p class="archive-cta mt-6"><a href="book-designs.html">View the complete book design archive →</a></p>
@@ -295,18 +314,9 @@
         <div class="canvas">
           <h2 class="h2" id="about-heading">Foundation<br>in Craft</h2>
 
-          <!-- MASTER BLUEPRINT: Portrait / Workshop Image
-               Asset Identifier: assets/images/about-workshop.jpg
-               Physical rendering box: 1600 × 1000px (16:10, matches
-               .plate--wide { aspect-ratio: 16 / 10 } exactly). Composition:
-               documentary black-and-white workshop photograph, natural
-               window light, no staged studio lighting.
-               NOTE: source file not yet supplied — falls back gracefully. -->
           <div class="plate plate--wide mt-5">
             <div class="frame">
-              <img src="assets/images/about-workshop.jpg"
-                alt="Documentary photograph of Mohammad Mahdi Karbasbaf constructing a traditional Persian stringed instrument"
-                width="1600" height="1000" loading="lazy" decoding="async">
+              <img src="assets/images/about-workshop.jpg" alt="Documentary photograph of Mohammad Mahdi Karbasbaf constructing a traditional Persian stringed instrument" width="1600" height="1000" loading="lazy" decoding="async">
             </div>
           </div>
 
@@ -403,7 +413,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p class="caption">Mohammad Mahdi Karbasbaf<br>ORCID 0000-0003-2264-9372</p>
-    <p class="caption"><a href="mailto:karbasbaf@gmail.com">karbasbaf@gmail.com</a></p>
+    <p class="caption"><a href="mailto:info@karbasbaf.com">info@karbasbaf.com</a></p>
     <p class="caption">
       <a href="index.html">Home</a> &nbsp;·&nbsp;
       <a href="book-designs.html">Book Designs</a> &nbsp;·&nbsp;
@@ -414,7 +424,7 @@
   </div>
 </footer>
 
-<div class="book-reveal" id="book-reveal" data-open="false" role="dialog" aria-modal="true" aria-labelledby="reveal-title" inert>
+<div class="book-reveal" id="book-reveal" data-open="false" role="dialog" aria-modal="true" aria-labelledby="reveal-title" aria-describedby="reveal-medium reveal-doi" inert>
   <div class="wrap">
     <button type="button" class="reveal-close" id="reveal-close">
       <span aria-hidden="true">✕</span> Close
@@ -590,7 +600,22 @@
   document.querySelectorAll('.frame img').forEach(function (img) {
     img.onerror = function () { markPending(img); };
     img.onload = function () { clearPending(img); };
-    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
+
+    /* Only images that were NOT deferred (loading="eager", or no loading
+       attribute at all) have necessarily already had a request dispatched
+       by the time this script runs at the bottom of body — for those,
+       complete === true with naturalWidth === 0 reliably means "already
+       failed" and it's safe to mark them pending immediately, with no
+       flash of a broken-image icon first. loading="lazy" images are
+       deliberately deferred by the browser until they near the viewport;
+       at parse time they haven't been given any chance to load at all, so
+       this same synchronous check would misidentify a perfectly healthy
+       below-the-fold image as pending before its request has even been
+       sent. Lazy images are left to the onerror/onload handlers above
+       instead, which fire correctly whenever the browser actually
+       attempts the deferred load, however far in the future that is. */
+    var isDeferred = img.getAttribute('loading') === 'lazy';
+    if (!isDeferred && img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
       markPending(img);
     }
   });
