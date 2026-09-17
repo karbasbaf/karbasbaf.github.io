@@ -350,26 +350,6 @@ h3, .h3 {
   .rail::before { display: block; }
 }
 
-.spine-break {
-  display: none;
-  position: relative;
-  width: 34px;
-  margin: var(--s-2) 0 var(--s-2) auto;
-  overflow: visible;
-}
-
-@media (min-width: 900px) {
-  .spine-break { display: block; }
-}
-
-.spine-break svg { width: 100%; height: 46px; overflow: visible; }
-
-.spine-break path {
-  fill: none;
-  stroke: var(--gold);
-  stroke-width: 1.1;
-  stroke-linecap: round;
-}
 
 .wave-divider {
   width: 100%;
@@ -1095,7 +1075,6 @@ h3, .h3 {
   }
 
   .rail::before { display: none; }
-  .spine-break { display: none !important; }
 
   .hero-title, h1, .h1 { font-size: 26pt; }
   .h2 { font-size: 16pt; }
