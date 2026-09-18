@@ -806,6 +806,13 @@ h3, .h3 {
 .plate--wide .frame { aspect-ratio: 16 / 10; }
 .plate--square .frame { aspect-ratio: 1 / 1; }
 
+/* Portrait plate — for vertically-oriented photographs (e.g. the
+   about-workshop.jpg documentary photograph, native ratio 33.33:44.44in
+   = exactly 3:4). Capped at max-width so a tall aspect-ratio doesn't
+   blow the frame up to an oversized height inside the .canvas column. */
+.plate--portrait { max-width: 480px; }
+.plate--portrait .frame { aspect-ratio: 3 / 4; }
+
 /* Missing-artwork fallback. The site's own script (bottom of index.html)
    already adds .frame--pending and appends a .frame-pending-label span
    whenever a cover image 404s — but until now neither had any CSS at
