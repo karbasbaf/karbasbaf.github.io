@@ -562,6 +562,39 @@ h3, .h3 {
   color: var(--ink);
   border-color: var(--gold);
 }
+/* Footer seal lockup — the calligraphic mark sits before the name,
+   bottom-left of the page, appearing exactly once, sitewide. Purely
+   additive: nothing above this line in §6 was touched. */
+.footer-lockup {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+  min-width: 0; /* allows this flex item to shrink inside .site-footer
+                   .wrap's own flex row instead of forcing an overflow */
+}
+
+.footer-lockup .caption {
+  min-width: 0;
+}
+
+.footer-seal {
+  height: clamp(2.1rem, 1.8rem + 1.3vw, 2.9rem);
+  width: auto;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .footer-lockup { gap: var(--s-2); }
+}
+
+@media (max-width: 340px) {
+  .footer-lockup {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s-1);
+  }
+}
 
 /* ==========================================================================
    7. HERO
@@ -2184,4 +2217,37 @@ body.page-contact main .section:first-of-type {
 
 @media (prefers-reduced-motion: reduce) {
   .skip-link { transition: none; }
+}
+/* ==========================================================================
+   23. MOBILE VERTICAL RHYTHM — sitewide spacing patch for small viewports
+   ------------------------------------------------------------------------
+   .site-footer, #showcase, and the closing padding of the first section
+   on four other content pages all use --s-8 (~177px). Their selectors
+   either carry higher specificity than the general .section mobile
+   override in §15 (an ID, or a multi-class + tag + pseudo-class chain),
+   or aren't .section at all (site-footer uses margin, not padding-block).
+   Result without this patch: on mobile, these five spots stay locked at
+   ~177px while the rest of the site has already dropped to --s-6
+   (~68px). Each selector below is repeated at the exact same specificity
+   as its original definition; because this block sits at the very end of
+   the file, standard cascade rules (equal specificity → last rule in
+   source order wins) let it override the desktop value at ≤640px.
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .site-footer {
+    margin-top: var(--s-6);
+  }
+
+  body.page-home #showcase {
+    padding-top: var(--s-6);
+    padding-bottom: var(--s-6);
+  }
+
+  body.page-book-designs main .section:first-of-type,
+  body.page-research main .section:first-of-type,
+  body.page-about main .section:first-of-type,
+  body.page-contact main .section:first-of-type {
+    padding-bottom: var(--s-6);
+  }
 }
