@@ -12,24 +12,19 @@
 
 <link rel="stylesheet" href="style.css">
 
-<!-- MASTER BLUEPRINT: Favicon & App Icon Set
-     Asset Identifiers (all at site root, sibling to index.html):
-       favicon.ico          — 32×32, classic multi-res .ico fallback
-       favicon.svg          — scalable vector mark; modern browsers prefer
-                               this over the .ico when both are present
-       apple-touch-icon.png — 180×180, iOS/iPadOS home-screen icon
-       site.webmanifest     — references icon-192.png (192×192) and
-                               icon-512.png (512×512) for Android/PWA use
-     NOTE: this is a wholly new asset category — none of these five files
-     exist yet anywhere in the repository, and nothing here renames or
-     restructures a path that was already specified elsewhere. Until
-     they're supplied, browsers fall back to their own default icon;
-     nothing breaks, it just isn't branded yet. See the PRE-LAUNCH
-     CHECKLIST for the full list. -->
-<link rel="icon" href="favicon.ico" sizes="32x32">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Favicon package — uploaded to site root, resolved sitewide.
+     favicon.ico and apple-touch-icon.png are auto-discovered by legacy
+     browsers and iOS respectively at the root; no <link> needed for them. -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+<!-- Google Search results: circular variants -->
+<link rel="icon" type="image/png" sizes="48x48"   href="favicon-circle-48x48.png">
+<link rel="icon" type="image/png" sizes="96x96"   href="favicon-circle-96x96.png">
+<link rel="icon" type="image/png" sizes="144x144" href="favicon-circle-144x144.png">
+
 <link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#ca0a37">
 
 <!-- Canonical URL. Production domain confirmed: www.karbasbaf.com. -->
 <link rel="canonical" href="https://www.karbasbaf.com/">
