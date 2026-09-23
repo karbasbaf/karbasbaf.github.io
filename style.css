@@ -2251,3 +2251,11 @@ body.page-contact main .section:first-of-type {
     padding-bottom: var(--s-6);
   }
 }
+/* ==========================================================================
+   24. PEER REVIEW LIST — research.html only
+   ========================================================================== */
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
