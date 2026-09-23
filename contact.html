@@ -15,13 +15,14 @@
 
 <link rel="stylesheet" href="style.css">
 
-<!-- Favicon / app-icon set: same site-wide files as index.html — see
-     that file's MASTER BLUEPRINT comment for the full asset spec and
-     rationale. -->
-<link rel="icon" href="favicon.ico" sizes="32x32">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Favicon package — uploaded to site root, resolved sitewide. -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="48x48"   href="favicon-circle-48x48.png">
+<link rel="icon" type="image/png" sizes="96x96"   href="favicon-circle-96x96.png">
+<link rel="icon" type="image/png" sizes="144x144" href="favicon-circle-144x144.png">
 <link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#C9974A">
 
 <link rel="canonical" href="https://www.karbasbaf.com/contact.html">
 
@@ -132,7 +133,10 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <p class="caption">Mohammad Mahdi Karbasbaf<br>ORCID 0000-0003-2264-9372</p>
+    <div class="footer-lockup">
+      <img class="footer-seal" src="assets/images/seal-karbasbaf.png" alt="" role="presentation" width="2200" height="1700" loading="lazy" decoding="async">
+      <p class="caption">Mohammad Mahdi Karbasbaf<br>ORCID 0000-0003-2264-9372</p>
+    </div>
     <p class="caption"><a href="mailto:info@karbasbaf.com">info@karbasbaf.com</a></p>
     <p class="caption">
       <a href="index.html">Home</a> &nbsp;·&nbsp;
