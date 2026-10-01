@@ -1,8 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.karbasbaf.com/</loc></url>
-  <url><loc>https://www.karbasbaf.com/book-designs.html</loc></url>
-  <url><loc>https://www.karbasbaf.com/research.html</loc></url>
-  <url><loc>https://www.karbasbaf.com/about.html</loc></url>
-  <url><loc>https://www.karbasbaf.com/contact.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://www.karbasbaf.com/</loc>
+    <lastmod>2026-01-01</lastmod>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/hero-calligraphy.jpg</image:loc></image:image>
+  </url>
+
+  <url>
+    <loc>https://www.karbasbaf.com/book-designs.html</loc>
+    <lastmod>2026-01-01</lastmod>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-shahnama.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-shahnama-spread.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-philosophy-of-illumination.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-philosophy-of-illumination-spread.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-ethics.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-ethics-spread.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-faust.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-faust-spread.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-un-coup-de-des.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-un-coup-de-des-spread.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-mimesis.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-mimesis-spread.jpg</image:loc></image:image>
+  </url>
+
+  <url>
+    <loc>https://www.karbasbaf.com/research.html</loc>
+    <lastmod>2026-01-01</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.karbasbaf.com/about.html</loc>
+    <lastmod>2026-01-01</lastmod>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/biography-studio.jpg</image:loc></image:image>
+  </url>
+
+  <url>
+    <loc>https://www.karbasbaf.com/contact.html</loc>
+    <lastmod>2026-01-01</lastmod>
+  </url>
+
 </urlset>
