@@ -2275,3 +2275,275 @@ body.page-contact main .section:first-of-type {
   line-height: 1.3;
   color: var(--ink);
 }
+
+/* ==========================================================================
+   25. COVER SYSTEM v2 — real proportions, author captions, full-cover viewer
+   Purely additive. Each selector matches (or exceeds) the specificity of the
+   rule it refines; later source order wins.
+   ========================================================================== */
+
+/* 25.1 — Base fixes: .frame inside a <button> is a <span> (inline), where
+   aspect-ratio and overflow do nothing. Buttons also carry UA padding. */
+.plate-trigger { padding: 0; text-align: left; }
+
+body.page-home .cover-gallery .frame,
+.portfolio-grid .frame {
+  display: block;
+  width: 100%;
+}
+
+/* Hairline edge so pale covers never dissolve into the canvas */
+body.page-home .cover-gallery .frame::after,
+.portfolio-grid .frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px var(--ink-08);
+  pointer-events: none;
+}
+
+/* 25.2 — Hover caption: a compact strip at the foot of the cover (title,
+   author, year) instead of an opaque panel that erased the whole cover.
+   Keyboard focus triggers it too (focus lives on the <button>). */
+body.page-home .cover-gallery .cover-meta {
+  inset: auto 0 0 0;
+  padding: var(--s-3) var(--s-4);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+body.page-home .cover-gallery .cover-card:hover .cover-meta,
+body.page-home .cover-gallery .cover-card:focus-visible .cover-meta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.page-home .cover-gallery .cover-card:focus-visible .frame img {
+  transform: scale(1.045);
+}
+
+.portfolio-meta {
+  inset: auto 0 0 0;
+  align-items: flex-start;
+  justify-content: flex-end;
+  text-align: left;
+  padding: var(--s-3) var(--s-4);
+  background: rgba(255, 255, 255, 0.94);
+  transform: translateY(8px);
+}
+
+.portfolio-grid .portfolio-item:hover .portfolio-meta,
+.portfolio-grid .portfolio-item:focus-visible .portfolio-meta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-grid .portfolio-item:focus-visible .frame img {
+  transform: scale(1.045);
+}
+
+body.page-home .cover-gallery .cover-meta-title,
+.portfolio-meta-title {
+  font-size: clamp(1.05rem, 0.97rem + 0.35vw, 1.3125rem);
+  margin-top: 0;
+}
+
+.cover-meta-author,
+.portfolio-meta-author {
+  display: block;
+  margin-top: var(--s-1);
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 0.82rem + 0.15vw, 0.95rem);
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--ink-60);
+}
+
+/* 25.3 — `hidden` must beat the display values set on these components */
+.portfolio-item[hidden],
+.portfolio-filter[hidden],
+.filter-trigger[hidden],
+.reveal-views[hidden],
+.reveal-step[hidden],
+.reveal-count[hidden] { display: none; }
+
+/* 25.4 — The viewer adapts to the image's real shape */
+.reveal-frame {
+  aspect-ratio: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: transparent;
+  border: none;
+}
+
+.reveal-frame img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 9rem);
+  max-height: calc(100dvh - 9rem);
+  object-fit: contain;
+  background: var(--canvas-tint);
+  outline: 1px solid var(--ink-08);
+  outline-offset: -1px;
+  transition: opacity var(--dur-frame) var(--ease-resonant);
+}
+
+.reveal-frame[data-loading="true"] img { opacity: 0; }
+
+/* Wide image (full cover): image on top at full width, text beneath */
+.book-reveal[data-layout="wide"] .reveal-body {
+  grid-template-columns: 1fr;
+  gap: var(--s-6);
+}
+.book-reveal[data-layout="wide"] .reveal-detail { max-width: 62ch; }
+
+.reveal-author {
+  margin-top: var(--s-2);
+  font-family: var(--font-body);
+  font-size: var(--t-lede);
+  font-style: italic;
+  color: var(--ink-60);
+  line-height: 1.3;
+}
+.reveal-note { font-style: italic; }
+
+/* 25.5 — Full Cover / Front Cover switch */
+.reveal-views {
+  display: flex;
+  gap: var(--s-5);
+  margin-top: var(--s-4);
+}
+
+.view-trigger {
+  font-family: var(--font-ui);
+  font-size: var(--t-nav);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  padding: 0 0 var(--s-2);
+  border-bottom: 1px solid transparent;
+  transition: color var(--dur-quick) var(--ease-resonant),
+              border-color var(--dur-quick) var(--ease-resonant);
+}
+.view-trigger:hover { color: var(--ink); }
+.view-trigger[aria-pressed="true"] {
+  color: var(--ink);
+  font-weight: 600;
+  border-bottom-color: var(--gold);
+}
+
+/* 25.6 — Viewer top bar: prev / counter / next left, close right */
+.reveal-bar {
+  position: sticky;
+  top: var(--s-4);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  pointer-events: none;
+}
+.reveal-bar > * { pointer-events: auto; }
+.reveal-bar .reveal-close { position: static; margin-left: 0; }
+
+.reveal-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.reveal-step {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--ink-15);
+  padding: var(--s-2) var(--s-3);
+  background: var(--canvas);
+  transition: border-color var(--dur-quick) var(--ease-resonant);
+}
+.reveal-step:hover,
+.reveal-step:focus-visible { border-color: var(--gold); }
+
+.reveal-count {
+  font-family: var(--font-ui);
+  font-size: var(--t-caption);
+  letter-spacing: 0.18em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-60);
+  background: var(--canvas);
+  padding: var(--s-1) 0;
+}
+
+@media (max-width: 640px) {
+  .reveal-bar { top: var(--s-2); }
+  .reveal-step { padding: var(--s-2); }
+  .reveal-step-label { display: none; }
+  .reveal-nav { gap: var(--s-2); }
+}
+
+/* 25.7 — Touch devices have no hover: the caption is permanent and sits
+   BELOW each cover. The frame stops forcing a ratio and stops clipping. */
+@media (hover: none), (pointer: coarse) {
+  body.page-home .cover-gallery .frame,
+  .portfolio-grid .frame {
+    aspect-ratio: auto !important;
+    overflow: visible;
+    background: transparent;
+  }
+
+  body.page-home .cover-gallery .frame img,
+  .portfolio-grid .frame img {
+    height: auto;
+    outline: 1px solid var(--ink-08);
+    outline-offset: -1px;
+  }
+
+  body.page-home .cover-gallery .frame:hover img,
+  .portfolio-grid .frame:hover img { transform: none; }
+
+  body.page-home .cover-gallery .frame::after,
+  .portfolio-grid .frame::after { display: none; }
+
+  body.page-home .cover-gallery .cover-meta,
+  .portfolio-grid .portfolio-meta {
+    position: static;
+    inset: auto;
+    opacity: 1;
+    transform: none;
+    background: transparent;
+    padding: var(--s-3) 0 0;
+  }
+
+  body.page-home .cover-gallery .frame--pending,
+  .portfolio-grid .frame--pending { min-height: 12rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-frame img { transition: none; }
+}
+
+/* ==========================================================================
+   26. SMALL FIXES FROM REVIEW
+   ========================================================================== */
+
+/* The browser's default 40px blockquote indent pushed the pull-quote off
+   the column. Delete this one rule if you like that indent. */
+blockquote { margin: 0; }
+
+/* "Read the full narrative →" and "View the full research archive →" carry
+   .archive-cta directly on the <a>, which the §17.7 rule (.archive-cta a)
+   never matched — so they had no gold underline or hover. */
+a.archive-cta {
+  padding-bottom: 0.4em;
+  border-bottom: 1.5px solid var(--gold-soft);
+  transition: border-color var(--dur-quick) var(--ease-resonant);
+}
+a.archive-cta:hover,
+a.archive-cta:focus-visible { border-color: var(--gold); }
