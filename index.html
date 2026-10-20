@@ -3,185 +3,90 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohammad Mahdi Karbasbaf — Strings to Stars</title>
-<meta name="description" content="Mohammad Mahdi Karbasbaf: acoustics research from lute soundholes to astrophysical wave phenomena, plus a practice in book cover design.">
+<title>Book Designs — Mohammad Mahdi Karbasbaf</title>
+<meta name="description" content="Editorial book cover designs by Mohammad Mahdi Karbasbaf: full wraps for canonical works of Persian, Islamic, and European literature, philosophy, and history.">
 
+<!-- Font stack matches site-wide style.css: Fraunces (display), Source Serif 4 (body), Inter (UI) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,600&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="style.css?v=2">
 
-<!-- Favicon package — uploaded to site root, resolved sitewide.
-     favicon.ico and apple-touch-icon.png are auto-discovered by legacy
-     browsers and iOS respectively at the root; no <link> needed for them. -->
+<!-- Favicon package — uploaded to site root, resolved sitewide. -->
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-
-<!-- Google Search results: circular variants -->
 <link rel="icon" type="image/png" sizes="48x48"   href="favicon-circle-48x48.png">
 <link rel="icon" type="image/png" sizes="96x96"   href="favicon-circle-96x96.png">
 <link rel="icon" type="image/png" sizes="144x144" href="favicon-circle-144x144.png">
-
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#C9974A">
 
-<!-- Canonical URL. Production domain confirmed: www.karbasbaf.com. -->
-<link rel="canonical" href="https://www.karbasbaf.com/">
+<link rel="canonical" href="https://www.karbasbaf.com/book-designs.html">
 
-<!-- Open Graph — deliberately reuses the exact title/description already
-     set above rather than authoring parallel copy that could drift out of
-     sync with it over time. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Karbasbaf Archive">
 <meta property="og:locale" content="en_US">
-<meta property="og:url" content="https://www.karbasbaf.com/">
-<meta property="og:title" content="Mohammad Mahdi Karbasbaf — Strings to Stars">
-<meta property="og:description" content="Mohammad Mahdi Karbasbaf: acoustics research from lute soundholes to astrophysical wave phenomena, plus a practice in book cover design.">
-<!-- og:image points at the hero calligraphy artwork — the closest thing
-     this archive has to a "brand mark" already, and already specified
-     below as .plate--cinema's asset. It isn't supplied yet (same
-     .frame--pending fallback applies to it on-page), and its 1.618:1
-     ratio is close to but not exactly the 1.91:1 most platforms crop
-     share-cards to — see the PRE-LAUNCH CHECKLIST for a note on
-     exporting a dedicated 1200×630 crop if tighter control over social
-     cropping is wanted later. -->
-<meta property="og:image" content="https://www.karbasbaf.com/assets/images/hero-calligraphy.jpg">
-<meta property="og:image:width" content="1618">
-<meta property="og:image:height" content="1000">
-<meta property="og:image:alt" content="Thuluth-script calligraphic rendering by Mohammad Mahdi Karbasbaf">
+<meta property="og:url" content="https://www.karbasbaf.com/book-designs.html">
+<meta property="og:title" content="Book Designs — Mohammad Mahdi Karbasbaf">
+<meta property="og:description" content="Editorial book cover designs by Mohammad Mahdi Karbasbaf: full wraps for canonical works of Persian, Islamic, and European literature, philosophy, and history.">
+<!-- Interim share image: replace with assets/images/og-book-designs.jpg (1200×630) once it exists -->
+<meta property="og:image" content="https://www.karbasbaf.com/assets/images/covers/cover-shahnama-spread.jpg">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="1470">
+<meta property="og:image:alt" content="Book cover design by Mohammad Mahdi Karbasbaf: full wrap in navy and gold">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mohammad Mahdi Karbasbaf — Strings to Stars">
-<meta name="twitter:description" content="Mohammad Mahdi Karbasbaf: acoustics research from lute soundholes to astrophysical wave phenomena, plus a practice in book cover design.">
-<meta name="twitter:image" content="https://www.karbasbaf.com/assets/images/hero-calligraphy.jpg">
-<meta name="twitter:image:alt" content="Thuluth-script calligraphic rendering by Mohammad Mahdi Karbasbaf">
-
-<!-- MASTER BLUEPRINT: Dedicated Portrait / Headshot
-     Asset Identifier: assets/images/portrait.jpg
-     Recommended dimensions: 1000 × 1000px (square — works cleanly for
-     both schema.org Person.image and most social/share-card use without
-     an additional crop).
-     Composition: a real, current headshot — natural light, no studio
-     backdrop or staged lighting rig, consistent with the documentary,
-     unstyled photographic language used everywhere else in this archive
-     (see the workshop photograph's own MASTER BLUEPRINT note further
-     down this file for the same "unstyled, as found" direction).
-     NOTE — temporary substitution: this file does not exist yet, so the
-     JSON-LD Person.image field below still points at the already-planned
-     assets/images/about-workshop.jpg as a stand-in. The moment
-     portrait.jpg is actually supplied, update that one field to point
-     here instead — nothing else needs to change. -->
+<meta name="twitter:title" content="Book Designs — Mohammad Mahdi Karbasbaf">
+<meta name="twitter:description" content="Editorial book cover designs by Mohammad Mahdi Karbasbaf: full wraps for canonical works of Persian, Islamic, and European literature, philosophy, and history.">
+<meta name="twitter:image" content="https://www.karbasbaf.com/assets/images/covers/cover-shahnama-spread.jpg">
+<meta name="twitter:image:alt" content="Book cover design by Mohammad Mahdi Karbasbaf: full wrap in navy and gold">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["WebPage", "ProfilePage"],
-  "name": "Mohammad Mahdi Karbasbaf — Strings to Stars",
-  "url": "https://www.karbasbaf.com/",
-  "description": "Mohammad Mahdi Karbasbaf: acoustics research from lute soundholes to astrophysical wave phenomena, plus a practice in book cover design.",
+  "@type": "CollectionPage",
+  "name": "Book Designs — Mohammad Mahdi Karbasbaf",
+  "url": "https://www.karbasbaf.com/book-designs.html",
+  "description": "Editorial book cover designs by Mohammad Mahdi Karbasbaf: full wraps for canonical works of Persian, Islamic, and European literature, philosophy, and history.",
   "isPartOf": { "@type": "WebSite", "name": "Karbasbaf Archive", "url": "https://www.karbasbaf.com/" },
-  "mainEntity": {
+  "about": {
     "@type": "Person",
     "name": "Mohammad Mahdi Karbasbaf",
-    "alternateName": "M. M. Karbasbaf",
-    "url": "https://www.karbasbaf.com/",
-    "image": "https://www.karbasbaf.com/assets/images/about-workshop.jpg",
-    "email": "mailto:info@karbasbaf.com",
-    "jobTitle": "Independent Researcher | Acoustics & Wave Phenomena",
-    "description": "Independent researcher and luthier working across musical-instrument acoustics, Persian architectural heritage, and astrophysical wave phenomena; also active as a book cover designer and Thuluth calligrapher.",
-    "knowsAbout": ["Archaeoacoustics", "Architectural Acoustics", "Musical Instrument Acoustics", "Computational Acoustics", "Astrophysical Wave Phenomena", "Multi-Scale Wave Analysis", "Thuluth Calligraphy", "Book Cover Design"],
-    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Qazvin Azad University", "sameAs": "https://www.qiau.ac.ir/" },
-    "sameAs": ["https://orcid.org/0000-0003-2264-9372"]
+    "sameAs": "https://orcid.org/0000-0003-2264-9372"
   },
-  "hasPart": [
-    {
-      "@type": "ScholarlyArticle",
-      "headline": "Experimental validation of Helmholtz resonator arrays as zero-energy acoustic treatment for net-zero energy buildings",
-      "author": [
-        { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" },
-        { "@type": "Person", "name": "G. Ezaan" }
-      ],
-      "isPartOf": { "@type": "Periodical", "name": "Next Research" },
-      "publisher": { "@type": "Organization", "name": "Elsevier" },
-      "datePublished": "2026",
-      "sameAs": "https://doi.org/10.1016/j.nexres.2026.102016",
-      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.1016/j.nexres.2026.102016" }
-    },
-    {
-      "@type": "ScholarlyArticle",
-      "headline": "From ornamentation to acoustics: A quantitative analysis of Tong Bori elements in Persian architectural heritage",
-      "author": [
-        { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" },
-        { "@type": "Person", "name": "G. Ezaan" }
-      ],
-      "isPartOf": { "@type": "Periodical", "name": "Digital Applications in Archaeology and Cultural Heritage" },
-      "publisher": { "@type": "Organization", "name": "Elsevier" },
-      "datePublished": "2025",
-      "sameAs": "https://doi.org/10.1016/j.daach.2025.e00433",
-      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.1016/j.daach.2025.e00433" }
-    },
-    {
-      "@type": "ScholarlyArticle",
-      "headline": "Historical Evolution and Acoustic Significance of Sound Holes in Lutes",
-      "author": [
-        { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" },
-        { "@type": "Person", "name": "G. Ezaan" }
-      ],
-      "isPartOf": { "@type": "Periodical", "name": "Applied Acoustics" },
-      "publisher": { "@type": "Organization", "name": "Elsevier" },
-      "datePublished": "2024",
-      "sameAs": "https://doi.org/10.1016/j.apacoust.2023.109784",
-      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.1016/j.apacoust.2023.109784" }
-    },
-    {
-      "@type": "ScholarlyArticle",
-      "headline": "A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments: The Golden Method",
-      "author": [
-        { "@type": "Person", "name": "S. Jafari" },
-        { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }
-      ],
-      "isPartOf": { "@type": "Periodical", "name": "Arts" },
-      "datePublished": "2017",
-      "sameAs": "https://doi.org/10.3390/arts6040020",
-      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.3390/arts6040020" }
-    },
-    {
-      "@type": "ScholarlyArticle",
-      "headline": "Investigating the Role of Resonance in Herbig-Haro (HH) Objects Embedded Within Gaseous Nebulae",
-      "author": [
-        { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }
-      ],
-      "creativeWorkStatus": "InProgress",
-            "description": "In preparation — forthcoming."
-    },
-    { "@type": "CreativeWork", "name": "Shahnama — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2025", "image": "https://www.karbasbaf.com/assets/images/covers/cover-shahnama.jpg" },
-    { "@type": "CreativeWork", "name": "The Philosophy of Illumination — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://www.karbasbaf.com/assets/images/covers/cover-philosophy-of-illumination.jpg" },
-    { "@type": "CreativeWork", "name": "Ethics — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://www.karbasbaf.com/assets/images/covers/cover-ethics.jpg" },
-    { "@type": "CreativeWork", "name": "Faust — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://www.karbasbaf.com/assets/images/covers/cover-faust.jpg" },
-    { "@type": "CreativeWork", "name": "Un Coup de Dés — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2025", "image": "https://www.karbasbaf.com/assets/images/covers/cover-un-coup-de-des.jpg" },
-    { "@type": "CreativeWork", "name": "Mimesis — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://www.karbasbaf.com/assets/images/covers/cover-mimesis.jpg" }
-  ]
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListOrder": "https://schema.org/ItemListUnordered",
+    "numberOfItems": 10,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1,  "item": { "@type": "CreativeWork", "name": "Shahnama — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2025", "image": "https://www.karbasbaf.com/assets/images/covers/cover-shahnama.jpg" } },
+      { "@type": "ListItem", "position": 2,  "item": { "@type": "CreativeWork", "name": "The Philosophy of Illumination — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://www.karbasbaf.com/assets/images/covers/cover-philosophy-of-illumination.jpg" } },
+      { "@type": "ListItem", "position": 3,  "item": { "@type": "CreativeWork", "name": "Ethics — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://www.karbasbaf.com/assets/images/covers/cover-ethics.jpg" } },
+      { "@type": "ListItem", "position": 4,  "item": { "@type": "CreativeWork", "name": "Faust — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://www.karbasbaf.com/assets/images/covers/cover-faust.jpg" } },
+      { "@type": "ListItem", "position": 5,  "item": { "@type": "CreativeWork", "name": "Un coup de dés — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2025", "image": "https://www.karbasbaf.com/assets/images/covers/cover-un-coup-de-des.jpg" } },
+      { "@type": "ListItem", "position": 6,  "item": { "@type": "CreativeWork", "name": "Mimesis — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://www.karbasbaf.com/assets/images/covers/cover-mimesis.jpg" } },
+      { "@type": "ListItem", "position": 7,  "item": { "@type": "CreativeWork", "name": "The Conference of the Birds — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://www.karbasbaf.com/assets/images/covers/cover-the-conference-of-the-birds.jpg" } },
+      { "@type": "ListItem", "position": 8,  "item": { "@type": "CreativeWork", "name": "Notre-Dame de Paris — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://www.karbasbaf.com/assets/images/covers/cover-notre-dame-de-paris.jpg" } },
+      { "@type": "ListItem", "position": 9,  "item": { "@type": "CreativeWork", "name": "À rebours — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://www.karbasbaf.com/assets/images/covers/cover-a-rebours.jpg" } },
+      { "@type": "ListItem", "position": 10, "item": { "@type": "CreativeWork", "name": "Iran: A Modern History — cover design", "genre": "Editorial Book Cover", "creator": { "@type": "Person", "name": "Mohammad Mahdi Karbasbaf" }, "dateCreated": "2026", "image": "https://www.karbasbaf.com/assets/images/covers/cover-iran-a-modern-history.jpg" } }
+    ]
+  }
 }
 </script>
 </head>
-<body class="page-home">
+
+<body class="page-book-designs">
 
 <a class="skip-link" href="#main-content">Skip to content</a>
 
-<!-- MASTER BLUEPRINT: Ceiling Crown
-     Asset Identifier: assets/images/yazd-crown.png (referenced as a CSS
-     background-image on .ceiling-crown in style.css §17.1 — this element
-     has no src attribute of its own, so its blueprint note lives here in
-     HTML and its rendering rule lives in the CSS file). Already supplied
-     and live — no further export needed. -->
+<!-- Shared decorative crown, identical asset/markup to index.html -->
 <div class="ceiling-crown" aria-hidden="true"></div>
 
 <header class="site-header">
   <div class="wrap">
     <nav class="nav-list" id="primary-nav" data-open="false" aria-label="Primary">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="book-designs.html">Book Designs</a>
+      <a href="index.html">Home</a>
+      <a href="book-designs.html" aria-current="page">Book Designs</a>
       <a href="research.html">Research</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
@@ -194,285 +99,34 @@
 
 <main id="main-content" tabindex="-1">
 
-  <section class="hero" aria-labelledby="hero-title">
+  <section class="section" aria-labelledby="portfolio-heading">
     <div class="wrap">
-      <div class="hero-split">
-        <div class="hero-copy">
-          <h1 class="hero-title" id="hero-title">
-            <span class="line-primary">Strings</span>
-            <span class="line-secondary">to Stars</span>
-          </h1>
-          <p class="lede">Resonance, traced from the soundhole of a hand-built lute, through the ornamented niches of a Persian palace, to the wave phenomena now under investigation inside a distant nebula, at every scale, read as a single, continuous instrument.</p>
-        </div>
 
-        <div class="plate plate--cinema">
-          <div class="frame">
-            <img
-              src="assets/images/hero-calligraphy.jpg"
-              alt="Thuluth-script calligraphic rendering by Mohammad Mahdi Karbasbaf"
-              width="1618" height="1000"
-              loading="eager" fetchpriority="high" decoding="async">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="showcase" aria-labelledby="showcase-heading">
-    <div class="wrap">
       <div class="section-head lute-grid">
         <div class="rail">
-          <p class="eyebrow">Selected Covers</p>
-          
-          <p class="caption">Book Design<br>Editorial Redesign<br>Canonical Texts</p>
+          <p class="eyebrow eyebrow--gold">Complete Archive</p>
+          <p class="caption mt-4">Book Design<br>Full Wraps<br>Canonical Texts</p>
         </div>
         <div class="canvas">
-          <h2 class="h2" id="showcase-heading">Six Covers,<br>One Practice</h2>
-          <p class="body-text">Six covers from a self-initiated practice in book design: new treatments for canonical works of Persian epic, Islamic philosophy, and European letters, arranged by the date of the work and spanning nearly a thousand years, from Ferdowsi's Shahnama (c. 1010) to Auerbach's Mimesis (1946). They are studies, not commissions, and are not affiliated with any publisher. Select a cover to open the complete wrap, or the front panel alone.</p>
+          <h1 class="h1" id="portfolio-heading">Book Designs</h1>
+          <p class="body-text mt-4">
+            Editorial book covers, presented as complete wraps (back, spine and front).
+            Select any cover to inspect it at full scale, and switch between the full wrap and the front panel when available.
+          </p>
         </div>
       </div>
 
-      <div class="cover-gallery mt-7">
+      <nav class="portfolio-filter" aria-label="Filter portfolio by category">
+        <button type="button" class="filter-trigger" data-filter="all" aria-pressed="true">Complete Archive</button>
+        <button type="button" class="filter-trigger" data-filter="covers" aria-pressed="false">Book Covers</button>
+        <button type="button" class="filter-trigger" data-filter="calligraphy" aria-pressed="false">Calligraphy</button>
+        <button type="button" class="filter-trigger" data-filter="plates" aria-pressed="false">Lettering &amp; Plates</button>
+      </nav>
 
-  <button type="button" class="plate-trigger cover-card"
-    data-title="Shahnama"
-    data-author="Abu'l-Qasim Ferdowsi"
-    data-year="2025 — cover design"
-    data-medium="Full-wrap cover in navy and gold: a Persian miniature of a hero grappling a demon beneath a gold title on the front, a jeweled dagger bearing the title down the spine, and gold Persian lettering on the back."
-    data-note="I set a Persian miniature of a hero grappling a demon beneath a navy title band, and ran a jeweled dagger down the spine, so the epic's combat and its courtly craftsmanship share one wrap."
-    data-image="assets/images/covers/cover-shahnama.jpg"
-    data-spread="assets/images/covers/cover-shahnama-spread.jpg"
-    data-alt="Shahnama cover: navy title band in gold capitals above a Persian miniature of a hero wrestling a demon in a black cave."
-    data-spread-alt="Full wrap in navy: back panel with gold Persian lettering and text; spine with a jeweled dagger bearing the title; front with a gold title above a Persian miniature of a hero fighting a demon."
-    data-work="Ferdowsi's Persian national epic, completed c. 1010.">
-    <span class="frame">
-      <img src="assets/images/covers/cover-shahnama-spread.jpg" alt="Shahnama, full cover: navy wrap with a jeweled dagger on the spine and a Persian miniature of a hero fighting a demon on the front." width="2000" height="1470" loading="eager" decoding="async">
-      <span class="cover-meta" aria-hidden="true">
-        <span class="cover-meta-title">Shahnama</span>
-        <span class="cover-meta-author">Abu'l-Qasim Ferdowsi</span>
-        <span class="cover-meta-sub">2025 — Cover Design</span>
-      </span>
-    </span>
-    <span class="sr-only"> — Select to view the full cover</span>
-  </button>
+      <div class="portfolio-grid" id="portfolio-grid"><noscript><p class="body-text">Please enable JavaScript to browse the covers.</p></noscript></div>
 
-  <button type="button" class="plate-trigger cover-card"
-    data-title="The Philosophy of Illumination"
-    data-author="Shihāb al-Dīn Suhrawardī"
-    data-year="2026 — cover design"
-    data-medium="Full-wrap cover in black, white and gold: an arched, pierced arabesque screen between title and author on the front, and a beaded quatrefoil medallion at the head of the spine."
-    data-note="The lattice is borrowed from the perforated screens of Persian architecture that I study acoustically; for Suhrawardī, light is the substance of knowledge, and a screen is what lets it through."
-    data-image="assets/images/covers/cover-philosophy-of-illumination.jpg"
-    data-spread="assets/images/covers/cover-philosophy-of-illumination-spread.jpg"
-    data-alt="The Philosophy of Illumination cover: white title above a pierced white arched lattice on black, author's name below."
-    data-spread-alt="Black wrap: back panel with a gold italic quotation and text; spine with a white quatrefoil medallion and vertical title; front with a white pierced arched lattice between title and author."
-    data-work="Suhrawardī's Ḥikmat al-Ishrāq, composed in 1186.">
-    <span class="frame">
-      <img src="assets/images/covers/cover-philosophy-of-illumination.jpg" alt="The Philosophy of Illumination cover: white title above a pierced white arched lattice on black, author's name below." width="800" height="1234" loading="eager" decoding="async">
-      <span class="cover-meta" aria-hidden="true">
-        <span class="cover-meta-title">The Philosophy of Illumination</span>
-        <span class="cover-meta-author">Shihāb al-Dīn Suhrawardī</span>
-        <span class="cover-meta-sub">2026 — Cover Design</span>
-      </span>
-    </span>
-    <span class="sr-only"> — Select to view the full cover</span>
-  </button>
+      <p class="caption no-transform mt-6">Self-initiated design studies. The texts and any third-party imagery remain the property of their respective rights holders.</p>
 
-  <button type="button" class="plate-trigger cover-card"
-    data-title="Ethics"
-    data-author="Baruch Spinoza"
-    data-year="2026 — cover design"
-    data-medium="Full-wrap cover in cream and ochre: a ground of fine vertical rules, spaced serif capitals in dark brown, five Roman numerals on a single gold line, and a dark brown spine bearing a small seal."
-    data-note="Spinoza wrote the Ethics as a geometry, in definitions, axioms and propositions, so the cover is reduced to ruled lines and five numbered parts."
-    data-image="assets/images/covers/cover-ethics.jpg"
-    data-spread="assets/images/covers/cover-ethics-spread.jpg"
-    data-alt="Ethics cover: dark brown capitals on a cream ground of fine gold vertical lines, with five Roman numerals on one rule."
-    data-spread-alt="Cream wrap ruled in fine vertical lines: back panel with an epigraph and text; dark brown spine with vertical title, seal and author; front with spaced capitals and five numerals."
-    data-work="Spinoza's Ethica, ordine geometrico demonstrata, published posthumously in 1677.">
-    <span class="frame">
-      <img src="assets/images/covers/cover-ethics.jpg" alt="Ethics cover: dark brown capitals on a cream ground of fine gold vertical lines, with five Roman numerals on one rule." width="800" height="1234" loading="lazy" decoding="async">
-      <span class="cover-meta" aria-hidden="true">
-        <span class="cover-meta-title">Ethics</span>
-        <span class="cover-meta-author">Baruch Spinoza</span>
-        <span class="cover-meta-sub">2026 — Cover Design</span>
-      </span>
-    </span>
-    <span class="sr-only"> — Select to view the full cover</span>
-  </button>
-
-  <button type="button" class="plate-trigger cover-card"
-    data-title="Faust"
-    data-author="Johann Wolfgang von Goethe"
-    data-year="2026 — cover design"
-    data-medium="Full-wrap cover on a cream ground: an oversized hairline-serif title above a stippled engraving of Mephistopheles, with an oxblood spine."
-    data-note="I set the title in a high-contrast Didone at a scale that fills the front panel and let a stippled Mephistopheles rise beneath it. The oxblood spine is the wrap's one saturated accent."
-    data-image="assets/images/covers/cover-faust.jpg"
-    data-spread="assets/images/covers/cover-faust-spread.jpg"
-    data-alt="Faust cover: oversized black hairline-serif title above a stippled engraving of a horned devil with a wing, on cream."
-    data-spread-alt="Full wrap: cream back panel with a German quotation and text; oxblood spine reading Faust and J. W. von Goethe; front with an oversized title and a stippled devil."
-    data-work="Goethe's two-part tragedy: Part One published in 1808; Part Two completed in 1831 and published in 1832.">
-    <span class="frame">
-      <img src="assets/images/covers/cover-faust-spread.jpg" alt="Faust, full cover: cream wrap with an oxblood spine and an oversized title above a stippled engraving of a devil." width="2000" height="1470" loading="lazy" decoding="async">
-      <span class="cover-meta" aria-hidden="true">
-        <span class="cover-meta-title">Faust</span>
-        <span class="cover-meta-author">Johann Wolfgang von Goethe</span>
-        <span class="cover-meta-sub">2026 — Cover Design</span>
-      </span>
-    </span>
-    <span class="sr-only"> — Select to view the full cover</span>
-  </button>
-
-  <button type="button" class="plate-trigger cover-card"
-    data-title="Un Coup de Dés"
-    data-author="Stéphane Mallarmé"
-    data-year="2025 — cover design"
-    data-medium="Full-wrap cover on a night-sky ground: the title words scattered across the front in gold capitals, with a fine constellation line and a faint spiral galaxy."
-    data-note="Mallarmé treats the page as a constellation of words; the cover makes the image literal, and answers it: the universe is not a die, but a dulcimer."
-    data-image="assets/images/covers/cover-un-coup-de-des.jpg"
-    data-spread="assets/images/covers/cover-un-coup-de-des-spread.jpg"
-    data-alt="Un coup de dés cover: gold capitals scattered over a night sky with a constellation line and a faint galaxy."
-    data-spread-alt="Night-sky wrap: back panel with a French quotation and short text in gold; spine reading Mallarmé and Un coup de dés; front with scattered gold title, constellation and galaxy."
-    data-work="Mallarmé's Un coup de dés jamais n'abolira le hasard, first published in the review Cosmopolis, 1897.">
-    <span class="frame">
-      <img src="assets/images/covers/cover-un-coup-de-des.jpg" alt="Un coup de dés cover: gold capitals scattered over a night sky with a constellation line and a faint galaxy." width="800" height="1234" loading="lazy" decoding="async">
-      <span class="cover-meta" aria-hidden="true">
-        <span class="cover-meta-title">Un Coup de Dés</span>
-        <span class="cover-meta-author">Stéphane Mallarmé</span>
-        <span class="cover-meta-sub">2025 — Cover Design</span>
-      </span>
-    </span>
-    <span class="sr-only"> — Select to view the full cover</span>
-  </button>
-
-  <button type="button" class="plate-trigger cover-card"
-    data-title="Mimesis"
-    data-author="Erich Auerbach"
-    data-year="2026 — cover design"
-    data-medium="Full-wrap cover in earth tones: four wavering bands from ochre to dark brown beneath a cream sky bearing a widely spaced title, with the Greek word for scar on the horizon."
-    data-note="Auerbach opens the book with the scar of Odysseus, so the cover opens with it too: the Greek word for scar, set on a horizon of layered earth tones."
-    data-image="assets/images/covers/cover-mimesis.jpg"
-    data-spread="assets/images/covers/cover-mimesis-spread.jpg"
-    data-alt="Mimesis cover: cream sky over wavy ochre-to-brown bands, with the Greek word for scar on the horizon."
-    data-spread-alt="Full wrap: cream back panel with an italic blurb; spine reading Mimesis and Erich Auerbach; front with title, subtitle and the Greek word for scar over layered ochre-to-brown bands."
-    data-work="Auerbach's Mimesis: The Representation of Reality in Western Literature, first published in Bern, 1946.">
-    <span class="frame">
-      <img src="assets/images/covers/cover-mimesis-spread.jpg" alt="Mimesis, full cover: cream wrap with layered ochre-to-brown wavering bands and the Greek word for scar on the horizon." width="2000" height="1470" loading="lazy" decoding="async">
-      <span class="cover-meta" aria-hidden="true">
-        <span class="cover-meta-title">Mimesis</span>
-        <span class="cover-meta-author">Erich Auerbach</span>
-        <span class="cover-meta-sub">2026 — Cover Design</span>
-      </span>
-    </span>
-    <span class="sr-only"> — Select to view the full cover</span>
-  </button>
-
-</div>
-
-<p class="caption no-transform mt-6">Self-initiated design studies. The texts and any third-party imagery remain the property of their respective rights holders.</p>
-
-      <p class="archive-cta mt-6"><a href="book-designs.html">View the complete book design archive →</a></p>
-    </div>
-  </section>
-
-  <hr class="hr-gold wrap">
-
-  <section class="section" aria-labelledby="about-heading">
-    <div class="wrap">
-      <div class="lute-grid">
-        <div class="rail">
-          <p class="eyebrow">The Scholar</p>
-          <p class="caption">Craft<br>as Method</p>
-        </div>
-        <div class="canvas">
-          <h2 class="h2" id="about-heading">Resonance<br>Across Scales</h2>
-
-          <div class="plate plate--portrait mt-5">
-  <div class="frame">
-    <img src="assets/images/about-workshop.jpg" alt="Documentary photograph of Mohammad Mahdi Karbasbaf constructing a traditional Persian stringed instrument" width="1500" height="2000" loading="lazy" decoding="async">
-  </div>
-</div>
-
-          <p class="body-text dropcap mt-5">Years of hands-on work with musical instruments, investigating, building, and preserving them, led to the creation of the Golden Method, a mathematical approach for optimizing soundhole design. That practical experience revealed the acoustic wisdom already embedded in centuries-old craftsmanship, and became the experiential foundation for everything that followed.</p>
-
-          <p class="body-text">Research later expanded into Persian architectural heritage, where related wave-analysis principles were shown to operate, through different physical mechanisms and at different frequency ranges, within ornamental elements long assumed to be purely decorative. Current work asks whether that same analytical language can be extended toward the electromagnetic and plasma wave phenomena of astrophysical environments.</p>
-
-          <a href="about.html" class="archive-cta mt-4">Read the full narrative →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--tinted section--tight">
-    <div class="wrap">
-      <div class="lute-grid">
-        <div class="rail">
-          <p class="eyebrow eyebrow--gold">Working Principle</p>
-        </div>
-        <div class="canvas">
-          <blockquote class="pull-quote">
-            The universe is not a die, but a dulcimer.
-            <cite>M. M. Karbasbaf</cite>
-          </blockquote>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="publications-heading">
-    <div class="wrap">
-      <div class="section-head lute-grid">
-        <div class="rail">
-          <p class="eyebrow">Selected Record</p>
-          
-        </div>
-        <div class="canvas">
-          <h2 class="h2" id="publications-heading">Scholarly<br>Publications</h2>
-        </div>
-      </div>
-
-      <div class="lute-grid">
-        <div class="rail" aria-hidden="true"></div>
-        <div class="canvas">
-
-          <article class="pub">
-            <span class="pub-number">I</span>
-            <h3 class="pub-title">Experimental validation of Helmholtz resonator arrays as zero-energy acoustic treatment for net-zero energy buildings</h3>
-            <p class="pub-venue caption">Next Research (Elsevier) · 2026 · Karbasbaf, M.M., Ezaan, G.</p>
-            <p class="doi mt-2"><a href="https://doi.org/10.1016/j.nexres.2026.102016" target="_blank" rel="noopener">doi.org/10.1016/j.nexres.2026.102016</a></p>
-          </article>
-
-          <article class="pub">
-            <span class="pub-number">II</span>
-            <h3 class="pub-title">From Ornamentation to Acoustics: A Quantitative Analysis of Tong Bori Elements in Persian Architectural Heritage</h3>
-            <p class="pub-venue caption">Digital Applications in Archaeology and Cultural Heritage (Elsevier) · 2025 · Karbasbaf, M.M., Ezaan, G.</p>
-            <p class="doi mt-2"><a href="https://doi.org/10.1016/j.daach.2025.e00433" target="_blank" rel="noopener">doi.org/10.1016/j.daach.2025.e00433</a></p>
-          </article>
-
-          <article class="pub">
-            <span class="pub-number">III</span>
-            <h3 class="pub-title">Historical Evolution and Acoustic Significance of Sound Holes in Lutes</h3>
-            <p class="pub-venue caption">Applied Acoustics (Elsevier) · 2024 · Karbasbaf, M.M., Ezaan, G.</p>
-            <p class="doi mt-2"><a href="https://doi.org/10.1016/j.apacoust.2023.109784" target="_blank" rel="noopener">doi.org/10.1016/j.apacoust.2023.109784</a></p>
-          </article>
-
-          <article class="pub">
-            <span class="pub-number">IV</span>
-            <h3 class="pub-title">A Geometrical Method for Sound-Hole Size and Location Enhancement in Lute Family Musical Instruments: The Golden Method</h3>
-            <p class="pub-venue caption">Arts · 2017 · Jafari, S., Karbasbaf, M.M.</p>
-            <p class="doi mt-2"><a href="https://doi.org/10.3390/arts6040020" target="_blank" rel="noopener">doi.org/10.3390/arts6040020</a></p>
-          </article>
-
-          <article class="pub">
-            <span class="pub-number">V</span>
-            <h3 class="pub-title">Investigating the Role of Resonance in Herbig-Haro (HH) Objects Embedded Within Gaseous Nebulae</h3>
-            <p class="pub-venue caption">Karbasbaf, M.M.</p>
-            <span class="pub-status">In Preparation</span>
-          </article>
-
-          <a href="research.html" class="archive-cta mt-6">View the full research archive →</a>
-
-        </div>
-      </div>
     </div>
   </section>
 
@@ -480,11 +134,14 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <!-- MASTER BLUEPRINT: Footer Seal      Asset Identifier: assets/images/seal-karbasbaf.png      Decorative calligraphic mark, positioned before the name per the      .site-footer .wrap flex order (space-between; first child = far      left). alt="" + role="presentation" deliberately: the adjacent      <p class="caption"> already carries the full name and ORCID as      real text, so a screen reader description here would only repeat      it. Width/height below are PLACEHOLDERS — replace both with the      seal file's actual pixel dimensions before shipping, so the      browser reserves the correct box and avoids a layout shift once      the real image loads. --> <div class="footer-lockup">   <img class="footer-seal" src="assets/images/seal-karbasbaf.png" alt="" role="presentation" width="2200" height="1700" loading="lazy" decoding="async">   <p class="caption">Mohammad Mahdi Karbasbaf<br><a href="https://orcid.org/0000-0003-2264-9372" target="_blank" rel="noopener">ORCID 0000-0003-2264-9372</a></p> </div>
+    <div class="footer-lockup">
+      <img class="footer-seal" src="assets/images/seal-karbasbaf.png" alt="" role="presentation" width="2200" height="1700" loading="lazy" decoding="async">
+      <p class="caption">Mohammad Mahdi Karbasbaf<br><a href="https://orcid.org/0000-0003-2264-9372" target="_blank" rel="noopener">ORCID 0000-0003-2264-9372</a></p>
+    </div>
     <p class="caption"><a href="mailto:info@karbasbaf.com">info@karbasbaf.com</a></p>
     <p class="caption">
       <a href="index.html">Home</a> &nbsp;·&nbsp;
-      <a href="book-designs.html">Book Designs</a> &nbsp;·&nbsp;
+      <a href="book-designs.html" aria-current="page">Book Designs</a> &nbsp;·&nbsp;
       <a href="research.html">Research</a> &nbsp;·&nbsp;
       <a href="about.html">About</a> &nbsp;·&nbsp;
       <a href="contact.html">Contact</a>
@@ -525,6 +182,278 @@
   </div>
 </div>
 
+<script>
+(function () {
+  'use strict';
+
+  var COVERS = 'assets/images/covers/';
+
+  var PORTFOLIO = [
+    {
+      category: "covers",
+      title: "Shahnama: The Visual Language of the Persian Book of Kings",
+      author: "Robert Hillenbrand (ed.)",
+      year: "2025 — cover design",
+      medium: "Midnight-blue field, painted scene, object photograph, gold calligraphy.",
+      note: "The cover pairs three registers of Persian visual culture: painted scene, photographed object and calligraphic script. A midnight-blue field and gold lettering unify them; widely spaced title capitals sit above the painting as a header, and the dagger runs vertically beside the spine. This fits a subtitle that frames the book as a study of visual language.",
+      image: COVERS + "cover-shahnama.jpg",
+      spread: COVERS + "cover-shahnama-spread.jpg",
+      grid: COVERS + "cover-shahnama-spread.jpg",
+      alt: "Front cover: midnight-blue field with gold title above a Persian painted scene.",
+      spreadAlt: "Wrap cover: navy field with gold calligraphy and text; spine with a jeweled dagger; front with gold title above a Persian painted scene.",
+      work: "A study of the Shahnama’s visual tradition.",
+      width: 2000,
+      height: 1470,
+      eager: true
+    },
+
+    {
+      category: "covers",
+      title: "The Philosophy of Illumination",
+      author: "Shihāb al-Dīn Suhrawardī",
+      year: "2026 — cover design",
+      medium: "Near-black field, white arched lattice motif, cream title, gold labels.",
+      note: "A single arch-shaped lattice in white stands against near-black, making pattern the cover's only image. The white fragments read as light passing through a screen, while cream serif capitals, a small gold subtitle and widely spaced gold labels form a disciplined three-tier hierarchy. The contrast of light and dark corresponds directly to a title about illumination.",
+      image: COVERS + "cover-philosophy-of-illumination.jpg",
+      spread: COVERS + "cover-philosophy-of-illumination-spread.jpg",
+      grid: COVERS + "cover-philosophy-of-illumination.jpg",
+      alt: "Front cover: near-black field with a centered white arched lattice ornament, cream title and author.",
+      spreadAlt: "Wrap cover: near-black field with a white arched lattice on the front; cream title and gold secondary lines across the wrap.",
+      work: "Suhrawardī’s Ḥikmat al-Ishrāq (The Philosophy of Illumination).",
+      width: 800,
+      height: 1234,
+      eager: true
+    },
+
+    {
+      category: "covers",
+      title: "Ethics",
+      author: "Benedict de Spinoza",
+      year: "2026 — cover design",
+      medium: "Vertical line field, ochre and cream, numbered divisions, restrained hierarchy.",
+      note: "A continuous field of fine vertical lines covers the wrap, so the surface reads as ruled order rather than image. The title sits in dark brown capitals above an italic Latin subtitle and a short numbered line running from I to V, while a solid dark spine with a small emblem anchors the structure. Pattern, order and restraint suit a book built from numbered parts.",
+      image: COVERS + "cover-ethics.jpg",
+      spread: COVERS + "cover-ethics-spread.jpg",
+      grid: COVERS + "cover-ethics.jpg",
+      alt: "Front cover: cream and ochre vertical-striped pattern with brown serif title and a short I–V numbered rule.",
+      spreadAlt: "Wrap cover: cream and ochre vertical-striped pattern with title and author; dark spine with a small emblem; back with text.",
+      work: "Spinoza’s Ethics, structured as numbered propositions.",
+      width: 800,
+      height: 1234,
+      eager: true
+    },
+
+    {
+      category: "covers",
+      title: "Faust",
+      author: "Johann Wolfgang von Goethe",
+      year: "2026 — cover design",
+      medium: "Pale ground, oversized title, hatched figure, restrained accent spine.",
+      note: "An oversized, high-contrast title dominates a pale, softly vignetted ground, while a dark hatched figure enters from the lower edge. The thin hairlines and heavy strokes of the letters echo the tonal extremes of the drawing, and small secondary type keeps the hierarchy clear. The cropped figure introduces menace without disturbing the cover's restraint.",
+      image: COVERS + "cover-faust.jpg",
+      spread: COVERS + "cover-faust-spread.jpg",
+      grid: COVERS + "cover-faust-spread.jpg",
+      alt: "Front cover: pale field with a very large black title and a dark hatched figure at the lower edge.",
+      spreadAlt: "Wrap cover: pale field with oversized title on the front; accent-colour spine; text on the back.",
+      work: "Goethe’s tragedy.",
+      width: 2000,
+      height: 1470
+    },
+
+    {
+      category: "covers",
+      title: "Un coup de dés jamais n'abolira le hasard",
+      author: "Stéphane Mallarmé",
+      year: "2025 — cover design",
+      medium: "Night field, scattered gold title, hairline constellation structure, open space.",
+      note: "Typography is the image: the title is broken into words of differing size and height, scattered across a night field. A faint galaxy and a hairline constellation pass through the space without fixing the words in place, and gold capitals stay legible against deep navy. Dispersal and open space suit a title about a throw of the dice and chance.",
+      image: COVERS + "cover-un-coup-de-des.jpg",
+      spread: COVERS + "cover-un-coup-de-des-spread.jpg",
+      grid: COVERS + "cover-un-coup-de-des.jpg",
+      alt: "Front cover: navy starfield with scattered gold title words and thin constellation lines.",
+      spreadAlt: "Wrap cover: navy starfield with scattered gold title; spine with author and title; back with an italic quotation and text.",
+      work: "Mallarmé’s typographic poem, first published in 1897.",
+      width: 800,
+      height: 1234
+    },
+
+    {
+      category: "covers",
+      title: "Mimesis",
+      author: "Erich Auerbach",
+      year: "2026 — cover design",
+      medium: "Layered earth-tone bands, Greek word marker, quiet hierarchy.",
+      note: "Stacked wavy bands descend from cream to deep brown, reading as a cut section of ground. A single Greek word sits on the ochre band as the only pictorial element, beneath a large, widely spaced title and a quiet italic subtitle. Layered earth suits a title concerned with how reality is represented.",
+      image: COVERS + "cover-mimesis.jpg",
+      spread: COVERS + "cover-mimesis-spread.jpg",
+      grid: COVERS + "cover-mimesis-spread.jpg",
+      alt: "Front cover: cream upper field above wavy bands of ochre, rust and brown, with a Greek word and widely spaced title.",
+      spreadAlt: "Wrap cover: cream upper field and layered earth-tone bands across the wrap; spine with title; back with text.",
+      work: "Auerbach’s study of realism and representation.",
+      width: 2000,
+      height: 1470
+    },
+
+    {
+      category: "covers",
+      title: "The Conference of the Birds",
+      author: "Attar of Nishapur",
+      year: "2026 — cover design",
+      medium: "Navy field, curved tilework panel, gold accents, steady hierarchy.",
+      note: "A quarter-circle of tilework cuts into a navy field, so the ornament reads as a threshold rather than a border. Gold in the italic title words and the flap linework picks up the ochre of the tiles, while a plain serif title and a widely spaced author line hold the hierarchy steady. The bird motif answers the title directly, and the sweeping curve gives it a sense of flight.",
+      image: COVERS + "cover-the-conference-of-the-birds.jpg",
+      spread: COVERS + "cover-the-conference-of-the-birds-spread.jpg",
+      grid: COVERS + "cover-the-conference-of-the-birds.jpg",
+      alt: "Front cover: navy field with a sweeping curved panel of blue-green tilework and a calm serif hierarchy.",
+      spreadAlt: "Jacket spread: navy cover with a curved panel of blue, green and white bird tilework; gold line drawings of birds on the flaps.",
+      work: "Attar’s Manṭiq al-Ṭayr.",
+      width: 1800,
+      height: 2550
+    },
+
+    {
+      category: "covers",
+      title: "Notre-Dame de Paris",
+      author: "Victor Hugo",
+      year: "2026 — cover design",
+      medium: "Stone-toned field, Gothic aperture, pale city engraving, cream flaps.",
+      note: "The cover treats the cathedral as a viewpoint rather than a façade: the reader looks through a Gothic opening onto a pale, engraved city. A dark, stone-toned field surrounds the window, so the light image carries the focus, while widely spaced capitals and a small italic subtitle keep the type subordinate. The cream flaps reverse the palette, and the back keeps the building present across the wrap.",
+      image: COVERS + "cover-notre-dame-de-paris.jpg",
+      spread: COVERS + "cover-notre-dame-de-paris-spread.jpg",
+      grid: COVERS + "cover-notre-dame-de-paris.jpg",
+      alt: "Front cover: dark stone-toned field with a pointed Gothic window framing a pale city view.",
+      spreadAlt: "Jacket spread: dark cover with a pointed window showing a pale city view; cream flaps with portrait and text.",
+      work: "Victor Hugo’s novel.",
+      width: 1769,
+      height: 2716
+    },
+
+    {
+      category: "covers",
+      title: "À rebours (Against Nature)",
+      author: "J.-K. Huysmans",
+      year: "2026 — cover design",
+      medium: "Tonal portrait, double-rule frame, narrow palette, formal hierarchy.",
+      note: "The cover closes the reader into a dim, framed interior: a veiled, charcoal-toned figure with a single visible eye, set within a double-ruled border. Sepia warmth, gold capitals and a small italic subtitle keep the palette narrow and the hierarchy formal, with the author name set widely below. Concealment and enclosure align with a title that signals reversal and withdrawal from the natural world.",
+      image: COVERS + "cover-a-rebours.jpg",
+      spread: COVERS + "cover-a-rebours-spread.jpg",
+      grid: COVERS + "cover-a-rebours.jpg",
+      alt: "Front cover: dark field with a double-rule frame and a veiled sepia-toned figure with one visible eye.",
+      spreadAlt: "Wrap cover: dark field with a double-rule frame across front and back; veiled portrait on the front; text on the back.",
+      work: "Huysmans’ novel, published in 1884.",
+      width: 1613,
+      height: 2480
+    },
+
+    {
+      category: "covers",
+      title: "Iran: A Modern History",
+      author: "Abbas Amanat",
+      year: "2026 — cover design",
+      medium: "Sepia portrait photograph, navy panel, gold ruled border, compartmented type.",
+      note: "A formal sepia group portrait sits beneath a navy, plaque-like panel, giving the cover an archival, institutional tone. Title, subtitle and author are stacked in ruled compartments within a gold border, and the same navy-and-gold framing returns on the back, where thin rules divide the text into sections. The measured, official register suits a title that presents a national history.",
+      image: COVERS + "cover-iran-a-modern-history.jpg",
+      spread: COVERS + "cover-iran-a-modern-history-spread.jpg",
+      grid: COVERS + "cover-iran-a-modern-history.jpg",
+      alt: "Front cover: sepia group portrait beneath a navy title panel with a gold border.",
+      spreadAlt: "Wrap cover: sepia photograph on the front with a navy ruled title panel; navy back with ruled text sections.",
+      work: "A modern national history of Iran.",
+      width: 1837,
+      height: 2775
+    }
+  ];
+
+  var CATEGORY_LABEL = {
+    covers: "Cover Design",
+    calligraphy: "Calligraphy",
+    plates: "Typographic Plate"
+  };
+
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+  }
+
+  var grid = document.getElementById("portfolio-grid");
+
+  PORTFOLIO.filter(function (item) { return !item.draft; }).forEach(function (item) {
+    var gridSrc = item.grid || item.image;
+    var showsSpread = !!item.spread && gridSrc === item.spread;
+    var gridAlt = showsSpread ? (item.spreadAlt || item.alt) : item.alt;
+
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "plate-trigger portfolio-item";
+    btn.setAttribute("data-category", item.category);
+    btn.setAttribute("data-title", item.title);
+    btn.setAttribute("data-year", item.year);
+    btn.setAttribute("data-medium", item.medium);
+    btn.setAttribute("data-image", item.image);
+    btn.setAttribute("data-alt", item.alt);
+    if (item.author)    btn.setAttribute("data-author", item.author);
+    if (item.spread)    btn.setAttribute("data-spread", item.spread);
+    if (item.spreadAlt) btn.setAttribute("data-spread-alt", item.spreadAlt);
+    if (item.note)      btn.setAttribute("data-note", item.note);
+    if (item.work)      btn.setAttribute("data-work", item.work);
+
+    var yearShort = item.year.split(" — ")[0];
+
+    btn.innerHTML =
+      '<span class="frame">' +
+        '<img src="' + esc(gridSrc) + '" alt="' + esc(gridAlt) + '" ' +
+          'width="' + item.width + '" height="' + item.height + '" ' +
+          'loading="' + (item.eager ? "eager" : "lazy") + '" decoding="async">' +
+        '<span class="portfolio-meta" aria-hidden="true">' +
+          '<span class="portfolio-meta-title">' + esc(item.title) + '</span>' +
+          (item.author ? '<span class="portfolio-meta-author">' + esc(item.author) + '</span>' : '') +
+          '<span class="portfolio-meta-sub">' + esc(yearShort) + ' — ' + CATEGORY_LABEL[item.category] + '</span>' +
+        '</span>' +
+      '</span>' +
+      '<span class="sr-only"> — Select to view the full cover</span>';
+
+    grid.appendChild(btn);
+  });
+
+  /* Category filter. Filtered-out items fade, then leave the flow (hidden) so
+     the columns close up. Buttons for empty categories hide themselves, and the
+     whole bar hides while fewer than two categories exist. */
+  var filterNav = document.querySelector(".portfolio-filter");
+  var filterTriggers = Array.prototype.slice.call(document.querySelectorAll(".filter-trigger"));
+  var items = Array.prototype.slice.call(grid.querySelectorAll(".portfolio-item"));
+
+  filterTriggers.forEach(function (btn) {
+    var f = btn.getAttribute("data-filter");
+    var has = items.some(function (i) { return i.getAttribute("data-category") === f; });
+    if (f !== "all" && !has) btn.hidden = true;
+  });
+  if (filterTriggers.filter(function (b) { return !b.hidden; }).length <= 2) filterNav.hidden = true;
+
+  function applyFilter(filter) {
+    items.forEach(function (item) {
+      var show = filter === "all" || item.getAttribute("data-category") === filter;
+      if (show) {
+        item.hidden = false;
+        item.removeAttribute("inert");
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { item.classList.remove("is-hidden"); });
+        });
+      } else {
+        item.classList.add("is-hidden");
+        item.setAttribute("inert", "");
+        setTimeout(function () { if (item.classList.contains("is-hidden")) item.hidden = true; }, 520);
+      }
+    });
+  }
+
+  filterTriggers.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      filterTriggers.forEach(function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+      applyFilter(btn.getAttribute("data-filter"));
+    });
+  });
+})();
+</script>
+
+<!-- ORDER MATTERS: the grid above must exist before site.js runs -->
 <script src="site.js?v=1"></script>
 
 </body>
