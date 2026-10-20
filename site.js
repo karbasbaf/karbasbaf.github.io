@@ -50,9 +50,17 @@
     primaryNav.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') closeNav(false);
     });
-    desktopQuery.addEventListener('change', function (e) {
-      if (e.matches && isNavOpen()) closeNav(false);
-    });
+
+    // matchMedia change listener: safe fallback for older browsers
+    if (desktopQuery.addEventListener) {
+      desktopQuery.addEventListener('change', function (e) {
+        if (e.matches && isNavOpen()) closeNav(false);
+      });
+    } else if (desktopQuery.addListener) {
+      desktopQuery.addListener(function (e) {
+        if (e.matches && isNavOpen()) closeNav(false);
+      });
+    }
   }
 
   /* 2. Cover viewer ------------------------------------------------------ */
@@ -94,8 +102,8 @@
 
     function pad(n) { return n < 10 ? '0' + n : String(n); }
 
-    /* Pre-fetch the large file so the viewer opens instantly — but never on
-       a Data Saver connection. */
+    /* Pre-fetch next/prev large files ONLY while the viewer is open.
+       (Avoids downloading huge spreads on hover/accidental focus.) */
     function warm(t) {
       if (!t || t._warm) return;
       if (navigator.connection && navigator.connection.saveData) return;
@@ -114,24 +122,28 @@
       });
 
       frame.setAttribute('data-loading', 'true');
+
       image.onload = function () {
         reveal.setAttribute('data-layout',
           image.naturalWidth / image.naturalHeight > 1.15 ? 'wide' : 'tall');
         frame.setAttribute('data-loading', 'false');
       };
+
       image.onerror = function () {
         image.onerror = null;
         if (useSpread && current.front) {
-          current.spread = '';          /* full cover not uploaded: stop offering it */
+          current.spread = '';
           viewsEl.hidden = true;
           showView('front');
         } else {
           frame.setAttribute('data-loading', 'false');
         }
       };
+
       image.alt = alt;
       image.removeAttribute('src');
       image.src = src;
+
       if (image.complete && image.naturalWidth) image.onload();
     }
 
@@ -144,6 +156,7 @@
       lastTrigger = trigger;
       var frontAlt = trigger.getAttribute('data-alt') || '';
       var spread = trigger.getAttribute('data-spread') || '';
+
       current = {
         front: trigger.getAttribute('data-image'),
         spread: spread,
@@ -169,6 +182,7 @@
       countEl.textContent = pad(index + 1) + ' / ' + pad(list.length);
 
       reveal.scrollTop = 0;
+
       if (multi) {
         warm(list[(index + 1) % list.length]);
         warm(list[(index - 1 + list.length) % list.length]);
@@ -179,7 +193,8 @@
       list = visibleTriggers();
       index = list.indexOf(trigger);
       if (index < 0) { list = [trigger]; index = 0; }
-      preferred = 'spread';
+
+      preferred = 'spread'; // default: show full cover if available
       loadItem(trigger);
 
       reveal.removeAttribute('inert');
@@ -200,7 +215,7 @@
       body.classList.remove('scroll-locked');
 
       function finish() {
-        if (isRevealOpen()) return;              /* re-opened during the fade */
+        if (isRevealOpen()) return;
         reveal.setAttribute('inert', '');
         if (lastTrigger && !lastTrigger.hidden) lastTrigger.focus();
       }
@@ -209,7 +224,7 @@
       else { setTimeout(finish, 640); }
     }
 
-    /* Delegated, so the JS-built grid on book-designs works too */
+    /* Delegated click: works for JS-built grids too */
     doc.addEventListener('click', function (e) {
       var t = e.target.closest ? e.target.closest('.plate-trigger') : null;
       if (t && !isRevealOpen()) open(t);
@@ -226,13 +241,6 @@
       });
     });
 
-    ['pointerover', 'focusin'].forEach(function (evt) {
-      doc.addEventListener(evt, function (e) {
-        var t = e.target.closest ? e.target.closest('.plate-trigger') : null;
-        if (t) warm(t);
-      });
-    });
-
     /* Swipe between covers (ignored while the page is pinch-zoomed) */
     var sx = null, sy = 0;
     frame.addEventListener('touchstart', function (e) {
@@ -240,6 +248,7 @@
       sx = e.touches[0].clientX;
       sy = e.touches[0].clientY;
     }, { passive: true });
+
     frame.addEventListener('touchend', function (e) {
       if (sx === null) return;
       var dx = e.changedTouches[0].clientX - sx;
