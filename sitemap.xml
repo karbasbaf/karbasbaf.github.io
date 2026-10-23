@@ -11,77 +11,26 @@
 
   <url>
     <loc>https://www.karbasbaf.com/book-designs.html</loc>
-
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-shahnama.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-shahnama-spread.jpg</image:loc>
-    </image:image>
-
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-philosophy-of-illumination.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-philosophy-of-illumination-spread.jpg</image:loc>
-    </image:image>
-
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-ethics.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-ethics-spread.jpg</image:loc>
-    </image:image>
-
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-faust.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-faust-spread.jpg</image:loc>
-    </image:image>
-
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-un-coup-de-des.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-un-coup-de-des-spread.jpg</image:loc>
-    </image:image>
-
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-mimesis.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-mimesis-spread.jpg</image:loc>
-    </image:image>
-
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-the-conference-of-the-birds.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-the-conference-of-the-birds-spread.jpg</image:loc>
-    </image:image>
-
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-notre-dame-de-paris.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-notre-dame-de-paris-spread.jpg</image:loc>
-    </image:image>
-
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-a-rebours.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-a-rebours-spread.jpg</image:loc>
-    </image:image>
-
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-iran-a-modern-history.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.karbasbaf.com/assets/images/covers/cover-iran-a-modern-history-spread.jpg</image:loc>
-    </image:image>
-
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-shahnama.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-shahnama-spread.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-philosophy-of-illumination.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-philosophy-of-illumination-spread.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-ethics.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-ethics-spread.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-faust.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-faust-spread.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-un-coup-de-des.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-un-coup-de-des-spread.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-mimesis.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-mimesis-spread.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-the-conference-of-the-birds.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-the-conference-of-the-birds-spread.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-notre-dame-de-paris.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-notre-dame-de-paris-spread.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-a-rebours.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-a-rebours-spread.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-iran-a-modern-history.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.karbasbaf.com/assets/images/covers/cover-iran-a-modern-history-spread.jpg</image:loc></image:image>
   </url>
 
   <url>
